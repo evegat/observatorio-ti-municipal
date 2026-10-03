@@ -1,0 +1,1228 @@
+/* ==========================================================================
+   ESTILO EVEGAT.CL — RADIOGRAFÍA 4D TI MUNICIPAL
+   Eduardo Vega Toledo · Facultad de Gobierno, Universidad de Chile
+   Paleta: Marfil cálido (#faf8f5), Carbón (#14171a), Oro (#b38209), Azul (#002b49)
+   ========================================================================== */
+
+:root {
+  --paper: #faf8f5;
+  --paper-soft: #f4efe6;
+  --paper-card: #ffffff;
+  --ink: #14171a;
+  --ink-secondary: #3d4547;
+  --muted: #6b777a;
+  --line: #ded8cb;
+  --line-light: #ece7dc;
+  
+  --gold: #b38209;
+  --gold-bg: #fbf4e4;
+  --gold-border: #e6cb85;
+  
+  --navy: #002b49;
+  --navy-soft: #0a3d62;
+  
+  --teal: #146e66;
+  --teal-bg: #e6f3f0;
+  
+  --crimson: #9b2226;
+  --crimson-bg: #fbebee;
+  --crimson-border: #f1b3b8;
+  
+  --forest: #2d6a4f;
+  --forest-bg: #e9f5ee;
+
+  --font-serif: Georgia, "Newsreader", "Times New Roman", serif;
+  --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "SF Mono", Menlo, Consolas, Monaco, monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --------------------------------------------------------------------------
+   TOPBAR
+   -------------------------------------------------------------------------- */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(250, 248, 245, 0.94);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.brand-mark {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-style: italic;
+  font-weight: 700;
+  background: var(--navy);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding-bottom: 3px;
+}
+
+.brand-title {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.brand-sub {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--ink-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+}
+
+.btn-pill {
+  background: var(--navy);
+  color: #fff !important;
+  padding: 7px 15px;
+  border-radius: 20px;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.btn-pill:hover {
+  background: var(--navy-soft);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   HERO SECTION
+   -------------------------------------------------------------------------- */
+.hero {
+  padding: 60px 5% 45px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(34px, 4vw, 54px);
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+  margin-bottom: 20px;
+  max-width: 950px;
+}
+
+.hero-lead {
+  font-size: clamp(16px, 1.25vw, 19px);
+  line-height: 1.6;
+  color: var(--ink-secondary);
+  max-width: 850px;
+  margin-bottom: 40px;
+}
+
+/* --------------------------------------------------------------------------
+   KPI METRICS GRID
+   -------------------------------------------------------------------------- */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-bottom: 50px;
+}
+
+.metric-card {
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 22px 20px;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+}
+
+.metric-card.accent {
+  border-left: 4px solid var(--gold);
+}
+
+.metric-card.alert {
+  border-left: 4px solid var(--crimson);
+}
+
+.metric-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.metric-value {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.metric-card.alert .metric-value {
+  color: var(--crimson);
+}
+
+.metric-desc {
+  font-size: 12px;
+  color: var(--ink-secondary);
+  line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   SCROLLYTELLING / STORYTELLING SECTION
+   -------------------------------------------------------------------------- */
+.scrolly-container {
+  background: var(--paper-soft);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 60px 5%;
+}
+
+.scrolly-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-header {
+  margin-bottom: 35px;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.section-desc {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 720px;
+}
+
+.story-tabs {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid var(--line);
+}
+
+.story-tab-btn {
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 10px 18px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.story-tab-btn:hover {
+  background: var(--paper);
+  border-color: var(--muted);
+}
+
+.story-tab-btn.active {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+}
+
+.story-stage {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 40px;
+  min-height: 420px;
+}
+
+.story-content h3 {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  color: var(--navy);
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.story-content p {
+  font-size: 15px;
+  color: var(--ink-secondary);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.story-key-findings {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.story-key-findings li {
+  font-size: 13px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+
+.story-bullet {
+  color: var(--gold);
+  font-size: 16px;
+  line-height: 1;
+  margin-top: 3px;
+}
+
+.story-chart {
+  background: var(--paper);
+  border: 1px solid var(--line-light);
+  border-radius: 6px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 320px;
+}
+
+/* --------------------------------------------------------------------------
+   4D RADIOGRAFÍA & INTERACTIVE MAP SECTION
+   -------------------------------------------------------------------------- */
+.radiografia-section {
+  padding: 60px 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.map-controls-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+
+.layer-toggles-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.layer-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-right: 6px;
+}
+
+.layer-btn {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s;
+}
+
+.layer-btn:hover {
+  border-color: var(--muted);
+  background: #fff;
+}
+
+.layer-btn.active {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+}
+
+.filter-controls-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-input {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-family: var(--font-sans);
+  min-width: 220px;
+  color: var(--ink);
+}
+
+.search-input:focus {
+  outline: 2px solid var(--navy);
+}
+
+.region-select {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-family: var(--font-sans);
+  color: var(--ink);
+}
+
+/* 4D Layout: Map Shell + Detail Drawer */
+.radiografia-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(360px, 1fr);
+  gap: 24px;
+  min-height: 650px;
+}
+
+.map-shell {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  height: 680px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+#chile-map {
+  width: 100%;
+  height: 100%;
+  background: #f4efe6;
+}
+
+.map-legend-overlay {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  z-index: 500;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-size: 11px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  max-width: 280px;
+}
+
+.map-legend-title {
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--navy);
+}
+
+.map-legend-items {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.map-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-color-box {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   DRAWER / FICHA COMUNAL ("RADIOGRAFÍA 4D")
+   -------------------------------------------------------------------------- */
+.drawer-panel {
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 28px;
+  overflow-y: auto;
+  max-height: 680px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.drawer-header {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 18px;
+  margin-bottom: 20px;
+}
+
+.drawer-comuna-name {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  color: var(--navy);
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 4px;
+}
+
+.drawer-region-name {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.drawer-thermometer-box {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 16px 18px;
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.gauge-svg {
+  width: 120px;
+  height: 72px;
+  flex-shrink: 0;
+  display: block;
+}
+
+.btn-share {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 11px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--navy);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.btn-share:hover {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+}
+
+.cat-pc-badge {
+  color: var(--teal);
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.thermometer-info h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.thermometer-info p {
+  font-size: 11px;
+  color: var(--ink-secondary);
+  line-height: 1.4;
+}
+
+/* Badges de Diagnóstico */
+.diagnostic-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.diag-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.diag-badge.good {
+  background: var(--forest-bg);
+  color: var(--forest);
+  border: 1px solid #c2e2cf;
+}
+
+.diag-badge.warning {
+  background: var(--gold-bg);
+  color: var(--gold);
+  border: 1px solid var(--gold-border);
+}
+
+.diag-badge.danger {
+  background: var(--crimson-bg);
+  color: var(--crimson);
+  border: 1px solid var(--crimson-border);
+}
+
+.diag-badge.neutral {
+  background: var(--paper-soft);
+  color: var(--muted);
+  border: 1px solid var(--line);
+}
+
+/* Financial Highlights */
+.financial-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.f-card {
+  background: var(--paper-soft);
+  border: 1px solid var(--line-light);
+  border-radius: 6px;
+  padding: 12px 14px;
+}
+
+.f-card-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.f-card-val {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* Breakdown Bars */
+.drawer-section-title {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--navy);
+  font-weight: 700;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--line-light);
+  padding-bottom: 6px;
+}
+
+.category-breakdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.cat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cat-item-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.cat-name {
+  font-weight: 600;
+  color: var(--ink-secondary);
+}
+
+.cat-amount {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.cat-bar-bg {
+  width: 100%;
+  height: 6px;
+  background: var(--line-light);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.cat-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+}
+
+/* Proveedores de la Comuna */
+.top-suppliers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.supplier-item {
+  background: var(--paper);
+  border: 1px solid var(--line-light);
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.supplier-name {
+  font-weight: 600;
+  color: var(--ink);
+  max-width: 65%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.supplier-amount {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   CONTRATOS EMBLEMÁTICOS MERCADO PÚBLICO
+   -------------------------------------------------------------------------- */
+.top-contracts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.contract-card {
+  background: var(--paper);
+  border: 1px solid var(--line-light);
+  border-left: 3px solid var(--teal);
+  border-radius: 4px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  transition: all 0.15s ease;
+}
+
+.contract-card:hover {
+  border-color: var(--line);
+  border-left-color: var(--navy);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.contract-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.contract-code {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.contract-amount {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.contract-prov {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contract-desc {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.35;
+  margin-top: 2px;
+}
+
+.contract-link {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--teal);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.contract-link:hover {
+  text-decoration: underline;
+  color: var(--navy);
+}
+
+/* --------------------------------------------------------------------------
+   COMPARADOR COMUNAL A VS B
+   -------------------------------------------------------------------------- */
+.btn-compare {
+  background: var(--paper-soft);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 11px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--navy);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  margin-bottom: 20px;
+  transition: all 0.15s ease;
+}
+
+.btn-compare:hover {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+}
+
+.compare-view {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.compare-top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+}
+
+.btn-back {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-back:hover {
+  color: var(--navy);
+}
+
+.compare-selector-box {
+  background: var(--paper-soft);
+  border: 1px solid var(--line-light);
+  border-radius: 6px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.compare-selector-box label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.compare-select {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-family: var(--font-sans);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--ink);
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.compare-col {
+  background: var(--paper);
+  border: 1px solid var(--line-light);
+  border-radius: 6px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.compare-col.highlight-a {
+  border-top: 3px solid var(--navy);
+}
+
+.compare-col.highlight-b {
+  border-top: 3px solid var(--teal);
+}
+
+.compare-comuna-title {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+}
+
+.compare-row-metric {
+  border-bottom: 1px dashed var(--line-light);
+  padding-bottom: 6px;
+}
+
+.compare-row-metric .lbl {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.compare-row-metric .val {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: 2px;
+}
+
+.compare-delta-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-top: 4px;
+}
+
+.compare-delta-badge.win {
+  background: var(--teal-bg);
+  color: var(--teal);
+}
+
+.compare-delta-badge.lose {
+  background: var(--crimson-bg);
+  color: var(--crimson);
+}
+
+/* --------------------------------------------------------------------------
+   DATABASE / RANKING TABLE SECTION
+   -------------------------------------------------------------------------- */
+.ranking-section {
+  padding: 60px 5%;
+  background: var(--paper-soft);
+  border-top: 1px solid var(--line);
+}
+
+.ranking-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  text-align: left;
+}
+
+.data-table th {
+  background: #f7f4ee;
+  color: var(--navy);
+  font-weight: 700;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.data-table th:hover {
+  background: #ede8dc;
+}
+
+.data-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line-light);
+  color: var(--ink-secondary);
+}
+
+.data-table tr:hover td {
+  background: #faf8f3;
+  cursor: pointer;
+}
+
+.badge-pill {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+/* --------------------------------------------------------------------------
+   ACADEMIC / METHODOLOGICAL BAND
+   -------------------------------------------------------------------------- */
+.academic-band {
+  background: var(--navy);
+  color: #fff;
+  padding: 60px 5%;
+  border-top: 1px solid var(--line);
+}
+
+.academic-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.academic-text h2 {
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.academic-text p {
+  font-size: 14px;
+  color: #c9d7de;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.citation-box {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  padding: 18px 20px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.6;
+  color: #e3ecf0;
+}
+
+/* --------------------------------------------------------------------------
+   FOOTER
+   -------------------------------------------------------------------------- */
+footer {
+  padding: 35px 5%;
+  border-top: 1px solid var(--line);
+  background: var(--paper);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.footer-downloads {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-downloads a {
+  color: var(--navy);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .story-stage {
+    grid-template-columns: 1fr;
+    padding: 25px;
+  }
+  .radiografia-layout {
+    grid-template-columns: 1fr;
+  }
+  .drawer-panel {
+    max-height: 500px;
+  }
+  .academic-inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    height: auto;
+    padding: 15px 5%;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .nav-links {
+    width: 100%;
+    justify-content: space-between;
+    overflow-x: auto;
+  }
+  .hero-title {
+    font-size: 32px;
+  }
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  .map-controls-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .filter-controls-group {
+    flex-direction: column;
+  }
+  .search-input {
+    min-width: 100%;
+  }
+}

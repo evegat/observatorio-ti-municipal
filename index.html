@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radiografía 4D: Contrataciones TI y Transformación Digital Municipal en Chile (2014–2026)</title>
+  <meta name="description" content="Investigación empírica sobre $300 mil millones en compras tecnológicas públicas en los 346 gobiernos locales de Chile. Visualizador territorial interactivo, termómetro de madurez y análisis antimonopolio.">
+
+  <!-- Open Graph / WhatsApp / LinkedIn / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://observatoriotimunicipal.evegat.cl/">
+  <meta property="og:title" content="Radiografía 4D de las Compras Tecnológicas en Municipios de Chile">
+  <meta property="og:description" content="¿Cuánto invierte tu municipio en tecnología, software y ciberseguridad? Análisis interactivo de $300.000 millones y 148.652 contratos en 346 comunas.">
+  <meta property="og:image" content="https://observatoriotimunicipal.evegat.cl/assets/og-preview.png">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://observatoriotimunicipal.evegat.cl/">
+  <meta name="twitter:title" content="Radiografía 4D: Compras TI Municipal en Chile">
+  <meta name="twitter:description" content="¿Cuánto invierte tu municipio en tecnología, software y ciberseguridad? Análisis interactivo de $300B y 148k contratos en 346 comunas.">
+  <meta name="twitter:image" content="https://observatoriotimunicipal.evegat.cl/assets/og-preview.png">
+
+  <link rel="stylesheet" href="assets/leaflet/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= TOPBAR ================= -->
+  <header class="topbar">
+    <a href="#" class="brand">
+      <span class="brand-mark">e.</span>
+      <div>
+        <span class="brand-title">evegat.cl <span style="font-weight:400; opacity:0.6;">· Observatorio</span></span>
+        <span class="brand-sub">Facultad de Gobierno · U. de Chile</span>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="#scrollytelling">Historia en 4 Actos</a>
+      <a href="#radiografia">Mapa y Radiografía 4D</a>
+      <a href="#ranking">Ranking 346 Comunas</a>
+      <a href="#metodologia">Metodología</a>
+      <a href="data/comunas_enriched.json" download class="btn-pill">Descargar Datos ↓</a>
+    </nav>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <main>
+    <section class="hero">
+      <div class="eyebrow">OBSERVATORIO DE COMPRAS PÚBLICAS Y GESTIÓN LOCAL · EVIDENCIA 2014–2026</div>
+      <h1 class="hero-title">Radiografía 4D de las Compras Tecnológicas en los Municipios de Chile</h1>
+      <p class="hero-lead">
+        ¿Hacia dónde se fueron realmente los recursos de la transformación digital municipal? Analizamos <strong>$300.125 millones de pesos</strong> (~US$ 326M) transados en <strong>148.652 órdenes de compra</strong> para develar el peso real del fierro físico, el espejismo de la Inteligencia Artificial, la captura monopólica de los ERPs legados y la abismal brecha de gasto per cápita territorial.
+      </p>
+
+      <!-- METRICS GRID -->
+      <div class="metrics-grid">
+        <div class="metric-card accent">
+          <div class="metric-label">Gasto Total Auditado</div>
+          <div class="metric-value">$300.125 MM</div>
+          <div class="metric-desc">Pesos chilenos (~US$ 326.2 millones de dólares) transados en 12 años.</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-label">Órdenes de Compra</div>
+          <div class="metric-value">148.652</div>
+          <div class="metric-desc">Contrataciones tecnológicas analizadas ítem por ítem en 630 compradores locales.</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-label">El Peso del Fierro</div>
+          <div class="metric-value">47,88%</div>
+          <div class="metric-desc">$143.698 MM destinados exclusivamente a reposición de hardware y cómputo físico.</div>
+        </div>
+
+        <div class="metric-card alert">
+          <div class="metric-label">Monopolio CAS-Chile</div>
+          <div class="metric-value">HHI 7.607</div>
+          <div class="metric-desc">87,2% del gasto en ERPs municipales concentrado en un solo proveedor (vendor lock-in).</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-label">Software Libre (FOSS)</div>
+          <div class="metric-value">0,17%</div>
+          <div class="metric-desc">Apenas $514 MM en total. El código abierto está casi extinto en la gestión comunal.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SCROLLYTELLING / HISTORIA EN 4 ACTOS ================= -->
+    <section class="scrolly-container" id="scrollytelling">
+      <div class="scrolly-inner">
+        <div class="section-header">
+          <div class="eyebrow">EVIDENCIA ESTRUCTURAL</div>
+          <h2 class="section-title">El Relato en Cuatro Hallazgos</h2>
+          <p class="section-desc">Selecciona o recorre cada capítulo para explorar los patrones econométricos y las tensiones institucionales del Estado local.</p>
+        </div>
+
+        <div class="story-tabs" id="story-tabs">
+          <button class="story-tab-btn active" data-chapter="1">1. Fierro vs. Espejismo de la IA</button>
+          <button class="story-tab-btn" data-chapter="2">2. El Choque de 2021</button>
+          <button class="story-tab-btn" data-chapter="3">3. El Monopolio de CAS-Chile</button>
+          <button class="story-tab-btn" data-chapter="4">4. La Fractura Territorial Per Cápita</button>
+        </div>
+
+        <div class="story-stage" id="story-stage">
+          <!-- Dynamic Content rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= RADIOGRAFÍA 4D & MAPA INTERACTIVO ================= -->
+    <section class="radiografia-section" id="radiografia">
+      <div class="section-header">
+        <div class="eyebrow">EXPLORADOR TERRITORIAL Y RADIOGRAFÍA 4D</div>
+        <h2 class="section-title">Mapa Interactivo de Gobiernos Locales</h2>
+        <p class="section-desc">Alterna entre capas de diagnóstico, haz zoom en las regiones o haz click en cualquier comuna para abrir su Ficha Técnica Dimensional.</p>
+      </div>
+
+      <!-- MAP CONTROLS BAR -->
+      <div class="map-controls-bar">
+        <div class="layer-toggles-group">
+          <span class="layer-title">Capas de Información:</span>
+          <button class="layer-btn active" data-layer="madurez">🌡️ Madurez TI (0-100)</button>
+          <button class="layer-btn" data-layer="gasto_pc">💰 Gasto Per Cápita</button>
+          <button class="layer-btn" data-layer="lockin">🚨 Vendor Lock-in</button>
+          <button class="layer-btn" data-layer="foss">🐧 Software Libre</button>
+          <button class="layer-btn" data-layer="infra">🖥️ Infra Propia</button>
+        </div>
+
+        <div class="filter-controls-group">
+          <input type="text" id="comuna-search" class="search-input" placeholder="Buscar comuna (ej. Valdivia, Temuco)...">
+          <select id="region-filter" class="region-select">
+            <option value="">Todas las Regiones (Chile)</option>
+          </select>
+          <button id="btn-reset-map" class="layer-btn">↺ Restablecer</button>
+        </div>
+      </div>
+
+      <!-- RADIOGRAFIA LAYOUT: MAP + DRAWER -->
+      <div class="radiografia-layout">
+        <!-- Interactive Map Container -->
+        <div class="map-shell">
+          <div id="chile-map"></div>
+          <div class="map-legend-overlay" id="map-legend">
+            <!-- Dynamic Legend -->
+          </div>
+        </div>
+
+        <!-- Comuna Ficha Drawer ("Radiografía 4D") -->
+        <aside class="drawer-panel" id="comuna-drawer">
+          <!-- Populated by JS -->
+          <div style="text-align:center; padding: 60px 20px; color: var(--muted);">
+            <div style="font-size: 38px; margin-bottom: 12px;">🗺️</div>
+            <h3 style="font-family: var(--font-serif); font-size: 22px; color: var(--navy); margin-bottom: 8px;">Selecciona una Comuna</h3>
+            <p style="font-size: 13px;">Haz click sobre cualquier comuna en el mapa o utiliza el buscador para abrir su radiografía tecnológica completa.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ================= DATABASE & RANKING TABLE ================= -->
+    <section class="ranking-section" id="ranking">
+      <div class="ranking-container">
+        <div class="section-header">
+          <div class="eyebrow">BASE DE DATOS COMPLETA</div>
+          <h2 class="section-title">Ranking Municipal de Inversión Tecnológica</h2>
+          <p class="section-desc">Compara los 346 municipios del país según su gasto histórico, población INE, gasto per cápita, score de madurez y proveedor principal.</p>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table" id="ranking-table">
+            <thead>
+              <tr>
+                <th data-sort="rank">#</th>
+                <th data-sort="comuna">Comuna</th>
+                <th data-sort="region">Región</th>
+                <th data-sort="poblacion">Población INE</th>
+                <th data-sort="monto_total">Gasto Total (CLP)</th>
+                <th data-sort="gasto_pc">Gasto Per Cápita</th>
+                <th data-sort="score_madurez">Madurez TI</th>
+                <th>Software Libre</th>
+                <th>Riesgo Lock-in</th>
+              </tr>
+            </thead>
+            <tbody id="ranking-tbody">
+              <!-- Rendered by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ACADEMIC / METHODOLOGY ================= -->
+    <section class="academic-band" id="metodologia">
+      <div class="academic-inner">
+        <div class="academic-text">
+          <div class="eyebrow" style="color: #e6cb85;">MARCO CIENTÍFICO Y METODOLOGÍA</div>
+          <h2>Investigación Abierta y Reproducible</h2>
+          <p>
+            Este observatorio surge del proyecto de investigación <strong>PUB021 / P049</strong> sobre adopción tecnológica y compras públicas en Chile. Clasificamos 197.662 líneas de compra de Mercado Público en una taxonomía multidimensional de 11 canastas funcionales utilizando DuckDB y Python.
+          </p>
+          <p>
+            Toda la metodología, código de extracción y pipelines analíticos están versionados bajo estándares de ciencia abierta y reproducibilidad computacional.
+          </p>
+        </div>
+
+        <div class="citation-box">
+          <strong style="color:#fff; display:block; margin-bottom:8px;">Cita sugerida:</strong>
+          Vega Toledo, E., & Cariaga, V. (2026). <em>Radiografía Empírica de la Transformación Digital y Compras Tecnológicas en los Gobiernos Locales de Chile (2014–2026)</em>. Proyecto PUB021, Facultad de Gobierno, Universidad de Chile. Disponible en: <a href="https://observatoriotimunicipal.evegat.cl" style="color:#e6cb85; text-decoration:underline;">https://observatoriotimunicipal.evegat.cl</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div>
+      <strong>evegat.cl · Observatorio de Compras Públicas</strong> | © 2026 Eduardo Vega Toledo · Todos los derechos reservados.
+    </div>
+    <div class="footer-downloads">
+      <a href="data/comunas_enriched.json" download>comunas_enriched.json ↓</a>
+      <a href="data/regiones_enriched.json" download>regiones_enriched.json ↓</a>
+      <a href="data/national_kpis.json" download>national_kpis.json ↓</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/leaflet/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+{
+  "total_ocs": 148652,
+  "total_entidades": 630,
+  "monto_total_clp": 300125707200.0,
+  "hhi_legados": 7607.1,
+  "pct_cas_chile": 87.2,
+  "hhi_saas": 950.0,
+  "series_anual": [
+    {
+      "anio": 2015,
+      "ocs": 10996,
+      "total_clp": 11443079528.0,
+      "hardware_clp": 4663118860.0,
+      "ia_clp": 3351923615.0,
+      "saas_clp": 282188929.0,
+      "legado_clp": 8155824.0,
+      "foss_clp": 24301269.0
+    },
+    {
+      "anio": 2016,
+      "ocs": 9549,
+      "total_clp": 12292958593.0,
+      "hardware_clp": 2774056925.0,
+      "ia_clp": 6084357318.0,
+      "saas_clp": 178125420.0,
+      "legado_clp": 20508126.0,
+      "foss_clp": 16357591.0
+    },
+    {
+      "anio": 2017,
+      "ocs": 9752,
+      "total_clp": 11182677900.0,
+      "hardware_clp": 2552700886.0,
+      "ia_clp": 5621379822.0,
+      "saas_clp": 209887727.0,
+      "legado_clp": 73027094.0,
+      "foss_clp": 24094494.0
+    },
+    {
+      "anio": 2018,
+      "ocs": 9270,
+      "total_clp": 10335882410.0,
+      "hardware_clp": 3510172766.0,
+      "ia_clp": 3873189269.0,
+      "saas_clp": 353801885.0,
+      "legado_clp": 68730682.0,
+      "foss_clp": 8432948.0
+    },
+    {
+      "anio": 2019,
+      "ocs": 8413,
+      "total_clp": 11977584606.0,
+      "hardware_clp": 3241552604.0,
+      "ia_clp": 4173119273.0,
+      "saas_clp": 273051116.0,
+      "legado_clp": 115041314.0,
+      "foss_clp": 11389217.0
+    },
+    {
+      "anio": 2020,
+      "ocs": 8423,
+      "total_clp": 17449764067.0,
+      "hardware_clp": 9755649985.0,
+      "ia_clp": 4199363501.0,
+      "saas_clp": 356676378.0,
+      "legado_clp": 91861983.0,
+      "foss_clp": 24766782.0
+    },
+    {
+      "anio": 2021,
+      "ocs": 15139,
+      "total_clp": 37530320348.0,
+      "hardware_clp": 27903288589.0,
+      "ia_clp": 3738568647.0,
+      "saas_clp": 894801169.0,
+      "legado_clp": 96660553.0,
+      "foss_clp": 52523074.0
+    },
+    {
+      "anio": 2022,
+      "ocs": 15533,
+      "total_clp": 34440962849.0,
+      "hardware_clp": 20172724928.0,
+      "ia_clp": 5880073486.0,
+      "saas_clp": 1022902388.0,
+      "legado_clp": 94432149.0,
+      "foss_clp": 40073185.0
+    },
+    {
+      "anio": 2023,
+      "ocs": 17197,
+      "total_clp": 40237727279.0,
+      "hardware_clp": 21980298057.0,
+      "ia_clp": 9896692266.0,
+      "saas_clp": 1283347642.0,
+      "legado_clp": 136502450.0,
+      "foss_clp": 76555988.0
+    },
+    {
+      "anio": 2024,
+      "ocs": 17464,
+      "total_clp": 40805433428.0,
+      "hardware_clp": 18087884608.0,
+      "ia_clp": 13500922132.0,
+      "saas_clp": 1901694291.0,
+      "legado_clp": 361870462.0,
+      "foss_clp": 54549284.0
+    },
+    {
+      "anio": 2025,
+      "ocs": 17530,
+      "total_clp": 48005598430.0,
+      "hardware_clp": 19103898374.0,
+      "ia_clp": 12631182518.0,
+      "saas_clp": 5044932109.0,
+      "legado_clp": 248588309.0,
+      "foss_clp": 133519812.0
+    },
+    {
+      "anio": 2026,
+      "ocs": 4739,
+      "total_clp": 15850856350.0,
+      "hardware_clp": 7161661781.0,
+      "ia_clp": 4394899474.0,
+      "saas_clp": 866754063.0,
+      "legado_clp": 142404479.0,
+      "foss_clp": 43299936.0
+    }
+  ]
+}
