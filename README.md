@@ -1,4 +1,4 @@
-# Radiografía 4D: Contrataciones TI y Transformación Digital en Municipios de Chile (2014–2026)
+# Observatorio de Compras TI y Tecnologías Municipales en Chile (2014–2026)
 
 [![Plataforma en Producción](https://img.shields.io/badge/Web-observatoriotimunicipal.evegat.cl-002b49?style=flat-square)](https://observatoriotimunicipal.evegat.cl)
 [![Licencia](https://img.shields.io/badge/Licencia-MIT%20%2F%20Open%20Data-b38209?style=flat-square)](LICENSE)
@@ -6,7 +6,7 @@
 [![Cobertura Territorial](https://img.shields.io/badge/Comunas-346%20Gobiernos%20Locales-2b5c8f?style=flat-square)](data/comunas_enriched.json)
 
 **Autor:** Eduardo Vega Toledo  
-*Facultad de Gobierno, Universidad de Chile*  
+*Investigación Independiente y Datos Abiertos*  
 Sitio web personal y portafolio: [evegat.cl](https://evegat.cl)  
 Plataforma interactiva oficial: [observatoriotimunicipal.evegat.cl](https://observatoriotimunicipal.evegat.cl)
 
@@ -78,9 +78,9 @@ Abrir `http://localhost:8000` en tu navegador.
 ```bibtex
 @misc{vega2026observatoriotimunicipal,
   author = {Vega Toledo, Eduardo},
-  title = {Radiografía 4D: Contrataciones TI y Transformación Digital Municipal en Chile (2014–2026)},
+  title = {Observatorio de Compras TI y Tecnologías Municipales en Chile (2014–2026)},
   year = {2026},
-  publisher = {Facultad de Gobierno, Universidad de Chile},
+  howpublished = {\url{https://observatoriotimunicipal.evegat.cl}},
   howpublished = {\url{https://observatoriotimunicipal.evegat.cl}},
   note = {Repositorio de datos abiertos y visualizador geoespacial}
 }

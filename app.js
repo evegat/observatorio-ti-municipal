@@ -1,7 +1,7 @@
 /**
  * app.js
  * ======
- * Controlador interactivo para la Radiografía 4D de Compras TI Municipal en Chile (2014-2026).
+ * Controlador interactivo para la Observatorio de Compras TI Municipal en Chile (2014-2026).
  * Diseñado bajo el sistema visual evegat.cl.
  * Autor: Eduardo Vega Toledo
  */
@@ -418,7 +418,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div style="font-size:12px; margin-bottom:2px;">Gasto Total: <strong>$${formatCLP(c.monto_total)}</strong></div>
             <div style="font-size:12px; margin-bottom:2px;">Gasto Per Cápita: <strong>$${formatCLP(c.gasto_pc)} / hab</strong></div>
             <div style="font-size:12px; margin-bottom:6px;">Madurez TI: <strong>${c.score_madurez}/100</strong> (${c.nivel_madurez})</div>
-            <div style="font-size:11px; color:var(--gold); font-weight:600;">Haz click para abrir Radiografía 4D ↗</div>
+            <div style="font-size:11px; color:var(--gold); font-weight:600;">Haz click para abrir Ficha Comunal ↗</div>
           </div>
         `;
 
@@ -486,7 +486,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // -------------------------------------------------------------------------
-  // 4. RADIOGRAFÍA 4D: FICHA DETALLADA (DRAWER)
+  // 4. RADIOGRAFÍA COMUNAL: FICHA DETALLADA (DRAWER)
   // -------------------------------------------------------------------------
   function renderGaugeSvg(score) {
     const clamped = Math.max(0, Math.min(100, score || 0));

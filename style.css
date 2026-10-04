@@ -1,6 +1,6 @@
 /* ==========================================================================
-   ESTILO EVEGAT.CL — RADIOGRAFÍA 4D TI MUNICIPAL
-   Eduardo Vega Toledo · Facultad de Gobierno, Universidad de Chile
+   ESTILO EVEGAT.CL — OBSERVATORIO TI MUNICIPAL
+   Eduardo Vega Toledo · Observatorio Independiente
    Paleta: Marfil cálido (#faf8f5), Carbón (#14171a), Oro (#b38209), Azul (#002b49)
    ========================================================================== */
 
@@ -385,7 +385,7 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   4D RADIOGRAFÍA & INTERACTIVE MAP SECTION
+   RADIOGRAFÍA COMUNAL & INTERACTIVE MAP SECTION
    -------------------------------------------------------------------------- */
 .radiografia-section {
   padding: 60px 5%;
@@ -479,7 +479,7 @@ body {
   color: var(--ink);
 }
 
-/* 4D Layout: Map Shell + Detail Drawer */
+/* Layout: Map Shell + Detail Drawer */
 .radiografia-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(360px, 1fr);
