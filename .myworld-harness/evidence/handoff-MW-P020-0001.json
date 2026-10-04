@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "MW-P020-0001",
+  "from_agent": "antigravity",
+  "to_agent": "eduardo",
+  "base_revision": "1a28735",
+  "changes": [
+    "Unificación cromática a marfil cálido (#f5f2e9) en styles.css eliminando disonancia celeste (#f3f7ff)",
+    "Incorporación de secciones de contacto (06 · Contact y 06 · Contato) en portadas internacionales /en/ y /pt/",
+    "Activación completa de formulario de interés en Capacidad Pública conectado a FormSubmit (evegat@uchile.cl) con páginas de gracias en ES/EN/PT",
+    "Bumping de cache-busters a astro-dark-9 y hybrid-10",
+    "Despliegue verificado en producción https://evegat.cl vía Coolify (commit be8645f)"
+  ],
+  "files": [
+    "public/assets/styles.css",
+    "src/components/ContactForm.astro",
+    "src/layouts/BaseLayout.astro",
+    "src/pages/en/index.astro",
+    "src/pages/pt/index.astro",
+    "src/pages/capacidad-publica/index.astro",
+    "src/pages/capacidad-publica/gracias/index.astro",
+    "src/pages/en/capacidad-publica/index.astro",
+    "src/pages/en/capacidad-publica/gracias/index.astro",
+    "src/pages/pt/capacidad-publica/index.astro",
+    "src/pages/pt/capacidad-publica/gracias/index.astro",
+    "scripts/test-astro.mjs"
+  ],
+  "tests": [
+    "npm test (Astro check + build 46 páginas + test-astro.mjs: 0 errores)",
+    "npm run test:responsive (Playwright 5 viewports: PASS)",
+    "harness preflight / quality / security (Gitleaks 8.30.1 + Trivy 0.74.0: PASS)",
+    "Playwright test_prod_harmony.py en https://evegat.cl (PASS en marfil rgb(245,242,233), formularios y HTTP 200)"
+  ],
+  "risks": [
+    "FormSubmit requiere primer envío humano en producción si no está pre-activado para el nuevo subject/endpoint"
+  ],
+  "pending": [
+    "Envío manual de prueba de formulario desde https://evegat.cl",
+    "Publicación/anuncio en LinkedIn programado para lunes en la mañana"
+  ],
+  "rollback": "git revert be8645f o redeploy de imagen anterior en Coolify UI (UUID tl586xhvunbjldy1fohd38v3)",
+  "integration_owner": "Eduardo Vega"
+}

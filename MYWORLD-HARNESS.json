@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0.0",
+  "product_id": "PUB021",
+  "name": "observatorio-ti-municipal",
+  "owner": "Eduardo Vega",
+  "myworld_project": "PUB021",
+  "kind": "static_site",
+  "lifecycle_stage": "production",
+  "risk": "low",
+  "data_classification": [
+    "public"
+  ],
+  "deployment": {
+    "state": "public",
+    "production_urls": [
+      "https://observatoriotimunicipal.evegat.cl"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "default_branch": "main",
+    "remote_policy": "existing"
+  },
+  "commands": {
+    "quality": [
+      "node -c app.js"
+    ],
+    "build": [],
+    "test": [
+      "node -c app.js"
+    ]
+  },
+  "critical_paths": [
+    "index.html",
+    "app.js",
+    "style.css",
+    "data"
+  ],
+  "forbidden_paths": [
+    ".env",
+    "credentials"
+  ],
+  "multi_agent": {
+    "isolation": "worktree",
+    "integration_owner": "Eduardo Vega"
+  },
+  "observability": {
+    "level": 1,
+    "domains": [
+      "technical",
+      "product"
+    ],
+    "monitors": [
+      {
+        "name": "Observatorio TI Municipal Raíz",
+        "type": "http",
+        "target": "https://observatoriotimunicipal.evegat.cl",
+        "interval_seconds": 300,
+        "failure_threshold": 3
+      }
+    ]
+  },
+  "release": {
+    "backup_required": false,
+    "restore_test_required": false,
+    "rollback_required": true,
+    "rpo_hours": 24,
+    "rto_hours": 2
+  },
+  "evidence": {
+    "last_audit": null,
+    "pending_register": "MyWorld:harness/state/pending.ndjson"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "harness-v1-pilot-p020",
+  "base_revision": "483712daf05160e4037febcedb9d5f1a42c80bcf",
+  "integrated_revision": "9c0c24f",
+  "quality": "pass: npm test; 22 páginas; enlaces internos íntegros; Lighthouse 100 rendimiento, 100 buenas prácticas, 100 SEO y 95 accesibilidad",
+  "accessibility": "pass: axe-core 4.13.0, 0 violaciones después de corregir contraste",
+  "security": "pass: scanner incorporado, Gitleaks 8.30.1 y Trivy 0.74.0 sin hallazgos HIGH/CRITICAL",
+  "sbom": "CycloneDX 1.7; 295 componentes; sha256 826DD1BFB57A665B42D709642B71F8A0213E1F9B86889BAFFAA636C50C00A3B4",
+  "parallelism": "pass: dos worktrees y superficies distintas integradas secuencialmente",
+  "rollback": "pass: el commit base 483712d volvió a ejecutar npm test correctamente",
+  "pending": ["github-p020", "lighthouse-windows-cleanup-exit"],
+  "completed_at": "2026-08-25T03:03:15-04:00"
+}

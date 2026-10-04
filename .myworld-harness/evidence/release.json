@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0.0",
+  "timestamp": "2026-10-04T20:45:00-03:00",
+  "version": "v1.0.0",
+  "artifact": "git-tag",
+  "rollback_tested": true,
+  "monitor_verified": true,
+  "title": "Lanzamiento Oficial v1.0.0",
+  "notes": "Observatorio de Compras TI y Tecnologías Municipales en Chile (2014-2026) con cartografía Leaflet offline, termómetro radial SVG, comparador comunal, contratos emblemáticos de Mercado Público y CI/CD en producción."
+}
