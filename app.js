@@ -1594,21 +1594,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const targetFile = state.pendingDownload ? state.pendingDownload.file : "comunas_enriched.json";
 
-        // Preparar payload para la API de formulario FormSubmit
-        const hiddenTimestamp = document.getElementById("reg-hidden-timestamp");
-        if (hiddenTimestamp) hiddenTimestamp.value = new Date().toISOString();
-        const hiddenArchivo = document.getElementById("reg-hidden-archivo");
-        if (hiddenArchivo) hiddenArchivo.value = targetFile;
-
-        // Disparo en segundo plano hacia la API
+        // Disparo asíncrono hacia la API propia de Brújula IA / Cloudflare KV
         try {
-          const formData = new FormData(formRegistro);
-          fetch("https://formsubmit.co/ajax/eduardo@evegat.cl", {
+          const apiPayload = {
+            nombre: nombre,
+            email: email,
+            institucion: institucion,
+            estamento_rol: perfil,
+            proposito_uso: proposito,
+            detalle_proyecto: proyecto || "Descarga de microdatos Observatorio TI Municipal",
+            archivo_solicitado: targetFile,
+            consentimiento: true
+          };
+
+          fetch("https://brujulaiaedusuperior.evegat.cl/api/register-download", {
             method: "POST",
             headers: {
-              "Accept": "application/json"
+              "Content-Type": "application/json"
             },
-            body: formData,
+            body: JSON.stringify(apiPayload),
             keepalive: true
           }).catch(() => {
             // Falla silenciosa si hay bloqueo de red o adblocker; no interrumpe la experiencia del usuario

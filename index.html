@@ -707,12 +707,8 @@
           <span style="font-size:11px; color:var(--muted);">Acceso Libre · CC BY 4.0</span>
         </div>
 
-        <form id="form-registro-descarga" action="https://formsubmit.co/ajax/eduardo@evegat.cl" method="POST" novalidate>
-          <input type="hidden" name="_subject" id="reg-form-subject" value="[Observatorio TI Municipal] Nueva Solicitud de Descarga de Datos">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
+        <form id="form-registro-descarga" action="https://brujulaiaedusuperior.evegat.cl/api/register-download" method="POST" novalidate>
           <input type="hidden" name="archivo_solicitado" id="reg-hidden-archivo" value="comunas_enriched.json">
-          <input type="hidden" name="timestamp" id="reg-hidden-timestamp" value="">
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-bottom:12px;">
             <div class="form-group">
               <label for="reg-nombre" class="form-label">Nombre completo *</label>
@@ -727,11 +723,11 @@
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-bottom:12px;">
             <div class="form-group">
               <label for="reg-institucion" class="form-label">Organización / Municipio / Universidad *</label>
-              <input type="text" id="reg-institucion" name="organizacion" class="form-input" placeholder="Ej. Municipalidad de Maipú / U. de Chile" required>
+              <input type="text" id="reg-institucion" name="institucion" class="form-input" placeholder="Ej. Municipalidad de Maipú / U. de Chile" required>
             </div>
             <div class="form-group">
               <label for="reg-perfil" class="form-label">Perfil o actividad *</label>
-              <select id="reg-perfil" name="perfil" class="form-select" required>
+              <select id="reg-perfil" name="estamento_rol" class="form-select" required>
                 <option value="">Selecciona tu perfil...</option>
                 <option value="Funcionario/a Municipal">Funcionario/a Municipal (DAF, SECPLA, TI, Control)</option>
                 <option value="Alcalde/sa o Concejal/a">Alcalde/sa o Concejal/a</option>
@@ -759,13 +755,13 @@
 
           <div class="form-group" style="margin-bottom:14px;">
             <label for="reg-proyecto" class="form-label">Breve descripción del proyecto o uso (opcional)</label>
-            <textarea id="reg-proyecto" name="descripcion_proyecto" class="form-textarea" rows="2" placeholder="Ej. Evaluación de costos y licitaciones de software para presentación en Concejo Municipal..."></textarea>
+            <textarea id="reg-proyecto" name="detalle_proyecto" class="form-textarea" rows="2" placeholder="Ej. Evaluación de costos y licitaciones de software para presentación en Concejo Municipal..."></textarea>
           </div>
 
           <div class="form-checkbox-row" style="margin-bottom:16px;">
             <label class="form-checkbox-label">
-              <input type="checkbox" id="reg-contacto" name="autoriza_contacto" value="si" checked>
-              <span>Autorizo al equipo de investigación de <strong>evegat.cl</strong> a tomar contacto conmigo por correo sobre este proyecto, nuevas versiones de datos o iniciativas relacionadas.</span>
+              <input type="checkbox" id="reg-contacto" name="consentimiento" value="true" checked>
+              <span>Autorizo el registro de mis datos para trazabilidad académica y autorizo al equipo de investigación de <strong>evegat.cl</strong> a tomar contacto conmigo ante actualizaciones.</span>
             </label>
           </div>
 
