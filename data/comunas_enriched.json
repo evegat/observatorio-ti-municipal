@@ -79,7 +79,10 @@
       }
     ],
     "lat": -39.8244,
-    "lng": -73.2422
+    "lng": -73.2422,
+    "dotacion_ti": 7,
+    "ret_ratio": 3.32,
+    "cuadrante_capacidad": "Estado Híbrido Dependiente"
   },
   {
     "comuna": "Ovalle",
@@ -161,7 +164,10 @@
       }
     ],
     "lat": -30.6926,
-    "lng": -71.3362
+    "lng": -71.3362,
+    "dotacion_ti": 5,
+    "ret_ratio": 3.4,
+    "cuadrante_capacidad": "Estado Híbrido Dependiente"
   },
   {
     "comuna": "Puente Alto",
@@ -243,7 +249,10 @@
       }
     ],
     "lat": -33.5767,
-    "lng": -70.5394
+    "lng": -70.5394,
+    "dotacion_ti": 37,
+    "ret_ratio": 0.44,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Temuco",
@@ -325,7 +334,10 @@
       }
     ],
     "lat": -38.6705,
-    "lng": -72.6683
+    "lng": -72.6683,
+    "dotacion_ti": 17,
+    "ret_ratio": 0.95,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Santiago Centro",
@@ -407,7 +419,10 @@
       }
     ],
     "lat": -33.4504,
-    "lng": -70.6601
+    "lng": -70.6601,
+    "dotacion_ti": 30,
+    "ret_ratio": 0.45,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Los Ángeles",
@@ -489,7 +504,10 @@
       }
     ],
     "lat": -37.4155,
-    "lng": -72.2777
+    "lng": -72.2777,
+    "dotacion_ti": 8,
+    "ret_ratio": 1.64,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Copiapó",
@@ -571,7 +589,10 @@
       }
     ],
     "lat": -27.6651,
-    "lng": -70.1474
+    "lng": -70.1474,
+    "dotacion_ti": 7,
+    "ret_ratio": 1.87,
+    "cuadrante_capacidad": "Estado Híbrido Dependiente"
   },
   {
     "comuna": "Colbún",
@@ -653,7 +674,10 @@
       }
     ],
     "lat": -36.1054,
-    "lng": -70.9609
+    "lng": -70.9609,
+    "dotacion_ti": 1,
+    "ret_ratio": 11.91,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Antofagasta",
@@ -735,7 +759,10 @@
       }
     ],
     "lat": -24.22,
-    "lng": -69.6969
+    "lng": -69.6969,
+    "dotacion_ti": 24,
+    "ret_ratio": 0.49,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Talca",
@@ -817,7 +844,10 @@
       }
     ],
     "lat": -35.4012,
-    "lng": -71.6041
+    "lng": -71.6041,
+    "dotacion_ti": 9,
+    "ret_ratio": 1.25,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Rancagua",
@@ -899,7 +929,10 @@
       }
     ],
     "lat": -34.1076,
-    "lng": -70.8196
+    "lng": -70.8196,
+    "dotacion_ti": 15,
+    "ret_ratio": 0.75,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Iquique",
@@ -981,7 +1014,10 @@
       }
     ],
     "lat": -20.3561,
-    "lng": -70.1381
+    "lng": -70.1381,
+    "dotacion_ti": 9,
+    "ret_ratio": 1.24,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Curicó",
@@ -1063,7 +1099,10 @@
       }
     ],
     "lat": -35.2347,
-    "lng": -70.8029
+    "lng": -70.8029,
+    "dotacion_ti": 6,
+    "ret_ratio": 1.85,
+    "cuadrante_capacidad": "Estado Híbrido Dependiente"
   },
   {
     "comuna": "Lo Barnechea",
@@ -1145,7 +1184,10 @@
       }
     ],
     "lat": -33.285,
-    "lng": -70.389
+    "lng": -70.389,
+    "dotacion_ti": 5,
+    "ret_ratio": 2.08,
+    "cuadrante_capacidad": "Estado Híbrido Dependiente"
   },
   {
     "comuna": "Peñalolén",
@@ -1227,7 +1269,10 @@
       }
     ],
     "lat": -33.491,
-    "lng": -70.5284
+    "lng": -70.5284,
+    "dotacion_ti": 15,
+    "ret_ratio": 0.68,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Talcahuano",
@@ -1309,7 +1354,10 @@
       }
     ],
     "lat": -36.6757,
-    "lng": -73.099
+    "lng": -73.099,
+    "dotacion_ti": 6,
+    "ret_ratio": 1.71,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Punta Arenas",
@@ -1391,7 +1439,10 @@
       }
     ],
     "lat": -53.7666,
-    "lng": -72.7604
+    "lng": -72.7604,
+    "dotacion_ti": 5,
+    "ret_ratio": 2.05,
+    "cuadrante_capacidad": "Estado Híbrido Dependiente"
   },
   {
     "comuna": "Maipú",
@@ -1473,7 +1524,10 @@
       }
     ],
     "lat": -33.5038,
-    "lng": -70.7963
+    "lng": -70.7963,
+    "dotacion_ti": 32,
+    "ret_ratio": 0.31,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Paine",
@@ -1555,7 +1609,10 @@
       }
     ],
     "lat": -33.8306,
-    "lng": -70.7162
+    "lng": -70.7162,
+    "dotacion_ti": 2,
+    "ret_ratio": 4.84,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Osorno",
@@ -1637,7 +1694,10 @@
       }
     ],
     "lat": -40.5957,
-    "lng": -73.1186
+    "lng": -73.1186,
+    "dotacion_ti": 7,
+    "ret_ratio": 1.33,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Puerto Montt",
@@ -1719,7 +1779,10 @@
       }
     ],
     "lat": -41.5227,
-    "lng": -72.9202
+    "lng": -72.9202,
+    "dotacion_ti": 15,
+    "ret_ratio": 0.62,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Marchihue",
@@ -1801,7 +1864,10 @@
       }
     ],
     "lat": -34.3567,
-    "lng": -71.6817
+    "lng": -71.6817,
+    "dotacion_ti": 0,
+    "ret_ratio": 9.13,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Coquimbo",
@@ -1883,7 +1949,10 @@
       }
     ],
     "lat": -30.2117,
-    "lng": -71.3736
+    "lng": -71.3736,
+    "dotacion_ti": 15,
+    "ret_ratio": 0.6,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Arica",
@@ -1965,7 +2034,10 @@
       }
     ],
     "lat": -18.4617,
-    "lng": -69.9564
+    "lng": -69.9564,
+    "dotacion_ti": 14,
+    "ret_ratio": 0.64,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Alhué",
@@ -2047,7 +2119,10 @@
       }
     ],
     "lat": -34.0179,
-    "lng": -71.0027
+    "lng": -71.0027,
+    "dotacion_ti": 0,
+    "ret_ratio": 8.76,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "La Florida",
@@ -2129,7 +2204,10 @@
       }
     ],
     "lat": -33.5212,
-    "lng": -70.5181
+    "lng": -70.5181,
+    "dotacion_ti": 22,
+    "ret_ratio": 0.38,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "La Pintana",
@@ -2211,7 +2289,10 @@
       }
     ],
     "lat": -33.5805,
-    "lng": -70.6339
+    "lng": -70.6339,
+    "dotacion_ti": 7,
+    "ret_ratio": 1.16,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Huechuraba",
@@ -2293,7 +2374,10 @@
       }
     ],
     "lat": -33.3633,
-    "lng": -70.6478
+    "lng": -70.6478,
+    "dotacion_ti": 5,
+    "ret_ratio": 1.53,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Linares",
@@ -2375,7 +2459,10 @@
       }
     ],
     "lat": -35.9613,
-    "lng": -71.3267
+    "lng": -71.3267,
+    "dotacion_ti": 5,
+    "ret_ratio": 1.48,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Viña del Mar",
@@ -2457,7 +2544,10 @@
       }
     ],
     "lat": -33.0134,
-    "lng": -71.5209
+    "lng": -71.5209,
+    "dotacion_ti": 20,
+    "ret_ratio": 0.37,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Quilicura",
@@ -2539,7 +2629,10 @@
       }
     ],
     "lat": -33.3628,
-    "lng": -70.7274
+    "lng": -70.7274,
+    "dotacion_ti": 15,
+    "ret_ratio": 0.49,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Las Condes",
@@ -2621,7 +2714,10 @@
       }
     ],
     "lat": -33.4156,
-    "lng": -70.5038
+    "lng": -70.5038,
+    "dotacion_ti": 19,
+    "ret_ratio": 0.37,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Vitacura",
@@ -2703,7 +2799,10 @@
       }
     ],
     "lat": -33.3697,
-    "lng": -70.5784
+    "lng": -70.5784,
+    "dotacion_ti": 2,
+    "ret_ratio": 3.47,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Peralillo",
@@ -2785,7 +2884,10 @@
       }
     ],
     "lat": -34.4623,
-    "lng": -71.4986
+    "lng": -71.4986,
+    "dotacion_ti": 0,
+    "ret_ratio": 6.89,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "San Antonio",
@@ -2867,7 +2969,10 @@
       }
     ],
     "lat": -33.656,
-    "lng": -71.4716
+    "lng": -71.4716,
+    "dotacion_ti": 2,
+    "ret_ratio": 3.26,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Los Andes",
@@ -2949,7 +3054,10 @@
       }
     ],
     "lat": -32.9269,
-    "lng": -70.2693
+    "lng": -70.2693,
+    "dotacion_ti": 2,
+    "ret_ratio": 3.25,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "La Serena",
@@ -3031,7 +3139,10 @@
       }
     ],
     "lat": -29.7759,
-    "lng": -71.0761
+    "lng": -71.0761,
+    "dotacion_ti": 14,
+    "ret_ratio": 0.44,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Río Claro",
@@ -3113,7 +3224,10 @@
       }
     ],
     "lat": -35.2864,
-    "lng": -71.279
+    "lng": -71.279,
+    "dotacion_ti": 1,
+    "ret_ratio": 6.18,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Angol",
@@ -3195,7 +3309,10 @@
       }
     ],
     "lat": -37.7994,
-    "lng": -72.7575
+    "lng": -72.7575,
+    "dotacion_ti": 2,
+    "ret_ratio": 3.08,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Renca",
@@ -3277,7 +3394,10 @@
       }
     ],
     "lat": -33.3976,
-    "lng": -70.7204
+    "lng": -70.7204,
+    "dotacion_ti": 6,
+    "ret_ratio": 1.02,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Rengo",
@@ -3359,7 +3479,10 @@
       }
     ],
     "lat": -34.4575,
-    "lng": -70.7302
+    "lng": -70.7302,
+    "dotacion_ti": 2,
+    "ret_ratio": 3.02,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Chillán",
@@ -3441,7 +3564,10 @@
       }
     ],
     "lat": -36.6241,
-    "lng": -72.1125
+    "lng": -72.1125,
+    "dotacion_ti": 8,
+    "ret_ratio": 0.75,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Tomé",
@@ -3523,7 +3649,10 @@
       }
     ],
     "lat": -36.5961,
-    "lng": -72.8687
+    "lng": -72.8687,
+    "dotacion_ti": 2,
+    "ret_ratio": 2.97,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Cañete",
@@ -3605,7 +3734,10 @@
       }
     ],
     "lat": -37.8419,
-    "lng": -73.2617
+    "lng": -73.2617,
+    "dotacion_ti": 1,
+    "ret_ratio": 5.88,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Lampa",
@@ -3687,7 +3819,10 @@
       }
     ],
     "lat": -33.2633,
-    "lng": -70.8753
+    "lng": -70.8753,
+    "dotacion_ti": 5,
+    "ret_ratio": 1.14,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "El Bosque",
@@ -3769,7 +3904,10 @@
       }
     ],
     "lat": -33.5662,
-    "lng": -70.6731
+    "lng": -70.6731,
+    "dotacion_ti": 6,
+    "ret_ratio": 0.93,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Concepción",
@@ -3851,7 +3989,10 @@
       }
     ],
     "lat": -36.842,
-    "lng": -72.9436
+    "lng": -72.9436,
+    "dotacion_ti": 9,
+    "ret_ratio": 0.62,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Concón",
@@ -3933,7 +4074,10 @@
       }
     ],
     "lat": -32.9468,
-    "lng": -71.468
+    "lng": -71.468,
+    "dotacion_ti": 2,
+    "ret_ratio": 2.75,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Padre las Casas",
@@ -4015,7 +4159,10 @@
       }
     ],
     "lat": -38.7952,
-    "lng": -72.5377
+    "lng": -72.5377,
+    "dotacion_ti": 2,
+    "ret_ratio": 2.75,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Quilpué",
@@ -4097,7 +4244,10 @@
       }
     ],
     "lat": -33.1365,
-    "lng": -71.2638
+    "lng": -71.2638,
+    "dotacion_ti": 6,
+    "ret_ratio": 0.91,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Frutillar",
@@ -4179,7 +4329,10 @@
       }
     ],
     "lat": -41.09,
-    "lng": -73.1479
+    "lng": -73.1479,
+    "dotacion_ti": 1,
+    "ret_ratio": 5.45,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "San Bernardo",
@@ -4261,7 +4414,10 @@
       }
     ],
     "lat": -33.6227,
-    "lng": -70.7265
+    "lng": -70.7265,
+    "dotacion_ti": 19,
+    "ret_ratio": 0.28,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Talagante",
@@ -4343,7 +4499,10 @@
       }
     ],
     "lat": -33.6742,
-    "lng": -70.8813
+    "lng": -70.8813,
+    "dotacion_ti": 2,
+    "ret_ratio": 2.67,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "San Clemente",
@@ -4425,7 +4584,10 @@
       }
     ],
     "lat": -35.7417,
-    "lng": -70.7808
+    "lng": -70.7808,
+    "dotacion_ti": 2,
+    "ret_ratio": 2.66,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Hualpén",
@@ -4507,7 +4669,10 @@
       }
     ],
     "lat": -36.784,
-    "lng": -73.1672
+    "lng": -73.1672,
+    "dotacion_ti": 2,
+    "ret_ratio": 2.64,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Quillota",
@@ -4589,7 +4754,10 @@
       }
     ],
     "lat": -32.9022,
-    "lng": -71.2804
+    "lng": -71.2804,
+    "dotacion_ti": 5,
+    "ret_ratio": 1.03,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Cauquenes",
@@ -4671,7 +4839,10 @@
       }
     ],
     "lat": -35.9776,
-    "lng": -72.2933
+    "lng": -72.2933,
+    "dotacion_ti": 2,
+    "ret_ratio": 2.54,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Peñaflor",
@@ -4753,7 +4924,10 @@
       }
     ],
     "lat": -33.6022,
-    "lng": -70.8808
+    "lng": -70.8808,
+    "dotacion_ti": 5,
+    "ret_ratio": 1.0,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Molina",
@@ -4835,7 +5009,10 @@
       }
     ],
     "lat": -35.3488,
-    "lng": -70.9377
+    "lng": -70.9377,
+    "dotacion_ti": 2,
+    "ret_ratio": 2.45,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Pudahuel",
@@ -4917,7 +5094,10 @@
       }
     ],
     "lat": -33.4186,
-    "lng": -70.8226
+    "lng": -70.8226,
+    "dotacion_ti": 14,
+    "ret_ratio": 0.35,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Lautaro",
@@ -4999,7 +5179,10 @@
       }
     ],
     "lat": -38.541,
-    "lng": -72.2858
+    "lng": -72.2858,
+    "dotacion_ti": 2,
+    "ret_ratio": 2.41,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Providencia",
@@ -5081,7 +5264,10 @@
       }
     ],
     "lat": -33.4338,
-    "lng": -70.6017
+    "lng": -70.6017,
+    "dotacion_ti": 6,
+    "ret_ratio": 0.8,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Arauco",
@@ -5163,7 +5349,10 @@
       }
     ],
     "lat": -37.2944,
-    "lng": -73.4084
+    "lng": -73.4084,
+    "dotacion_ti": 1,
+    "ret_ratio": 4.74,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "El Tabo",
@@ -5245,7 +5434,10 @@
       }
     ],
     "lat": -33.4833,
-    "lng": -71.5926
+    "lng": -71.5926,
+    "dotacion_ti": 1,
+    "ret_ratio": 4.72,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Coronel",
@@ -5327,7 +5519,10 @@
       }
     ],
     "lat": -37.0163,
-    "lng": -73.2318
+    "lng": -73.2318,
+    "dotacion_ti": 5,
+    "ret_ratio": 0.94,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "El Quisco",
@@ -5409,7 +5604,10 @@
       }
     ],
     "lat": -33.4156,
-    "lng": -71.6596
+    "lng": -71.6596,
+    "dotacion_ti": 1,
+    "ret_ratio": 4.64,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Zapallar",
@@ -5491,7 +5689,10 @@
       }
     ],
     "lat": -32.5583,
-    "lng": -71.4141
+    "lng": -71.4141,
+    "dotacion_ti": 0,
+    "ret_ratio": 4.63,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "San Felipe",
@@ -5573,7 +5774,10 @@
       }
     ],
     "lat": -32.7423,
-    "lng": -70.7474
+    "lng": -70.7474,
+    "dotacion_ti": 2,
+    "ret_ratio": 2.27,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Colina",
@@ -5655,7 +5859,10 @@
       }
     ],
     "lat": -33.131,
-    "lng": -70.6042
+    "lng": -70.6042,
+    "dotacion_ti": 7,
+    "ret_ratio": 0.64,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Tocopilla",
@@ -5737,7 +5944,10 @@
       }
     ],
     "lat": -22.1542,
-    "lng": -70.105
+    "lng": -70.105,
+    "dotacion_ti": 1,
+    "ret_ratio": 4.46,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Victoria",
@@ -5819,7 +6029,10 @@
       }
     ],
     "lat": -38.311,
-    "lng": -72.2677
+    "lng": -72.2677,
+    "dotacion_ti": 1,
+    "ret_ratio": 4.41,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Quillón",
@@ -5901,7 +6114,10 @@
       }
     ],
     "lat": -36.8335,
-    "lng": -72.5069
+    "lng": -72.5069,
+    "dotacion_ti": 1,
+    "ret_ratio": 4.28,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Coihaique",
@@ -5983,7 +6199,10 @@
       }
     ],
     "lat": -45.5644,
-    "lng": -72.1066
+    "lng": -72.1066,
+    "dotacion_ti": 2,
+    "ret_ratio": 2.11,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Lo Prado",
@@ -6065,7 +6284,10 @@
       }
     ],
     "lat": -33.4484,
-    "lng": -70.7195
+    "lng": -70.7195,
+    "dotacion_ti": 5,
+    "ret_ratio": 0.84,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "La Cisterna",
@@ -6147,7 +6369,10 @@
       }
     ],
     "lat": -33.5324,
-    "lng": -70.6614
+    "lng": -70.6614,
+    "dotacion_ti": 5,
+    "ret_ratio": 0.83,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Puerto Varas",
@@ -6229,7 +6454,10 @@
       }
     ],
     "lat": -41.2318,
-    "lng": -72.4148
+    "lng": -72.4148,
+    "dotacion_ti": 2,
+    "ret_ratio": 2.02,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "San Javier",
@@ -6311,7 +6539,10 @@
       }
     ],
     "lat": -35.6399,
-    "lng": -71.8733
+    "lng": -71.8733,
+    "dotacion_ti": 2,
+    "ret_ratio": 2.01,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Cerro Navia",
@@ -6393,7 +6624,10 @@
       }
     ],
     "lat": -33.4189,
-    "lng": -70.7405
+    "lng": -70.7405,
+    "dotacion_ti": 5,
+    "ret_ratio": 0.8,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Limache",
@@ -6475,7 +6709,10 @@
       }
     ],
     "lat": -33.0171,
-    "lng": -71.3158
+    "lng": -71.3158,
+    "dotacion_ti": 2,
+    "ret_ratio": 1.98,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Lota",
@@ -6557,7 +6794,10 @@
       }
     ],
     "lat": -37.1136,
-    "lng": -73.1412
+    "lng": -73.1412,
+    "dotacion_ti": 2,
+    "ret_ratio": 1.98,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Cerrillos",
@@ -6639,7 +6879,10 @@
       }
     ],
     "lat": -33.4968,
-    "lng": -70.7113
+    "lng": -70.7113,
+    "dotacion_ti": 2,
+    "ret_ratio": 1.98,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Quintero",
@@ -6721,7 +6964,10 @@
       }
     ],
     "lat": -32.829,
-    "lng": -71.5091
+    "lng": -71.5091,
+    "dotacion_ti": 1,
+    "ret_ratio": 3.9,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Recoleta",
@@ -6803,7 +7049,10 @@
       }
     ],
     "lat": -33.4091,
-    "lng": -70.6457
+    "lng": -70.6457,
+    "dotacion_ti": 7,
+    "ret_ratio": 0.55,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Penco",
@@ -6885,7 +7134,10 @@
       }
     ],
     "lat": -36.7387,
-    "lng": -72.9289
+    "lng": -72.9289,
+    "dotacion_ti": 2,
+    "ret_ratio": 1.92,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Melipilla",
@@ -6967,7 +7219,10 @@
       }
     ],
     "lat": -33.7448,
-    "lng": -71.1911
+    "lng": -71.1911,
+    "dotacion_ti": 5,
+    "ret_ratio": 0.77,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Calama",
@@ -7049,7 +7304,10 @@
       }
     ],
     "lat": -22.3066,
-    "lng": -68.4921
+    "lng": -68.4921,
+    "dotacion_ti": 7,
+    "ret_ratio": 0.51,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Santa Cruz",
@@ -7131,7 +7389,10 @@
       }
     ],
     "lat": -34.6457,
-    "lng": -71.3813
+    "lng": -71.3813,
+    "dotacion_ti": 2,
+    "ret_ratio": 1.78,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "La Ligua",
@@ -7213,7 +7474,10 @@
       }
     ],
     "lat": -32.2656,
-    "lng": -71.4543
+    "lng": -71.4543,
+    "dotacion_ti": 1,
+    "ret_ratio": 3.56,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Lumaco",
@@ -7295,7 +7559,10 @@
       }
     ],
     "lat": -38.2862,
-    "lng": -73.0522
+    "lng": -73.0522,
+    "dotacion_ti": 0,
+    "ret_ratio": 3.56,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Pedro Aguirre Cerda",
@@ -7377,7 +7644,10 @@
       }
     ],
     "lat": -33.4957,
-    "lng": -70.6757
+    "lng": -70.6757,
+    "dotacion_ti": 5,
+    "ret_ratio": 0.69,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "San Carlos",
@@ -7459,7 +7729,10 @@
       }
     ],
     "lat": -36.3907,
-    "lng": -72.0245
+    "lng": -72.0245,
+    "dotacion_ti": 2,
+    "ret_ratio": 1.72,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Vallenar",
@@ -7541,7 +7814,10 @@
       }
     ],
     "lat": -28.674,
-    "lng": -70.6244
+    "lng": -70.6244,
+    "dotacion_ti": 2,
+    "ret_ratio": 1.71,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Alto Hospicio",
@@ -7623,7 +7899,10 @@
       }
     ],
     "lat": -20.185,
-    "lng": -69.9735
+    "lng": -69.9735,
+    "dotacion_ti": 5,
+    "ret_ratio": 0.68,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Curacaví",
@@ -7705,7 +7984,10 @@
       }
     ],
     "lat": -33.35,
-    "lng": -71.0729
+    "lng": -71.0729,
+    "dotacion_ti": 1,
+    "ret_ratio": 3.37,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Longaví",
@@ -7787,7 +8069,10 @@
       }
     ],
     "lat": -36.0675,
-    "lng": -71.4542
+    "lng": -71.4542,
+    "dotacion_ti": 1,
+    "ret_ratio": 3.35,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Constitución",
@@ -7869,7 +8154,10 @@
       }
     ],
     "lat": -35.3661,
-    "lng": -72.2951
+    "lng": -72.2951,
+    "dotacion_ti": 2,
+    "ret_ratio": 1.67,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Maule",
@@ -7951,7 +8239,10 @@
       }
     ],
     "lat": -35.5072,
-    "lng": -71.7166
+    "lng": -71.7166,
+    "dotacion_ti": 2,
+    "ret_ratio": 1.66,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Lo Espejo",
@@ -8033,7 +8324,10 @@
       }
     ],
     "lat": -33.5171,
-    "lng": -70.6904
+    "lng": -70.6904,
+    "dotacion_ti": 5,
+    "ret_ratio": 0.65,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Lebu",
@@ -8115,7 +8409,10 @@
       }
     ],
     "lat": -37.7435,
-    "lng": -73.6191
+    "lng": -73.6191,
+    "dotacion_ti": 1,
+    "ret_ratio": 3.23,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Calbuco",
@@ -8197,7 +8494,10 @@
       }
     ],
     "lat": -41.7833,
-    "lng": -73.127
+    "lng": -73.127,
+    "dotacion_ti": 1,
+    "ret_ratio": 3.17,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Mulchén",
@@ -8279,7 +8579,10 @@
       }
     ],
     "lat": -37.9268,
-    "lng": -71.9566
+    "lng": -71.9566,
+    "dotacion_ti": 1,
+    "ret_ratio": 3.17,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Puchuncaví",
@@ -8361,7 +8664,10 @@
       }
     ],
     "lat": -32.724,
-    "lng": -71.442
+    "lng": -71.442,
+    "dotacion_ti": 1,
+    "ret_ratio": 3.16,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Illapel",
@@ -8443,7 +8749,10 @@
       }
     ],
     "lat": -31.4947,
-    "lng": -70.9504
+    "lng": -70.9504,
+    "dotacion_ti": 1,
+    "ret_ratio": 3.13,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Villarrica",
@@ -8525,7 +8834,10 @@
       }
     ],
     "lat": -39.297,
-    "lng": -72.2022
+    "lng": -72.2022,
+    "dotacion_ti": 2,
+    "ret_ratio": 1.56,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "ÑuÑoa",
@@ -8607,7 +8919,10 @@
       }
     ],
     "lat": -33.4598,
-    "lng": -70.5981
+    "lng": -70.5981,
+    "dotacion_ti": 14,
+    "ret_ratio": 0.22,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "San Pedro de la Paz",
@@ -8689,7 +9004,10 @@
       }
     ],
     "lat": -36.8904,
-    "lng": -73.1045
+    "lng": -73.1045,
+    "dotacion_ti": 6,
+    "ret_ratio": 0.52,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Taltal",
@@ -8771,7 +9089,10 @@
       }
     ],
     "lat": -25.5219,
-    "lng": -70.1915
+    "lng": -70.1915,
+    "dotacion_ti": 0,
+    "ret_ratio": 3.08,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Requínoa",
@@ -8853,7 +9174,10 @@
       }
     ],
     "lat": -34.3405,
-    "lng": -70.6973
+    "lng": -70.6973,
+    "dotacion_ti": 1,
+    "ret_ratio": 3.07,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Curacautín",
@@ -8935,7 +9259,10 @@
       }
     ],
     "lat": -38.415,
-    "lng": -71.7298
+    "lng": -71.7298,
+    "dotacion_ti": 1,
+    "ret_ratio": 3.06,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Monte Patria",
@@ -9017,7 +9344,10 @@
       }
     ],
     "lat": -30.8503,
-    "lng": -70.6902
+    "lng": -70.6902,
+    "dotacion_ti": 1,
+    "ret_ratio": 3.02,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "San Fernando",
@@ -9099,7 +9429,10 @@
       }
     ],
     "lat": -34.7566,
-    "lng": -70.6031
+    "lng": -70.6031,
+    "dotacion_ti": 2,
+    "ret_ratio": 1.48,
+    "cuadrante_capacidad": "Estado Artesanal"
   },
   {
     "comuna": "La Unión",
@@ -9181,7 +9514,10 @@
       }
     ],
     "lat": -40.185,
-    "lng": -73.2701
+    "lng": -73.2701,
+    "dotacion_ti": 1,
+    "ret_ratio": 2.9,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Chiguayante",
@@ -9263,7 +9599,10 @@
       }
     ],
     "lat": -36.8927,
-    "lng": -73.0017
+    "lng": -73.0017,
+    "dotacion_ti": 2,
+    "ret_ratio": 1.44,
+    "cuadrante_capacidad": "Estado Artesanal"
   },
   {
     "comuna": "Curanilahue",
@@ -9345,7 +9684,10 @@
       }
     ],
     "lat": -37.4615,
-    "lng": -73.3028
+    "lng": -73.3028,
+    "dotacion_ti": 1,
+    "ret_ratio": 2.87,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Sagrada Familia",
@@ -9427,7 +9769,10 @@
       }
     ],
     "lat": -35.0903,
-    "lng": -71.4644
+    "lng": -71.4644,
+    "dotacion_ti": 1,
+    "ret_ratio": 2.86,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "María Elena",
@@ -9509,7 +9854,10 @@
       }
     ],
     "lat": -21.9752,
-    "lng": -69.5843
+    "lng": -69.5843,
+    "dotacion_ti": 0,
+    "ret_ratio": 2.83,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Cabrero",
@@ -9591,7 +9939,10 @@
       }
     ],
     "lat": -37.0541,
-    "lng": -72.4096
+    "lng": -72.4096,
+    "dotacion_ti": 1,
+    "ret_ratio": 2.81,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Parral",
@@ -9673,7 +10024,10 @@
       }
     ],
     "lat": -36.2393,
-    "lng": -71.6287
+    "lng": -71.6287,
+    "dotacion_ti": 2,
+    "ret_ratio": 1.4,
+    "cuadrante_capacidad": "Estado Artesanal"
   },
   {
     "comuna": "Retiro",
@@ -9755,7 +10109,10 @@
       }
     ],
     "lat": -35.9746,
-    "lng": -71.8362
+    "lng": -71.8362,
+    "dotacion_ti": 1,
+    "ret_ratio": 2.79,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "La Granja",
@@ -9837,7 +10194,10 @@
       }
     ],
     "lat": -33.5332,
-    "lng": -70.6254
+    "lng": -70.6254,
+    "dotacion_ti": 5,
+    "ret_ratio": 0.55,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "San Nicolás",
@@ -9919,7 +10279,10 @@
       }
     ],
     "lat": -36.4735,
-    "lng": -72.2038
+    "lng": -72.2038,
+    "dotacion_ti": 0,
+    "ret_ratio": 2.75,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Freire",
@@ -10001,7 +10364,10 @@
       }
     ],
     "lat": -38.9516,
-    "lng": -72.5899
+    "lng": -72.5899,
+    "dotacion_ti": 1,
+    "ret_ratio": 2.74,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Mejillones",
@@ -10083,7 +10449,10 @@
       }
     ],
     "lat": -23.0168,
-    "lng": -70.3331
+    "lng": -70.3331,
+    "dotacion_ti": 1,
+    "ret_ratio": 2.73,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Lago Ranco",
@@ -10165,7 +10534,10 @@
       }
     ],
     "lat": -40.3874,
-    "lng": -72.2005
+    "lng": -72.2005,
+    "dotacion_ti": 0,
+    "ret_ratio": 2.73,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Pozo Almonte",
@@ -10247,7 +10619,10 @@
       }
     ],
     "lat": -20.8134,
-    "lng": -69.5481
+    "lng": -69.5481,
+    "dotacion_ti": 1,
+    "ret_ratio": 2.71,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Laja",
@@ -10329,7 +10704,10 @@
       }
     ],
     "lat": -37.3096,
-    "lng": -72.5651
+    "lng": -72.5651,
+    "dotacion_ti": 1,
+    "ret_ratio": 2.7,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Quinta Normal",
@@ -10411,7 +10789,10 @@
       }
     ],
     "lat": -33.4252,
-    "lng": -70.6991
+    "lng": -70.6991,
+    "dotacion_ti": 5,
+    "ret_ratio": 0.54,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Romeral",
@@ -10493,7 +10874,10 @@
       }
     ],
     "lat": -35.0621,
-    "lng": -70.7317
+    "lng": -70.7317,
+    "dotacion_ti": 1,
+    "ret_ratio": 2.68,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "La Cruz",
@@ -10575,7 +10959,10 @@
       }
     ],
     "lat": -32.8063,
-    "lng": -71.2507
+    "lng": -71.2507,
+    "dotacion_ti": 1,
+    "ret_ratio": 2.64,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Pichilemu",
@@ -10657,7 +11044,10 @@
       }
     ],
     "lat": -34.4062,
-    "lng": -71.9008
+    "lng": -71.9008,
+    "dotacion_ti": 1,
+    "ret_ratio": 2.61,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Rinconada",
@@ -10739,7 +11129,10 @@
       }
     ],
     "lat": -32.8741,
-    "lng": -70.6959
+    "lng": -70.6959,
+    "dotacion_ti": 0,
+    "ret_ratio": 2.57,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Estación Central",
@@ -10821,7 +11214,10 @@
       }
     ],
     "lat": -33.4586,
-    "lng": -70.6992
+    "lng": -70.6992,
+    "dotacion_ti": 0,
+    "ret_ratio": 2.51,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Purén",
@@ -10903,7 +11299,10 @@
       }
     ],
     "lat": -37.9987,
-    "lng": -73.0404
+    "lng": -73.0404,
+    "dotacion_ti": 0,
+    "ret_ratio": 2.45,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Valparaíso",
@@ -10985,7 +11384,10 @@
       }
     ],
     "lat": -33.113,
-    "lng": -71.573
+    "lng": -71.573,
+    "dotacion_ti": 17,
+    "ret_ratio": 0.14,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Collipulli",
@@ -11067,7 +11469,10 @@
       }
     ],
     "lat": -37.9922,
-    "lng": -72.1925
+    "lng": -72.1925,
+    "dotacion_ti": 1,
+    "ret_ratio": 2.43,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Santo Domingo",
@@ -11149,7 +11554,10 @@
       }
     ],
     "lat": -33.8207,
-    "lng": -71.697
+    "lng": -71.697,
+    "dotacion_ti": 0,
+    "ret_ratio": 2.41,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Pencahue",
@@ -11231,7 +11639,10 @@
       }
     ],
     "lat": -35.3002,
-    "lng": -71.8258
+    "lng": -71.8258,
+    "dotacion_ti": 0,
+    "ret_ratio": 2.41,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Los Álamos",
@@ -11313,7 +11724,10 @@
       }
     ],
     "lat": -37.6682,
-    "lng": -73.4058
+    "lng": -73.4058,
+    "dotacion_ti": 1,
+    "ret_ratio": 2.39,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Mostazal",
@@ -11395,7 +11809,10 @@
       }
     ],
     "lat": -33.9567,
-    "lng": -70.5739
+    "lng": -70.5739,
+    "dotacion_ti": 1,
+    "ret_ratio": 2.39,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Castro",
@@ -11477,7 +11894,10 @@
       }
     ],
     "lat": -42.5339,
-    "lng": -73.6585
+    "lng": -73.6585,
+    "dotacion_ti": 2,
+    "ret_ratio": 1.19,
+    "cuadrante_capacidad": "Estado Artesanal"
   },
   {
     "comuna": "Los Vilos",
@@ -11559,7 +11979,10 @@
       }
     ],
     "lat": -31.9979,
-    "lng": -71.4688
+    "lng": -71.4688,
+    "dotacion_ti": 1,
+    "ret_ratio": 2.35,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Licantén",
@@ -11641,7 +12064,10 @@
       }
     ],
     "lat": -34.9698,
-    "lng": -72.0563
+    "lng": -72.0563,
+    "dotacion_ti": 0,
+    "ret_ratio": 2.31,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Yungay",
@@ -11723,7 +12149,10 @@
       }
     ],
     "lat": -37.1165,
-    "lng": -71.9661
+    "lng": -71.9661,
+    "dotacion_ti": 1,
+    "ret_ratio": 2.3,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Ercilla",
@@ -11805,7 +12234,10 @@
       }
     ],
     "lat": -38.0335,
-    "lng": -72.3976
+    "lng": -72.3976,
+    "dotacion_ti": 0,
+    "ret_ratio": 2.29,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Pelluhue",
@@ -11887,7 +12319,10 @@
       }
     ],
     "lat": -35.9039,
-    "lng": -72.5996
+    "lng": -72.5996,
+    "dotacion_ti": 0,
+    "ret_ratio": 2.27,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Villa Alemana",
@@ -11969,7 +12404,10 @@
       }
     ],
     "lat": -33.061,
-    "lng": -71.3429
+    "lng": -71.3429,
+    "dotacion_ti": 5,
+    "ret_ratio": 0.45,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "San Joaquín",
@@ -12051,7 +12489,10 @@
       }
     ],
     "lat": -33.491,
-    "lng": -70.6273
+    "lng": -70.6273,
+    "dotacion_ti": 5,
+    "ret_ratio": 0.45,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Purranque",
@@ -12133,7 +12574,10 @@
       }
     ],
     "lat": -40.9323,
-    "lng": -73.5941
+    "lng": -73.5941,
+    "dotacion_ti": 1,
+    "ret_ratio": 2.2,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Santa Bárbara",
@@ -12215,7 +12659,10 @@
       }
     ],
     "lat": -37.6247,
-    "lng": -71.6897
+    "lng": -71.6897,
+    "dotacion_ti": 0,
+    "ret_ratio": 2.15,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Hualañé",
@@ -12297,7 +12744,10 @@
       }
     ],
     "lat": -34.9244,
-    "lng": -71.7296
+    "lng": -71.7296,
+    "dotacion_ti": 0,
+    "ret_ratio": 2.15,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "El Carmen",
@@ -12379,7 +12829,10 @@
       }
     ],
     "lat": -36.9165,
-    "lng": -71.865
+    "lng": -71.865,
+    "dotacion_ti": 0,
+    "ret_ratio": 2.14,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Loncoche",
@@ -12461,7 +12914,10 @@
       }
     ],
     "lat": -39.3598,
-    "lng": -72.5834
+    "lng": -72.5834,
+    "dotacion_ti": 1,
+    "ret_ratio": 2.14,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Aysén",
@@ -12543,7 +12999,10 @@
       }
     ],
     "lat": -45.706,
-    "lng": -74.0945
+    "lng": -74.0945,
+    "dotacion_ti": 1,
+    "ret_ratio": 2.13,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Dalcahue",
@@ -12625,7 +13084,10 @@
       }
     ],
     "lat": -42.3413,
-    "lng": -73.9811
+    "lng": -73.9811,
+    "dotacion_ti": 1,
+    "ret_ratio": 2.13,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "El Monte",
@@ -12707,7 +13169,10 @@
       }
     ],
     "lat": -33.6563,
-    "lng": -71.0267
+    "lng": -71.0267,
+    "dotacion_ti": 2,
+    "ret_ratio": 1.06,
+    "cuadrante_capacidad": "Estado Artesanal"
   },
   {
     "comuna": "Teodoro Schmidt",
@@ -12789,7 +13254,10 @@
       }
     ],
     "lat": -39.0261,
-    "lng": -73.1295
+    "lng": -73.1295,
+    "dotacion_ti": 1,
+    "ret_ratio": 2.11,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Coelemu",
@@ -12871,7 +13339,10 @@
       }
     ],
     "lat": -36.5001,
-    "lng": -72.7756
+    "lng": -72.7756,
+    "dotacion_ti": 1,
+    "ret_ratio": 2.11,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Tirúa",
@@ -12953,7 +13424,10 @@
       }
     ],
     "lat": -38.3235,
-    "lng": -73.3915
+    "lng": -73.3915,
+    "dotacion_ti": 0,
+    "ret_ratio": 2.09,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Litueche",
@@ -13035,7 +13509,10 @@
       }
     ],
     "lat": -34.1005,
-    "lng": -71.7248
+    "lng": -71.7248,
+    "dotacion_ti": 0,
+    "ret_ratio": 2.07,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Isla de Maipo",
@@ -13117,7 +13594,10 @@
       }
     ],
     "lat": -33.7545,
-    "lng": -70.9391
+    "lng": -70.9391,
+    "dotacion_ti": 2,
+    "ret_ratio": 1.02,
+    "cuadrante_capacidad": "Estado Artesanal"
   },
   {
     "comuna": "Ancud",
@@ -13199,7 +13679,10 @@
       }
     ],
     "lat": -41.9664,
-    "lng": -73.9248
+    "lng": -73.9248,
+    "dotacion_ti": 2,
+    "ret_ratio": 1.01,
+    "cuadrante_capacidad": "Estado Artesanal"
   },
   {
     "comuna": "Carahue",
@@ -13281,7 +13764,10 @@
       }
     ],
     "lat": -38.5909,
-    "lng": -73.2545
+    "lng": -73.2545,
+    "dotacion_ti": 1,
+    "ret_ratio": 2.0,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Coihueco",
@@ -13363,7 +13849,10 @@
       }
     ],
     "lat": -36.7242,
-    "lng": -71.5735
+    "lng": -71.5735,
+    "dotacion_ti": 1,
+    "ret_ratio": 2.0,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Cholchol",
@@ -13445,7 +13934,10 @@
       }
     ],
     "lat": -38.5767,
-    "lng": -72.9024
+    "lng": -72.9024,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.98,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Galvarino",
@@ -13527,7 +14019,10 @@
       }
     ],
     "lat": -38.4461,
-    "lng": -72.8097
+    "lng": -72.8097,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.97,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Traiguén",
@@ -13609,7 +14104,10 @@
       }
     ],
     "lat": -38.2422,
-    "lng": -72.6714
+    "lng": -72.6714,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.96,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Vilcún",
@@ -13691,7 +14189,10 @@
       }
     ],
     "lat": -38.6912,
-    "lng": -72.1657
+    "lng": -72.1657,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.95,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "San Miguel",
@@ -13773,7 +14274,10 @@
       }
     ],
     "lat": -33.5003,
-    "lng": -70.6482
+    "lng": -70.6482,
+    "dotacion_ti": 5,
+    "ret_ratio": 0.39,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Buin",
@@ -13855,7 +14359,10 @@
       }
     ],
     "lat": -33.7342,
-    "lng": -70.7056
+    "lng": -70.7056,
+    "dotacion_ti": 5,
+    "ret_ratio": 0.39,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Cabo de Hornos",
@@ -13937,7 +14444,10 @@
       }
     ],
     "lat": -55.2516,
-    "lng": -69.1673
+    "lng": -69.1673,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.9,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Calle Larga",
@@ -14019,7 +14529,10 @@
       }
     ],
     "lat": -32.8953,
-    "lng": -70.5957
+    "lng": -70.5957,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.88,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Algarrobo",
@@ -14101,7 +14614,10 @@
       }
     ],
     "lat": -33.34,
-    "lng": -71.6655
+    "lng": -71.6655,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.88,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Casablanca",
@@ -14183,7 +14699,10 @@
       }
     ],
     "lat": -33.2853,
-    "lng": -71.5416
+    "lng": -71.5416,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.87,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Padre Hurtado",
@@ -14265,7 +14784,10 @@
       }
     ],
     "lat": -33.5608,
-    "lng": -70.8621
+    "lng": -70.8621,
+    "dotacion_ti": 2,
+    "ret_ratio": 0.94,
+    "cuadrante_capacidad": "Estado Artesanal"
   },
   {
     "comuna": "Doñihue",
@@ -14347,7 +14869,10 @@
       }
     ],
     "lat": -34.1886,
-    "lng": -70.9124
+    "lng": -70.9124,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.86,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Mariquina",
@@ -14429,7 +14954,10 @@
       }
     ],
     "lat": -39.5789,
-    "lng": -73.0981
+    "lng": -73.0981,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.86,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Independencia",
@@ -14511,7 +15039,10 @@
       }
     ],
     "lat": -33.4102,
-    "lng": -70.66
+    "lng": -70.66,
+    "dotacion_ti": 6,
+    "ret_ratio": 0.31,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Vicuña",
@@ -14593,7 +15124,10 @@
       }
     ],
     "lat": -29.9525,
-    "lng": -70.385
+    "lng": -70.385,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.84,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Bulnes",
@@ -14675,7 +15209,10 @@
       }
     ],
     "lat": -36.7694,
-    "lng": -72.294
+    "lng": -72.294,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.82,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Calera",
@@ -14757,7 +15294,10 @@
       }
     ],
     "lat": -32.8044,
-    "lng": -71.1628
+    "lng": -71.1628,
+    "dotacion_ti": 2,
+    "ret_ratio": 0.91,
+    "cuadrante_capacidad": "Estado Artesanal"
   },
   {
     "comuna": "Futrono",
@@ -14839,7 +15379,10 @@
       }
     ],
     "lat": -40.0917,
-    "lng": -72.1158
+    "lng": -72.1158,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.8,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Yumbel",
@@ -14921,7 +15464,10 @@
       }
     ],
     "lat": -37.0882,
-    "lng": -72.6041
+    "lng": -72.6041,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.8,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Chañaral",
@@ -15003,7 +15549,10 @@
       }
     ],
     "lat": -26.3152,
-    "lng": -70.4026
+    "lng": -70.4026,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.79,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Huara",
@@ -15085,7 +15634,10 @@
       }
     ],
     "lat": -19.5319,
-    "lng": -69.645
+    "lng": -69.645,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.78,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Villa Alegre",
@@ -15167,7 +15719,10 @@
       }
     ],
     "lat": -35.6855,
-    "lng": -71.674
+    "lng": -71.674,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.78,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "San Ramón",
@@ -15249,7 +15804,10 @@
       }
     ],
     "lat": -33.5338,
-    "lng": -70.6397
+    "lng": -70.6397,
+    "dotacion_ti": 2,
+    "ret_ratio": 0.89,
+    "cuadrante_capacidad": "Estado Artesanal"
   },
   {
     "comuna": "Antuco",
@@ -15331,7 +15889,10 @@
       }
     ],
     "lat": -37.2959,
-    "lng": -71.4163
+    "lng": -71.4163,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.77,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Cartagena",
@@ -15413,7 +15974,10 @@
       }
     ],
     "lat": -33.5281,
-    "lng": -71.5111
+    "lng": -71.5111,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.77,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Machalí",
@@ -15495,7 +16059,10 @@
       }
     ],
     "lat": -34.2841,
-    "lng": -70.3272
+    "lng": -70.3272,
+    "dotacion_ti": 2,
+    "ret_ratio": 0.88,
+    "cuadrante_capacidad": "Estado Artesanal"
   },
   {
     "comuna": "Pichidegua",
@@ -15577,7 +16144,10 @@
       }
     ],
     "lat": -34.3553,
-    "lng": -71.3475
+    "lng": -71.3475,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.74,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "San Esteban",
@@ -15659,7 +16229,10 @@
       }
     ],
     "lat": -32.6437,
-    "lng": -70.3398
+    "lng": -70.3398,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.7,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Calera de Tango",
@@ -15741,7 +16314,10 @@
       }
     ],
     "lat": -33.6073,
-    "lng": -70.7867
+    "lng": -70.7867,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.63,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Punitaqui",
@@ -15823,7 +16399,10 @@
       }
     ],
     "lat": -30.8921,
-    "lng": -71.3111
+    "lng": -71.3111,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.63,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Renaico",
@@ -15905,7 +16484,10 @@
       }
     ],
     "lat": -37.7167,
-    "lng": -72.5958
+    "lng": -72.5958,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.63,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Teno",
@@ -15987,7 +16569,10 @@
       }
     ],
     "lat": -34.8736,
-    "lng": -71.0307
+    "lng": -71.0307,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.62,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Olmué",
@@ -16069,7 +16654,10 @@
       }
     ],
     "lat": -33.0176,
-    "lng": -71.1099
+    "lng": -71.1099,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.6,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Río Bueno",
@@ -16151,7 +16739,10 @@
       }
     ],
     "lat": -40.5015,
-    "lng": -72.5028
+    "lng": -72.5028,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.59,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Curaco de Vélez",
@@ -16233,7 +16824,10 @@
       }
     ],
     "lat": -42.4225,
-    "lng": -73.597
+    "lng": -73.597,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.55,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Hualqui",
@@ -16315,7 +16909,10 @@
       }
     ],
     "lat": -37.0007,
-    "lng": -72.8689
+    "lng": -72.8689,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.53,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Pinto",
@@ -16397,7 +16994,10 @@
       }
     ],
     "lat": -36.9049,
-    "lng": -71.5531
+    "lng": -71.5531,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.51,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Pucón",
@@ -16479,7 +17079,10 @@
       }
     ],
     "lat": -39.2461,
-    "lng": -71.7499
+    "lng": -71.7499,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.51,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Los Muermos",
@@ -16561,7 +17164,10 @@
       }
     ],
     "lat": -41.4009,
-    "lng": -73.7575
+    "lng": -73.7575,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.51,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "San Pedro de Atacama",
@@ -16643,7 +17249,10 @@
       }
     ],
     "lat": -23.0092,
-    "lng": -68.1353
+    "lng": -68.1353,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.49,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Tierra Amarilla",
@@ -16725,7 +17334,10 @@
       }
     ],
     "lat": -27.9575,
-    "lng": -69.7005
+    "lng": -69.7005,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.48,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Papudo",
@@ -16807,7 +17419,10 @@
       }
     ],
     "lat": -32.469,
-    "lng": -71.3787
+    "lng": -71.3787,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.47,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "San Vicente",
@@ -16889,7 +17504,10 @@
       }
     ],
     "lat": -34.4307,
-    "lng": -71.1217
+    "lng": -71.1217,
+    "dotacion_ti": 2,
+    "ret_ratio": 0.73,
+    "cuadrante_capacidad": "Estado Artesanal"
   },
   {
     "comuna": "Pemuco",
@@ -16971,7 +17589,10 @@
       }
     ],
     "lat": -36.9628,
-    "lng": -72.0409
+    "lng": -72.0409,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.45,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Pitrufquén",
@@ -17053,7 +17674,10 @@
       }
     ],
     "lat": -39.0813,
-    "lng": -72.6464
+    "lng": -72.6464,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.44,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Rauco",
@@ -17135,7 +17759,10 @@
       }
     ],
     "lat": -34.9319,
-    "lng": -71.4398
+    "lng": -71.4398,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.44,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Negrete",
@@ -17217,7 +17844,10 @@
       }
     ],
     "lat": -37.5847,
-    "lng": -72.5847
+    "lng": -72.5847,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.43,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Nacimiento",
@@ -17299,7 +17929,10 @@
       }
     ],
     "lat": -37.4598,
-    "lng": -72.7982
+    "lng": -72.7982,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.41,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Perquenco",
@@ -17381,7 +18014,10 @@
       }
     ],
     "lat": -38.4196,
-    "lng": -72.4323
+    "lng": -72.4323,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.4,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Lanco",
@@ -17463,7 +18099,10 @@
       }
     ],
     "lat": -39.5039,
-    "lng": -72.6272
+    "lng": -72.6272,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.39,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Lonquimay",
@@ -17545,7 +18184,10 @@
       }
     ],
     "lat": -38.4581,
-    "lng": -71.3034
+    "lng": -71.3034,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.38,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Nueva Imperial",
@@ -17627,7 +18269,10 @@
       }
     ],
     "lat": -38.7128,
-    "lng": -72.975
+    "lng": -72.975,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.37,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Los Lagos",
@@ -17709,7 +18354,10 @@
       }
     ],
     "lat": -39.8841,
-    "lng": -72.4995
+    "lng": -72.4995,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.37,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Navidad",
@@ -17791,7 +18439,10 @@
       }
     ],
     "lat": -33.966,
-    "lng": -71.8495
+    "lng": -71.8495,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.37,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "María Pinto",
@@ -17873,7 +18524,10 @@
       }
     ],
     "lat": -33.4878,
-    "lng": -71.2134
+    "lng": -71.2134,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.36,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "La Reina",
@@ -17955,7 +18609,10 @@
       }
     ],
     "lat": -33.4414,
-    "lng": -70.5377
+    "lng": -70.5377,
+    "dotacion_ti": 2,
+    "ret_ratio": 0.68,
+    "cuadrante_capacidad": "Estado Artesanal"
   },
   {
     "comuna": "Pelarco",
@@ -18037,7 +18694,10 @@
       }
     ],
     "lat": -35.3812,
-    "lng": -71.3427
+    "lng": -71.3427,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.34,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Sierra Gorda",
@@ -18119,7 +18779,10 @@
       }
     ],
     "lat": -23.2777,
-    "lng": -69.2338
+    "lng": -69.2338,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.33,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Canela",
@@ -18201,7 +18864,10 @@
       }
     ],
     "lat": -31.4568,
-    "lng": -71.3717
+    "lng": -71.3717,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.33,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Los Sauces",
@@ -18283,7 +18949,10 @@
       }
     ],
     "lat": -37.9745,
-    "lng": -72.8083
+    "lng": -72.8083,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.33,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Tucapel",
@@ -18365,7 +19034,10 @@
       }
     ],
     "lat": -37.1776,
-    "lng": -71.751
+    "lng": -71.751,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.32,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Toltén",
@@ -18447,7 +19119,10 @@
       }
     ],
     "lat": -39.2442,
-    "lng": -73.0836
+    "lng": -73.0836,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.31,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Chimbarongo",
@@ -18529,7 +19204,10 @@
       }
     ],
     "lat": -34.7648,
-    "lng": -70.9881
+    "lng": -70.9881,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.29,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Salamanca",
@@ -18611,7 +19289,10 @@
       }
     ],
     "lat": -31.9319,
-    "lng": -70.5961
+    "lng": -70.5961,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.28,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Cabildo",
@@ -18693,7 +19374,10 @@
       }
     ],
     "lat": -32.4215,
-    "lng": -70.8329
+    "lng": -70.8329,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.28,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Coltauco",
@@ -18775,7 +19459,10 @@
       }
     ],
     "lat": -34.2639,
-    "lng": -71.0861
+    "lng": -71.0861,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.27,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Nogales",
@@ -18857,7 +19544,10 @@
       }
     ],
     "lat": -32.6918,
-    "lng": -71.1932
+    "lng": -71.1932,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.26,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Cunco",
@@ -18939,7 +19629,10 @@
       }
     ],
     "lat": -38.9669,
-    "lng": -71.9317
+    "lng": -71.9317,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.26,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Catemu",
@@ -19021,7 +19714,10 @@
       }
     ],
     "lat": -32.7071,
-    "lng": -70.9533
+    "lng": -70.9533,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.24,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Contulmo",
@@ -19103,7 +19799,10 @@
       }
     ],
     "lat": -38.0433,
-    "lng": -73.215
+    "lng": -73.215,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.24,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Chépica",
@@ -19185,7 +19884,10 @@
       }
     ],
     "lat": -34.7927,
-    "lng": -71.3342
+    "lng": -71.3342,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.24,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Placilla",
@@ -19267,7 +19969,10 @@
       }
     ],
     "lat": -34.6022,
-    "lng": -71.0571
+    "lng": -71.0571,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.23,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Chanco",
@@ -19349,7 +20054,10 @@
       }
     ],
     "lat": -35.714,
-    "lng": -72.4809
+    "lng": -72.4809,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.23,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Yerbas Buenas",
@@ -19431,7 +20139,10 @@
       }
     ],
     "lat": -35.6663,
-    "lng": -71.5553
+    "lng": -71.5553,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.21,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Paredones",
@@ -19513,7 +20224,10 @@
       }
     ],
     "lat": -34.6441,
-    "lng": -71.9205
+    "lng": -71.9205,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.2,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Graneros",
@@ -19595,7 +20309,10 @@
       }
     ],
     "lat": -34.0556,
-    "lng": -70.7519
+    "lng": -70.7519,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.2,
+    "cuadrante_capacidad": "Estado Cautivo"
   },
   {
     "comuna": "Macul",
@@ -19677,7 +20394,10 @@
       }
     ],
     "lat": -33.4867,
-    "lng": -70.596
+    "lng": -70.596,
+    "dotacion_ti": 5,
+    "ret_ratio": 0.24,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Panguipulli",
@@ -19759,7 +20479,10 @@
       }
     ],
     "lat": -39.7348,
-    "lng": -72.029
+    "lng": -72.029,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.19,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Quilaco",
@@ -19841,7 +20564,10 @@
       }
     ],
     "lat": -37.973,
-    "lng": -71.7092
+    "lng": -71.7092,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.19,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Palmilla",
@@ -19923,7 +20649,10 @@
       }
     ],
     "lat": -34.5056,
-    "lng": -71.3609
+    "lng": -71.3609,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.19,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Paillaco",
@@ -20005,7 +20734,10 @@
       }
     ],
     "lat": -40.0654,
-    "lng": -72.8864
+    "lng": -72.8864,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.19,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "San Juan de la Costa",
@@ -20087,7 +20819,10 @@
       }
     ],
     "lat": -40.4949,
-    "lng": -73.6334
+    "lng": -73.6334,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.18,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Codegua",
@@ -20169,7 +20904,10 @@
       }
     ],
     "lat": -34.0287,
-    "lng": -70.536
+    "lng": -70.536,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.18,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Quilleco",
@@ -20251,7 +20989,10 @@
       }
     ],
     "lat": -37.4214,
-    "lng": -71.9035
+    "lng": -71.9035,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.14,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Diego de Almagro",
@@ -20333,7 +21074,10 @@
       }
     ],
     "lat": -26.2172,
-    "lng": -69.2378
+    "lng": -69.2378,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.13,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Las Cabras",
@@ -20415,7 +21159,10 @@
       }
     ],
     "lat": -34.1427,
-    "lng": -71.3431
+    "lng": -71.3431,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.11,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Colchane",
@@ -20497,7 +21244,10 @@
       }
     ],
     "lat": -19.3075,
-    "lng": -68.9117
+    "lng": -68.9117,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.11,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Malloa",
@@ -20579,7 +21329,10 @@
       }
     ],
     "lat": -34.4575,
-    "lng": -70.9192
+    "lng": -70.9192,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.08,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Putre",
@@ -20661,7 +21414,10 @@
       }
     ],
     "lat": -18.4499,
-    "lng": -69.2591
+    "lng": -69.2591,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.07,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Alto Biobío",
@@ -20743,7 +21499,10 @@
       }
     ],
     "lat": -37.8669,
-    "lng": -71.3333
+    "lng": -71.3333,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.07,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Quinta de Tilcoco",
@@ -20825,7 +21584,10 @@
       }
     ],
     "lat": -34.353,
-    "lng": -70.9896
+    "lng": -70.9896,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.07,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Chillán Viejo",
@@ -20907,7 +21669,10 @@
       }
     ],
     "lat": -36.68,
-    "lng": -72.2225
+    "lng": -72.2225,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.06,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Peumo",
@@ -20989,7 +21754,10 @@
       }
     ],
     "lat": -34.3323,
-    "lng": -71.2041
+    "lng": -71.2041,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.05,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Conchalí",
@@ -21071,7 +21839,10 @@
       }
     ],
     "lat": -33.3888,
-    "lng": -70.673
+    "lng": -70.673,
+    "dotacion_ti": 5,
+    "ret_ratio": 0.21,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Ollagüe",
@@ -21153,7 +21924,10 @@
       }
     ],
     "lat": -21.4134,
-    "lng": -68.3542
+    "lng": -68.3542,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.04,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Llaillay",
@@ -21235,7 +22009,10 @@
       }
     ],
     "lat": -32.8826,
-    "lng": -70.9082
+    "lng": -70.9082,
+    "dotacion_ti": 1,
+    "ret_ratio": 1.04,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Puerto Octay",
@@ -21317,7 +22094,10 @@
       }
     ],
     "lat": -40.9121,
-    "lng": -72.5487
+    "lng": -72.5487,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.04,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Chaitén",
@@ -21399,7 +22179,10 @@
       }
     ],
     "lat": -43.0807,
-    "lng": -72.8178
+    "lng": -72.8178,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.04,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Maullín",
@@ -21481,7 +22264,10 @@
       }
     ],
     "lat": -41.5854,
-    "lng": -73.5847
+    "lng": -73.5847,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.02,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Huasco",
@@ -21563,7 +22349,10 @@
       }
     ],
     "lat": -28.2826,
-    "lng": -71.0754
+    "lng": -71.0754,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.02,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Puyehue",
@@ -21645,7 +22434,10 @@
       }
     ],
     "lat": -40.6937,
-    "lng": -72.3987
+    "lng": -72.3987,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.02,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Río Negro",
@@ -21727,7 +22519,10 @@
       }
     ],
     "lat": -40.7568,
-    "lng": -73.4921
+    "lng": -73.4921,
+    "dotacion_ti": 0,
+    "ret_ratio": 1.0,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Chonchi",
@@ -21809,7 +22604,10 @@
       }
     ],
     "lat": -42.6843,
-    "lng": -73.931
+    "lng": -73.931,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.99,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Curepto",
@@ -21891,7 +22689,10 @@
       }
     ],
     "lat": -35.1246,
-    "lng": -71.9899
+    "lng": -71.9899,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.98,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "San Rafael",
@@ -21973,7 +22774,10 @@
       }
     ],
     "lat": -35.2707,
-    "lng": -71.4932
+    "lng": -71.4932,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.98,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Quemchi",
@@ -22055,7 +22859,10 @@
       }
     ],
     "lat": -42.2603,
-    "lng": -73.271
+    "lng": -73.271,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.98,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "San Ignacio",
@@ -22137,7 +22944,10 @@
       }
     ],
     "lat": -36.8135,
-    "lng": -72.0202
+    "lng": -72.0202,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.98,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Caldera",
@@ -22219,7 +23029,10 @@
       }
     ],
     "lat": -27.1867,
-    "lng": -70.7841
+    "lng": -70.7841,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.96,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Melipeuco",
@@ -22301,7 +23114,10 @@
       }
     ],
     "lat": -38.84,
-    "lng": -71.5865
+    "lng": -71.5865,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.96,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "San Pedro",
@@ -22383,7 +23199,10 @@
       }
     ],
     "lat": -33.9367,
-    "lng": -71.4419
+    "lng": -71.4419,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.94,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "La Higuera",
@@ -22465,7 +23284,10 @@
       }
     ],
     "lat": -29.333,
-    "lng": -71.3368
+    "lng": -71.3368,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.92,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Río Hurtado",
@@ -22547,7 +23369,10 @@
       }
     ],
     "lat": -30.4225,
-    "lng": -70.6298
+    "lng": -70.6298,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.91,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "La Estrella",
@@ -22629,7 +23454,10 @@
       }
     ],
     "lat": -34.224,
-    "lng": -71.6244
+    "lng": -71.6244,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.9,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Saavedra",
@@ -22711,7 +23539,10 @@
       }
     ],
     "lat": -38.8173,
-    "lng": -73.2941
+    "lng": -73.2941,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.9,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Santa Juana",
@@ -22793,7 +23624,10 @@
       }
     ],
     "lat": -37.2548,
-    "lng": -72.9481
+    "lng": -72.9481,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.86,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Olivar",
@@ -22875,7 +23709,10 @@
       }
     ],
     "lat": -34.2093,
-    "lng": -70.8252
+    "lng": -70.8252,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.86,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Panquehue",
@@ -22957,7 +23794,10 @@
       }
     ],
     "lat": -32.7825,
-    "lng": -70.8223
+    "lng": -70.8223,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.85,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Quirihue",
@@ -23039,7 +23879,10 @@
       }
     ],
     "lat": -36.2312,
-    "lng": -72.5161
+    "lng": -72.5161,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.85,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Portezuelo",
@@ -23121,7 +23964,10 @@
       }
     ],
     "lat": -36.5219,
-    "lng": -72.4645
+    "lng": -72.4645,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.84,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Hijuelas",
@@ -23203,7 +24049,10 @@
       }
     ],
     "lat": -32.8709,
-    "lng": -71.079
+    "lng": -71.079,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.83,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Isla de Pascua",
@@ -23285,7 +24134,10 @@
       }
     ],
     "lat": -27.0943,
-    "lng": -109.2909
+    "lng": -109.2909,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.83,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Corral",
@@ -23367,7 +24219,10 @@
       }
     ],
     "lat": -39.942,
-    "lng": -73.3601
+    "lng": -73.3601,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.82,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Chillán",
@@ -23449,7 +24304,10 @@
       }
     ],
     "lat": -36.6241,
-    "lng": -72.1125
+    "lng": -72.1125,
+    "dotacion_ti": 8,
+    "ret_ratio": 0.1,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Tiltil",
@@ -23531,7 +24389,10 @@
       }
     ],
     "lat": -33.0447,
-    "lng": -70.8701
+    "lng": -70.8701,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.82,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Florida",
@@ -23613,7 +24474,10 @@
       }
     ],
     "lat": -36.8148,
-    "lng": -72.7059
+    "lng": -72.7059,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.8,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Llanquihue",
@@ -23695,7 +24559,10 @@
       }
     ],
     "lat": -41.1905,
-    "lng": -73.1521
+    "lng": -73.1521,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.79,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Hualaihué",
@@ -23777,7 +24644,10 @@
       }
     ],
     "lat": -41.9789,
-    "lng": -72.5674
+    "lng": -72.5674,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.79,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Gorbea",
@@ -23859,7 +24729,10 @@
       }
     ],
     "lat": -39.1923,
-    "lng": -72.6714
+    "lng": -72.6714,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.78,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Putaendo",
@@ -23941,7 +24814,10 @@
       }
     ],
     "lat": -32.5045,
-    "lng": -70.5417
+    "lng": -70.5417,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.78,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Camarones",
@@ -24023,7 +24899,10 @@
       }
     ],
     "lat": -18.9409,
-    "lng": -69.6661
+    "lng": -69.6661,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.75,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "San Rosendo",
@@ -24105,7 +24984,10 @@
       }
     ],
     "lat": -37.2031,
-    "lng": -72.7473
+    "lng": -72.7473,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.75,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Camiña",
@@ -24187,7 +25069,10 @@
       }
     ],
     "lat": -19.3079,
-    "lng": -69.4242
+    "lng": -69.4242,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.74,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Fresia",
@@ -24269,7 +25154,10 @@
       }
     ],
     "lat": -41.1419,
-    "lng": -73.7129
+    "lng": -73.7129,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.74,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Nancagua",
@@ -24351,7 +25239,10 @@
       }
     ],
     "lat": -34.6641,
-    "lng": -71.2031
+    "lng": -71.2031,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.73,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Palena",
@@ -24433,7 +25324,10 @@
       }
     ],
     "lat": -43.6907,
-    "lng": -71.9638
+    "lng": -71.9638,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.73,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Vichuquén",
@@ -24515,7 +25409,10 @@
       }
     ],
     "lat": -34.8423,
-    "lng": -71.9954
+    "lng": -71.9954,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.72,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Ránquil",
@@ -24597,7 +25494,10 @@
       }
     ],
     "lat": -36.6393,
-    "lng": -72.6077
+    "lng": -72.6077,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.72,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Ninhue",
@@ -24679,7 +25579,10 @@
       }
     ],
     "lat": -36.3325,
-    "lng": -72.3913
+    "lng": -72.3913,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.72,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Quellón",
@@ -24761,7 +25664,10 @@
       }
     ],
     "lat": -43.3318,
-    "lng": -74.0633
+    "lng": -74.0633,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.71,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Lolol",
@@ -24843,7 +25749,10 @@
       }
     ],
     "lat": -34.7876,
-    "lng": -71.6507
+    "lng": -71.6507,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.68,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Máfil",
@@ -24925,7 +25834,10 @@
       }
     ],
     "lat": -39.6983,
-    "lng": -72.856
+    "lng": -72.856,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.67,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Petorca",
@@ -25007,7 +25919,10 @@
       }
     ],
     "lat": -32.1792,
-    "lng": -70.8147
+    "lng": -70.8147,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.67,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Pumanque",
@@ -25089,7 +26004,10 @@
       }
     ],
     "lat": -34.5606,
-    "lng": -71.6731
+    "lng": -71.6731,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.67,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Ñiquén",
@@ -25171,7 +26089,10 @@
       }
     ],
     "lat": -36.2658,
-    "lng": -71.9496
+    "lng": -71.9496,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.66,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Curarrehue",
@@ -25253,7 +26174,10 @@
       }
     ],
     "lat": -39.3568,
-    "lng": -71.552
+    "lng": -71.552,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.65,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Santa María",
@@ -25335,7 +26259,10 @@
       }
     ],
     "lat": -32.6756,
-    "lng": -70.5979
+    "lng": -70.5979,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.64,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Cochamó",
@@ -25417,7 +26344,10 @@
       }
     ],
     "lat": -41.7388,
-    "lng": -72.2669
+    "lng": -72.2669,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.63,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Coinco",
@@ -25499,7 +26429,10 @@
       }
     ],
     "lat": -34.2668,
-    "lng": -70.9473
+    "lng": -70.9473,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.63,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Treguaco",
@@ -25581,7 +26514,10 @@
       }
     ],
     "lat": -36.413,
-    "lng": -72.6672
+    "lng": -72.6672,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.62,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Paiguano",
@@ -25663,7 +26599,10 @@
       }
     ],
     "lat": -30.2066,
-    "lng": -70.3787
+    "lng": -70.3787,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.61,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Pirque",
@@ -25745,7 +26684,10 @@
       }
     ],
     "lat": -33.7356,
-    "lng": -70.4906
+    "lng": -70.4906,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.6,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Pica",
@@ -25827,7 +26769,10 @@
       }
     ],
     "lat": -20.3131,
-    "lng": -68.8609
+    "lng": -68.8609,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.59,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Cochrane",
@@ -25909,7 +26854,10 @@
       }
     ],
     "lat": -47.4565,
-    "lng": -72.7272
+    "lng": -72.7272,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.59,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "General Lagos",
@@ -25991,7 +26939,10 @@
       }
     ],
     "lat": -17.9038,
-    "lng": -69.5913
+    "lng": -69.5913,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.57,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Chile Chico",
@@ -26073,7 +27024,10 @@
       }
     ],
     "lat": -46.7976,
-    "lng": -72.7036
+    "lng": -72.7036,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.57,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Futaleufú",
@@ -26155,7 +27109,10 @@
       }
     ],
     "lat": -43.1851,
-    "lng": -72.0347
+    "lng": -72.0347,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.56,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "San Pablo",
@@ -26237,7 +27194,10 @@
       }
     ],
     "lat": -40.4304,
-    "lng": -73.1887
+    "lng": -73.1887,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.53,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Río Verde",
@@ -26319,7 +27279,10 @@
       }
     ],
     "lat": -52.9148,
-    "lng": -72.7449
+    "lng": -72.7449,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.52,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Empedrado",
@@ -26401,7 +27364,10 @@
       }
     ],
     "lat": -35.6152,
-    "lng": -72.2466
+    "lng": -72.2466,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.52,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Freirina",
@@ -26483,7 +27449,10 @@
       }
     ],
     "lat": -28.7499,
-    "lng": -71.1941
+    "lng": -71.1941,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.52,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Andacollo",
@@ -26565,7 +27534,10 @@
       }
     ],
     "lat": -30.2608,
-    "lng": -71.0806
+    "lng": -71.0806,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.51,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Natales",
@@ -26647,7 +27619,10 @@
       }
     ],
     "lat": -50.9484,
-    "lng": -74.5867
+    "lng": -74.5867,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.49,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Porvenir",
@@ -26729,7 +27704,10 @@
       }
     ],
     "lat": -53.2782,
-    "lng": -69.7157
+    "lng": -69.7157,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.48,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Río Ibáñez",
@@ -26811,7 +27789,10 @@
       }
     ],
     "lat": -46.258,
-    "lng": -72.4901
+    "lng": -72.4901,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.46,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Cobquecura",
@@ -26893,7 +27874,10 @@
       }
     ],
     "lat": -36.1632,
-    "lng": -72.7194
+    "lng": -72.7194,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.43,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "San José de Maipo",
@@ -26975,7 +27959,10 @@
       }
     ],
     "lat": -33.7044,
-    "lng": -70.0788
+    "lng": -70.0788,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.43,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "San Fabián",
@@ -27057,7 +28044,10 @@
       }
     ],
     "lat": -36.5982,
-    "lng": -71.2645
+    "lng": -71.2645,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.43,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Quinchao",
@@ -27139,7 +28129,10 @@
       }
     ],
     "lat": -42.4989,
-    "lng": -73.3406
+    "lng": -73.3406,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.42,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Guaitecas",
@@ -27221,7 +28214,10 @@
       }
     ],
     "lat": -43.9505,
-    "lng": -73.8124
+    "lng": -73.8124,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.4,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "San Gregorio",
@@ -27303,7 +28299,10 @@
       }
     ],
     "lat": -52.466,
-    "lng": -69.8537
+    "lng": -69.8537,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.38,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Tortel",
@@ -27385,7 +28384,10 @@
       }
     ],
     "lat": -47.9813,
-    "lng": -74.8935
+    "lng": -74.8935,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.37,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Puqueldón",
@@ -27467,7 +28469,10 @@
       }
     ],
     "lat": -42.6331,
-    "lng": -73.6274
+    "lng": -73.6274,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.37,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Pemuco",
@@ -27549,7 +28554,10 @@
       }
     ],
     "lat": -36.9628,
-    "lng": -72.0409
+    "lng": -72.0409,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.37,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "O'Higgins",
@@ -27631,7 +28639,10 @@
       }
     ],
     "lat": -48.2034,
-    "lng": -72.8041
+    "lng": -72.8041,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.36,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Juan Fernández",
@@ -27713,7 +28724,10 @@
       }
     ],
     "lat": -33.5119,
-    "lng": -78.9134
+    "lng": -78.9134,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.35,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Bulnes",
@@ -27795,7 +28809,10 @@
       }
     ],
     "lat": -36.7694,
-    "lng": -72.294
+    "lng": -72.294,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.34,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Alto del Carmen",
@@ -27877,7 +28894,10 @@
       }
     ],
     "lat": -28.9559,
-    "lng": -70.1422
+    "lng": -70.1422,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.33,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Timaukel",
@@ -27959,7 +28979,10 @@
       }
     ],
     "lat": -54.3692,
-    "lng": -69.8711
+    "lng": -69.8711,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.32,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Pinto",
@@ -28041,7 +29064,10 @@
       }
     ],
     "lat": -36.9049,
-    "lng": -71.5531
+    "lng": -71.5531,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.32,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Cisnes",
@@ -28123,7 +29149,10 @@
       }
     ],
     "lat": -44.4623,
-    "lng": -73.7
+    "lng": -73.7,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.3,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Torres del Paine",
@@ -28205,7 +29234,10 @@
       }
     ],
     "lat": -51.0249,
-    "lng": -72.7221
+    "lng": -72.7221,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.29,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "San Carlos",
@@ -28287,7 +29319,10 @@
       }
     ],
     "lat": -36.3907,
-    "lng": -72.0245
+    "lng": -72.0245,
+    "dotacion_ti": 2,
+    "ret_ratio": 0.14,
+    "cuadrante_capacidad": "Estado Artesanal"
   },
   {
     "comuna": "Alhué",
@@ -28369,7 +29404,10 @@
       }
     ],
     "lat": -34.0179,
-    "lng": -71.0027
+    "lng": -71.0027,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.28,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Queilén",
@@ -28451,7 +29489,10 @@
       }
     ],
     "lat": -42.8779,
-    "lng": -73.5603
+    "lng": -73.5603,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.28,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Ñiquén",
@@ -28533,7 +29574,10 @@
       }
     ],
     "lat": -36.2658,
-    "lng": -71.9496
+    "lng": -71.9496,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.21,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Lago Verde",
@@ -28615,7 +29659,10 @@
       }
     ],
     "lat": -44.4736,
-    "lng": -71.8385
+    "lng": -71.8385,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.2,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Coelemu",
@@ -28697,7 +29744,10 @@
       }
     ],
     "lat": -36.5001,
-    "lng": -72.7756
+    "lng": -72.7756,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.18,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Laguna Blanca",
@@ -28779,7 +29829,10 @@
       }
     ],
     "lat": -52.5279,
-    "lng": -71.1999
+    "lng": -71.1999,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.17,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Quirihue",
@@ -28861,7 +29914,10 @@
       }
     ],
     "lat": -36.2312,
-    "lng": -72.5161
+    "lng": -72.5161,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.16,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Quillón",
@@ -28943,7 +29999,10 @@
       }
     ],
     "lat": -36.8335,
-    "lng": -72.5069
+    "lng": -72.5069,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.14,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Portezuelo",
@@ -29025,7 +30084,10 @@
       }
     ],
     "lat": -36.5219,
-    "lng": -72.4645
+    "lng": -72.4645,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.13,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "San Ignacio",
@@ -29107,7 +30169,10 @@
       }
     ],
     "lat": -36.8135,
-    "lng": -72.0202
+    "lng": -72.0202,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.12,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Primavera",
@@ -29189,7 +30254,10 @@
       }
     ],
     "lat": -52.8146,
-    "lng": -69.7168
+    "lng": -69.7168,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.12,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "San Bernardo",
@@ -29271,7 +30339,10 @@
       }
     ],
     "lat": -33.6227,
-    "lng": -70.7265
+    "lng": -70.7265,
+    "dotacion_ti": 19,
+    "ret_ratio": 0.01,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Yungay",
@@ -29353,7 +30424,10 @@
       }
     ],
     "lat": -37.1165,
-    "lng": -71.9661
+    "lng": -71.9661,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.11,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Chillán Viejo",
@@ -29435,7 +30509,10 @@
       }
     ],
     "lat": -36.68,
-    "lng": -72.2225
+    "lng": -72.2225,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.11,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Ránquil",
@@ -29517,7 +30594,10 @@
       }
     ],
     "lat": -36.6393,
-    "lng": -72.6077
+    "lng": -72.6077,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.11,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Ninhue",
@@ -29599,7 +30679,10 @@
       }
     ],
     "lat": -36.3325,
-    "lng": -72.3913
+    "lng": -72.3913,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.1,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Coihueco",
@@ -29681,7 +30764,10 @@
       }
     ],
     "lat": -36.7242,
-    "lng": -71.5735
+    "lng": -71.5735,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.09,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "San Nicolás",
@@ -29763,7 +30849,10 @@
       }
     ],
     "lat": -36.4735,
-    "lng": -72.2038
+    "lng": -72.2038,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.09,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "San Fabián",
@@ -29845,7 +30934,10 @@
       }
     ],
     "lat": -36.5982,
-    "lng": -71.2645
+    "lng": -71.2645,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.05,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "El Carmen",
@@ -29927,7 +31019,10 @@
       }
     ],
     "lat": -36.9165,
-    "lng": -71.865
+    "lng": -71.865,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.05,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Cobquecura",
@@ -30009,7 +31104,10 @@
       }
     ],
     "lat": -36.1632,
-    "lng": -72.7194
+    "lng": -72.7194,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.04,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Santiago Centro",
@@ -30091,7 +31189,10 @@
       }
     ],
     "lat": null,
-    "lng": null
+    "lng": null,
+    "dotacion_ti": 30,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Treguaco",
@@ -30173,7 +31274,10 @@
       }
     ],
     "lat": -36.413,
-    "lng": -72.6672
+    "lng": -72.6672,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.02,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Molina",
@@ -30255,7 +31359,10 @@
       }
     ],
     "lat": -35.3488,
-    "lng": -70.9377
+    "lng": -70.9377,
+    "dotacion_ti": 2,
+    "ret_ratio": 0.01,
+    "cuadrante_capacidad": "Estado Artesanal"
   },
   {
     "comuna": "Renca",
@@ -30337,7 +31444,10 @@
       }
     ],
     "lat": -33.3976,
-    "lng": -70.7204
+    "lng": -70.7204,
+    "dotacion_ti": 6,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Melipilla",
@@ -30419,7 +31529,10 @@
       }
     ],
     "lat": -33.7448,
-    "lng": -71.1911
+    "lng": -71.1911,
+    "dotacion_ti": 5,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Chépica",
@@ -30501,7 +31614,10 @@
       }
     ],
     "lat": -34.7927,
-    "lng": -71.3342
+    "lng": -71.3342,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Curarrehue",
@@ -30583,7 +31699,10 @@
       }
     ],
     "lat": -39.3568,
-    "lng": -71.552
+    "lng": -71.552,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Talca",
@@ -30665,7 +31784,10 @@
       }
     ],
     "lat": -35.4012,
-    "lng": -71.6041
+    "lng": -71.6041,
+    "dotacion_ti": 9,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Pucón",
@@ -30747,7 +31869,10 @@
       }
     ],
     "lat": -39.2461,
-    "lng": -71.7499
+    "lng": -71.7499,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Conchalí",
@@ -30829,7 +31954,10 @@
       }
     ],
     "lat": -33.3888,
-    "lng": -70.673
+    "lng": -70.673,
+    "dotacion_ti": 5,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Corral",
@@ -30911,7 +32039,10 @@
       }
     ],
     "lat": -39.942,
-    "lng": -73.3601
+    "lng": -73.3601,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Coronel",
@@ -30993,7 +32124,10 @@
       }
     ],
     "lat": -37.0163,
-    "lng": -73.2318
+    "lng": -73.2318,
+    "dotacion_ti": 5,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "La Cisterna",
@@ -31075,7 +32209,10 @@
       }
     ],
     "lat": -33.5324,
-    "lng": -70.6614
+    "lng": -70.6614,
+    "dotacion_ti": 5,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Pelarco",
@@ -31157,7 +32294,10 @@
       }
     ],
     "lat": -35.3812,
-    "lng": -71.3427
+    "lng": -71.3427,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Pitrufquén",
@@ -31239,7 +32379,10 @@
       }
     ],
     "lat": -39.0813,
-    "lng": -72.6464
+    "lng": -72.6464,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Quillón",
@@ -31321,7 +32464,10 @@
       }
     ],
     "lat": -36.8335,
-    "lng": -72.5069
+    "lng": -72.5069,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Los Muermos",
@@ -31403,7 +32549,10 @@
       }
     ],
     "lat": -41.4009,
-    "lng": -73.7575
+    "lng": -73.7575,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Longaví",
@@ -31485,7 +32634,10 @@
       }
     ],
     "lat": -36.0675,
-    "lng": -71.4542
+    "lng": -71.4542,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Arauco",
@@ -31567,7 +32719,10 @@
       }
     ],
     "lat": -37.2944,
-    "lng": -73.4084
+    "lng": -73.4084,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Penco",
@@ -31649,7 +32804,10 @@
       }
     ],
     "lat": -36.7387,
-    "lng": -72.9289
+    "lng": -72.9289,
+    "dotacion_ti": 2,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Artesanal"
   },
   {
     "comuna": "Mostazal",
@@ -31731,7 +32889,10 @@
       }
     ],
     "lat": -33.9567,
-    "lng": -70.5739
+    "lng": -70.5739,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Graneros",
@@ -31813,7 +32974,10 @@
       }
     ],
     "lat": -34.0556,
-    "lng": -70.7519
+    "lng": -70.7519,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "La Unión",
@@ -31895,7 +33059,10 @@
       }
     ],
     "lat": -40.185,
-    "lng": -73.2701
+    "lng": -73.2701,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Bulnes",
@@ -31977,7 +33144,10 @@
       }
     ],
     "lat": -36.7694,
-    "lng": -72.294
+    "lng": -72.294,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Illapel",
@@ -32059,7 +33229,10 @@
       }
     ],
     "lat": -31.4947,
-    "lng": -70.9504
+    "lng": -70.9504,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Porvenir",
@@ -32141,7 +33314,10 @@
       }
     ],
     "lat": -53.2782,
-    "lng": -69.7157
+    "lng": -69.7157,
+    "dotacion_ti": 0,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Cunco",
@@ -32223,7 +33399,10 @@
       }
     ],
     "lat": -38.9669,
-    "lng": -71.9317
+    "lng": -71.9317,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Desconectado"
   },
   {
     "comuna": "Ovalle",
@@ -32305,7 +33484,10 @@
       }
     ],
     "lat": -30.6926,
-    "lng": -71.3362
+    "lng": -71.3362,
+    "dotacion_ti": 5,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Soberano"
   },
   {
     "comuna": "Cañete",
@@ -32387,6 +33569,9 @@
       }
     ],
     "lat": -37.8419,
-    "lng": -73.2617
+    "lng": -73.2617,
+    "dotacion_ti": 1,
+    "ret_ratio": 0.0,
+    "cuadrante_capacidad": "Estado Desconectado"
   }
 ]

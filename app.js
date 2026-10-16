@@ -1,7 +1,7 @@
 /**
  * app.js
  * ======
- * Controlador interactivo para la Observatorio de Compras TI Municipal en Chile (2014-2026).
+ * Controlador interactivo para la Radiografía 4D de Compras TI Municipal en Chile (2014-2026).
  * Diseñado bajo el sistema visual evegat.cl.
  * Autor: Eduardo Vega Toledo
  */
@@ -418,7 +418,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div style="font-size:12px; margin-bottom:2px;">Gasto Total: <strong>$${formatCLP(c.monto_total)}</strong></div>
             <div style="font-size:12px; margin-bottom:2px;">Gasto Per Cápita: <strong>$${formatCLP(c.gasto_pc)} / hab</strong></div>
             <div style="font-size:12px; margin-bottom:6px;">Madurez TI: <strong>${c.score_madurez}/100</strong> (${c.nivel_madurez})</div>
-            <div style="font-size:11px; color:var(--gold); font-weight:600;">Haz click para abrir Ficha Comunal ↗</div>
+            <div style="font-size:11px; color:var(--gold); font-weight:600;">Haz click para abrir Radiografía 4D ↗</div>
           </div>
         `;
 
@@ -486,7 +486,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // -------------------------------------------------------------------------
-  // 4. RADIOGRAFÍA COMUNAL: FICHA DETALLADA (DRAWER)
+  // 4. RADIOGRAFÍA 4D: FICHA DETALLADA (DRAWER)
   // -------------------------------------------------------------------------
   function renderGaugeSvg(score) {
     const clamped = Math.max(0, Math.min(100, score || 0));
@@ -583,6 +583,9 @@ document.addEventListener("DOMContentLoaded", () => {
       <!-- Diagnostic Badges -->
       <div class="drawer-section-title">Banderas de Diagnóstico Institucional</div>
       <div class="diagnostic-badges">
+        ${comuna.cuadrante_capacidad
+          ? `<span class="diag-badge ${comuna.cuadrante_capacidad === 'Estado Soberano' ? 'good' : (comuna.cuadrante_capacidad === 'Estado Cautivo' ? 'danger' : 'warning')}">🏛️ ${comuna.cuadrante_capacidad}</span>`
+          : ''}
         ${comuna.tiene_lockin_legado
           ? `<span class="diag-badge danger">⚠️ Captura CAS-Chile / Lock-in</span>`
           : `<span class="diag-badge good">✓ Libre de Monopolio Legado</span>`}
@@ -592,6 +595,21 @@ document.addEventListener("DOMContentLoaded", () => {
         ${comuna.tiene_infra_propia
           ? `<span class="diag-badge good">🖥️ Infraestructura TI Propia</span>`
           : `<span class="diag-badge warning">⚡ Dependencia de Terceros</span>`}
+      </div>
+
+      <!-- Tecnoestructura y RRHH Propio -->
+      <div class="drawer-section-title">Tecnoestructura & Músculo Propio (MuniData RRHH)</div>
+      <div class="financial-strip">
+        <div class="f-card">
+          <div class="f-card-label">Dotación TI Interna</div>
+          <div class="f-card-val">${comuna.dotacion_ti || 0} profesionales</div>
+          <div style="font-size:10px; color:var(--muted); margin-top:2px;">Planta y contrata de informática</div>
+        </div>
+        <div class="f-card">
+          <div class="f-card-label">Ratio Externalización (RET)</div>
+          <div class="f-card-val">${comuna.ret_ratio !== undefined ? comuna.ret_ratio : "—"}</div>
+          <div style="font-size:10px; color:var(--muted); margin-top:2px;">Gasto compras vs masa TI propia</div>
+        </div>
       </div>
 
       <!-- Category Breakdown -->
