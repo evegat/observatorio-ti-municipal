@@ -1336,12 +1336,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const stage = document.getElementById("rrhh-stage");
     if (!kpisGrid || !stage) return;
 
-    // Métricas nacionales calculadas
-    const totalDotacion = 146249;
-    const totalTI = 1349;
+    // Métricas nacionales calculadas dinámicamente desde el catastro
+    const totalDotacion = state.comunas.reduce((acc, c) => acc + (c.dotacion_total || 0), 0) || 151342;
+    const totalTI = state.comunas.reduce((acc, c) => acc + (c.dotacion_ti || 0), 0) || 3647;
     const pctTI = ((totalTI / totalDotacion) * 100).toFixed(2);
-    const avgHonorarios = 42.8;
-    const avgRET = 2.42;
+    const comunasConHon = state.comunas.filter(c => c.pct_honorarios !== undefined && c.pct_honorarios > 0);
+    const avgHonorarios = comunasConHon.length > 0 
+      ? (comunasConHon.reduce((acc, c) => acc + c.pct_honorarios, 0) / comunasConHon.length).toFixed(1)
+      : 42.8;
+    const comunasConRET = state.comunas.filter(c => c.ret_ratio !== undefined && c.ret_ratio > 0);
+    const avgRET = comunasConRET.length > 0
+      ? (comunasConRET.reduce((acc, c) => acc + c.ret_ratio, 0) / comunasConRET.length).toFixed(2)
+      : 2.42;
 
     kpisGrid.innerHTML = `
       <div class="rrhh-kpi-card">
