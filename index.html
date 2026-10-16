@@ -41,7 +41,7 @@
   <script defer src="https://analytics.evegat.cl/script.js" data-website-id="2a1eef02-ef37-4642-81c9-4e17d5721155"></script>
 </head>
 <body>
-
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
   <!-- ================= BARRA SUPERIOR DE ACCESIBILIDAD Y ECOSISTEMA EVEGAT.CL ================= -->
   <div class="a11y-topbar" role="region" aria-label="Barra de accesibilidad y ecosistema evegat.cl">
     <div class="a11y-container">
@@ -107,7 +107,7 @@
   </header>
 
   <!-- ================= HERO ================= -->
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
     <section class="hero">
       <div class="hero-top-row">
         <div class="eyebrow">OBSERVATORIO DE CAPACIDADES TECNOLÓGICAS MUNICIPALES · DIAGNÓSTICO INTEGRAL 2014–2026</div>
@@ -123,7 +123,7 @@
 
       <!-- HERO QUICK ACTIONS (LOOK & FEEL EVEGAT.CL) -->
       <div class="hero-actions-bar">
-        <button type="button" id="btn-hero-como-usar" class="btn-hero-primary">
+        <button type="button" id="btn-hero-como-usar" class="btn-hero-primary" aria-label="Abrir guía interactiva de uso del observatorio">
           🧭 ¿Cómo usar esta plataforma?
         </button>
         <a href="#radiografia" class="btn-hero-secondary">
@@ -133,10 +133,10 @@
           🏛️ Explorar RRHH Municipal y Matriz RET
         </a>
         <div class="hero-share-group">
-          <button type="button" id="btn-share-wa" class="btn-hero-share" title="Compartir Observatorio por WhatsApp">
+          <button type="button" id="btn-share-wa" class="btn-hero-share" title="Compartir Observatorio por WhatsApp" aria-label="Compartir en WhatsApp">
             📲 WhatsApp
           </button>
-          <button type="button" id="btn-share-li" class="btn-hero-share" title="Compartir en LinkedIn">
+          <button type="button" id="btn-share-li" class="btn-hero-share" title="Compartir en LinkedIn" aria-label="Compartir en LinkedIn">
             💼 LinkedIn
           </button>
         </div>
@@ -224,11 +224,11 @@
           <p class="section-desc">Selecciona cada capítulo para explorar los patrones estructurales de la inversión tecnológica, la dotación humana y las tensiones institucionales en los municipios de Chile.</p>
         </div>
 
-        <div class="story-tabs" id="story-tabs">
-          <button class="story-tab-btn active" data-chapter="1">1. Fierro vs. Espejismo de la IA</button>
-          <button class="story-tab-btn" data-chapter="2">2. El Choque de 2021</button>
-          <button class="story-tab-btn" data-chapter="3">3. Concentración de Mercado ERP y Proveedores</button>
-          <button class="story-tab-btn" data-chapter="4">4. La Fractura Territorial Per Cápita</button>
+        <div class="story-tabs" id="story-tabs" role="tablist" aria-label="Capítulos de la investigación">
+          <button class="story-tab-btn active" data-chapter="1" role="tab" aria-selected="true" aria-label="Capítulo 1: Fierro vs Espejismo de la IA">1. Fierro vs. Espejismo de la IA</button>
+          <button class="story-tab-btn" data-chapter="2" role="tab" aria-selected="false" aria-label="Capítulo 2: El Choque de 2021">2. El Choque de 2021</button>
+          <button class="story-tab-btn" data-chapter="3" role="tab" aria-selected="false" aria-label="Capítulo 3: Concentración de Mercado ERP y Proveedores">3. Concentración de Mercado ERP y Proveedores</button>
+          <button class="story-tab-btn" data-chapter="4" role="tab" aria-selected="false" aria-label="Capítulo 4: La Fractura Territorial Per Cápita">4. La Fractura Territorial Per Cápita</button>
         </div>
 
         <div class="story-stage" id="story-stage">
@@ -400,18 +400,18 @@
             <table class="data-table" id="ranking-table">
               <thead>
                 <tr>
-                  <th data-sort="rank">#</th>
-                  <th data-sort="comuna">Comuna</th>
-                  <th data-sort="region">Región</th>
-                  <th data-sort="poblacion">Población INE</th>
-                  <th data-sort="monto_total">Gasto TI Total</th>
-                  <th data-sort="gasto_pc">Gasto / Hab.</th>
-                  <th data-sort="score_madurez">Madurez TI</th>
-                  <th data-sort="dotacion_total">Dotación RRHH</th>
-                  <th data-sort="pct_honorarios">% Honorarios</th>
-                  <th data-sort="dotacion_ti">Staff TI</th>
-                  <th data-sort="ret_ratio">Ratio RET</th>
-                  <th data-sort="cuadrante_capacidad">Capacidad Estatal</th>
+                  <th data-sort="rank" tabindex="0" role="button" aria-sort="none">#</th>
+                  <th data-sort="comuna" tabindex="0" role="button" aria-sort="none">Comuna</th>
+                  <th data-sort="region" tabindex="0" role="button" aria-sort="none">Región</th>
+                  <th data-sort="poblacion" tabindex="0" role="button" aria-sort="none">Población INE</th>
+                  <th data-sort="monto_total" tabindex="0" role="button" aria-sort="none">Gasto TI Total</th>
+                  <th data-sort="gasto_pc" tabindex="0" role="button" aria-sort="none">Gasto / Hab.</th>
+                  <th data-sort="score_madurez" tabindex="0" role="button" aria-sort="none">Madurez TI</th>
+                  <th data-sort="dotacion_total" tabindex="0" role="button" aria-sort="none">Dotación RRHH</th>
+                  <th data-sort="pct_honorarios" tabindex="0" role="button" aria-sort="none">% Honorarios</th>
+                  <th data-sort="dotacion_ti" tabindex="0" role="button" aria-sort="none">Staff TI</th>
+                  <th data-sort="ret_ratio" tabindex="0" role="button" aria-sort="none">Ratio RET</th>
+                  <th data-sort="cuadrante_capacidad" tabindex="0" role="button" aria-sort="none">Capacidad Estatal</th>
                   <th>Dependencia ERP</th>
                 </tr>
               </thead>
@@ -483,10 +483,10 @@
             En estricto cumplimiento de la <strong>Ley N° 21.719 sobre Protección de Datos Personales</strong>, el motor P166 aplica seudonimización criptográfica irreversible (<code>HMAC-SHA256</code>) en tránsito y regla de celda mínima (<code>k-anonimato n &ge; 3</code>), sin almacenar ni exponer nombres ni RUN de funcionarios en la capa pública.
           </p>
           <div style="margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap;">
-            <button type="button" id="btn-open-legal-band" class="btn-academic-action">
+            <button type="button" id="btn-open-legal-academic" class="btn-academic-action" aria-label="Ver nota metodológica y aviso legal completo">
               ⚖️ Ver Nota Metodológica y Aviso Legal Completo
             </button>
-            <button type="button" id="btn-open-guia-band" class="btn-academic-action secondary">
+            <button type="button" id="btn-open-guia-band" class="btn-academic-action secondary" aria-label="Abrir guía de uso del observatorio">
               🧭 Abrir Guía de Uso del Observatorio
             </button>
           </div>
@@ -548,7 +548,7 @@
           <button type="button" class="btn-footer-download btn-intercept-download" data-file="national_kpis.json" data-label="KPIs Nacionales y Series Temporales (JSON)">📦 national_kpis.json ↓</button>
         </div>
         <div style="margin-top: 12px;">
-          <button type="button" id="btn-open-legal-footer" class="footer-legal-trigger">
+          <button type="button" id="btn-open-legal-footer" class="footer-legal-trigger" aria-label="Ver aviso legal, términos de privacidad y licencia CC BY 4.0">
             ⚖️ Aviso Legal, Privacidad (Ley 21.719) y Licencia CC BY 4.0
           </button>
         </div>
