@@ -1,87 +1,214 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Observatorio de Compras TI y Tecnologías Municipales en Chile (2014–2026)</title>
-  <meta name="description" content="Investigación empírica sobre $300 mil millones en compras tecnológicas públicas en los 346 gobiernos locales de Chile. Visualizador territorial interactivo, termómetro de madurez y análisis antimonopolio.">
+  <title>Observatorio de Compras TI, RRHH y Capacidad Estatal en Municipios de Chile (2014–2026) | evegat.cl</title>
+  <meta name="description" content="Investigación empírica sobre $300 mil millones en compras tecnológicas públicas, dotación de RRHH municipal (MuniData P166) y capacidad estatal en los 346 gobiernos locales de Chile.">
 
   <!-- Open Graph / WhatsApp / LinkedIn / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://observatoriotimunicipal.evegat.cl/">
-  <meta property="og:title" content="Radiografía de las Compras Tecnológicas en Municipios de Chile">
-  <meta property="og:description" content="¿Cuánto invierte tu municipio en tecnología, software y ciberseguridad? Análisis interactivo de $300.000 millones y 148.652 contratos en 346 comunas.">
+  <meta property="og:title" content="Observatorio TI y RRHH Municipal en Chile · evegat.cl">
+  <meta property="og:description" content="¿Cuánto invierte tu municipio en tecnología y cuál es su capacidad humana real? Cruce de $300.125 MM en compras TI y dotación funcionaria en 346 comunas.">
   <meta property="og:image" content="https://observatoriotimunicipal.evegat.cl/assets/og-preview.png">
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://observatoriotimunicipal.evegat.cl/">
-  <meta name="twitter:title" content="Observatorio TI Municipal: Compras Tecnológicas en Chile">
-  <meta name="twitter:description" content="¿Cuánto invierte tu municipio en tecnología, software y ciberseguridad? Análisis interactivo de $300B y 148k contratos en 346 comunas.">
+  <meta name="twitter:title" content="Observatorio TI y RRHH Municipal: Gobiernos Locales de Chile">
+  <meta name="twitter:description" content="Análisis interactivo de $300B en compras TI, dotación informática, precarización a honorarios y capacidad estatal en 346 comunas.">
   <meta name="twitter:image" content="https://observatoriotimunicipal.evegat.cl/assets/og-preview.png">
 
   <link rel="stylesheet" href="assets/leaflet/leaflet.css">
   <link rel="stylesheet" href="style.css">
+
+  <!-- Inicialización temprana de Tema y Escala Tipográfica (Look & Feel evegat.cl) -->
+  <script>
+    (function() {
+      try {
+        var savedTheme = localStorage.getItem('evegat_theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = savedTheme ? savedTheme : (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+        var savedFont = localStorage.getItem('evegat_fontsize');
+        if (savedFont) document.documentElement.style.fontSize = savedFont + 'px';
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Telemetría Privada Umami (evegat.cl) -->
+  <script defer src="https://analytics.evegat.cl/script.js" data-website-id="2a1eef02-ef37-4642-81c9-4e17d5721155"></script>
 </head>
 <body>
 
-  <!-- ================= TOPBAR ================= -->
+  <!-- ================= BARRA SUPERIOR DE ACCESIBILIDAD Y ECOSISTEMA EVEGAT.CL ================= -->
+  <div class="a11y-topbar" role="region" aria-label="Barra de accesibilidad y ecosistema evegat.cl">
+    <div class="a11y-container">
+      <div class="a11y-ecosystem">
+        <a href="https://evegat.cl" target="_blank" rel="noopener" class="a11y-eco-home" title="Volver al portal principal evegat.cl">
+          ← <strong>evegat.cl</strong> · Inteligencia Pública
+        </a>
+        <span class="a11y-divider">|</span>
+        <a href="https://ordenanzas.evegat.cl" target="_blank" rel="noopener" class="a11y-eco-link">📜 Catastro Ordenanzas BCN</a>
+        <a href="https://brujulaiaedusuperior.evegat.cl" target="_blank" rel="noopener" class="a11y-eco-link">🧭 Brújula IA EduSuperior</a>
+      </div>
+
+      <div class="a11y-controls">
+        <span class="a11y-label">Accesibilidad:</span>
+
+        <button id="btn-tts" type="button" class="a11y-btn" title="Escuchar resumen ejecutivo del Observatorio o de la comuna seleccionada" aria-label="Escuchar resumen en voz alta">
+          <span id="tts-icon">🔊</span> <span id="tts-text" class="a11y-hide-sm">Escuchar</span>
+        </button>
+
+        <span class="a11y-divider" aria-hidden="true">|</span>
+
+        <div class="a11y-group" role="group" aria-label="Tamaño de fuente">
+          <button id="btn-font-dec" type="button" class="a11y-btn" title="Disminuir tamaño de letra" aria-label="Disminuir tamaño de letra">A-</button>
+          <button id="btn-font-reset" type="button" class="a11y-btn" title="Tamaño de letra original" aria-label="Restablecer tamaño de letra">A</button>
+          <button id="btn-font-inc" type="button" class="a11y-btn" title="Aumentar tamaño de letra" aria-label="Aumentar tamaño de letra">A+</button>
+        </div>
+
+        <span class="a11y-divider" aria-hidden="true">|</span>
+
+        <div class="a11y-group" role="group" aria-label="Modo de visualización y contraste">
+          <button type="button" data-theme-btn="light" class="a11y-btn" title="Modo Claro Editorial">☀️ <span class="a11y-hide-md">Claro</span></button>
+          <button type="button" data-theme-btn="dark" class="a11y-btn" title="Modo Oscuro">🌙 <span class="a11y-hide-md">Oscuro</span></button>
+          <button type="button" data-theme-btn="contrast" class="a11y-btn" title="Modo Alto Contraste Accesible">♿ <span class="a11y-hide-md">Accesible</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= TOPBAR PRINCIPAL ================= -->
   <header class="topbar">
     <a href="#" class="brand">
       <span class="brand-mark">e.</span>
       <div>
-        <span class="brand-title">evegat.cl <span style="font-weight:400; opacity:0.6;">· Observatorio</span></span>
-        <span class="brand-sub">Investigación Independiente y Datos Abiertos</span>
+        <span class="brand-title">evegat.cl <span style="font-weight:400; opacity:0.65;">· Observatorio TI &amp; RRHH Municipal</span></span>
+        <span class="brand-sub">Investigación Empírica, Tecnoestructura y Datos Abiertos (PUB021 × P166)</span>
       </div>
     </a>
-    <nav class="nav-links">
-      <a href="#scrollytelling">Historia en 4 Actos</a>
-      <a href="#radiografia">Mapa y Radiografía Comunal</a>
+    <nav class="nav-links" aria-label="Navegación principal">
+      <button type="button" id="btn-open-guia" class="btn-nav-guide" title="Abrir guía interactiva de uso del aplicativo">
+        🧭 Cómo usar
+      </button>
+      <a href="#scrollytelling">4 Hallazgos</a>
+      <a href="#radiografia">Mapa 4D</a>
+      <a href="#rrhh">RRHH y Capacidad Estatal</a>
       <a href="#ranking">Ranking 346 Comunas</a>
-      <a href="#metodologia">Metodología</a>
+      <button type="button" id="btn-open-legal-top" class="btn-nav-link" title="Ver metodología, fuentes y cumplimiento Ley 21.719">
+        ⚖️ Metodología y Ley 21.719
+      </button>
       <a href="data/comunas_enriched.json" download class="btn-pill">Descargar Datos ↓</a>
     </nav>
   </header>
 
   <!-- ================= HERO ================= -->
-  <main>
+  <main id="main-content">
     <section class="hero">
-      <div class="eyebrow">OBSERVATORIO DE COMPRAS PÚBLICAS Y GESTIÓN LOCAL · EVIDENCIA 2014–2026</div>
-      <h1 class="hero-title">Radiografía de las Compras Tecnológicas en los Municipios de Chile</h1>
+      <div class="hero-top-row">
+        <div class="eyebrow">OBSERVATORIO DE COMPRAS PÚBLICAS, DOTACIÓN Y CAPACIDAD ESTATAL · EVIDENCIA 2014–2026</div>
+        <div class="hero-status-pill">
+          <span class="status-dot"></span> 346 Municipios · 153.770 OCs · Cruce MuniData RRHH (P166)
+        </div>
+      </div>
+
+      <h1 class="hero-title">Radiografía de las Compras Tecnológicas y la Tecnoestructura en los Municipios de Chile</h1>
       <p class="hero-lead">
-        ¿Hacia dónde se fueron realmente los recursos de la transformación digital municipal? Analizamos <strong>$300.125 millones de pesos</strong> (~US$ 326M) transados en <strong>148.652 órdenes de compra</strong> para develar el peso real del fierro físico, el espejismo de la Inteligencia Artificial, la captura monopólica de los ERPs legados y la abismal brecha de gasto per cápita territorial.
+        ¿Hacia dónde se fueron realmente los recursos de la transformación digital municipal y quién sostiene operativamente a los gobiernos locales? Cruzamos <strong>$312.571 millones de pesos</strong> (~US$ 338M) transados en <strong>153.770 órdenes de compra</strong> en Mercado Público con la radiografía nacional de <strong>Recursos Humanos Municipales (Planta, Contrata y Honorarios)</strong> para develar el peso del fierro físico, la captura monopólica de los ERPs legados, la precarización informática y la fractura territorial de capacidades estatales.
       </p>
+
+      <!-- HERO QUICK ACTIONS (LOOK & FEEL EVEGAT.CL) -->
+      <div class="hero-actions-bar">
+        <button type="button" id="btn-hero-como-usar" class="btn-hero-primary">
+          🧭 Cómo usar este aplicativo
+        </button>
+        <a href="#radiografia" class="btn-hero-secondary">
+          🗺️ Auditar mi Comuna en el Mapa 4D
+        </a>
+        <a href="#rrhh" class="btn-hero-secondary">
+          🏛️ Explorar RRHH Municipal y Matriz RET
+        </a>
+        <div class="hero-share-group">
+          <button type="button" id="btn-share-wa" class="btn-hero-share" title="Compartir Observatorio por WhatsApp">
+            📲 WhatsApp
+          </button>
+          <button type="button" id="btn-share-li" class="btn-hero-share" title="Compartir en LinkedIn">
+            💼 LinkedIn
+          </button>
+        </div>
+      </div>
 
       <!-- METRICS GRID -->
       <div class="metrics-grid">
         <div class="metric-card accent">
-          <div class="metric-label">Gasto Total Auditado</div>
+          <div class="metric-label">Gasto TI Total Auditado</div>
           <div class="metric-value">$300.125 MM</div>
-          <div class="metric-desc">Pesos chilenos (~US$ 326.2 millones de dólares) transados en 12 años.</div>
-        </div>
-
-        <div class="metric-card">
-          <div class="metric-label">Órdenes de Compra</div>
-          <div class="metric-value">148.652</div>
-          <div class="metric-desc">Contrataciones tecnológicas analizadas ítem por ítem en 630 compradores locales.</div>
+          <div class="metric-desc">Pesos chilenos (~US$ 326,2 millones) transados en 148.652 órdenes de compra (2014–2026).</div>
         </div>
 
         <div class="metric-card">
           <div class="metric-label">El Peso del Fierro</div>
           <div class="metric-value">47,88%</div>
-          <div class="metric-desc">$143.698 MM destinados exclusivamente a reposición de hardware y cómputo físico.</div>
+          <div class="metric-desc">$143.698 MM destinados a reposición de hardware y cómputo físico frente a solo 0,17% en Software Libre.</div>
         </div>
 
         <div class="metric-card alert">
           <div class="metric-label">Monopolio CAS-Chile</div>
           <div class="metric-value">HHI 7.607</div>
-          <div class="metric-desc">87,2% del gasto en ERPs municipales concentrado en un solo proveedor (vendor lock-in).</div>
+          <div class="metric-desc">87,2% del gasto en ERPs municipales concentrado en un solo proveedor histórico (vendor lock-in).</div>
         </div>
 
         <div class="metric-card">
-          <div class="metric-label">Software Libre (FOSS)</div>
-          <div class="metric-value">0,17%</div>
-          <div class="metric-desc">Apenas $514 MM en total. El código abierto está casi extinto en la gestión comunal.</div>
+          <div class="metric-label">Dotación Municipal (P166)</div>
+          <div class="metric-value" id="hero-kpi-dotacion">142.661</div>
+          <div class="metric-desc" id="hero-kpi-dotacion-desc">Funcionarios municipales a nivel nacional (43,9% sujetos a régimen de honorarios).</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-label">Tecnoestructura TI Propia</div>
+          <div class="metric-value" id="hero-kpi-ti">1.301</div>
+          <div class="metric-desc" id="hero-kpi-ti-desc">Profesionales y técnicos informáticos internos en las 346 comunas (Ratio RET mediano: 1,18x).</div>
+        </div>
+      </div>
+
+      <!-- ================= BANDA DE ORIENTACIÓN RÁPIDA (CÓMO USAR EN 4 PASOS) ================= -->
+      <div class="guia-banner" id="guia-uso">
+        <div class="guia-banner-header">
+          <div>
+            <span class="guia-badge">ORIENTACIÓN RÁPIDA</span>
+            <h2 class="guia-banner-title">¿Cómo recorrer y aprovechar este Observatorio?</h2>
+          </div>
+          <button type="button" id="btn-banner-open-modal" class="btn-guia-detail">
+            Abrir manual interactivo detallado →
+          </button>
+        </div>
+
+        <div class="guia-steps-grid">
+          <a href="#scrollytelling" class="guia-step-card">
+            <div class="guia-step-num">PASO 01</div>
+            <h3>Comprende los 4 Hallazgos</h3>
+            <p>Recorre la evidencia nacional: la ilusión de la IA frente al hardware, el shock pandémico de 2021, el monopolio ERP (HHI 7.607) y la desigualdad per cápita.</p>
+          </a>
+
+          <a href="#radiografia" class="guia-step-card">
+            <div class="guia-step-num">PASO 02</div>
+            <h3>Audita tu Comuna en 4D</h3>
+            <p>Usa el mapa interactivo o el buscador para abrir la Ficha Comunal: termómetro de madurez (0–100), canasta tecnológica y contratos directos en Mercado Público.</p>
+          </a>
+
+          <a href="#rrhh" class="guia-step-card">
+            <div class="guia-step-num">PASO 03</div>
+            <h3>Cruza Compras TI × RRHH (P166)</h3>
+            <p>Analiza la dotación municipal (Planta, Contrata, Honorarios), brecha salarial de género y el cuadrante de Capacidad Estatal (Estado Soberano vs. Estado Cautivo).</p>
+          </a>
+
+          <a href="#ranking" class="guia-step-card">
+            <div class="guia-step-num">PASO 04</div>
+            <h3>Compara A vs B y Exporta</h3>
+            <p>Enfrenta a dos municipios cualesquiera lado a lado en el Comparador Comunal o exporta el ranking completo de 346 comunas en formato CSV y JSON abierto.</p>
+          </a>
         </div>
       </div>
     </section>
@@ -90,9 +217,9 @@
     <section class="scrolly-container" id="scrollytelling">
       <div class="scrolly-inner">
         <div class="section-header">
-          <div class="eyebrow">EVIDENCIA ESTRUCTURAL</div>
+          <div class="eyebrow">EVIDENCIA ESTRUCTURAL · COMPRAS PÚBLICAS 2014–2026</div>
           <h2 class="section-title">El Relato en Cuatro Hallazgos</h2>
-          <p class="section-desc">Selecciona o recorre cada capítulo para explorar los patrones econométricos y las tensiones institucionales del Estado local.</p>
+          <p class="section-desc">Selecciona cada capítulo para explorar los patrones econométricos y las tensiones institucionales del gasto tecnológico local.</p>
         </div>
 
         <div class="story-tabs" id="story-tabs">
@@ -111,25 +238,27 @@
     <!-- ================= RADIOGRAFÍA COMUNAL & MAPA INTERACTIVO ================= -->
     <section class="radiografia-section" id="radiografia">
       <div class="section-header">
-        <div class="eyebrow">EXPLORADOR TERRITORIAL Y RADIOGRAFÍA COMUNAL</div>
+        <div class="eyebrow">EXPLORADOR TERRITORIAL Y RADIOGRAFÍA COMUNAL 4D</div>
         <h2 class="section-title">Mapa Interactivo de Gobiernos Locales</h2>
-        <p class="section-desc">Alterna entre capas de diagnóstico, haz zoom en las regiones o haz click en cualquier comuna para abrir su Ficha Técnica Dimensional.</p>
+        <p class="section-desc">Alterna entre las 7 capas de diagnóstico (incluyendo Capacidad Estatal RET y Precarización RRHH), filtra por región o haz click en cualquier comuna para abrir su Ficha Técnica Dimensional y el Comparador A vs B.</p>
       </div>
 
       <!-- MAP CONTROLS BAR -->
       <div class="map-controls-bar">
         <div class="layer-toggles-group">
-          <span class="layer-title">Capas de Información:</span>
+          <span class="layer-title">Capas de Diagnóstico:</span>
           <button class="layer-btn active" data-layer="madurez">🌡️ Madurez TI (0-100)</button>
           <button class="layer-btn" data-layer="gasto_pc">💰 Gasto Per Cápita</button>
+          <button class="layer-btn" data-layer="ret">🏛️ Capacidad Estatal (RET)</button>
+          <button class="layer-btn" data-layer="rrhh">👥 RRHH &amp; Honorarios</button>
           <button class="layer-btn" data-layer="lockin">🚨 Vendor Lock-in</button>
           <button class="layer-btn" data-layer="foss">🐧 Software Libre</button>
           <button class="layer-btn" data-layer="infra">🖥️ Infra Propia</button>
         </div>
 
         <div class="filter-controls-group">
-          <input type="text" id="comuna-search" class="search-input" placeholder="Buscar comuna (ej. Valdivia, Temuco)...">
-          <select id="region-filter" class="region-select">
+          <input type="text" id="comuna-search" class="search-input" placeholder="Buscar comuna (ej. Algarrobo, Maipú, Valdivia)...">
+          <select id="region-filter" class="region-select" aria-label="Filtrar por región">
             <option value="">Todas las Regiones (Chile)</option>
           </select>
           <button id="btn-reset-map" class="layer-btn">↺ Restablecer</button>
@@ -147,24 +276,73 @@
         </div>
 
         <!-- Comuna Ficha Drawer ("Ficha Comunal") -->
-        <aside class="drawer-panel" id="comuna-drawer">
-          <!-- Populated by JS -->
+        <aside class="drawer-panel" id="comuna-drawer" aria-live="polite">
           <div style="text-align:center; padding: 60px 20px; color: var(--muted);">
             <div style="font-size: 38px; margin-bottom: 12px;">🗺️</div>
             <h3 style="font-family: var(--font-serif); font-size: 22px; color: var(--navy); margin-bottom: 8px;">Selecciona una Comuna</h3>
-            <p style="font-size: 13px;">Haz click sobre cualquier comuna en el mapa o utiliza el buscador para abrir su radiografía tecnológica completa.</p>
+            <p style="font-size: 13px;">Haz click sobre cualquier comuna en el mapa o utiliza el buscador para abrir su radiografía tecnológica, contratos y dotación de RRHH.</p>
           </div>
         </aside>
+      </div>
+    </section>
+
+    <!-- ================= NUEVO MÓDULO: RRHH MUNICIPAL Y CAPACIDAD ESTATAL (P166) ================= -->
+    <section class="rrhh-section" id="rrhh">
+      <div class="rrhh-container">
+        <div class="section-header">
+          <div class="eyebrow">MOTOR MUNIDATA RRHH (PROYECTO P166 × PUB021) · LEY 20.285 &amp; LEY 21.719</div>
+          <h2 class="section-title">Recursos Humanos Municipales, Tecnoestructura y Capacidad Estatal</h2>
+          <p class="section-desc">
+            La tecnología no opera en el vacío: sin profesionales informáticos propios ni estabilidad funcionaria, el gasto público en TI termina capturado por consultoras externas. Analizamos la dotación municipal por calidad jurídica, escalafón, remuneraciones, equidad de género y el <strong>Ratio de Externalización de la Tecnoestructura (RET)</strong>.
+          </p>
+        </div>
+
+        <!-- KPIs NACIONALES DE RRHH MUNICIPAL -->
+        <div class="rrhh-kpis-grid" id="rrhh-kpis-grid">
+          <!-- Renderizado dinámicamente por app.js -->
+        </div>
+
+        <!-- PESTAÑAS INTERACTIVAS DEL MÓDULO RRHH -->
+        <div class="rrhh-tabs" id="rrhh-tabs" role="tablist">
+          <button type="button" class="rrhh-tab-btn active" data-rrhh-tab="capacidad" role="tab">
+            1. Matriz de Capacidad Estatal y Soberanía TI (RET)
+          </button>
+          <button type="button" class="rrhh-tab-btn" data-rrhh-tab="dotacion" role="tab">
+            2. Calidad Jurídica (Planta, Contrata, Honorarios) y Estamentos
+          </button>
+          <button type="button" class="rrhh-tab-btn" data-rrhh-tab="genero" role="tab">
+            3. Remuneraciones, Brecha de Género y Estabilidad Funcionaria
+          </button>
+        </div>
+
+        <!-- ESCENARIO DINÁMICO DE RRHH -->
+        <div class="rrhh-stage" id="rrhh-stage">
+          <!-- Renderizado dinámicamente por app.js -->
+        </div>
       </div>
     </section>
 
     <!-- ================= DATABASE & RANKING TABLE ================= -->
     <section class="ranking-section" id="ranking">
       <div class="ranking-container">
-        <div class="section-header">
-          <div class="eyebrow">BASE DE DATOS COMPLETA</div>
-          <h2 class="section-title">Ranking Municipal de Inversión Tecnológica</h2>
-          <p class="section-desc">Compara los 346 municipios del país según su gasto histórico, población INE, gasto per cápita, score de madurez y proveedor principal.</p>
+        <div class="ranking-header-row">
+          <div class="section-header" style="margin-bottom: 0;">
+            <div class="eyebrow">BASE DE DATOS INTEGRADA (COMPRAS TI + RRHH MUNICIPAL)</div>
+            <h2 class="section-title">Ranking Municipal de Inversión Tecnológica y Tecnoestructura</h2>
+            <p class="section-desc">Haz click en cualquier cabecera para ordenar las comunas o selecciona una fila para abrir su radiografía completa en el mapa.</p>
+          </div>
+          <div class="ranking-actions" style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+            <select id="cuadrante-filter" class="filter-select" aria-label="Filtrar por cuadrante de capacidad estatal" style="padding:6px 12px; border-radius:6px; border:1px solid var(--line); background:var(--paper); font-size:12px; font-weight:600; color:var(--ink);">
+              <option value="">🏛️ Todos los Cuadrantes de Capacidad</option>
+              <option value="Estado Soberano">🏛️ Estado Soberano (RET ≤ 1.8x, Staff TI ≥ 5)</option>
+              <option value="Estado Híbrido Dependiente">⚡ Estado Híbrido (RET > 1.8x, Staff TI ≥ 5)</option>
+              <option value="Estado Cautivo">⚠️ Estado Cautivo (RET > 1.8x, Staff TI < 5)</option>
+              <option value="Estado Artesanal">🛠️ Estado Artesanal (RET ≤ 1.8x, Staff TI < 5)</option>
+            </select>
+            <button type="button" id="btn-export-csv" class="btn-export-csv">
+              📥 Exportar Ranking CSV
+            </button>
+          </div>
         </div>
 
         <div class="table-responsive">
@@ -175,11 +353,15 @@
                 <th data-sort="comuna">Comuna</th>
                 <th data-sort="region">Región</th>
                 <th data-sort="poblacion">Población INE</th>
-                <th data-sort="monto_total">Gasto Total (CLP)</th>
-                <th data-sort="gasto_pc">Gasto Per Cápita</th>
+                <th data-sort="monto_total">Gasto TI Total</th>
+                <th data-sort="gasto_pc">Gasto / Hab.</th>
                 <th data-sort="score_madurez">Madurez TI</th>
-                <th>Software Libre</th>
-                <th>Riesgo Lock-in</th>
+                <th data-sort="dotacion_total">Dotación RRHH</th>
+                <th data-sort="pct_honorarios">% Honorarios</th>
+                <th data-sort="dotacion_ti">Staff TI</th>
+                <th data-sort="ret_ratio">Ratio RET</th>
+                <th data-sort="cuadrante_capacidad">Capacidad Estatal</th>
+                <th>Lock-in</th>
               </tr>
             </thead>
             <tbody id="ranking-tbody">
@@ -194,35 +376,218 @@
     <section class="academic-band" id="metodologia">
       <div class="academic-inner">
         <div class="academic-text">
-          <div class="eyebrow" style="color: #e6cb85;">MARCO CIENTÍFICO Y METODOLOGÍA</div>
-          <h2>Investigación Abierta y Reproducible</h2>
+          <div class="eyebrow" style="color: #e6cb85;">MARCO CIENTÍFICO, REPRODUCIBILIDAD Y PROTECCIÓN DE DATOS</div>
+          <h2>Ciencia Abierta y Privacidad por Diseño (Ley N° 21.719)</h2>
           <p>
-            Este observatorio surge del proyecto de investigación <strong>PUB021 / P049</strong> sobre adopción tecnológica y compras públicas en Chile. Clasificamos 197.662 líneas de compra de Mercado Público en una taxonomía multidimensional de 11 canastas funcionales utilizando DuckDB y Python.
+            Este observatorio integra las investigaciones <strong>PUB021 (Adopción de IA y Tecnologías Municipales)</strong> y <strong>P166 (Motor Longitudinal de Personal Municipal de Chile)</strong>. Clasificamos 197.662 líneas de compra de Mercado Público en 11 canastas funcionales y las cruzamos con las nóminas de Transparencia Activa (CPLT) y registros SINIM/SUBDERE mediante DuckDB y Python.
           </p>
           <p>
-            Toda la metodología, código de extracción y pipelines analíticos están versionados bajo estándares de ciencia abierta y reproducibilidad computacional.
+            En estricto cumplimiento de la <strong>Ley N° 21.719 sobre Protección de Datos Personales</strong>, el motor P166 aplica seudonimización criptográfica irreversible (<code>HMAC-SHA256</code>) en tránsito y regla de celda mínima (<code>k-anonimato n &ge; 3</code>), sin almacenar ni exponer nombres ni RUN de funcionarios en la capa pública.
           </p>
+          <div style="margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap;">
+            <button type="button" id="btn-open-legal-band" class="btn-academic-action">
+              ⚖️ Ver Nota Metodológica y Aviso Legal Completo
+            </button>
+            <button type="button" id="btn-open-guia-band" class="btn-academic-action secondary">
+              🧭 Abrir Guía de Uso del Observatorio
+            </button>
+          </div>
         </div>
 
         <div class="citation-box">
-          <strong style="color:#fff; display:block; margin-bottom:8px;">Cita sugerida:</strong>
-          Vega Toledo, E. (2026). <em>Radiografía Empírica de la Transformación Digital y Compras Tecnológicas en los Gobiernos Locales de Chile (2014–2026)</em>. Proyecto PUB021. Disponible en: <a href="https://observatoriotimunicipal.evegat.cl" style="color:#e6cb85; text-decoration:underline;">https://observatoriotimunicipal.evegat.cl</a>
+          <strong style="color:#fff; display:block; margin-bottom:8px;">Cita académica sugerida (APA 7):</strong>
+          Vega Toledo, E. (2026). <em>Radiografía Empírica de la Transformación Digital, Compras Tecnológicas y Tecnoestructura de Recursos Humanos en los Gobiernos Locales de Chile (2014–2026)</em>. Proyectos PUB021 &amp; P166 · Ecosistema de Inteligencia Pública evegat.cl. Disponible en: <a href="https://observatoriotimunicipal.evegat.cl" style="color:#e6cb85; text-decoration:underline;">https://observatoriotimunicipal.evegat.cl</a>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ================= FOOTER ================= -->
-  <footer>
-    <div>
-      <strong>evegat.cl · Observatorio de Compras Públicas</strong> | © 2026 Eduardo Vega Toledo · Todos los derechos reservados.
+  <!-- ================= FOOTER INSTITUCIONAL 3 COLUMNAS (LOOK & FEEL EVEGAT.CL) ================= -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <!-- Columna 1: Identidad y Autoría -->
+      <div class="footer-col">
+        <div class="footer-brand">
+          <span class="brand-mark">e.</span>
+          <div>
+            <strong>evegat.cl · Observatorio TI &amp; RRHH Municipal</strong>
+            <span>Investigación Aplicada, GovTech y Datos Abiertos</span>
+          </div>
+        </div>
+        <p class="footer-bio">
+          Desarrollado por <strong>Eduardo Vega Toledo</strong> — Administrador Público y Magíster en Gestión y Políticas Públicas (Universidad de Chile). Especialista en transformación digital del Estado, compras públicas, ciencia de datos e Inteligencia Artificial aplicada a gobiernos locales.
+        </p>
+        <div class="footer-links-row">
+          <a href="https://evegat.cl" target="_blank" rel="noopener">🌐 evegat.cl</a>
+          <a href="https://www.linkedin.com/in/eduardovegatoledo/" target="_blank" rel="noopener">💼 LinkedIn</a>
+          <a href="https://ordenanzas.evegat.cl" target="_blank" rel="noopener">📜 Ordenanzas Municipales</a>
+          <a href="https://brujulaiaedusuperior.evegat.cl" target="_blank" rel="noopener">🧭 Brújula IA EduSuperior</a>
+        </div>
+      </div>
+
+      <!-- Columna 2: Consultoría B2G, Concejos y Gestión Pública -->
+      <div class="footer-col">
+        <h3 class="footer-heading">¿Necesitas auditar o modernizar la gestión TI y RRHH de tu municipio?</h3>
+        <p class="footer-bio">
+          Asesoría especializada para Alcaldías, SECPLA, Direcciones de Administración y Finanzas (DAF), Concejos Municipales y organismos públicos en evaluación de licitaciones tecnológicas, mitigación de <em>vendor lock-in</em> y fortalecimiento de capacidades digitales.
+        </p>
+        <div class="footer-cta-row">
+          <a href="mailto:contacto@evegat.cl?subject=Consulta%20Observatorio%20TI%20y%20RRHH%20Municipal" class="btn-footer-cta">
+            ✉️ Contactar para Diagnóstico Institucional
+          </a>
+        </div>
+      </div>
+
+      <!-- Columna 3: Descargas Abiertas, Licencia y Marco Legal -->
+      <div class="footer-col">
+        <h3 class="footer-heading">Datos Abiertos, Transparencia y Gobernanza</h3>
+        <p class="footer-bio">
+          Fuentes oficiales: Dirección ChileCompra (Mercado Público 2014–2026), Consejo para la Transparencia (Portal de Transparencia Activa Ley N° 20.285), INE Censo/Proyecciones 2024 y SINIM (SUBDERE). Privacidad protegida bajo Ley N° 21.719.
+        </p>
+        <div class="footer-downloads">
+          <a href="data/comunas_enriched.json" download>📦 comunas_enriched.json ↓</a>
+          <a href="data/regiones_enriched.json" download>📦 regiones_enriched.json ↓</a>
+          <a href="data/national_kpis.json" download>📦 national_kpis.json ↓</a>
+        </div>
+        <div style="margin-top: 12px;">
+          <button type="button" id="btn-open-legal-footer" class="footer-legal-trigger">
+            ⚖️ Aviso Legal, Privacidad (Ley 21.719) y Licencia CC BY 4.0
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="footer-downloads">
-      <a href="data/comunas_enriched.json" download>comunas_enriched.json ↓</a>
-      <a href="data/regiones_enriched.json" download>regiones_enriched.json ↓</a>
-      <a href="data/national_kpis.json" download>national_kpis.json ↓</a>
+
+    <div class="footer-bottom">
+      <span>© 2026 Eduardo Vega Toledo (<a href="https://evegat.cl" target="_blank" rel="noopener">evegat.cl</a>) · Licencia Creative Commons Atribución 4.0 Internacional (CC BY 4.0).</span>
+      <span>Hecho en Chile con soberanía de datos y arquitectura offline-first.</span>
     </div>
   </footer>
+
+  <!-- ================= MODAL 1: GUÍA DE USO ("CÓMO USAR EL APLICATIVO") ================= -->
+  <div class="obs-modal-backdrop" id="como-usar-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-guia-title">
+    <div class="obs-modal-card">
+      <div class="obs-modal-header">
+        <div>
+          <span class="guia-badge">MANUAL INTERACTIVO DE USUARIO</span>
+          <h2 id="modal-guia-title" class="obs-modal-title">🧭 Cómo usar el Observatorio TI y RRHH Municipal</h2>
+        </div>
+        <button type="button" class="obs-modal-close" data-close-modal="como-usar-modal" aria-label="Cerrar guía de uso">✕</button>
+      </div>
+
+      <div class="obs-modal-body">
+        <p class="obs-modal-intro">
+          Esta plataforma integra por primera vez en Chile <strong>12 años de compras tecnológicas municipales ($300.125 MM)</strong> con el <strong>Motor Longitudinal de Recursos Humanos Municipales (MuniData P166)</strong> en los 346 gobiernos locales del país. Aquí tienes cómo sacarle el máximo provecho según tu perfil:
+        </p>
+
+        <div class="modal-guide-grid">
+          <div class="modal-guide-item">
+            <div class="modal-guide-step">1. Mapa 4D y Ficha Comunal</div>
+            <h4>Explora las 7 capas territoriales</h4>
+            <p>
+              En la sección <strong>Mapa Interactivo</strong> puedes alternar entre <em>Madurez TI (0–100)</em>, <em>Gasto Per Cápita</em>, <em>Capacidad Estatal (RET)</em>, <em>RRHH &amp; Honorarios</em>, <em>Vendor Lock-in</em>, <em>Software Libre</em> e <em>Infraestructura Propia</em>. Al hacer click en cualquier comuna se abre a la derecha su <strong>Ficha Dimensional</strong> con el desglose financiero, dotación funcionaria y enlaces directos a las órdenes de compra en Mercado Público.
+            </p>
+          </div>
+
+          <div class="modal-guide-item">
+            <div class="modal-guide-step">2. Comparador Comunal A vs B</div>
+            <h4>Enfrenta dos municipios lado a lado</h4>
+            <p>
+              Dentro de la Ficha de cualquier comuna, pulsa el botón <strong>«⚖️ Comparar con otra comuna»</strong>. Podrás contrastar instantáneamente a tu municipio contra cualquier par regional o nacional en gasto por habitante, canastas tecnológicas (Hardware, IA, SaaS, Ciberseguridad), dotación informática, precarización a honorarios y brecha salarial de género.
+            </p>
+          </div>
+
+          <div class="modal-guide-item">
+            <div class="modal-guide-step">3. Matriz de Capacidad Estatal (RET)</div>
+            <h4>Cruza compras externas vs. músculo propio</h4>
+            <p>
+              El <strong>Ratio de Externalización de la Tecnoestructura (RET)</strong> mide cuánto gasta anualmente el municipio en proveedores TI externos por cada peso invertido en su propio equipo informático interno:
+            </p>
+            <ul class="modal-guide-list">
+              <li><strong>Estado Soberano:</strong> Equipo TI robusto (&ge;5 profesionales) y gasto externo equilibrado (RET &le; 1,8x).</li>
+              <li><strong>Estado Híbrido Dependiente:</strong> Equipo TI propio relevante pero alta tercerización de sistemas (RET &gt; 1,8x).</li>
+              <li><strong>Estado Cautivo:</strong> Baja dotación TI interna y alta dependencia presupuestaria de proveedores externos (vendor lock-in).</li>
+              <li><strong>Estado Artesanal / Desconectado:</strong> Baja inversión externa y escasa dotación especializada, operando con rezago digital.</li>
+            </ul>
+          </div>
+
+          <div class="modal-guide-item">
+            <div class="modal-guide-step">4. Accesibilidad, Voz y Datos Abiertos</div>
+            <h4>Escucha en voz alta o descarga los JSON/CSV</h4>
+            <p>
+              En la barra superior dispones del lector de voz <strong>«🔊 Escuchar»</strong> (que narra el resumen de la comuna que tengas abierta), ajuste de tamaño tipográfico (<code>A- / A / A+</code>) y selector de tema (<code>Claro</code>, <code>Oscuro</code> y <code>Alto Contraste Accesible</code>). En la tabla inferior puedes ordenar las 346 comunas por cualquier indicador y exportar todo a Excel/CSV.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="obs-modal-footer">
+        <div class="modal-quick-jumps">
+          <button type="button" class="btn-modal-jump" data-jump-target="#radiografia">🗺️ Ir al Mapa 4D</button>
+          <button type="button" class="btn-modal-jump" data-jump-target="#rrhh">🏛️ Ir a RRHH y Capacidad Estatal</button>
+          <button type="button" class="btn-modal-jump" id="btn-demo-compare">⚖️ Ver Ejemplo: Maipú vs Algarrobo</button>
+        </div>
+        <button type="button" class="btn-modal-primary" data-close-modal="como-usar-modal">Entendido, explorar datos</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL 2: AVISO LEGAL, METODOLOGÍA Y LEY 21.719 ================= -->
+  <div class="obs-modal-backdrop" id="legal-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-legal-title">
+    <div class="obs-modal-card">
+      <div class="obs-modal-header">
+        <div>
+          <span class="guia-badge">GOBERNANZA DE DATOS Y TRANSPARENCIA</span>
+          <h2 id="modal-legal-title" class="obs-modal-title">⚖️ Aviso Legal, Metodología y Cumplimiento Ley N° 21.719</h2>
+        </div>
+        <button type="button" class="obs-modal-close" data-close-modal="legal-modal" aria-label="Cerrar aviso legal">✕</button>
+      </div>
+
+      <div class="obs-modal-body">
+        <div class="legal-block">
+          <h4>1. Propósito Académico y de Interés Público</h4>
+          <p>
+            El <strong>Observatorio de Compras TI y RRHH Municipal (observatoriotimunicipal.evegat.cl)</strong> es una plataforma de investigación empírica independiente desarrollada por Eduardo Vega Toledo dentro del ecosistema <a href="https://evegat.cl" target="_blank" rel="noopener">evegat.cl</a>. Su objetivo es transparentar la inversión tecnológica local, evaluar la concentración de mercado (Índice Herfindahl-Hirschman, HHI) y fortalecer las capacidades institucionales de los 346 municipios de Chile.
+          </p>
+        </div>
+
+        <div class="legal-block">
+          <h4>2. Fuentes Oficiales y Arquitectura Metodológica (PUB021 × P166)</h4>
+          <p>
+            Los indicadores presentados integran cuatro registros públicos oficiales: (a) <strong>Mercado Público / Dirección ChileCompra</strong> (148.652 órdenes de compra y 197.662 líneas de ítem entre 2014 y 2026); (b) <strong>Portal de Transparencia Activa del Consejo para la Transparencia (CPLT)</strong> bajo la Ley N° 20.285 (nóminas municipales de Planta, Contrata y Honorarios cosechadas en DuckDB); (c) <strong>Instituto Nacional de Estadísticas (INE)</strong> (población comunal oficial); y (d) <strong>Sistema Nacional de Información Municipal (SINIM - SUBDERE)</strong> para la calibración paramétrica de comunas en proceso de cosecha activa.
+          </p>
+        </div>
+
+        <div class="legal-block">
+          <h4>3. Protección de Datos Personales y Privacidad por Diseño (Ley N° 21.719)</h4>
+          <p>
+            Aunque las nóminas de remuneraciones del sector público constituyen información pública por mandato del artículo 7° de la Ley N° 20.285, este Observatorio aplica el estándar más estricto de <strong>Privacidad por Diseño de la Ley N° 21.719</strong>:
+          </p>
+          <ul class="modal-guide-list">
+            <li><strong>Cero exposición de PII:</strong> Ningún nombre completo ni RUN de funcionarios municipales es almacenado ni distribuido en los archivos JSON/CSV de esta aplicación web.</li>
+            <li><strong>Seudonimización Criptográfica:</strong> Las trayectorias longitudinales se calculan exclusivamente sobre identificadores seudonimizados irreversibles mediante <code>HMAC-SHA256</code> con sal criptográfica aislada.</li>
+            <li><strong>K-Anonimato y Celda Mínima:</strong> Todas las estadísticas comunales de remuneraciones y brecha salarial de género exigen un umbral mínimo de <code>n &ge; 3</code> observaciones por celda.</li>
+          </ul>
+        </div>
+
+        <div class="legal-block">
+          <h4>4. Licencia Abierta y Descargo de Responsabilidad</h4>
+          <p>
+            Los datos agregados y visualizaciones se publican bajo licencia <strong>Creative Commons Atribución 4.0 Internacional (CC BY 4.0)</strong>, citando a <em>Vega Toledo, E. (2026) · Observatorio TI y RRHH Municipal (evegat.cl)</em>. La información no constituye asesoría jurídica vinculante ni auditoría oficial de la Contraloría General de la República.
+          </p>
+        </div>
+      </div>
+
+      <div class="obs-modal-footer">
+        <span style="font-size: 12px; color: var(--muted);">Versión 2.0 · Actualización Octubre 2026 · Ecosistema evegat.cl</span>
+        <button type="button" class="btn-modal-primary" data-close-modal="legal-modal">Cerrar aviso</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón Flotante Permanente "Cómo usar" (Estilo evegat.cl) -->
+  <button type="button" class="floating-guide-btn" id="btn-floating-guia" title="Abrir guía interactiva de uso del aplicativo" aria-label="Abrir manual de usuario">
+    <span>🧭</span><span>¿Cómo usar?</span>
+  </button>
 
   <!-- Scripts -->
   <script src="assets/leaflet/leaflet.js"></script>

@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     isCompareMode: false,
     searchQuery: "",
     selectedRegion: "",
+    selectedCuadrante: "",
     currentChapter: 1,
     sortField: "monto_total",
     sortAsc: false,
@@ -78,6 +79,9 @@ document.addEventListener("DOMContentLoaded", () => {
       initRegionDropdown();
       initMap();
       initControls();
+      initThemeAndA11y();
+      initModals();
+      initRRHHModule();
       renderTable();
 
       // Enrutamiento directo por hash o comuna inicial por defecto
@@ -1010,17 +1014,37 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
+    // Filtro por Cuadrante de Capacidad Estatal
+    const cuadranteSelect = document.getElementById("cuadrante-filter");
+    if (cuadranteSelect) {
+      cuadranteSelect.addEventListener("change", (e) => {
+        state.selectedCuadrante = e.target.value;
+        renderMapMarkers();
+        renderTable();
+      });
+    }
+
     // Reset Map
     const btnReset = document.getElementById("btn-reset-map");
     if (btnReset) {
       btnReset.addEventListener("click", () => {
         state.searchQuery = "";
         state.selectedRegion = "";
+        state.selectedCuadrante = "";
         if (searchInput) searchInput.value = "";
         if (regionSelect) regionSelect.value = "";
+        if (cuadranteSelect) cuadranteSelect.value = "";
         if (state.map) state.map.setView([-35.6751, -71.5430], 5);
         renderMapMarkers();
         renderTable();
+      });
+    }
+
+    // Exportar CSV
+    const btnExport = document.getElementById("btn-export-csv");
+    if (btnExport) {
+      btnExport.addEventListener("click", () => {
+        exportTableToCSV();
       });
     }
 
@@ -1046,7 +1070,8 @@ document.addEventListener("DOMContentLoaded", () => {
         c.comuna.toLowerCase().includes(state.searchQuery) || 
         c.region.toLowerCase().includes(state.searchQuery);
       const matchRegion = !state.selectedRegion || c.region === state.selectedRegion;
-      return matchSearch && matchRegion;
+      const matchCuadrante = !state.selectedCuadrante || c.cuadrante_capacidad === state.selectedCuadrante;
+      return matchSearch && matchRegion && matchCuadrante;
     });
   }
 
@@ -1085,7 +1110,17 @@ document.addEventListener("DOMContentLoaded", () => {
             ${c.score_madurez}/100
           </span>
         </td>
-        <td>${c.tiene_foss ? '<span style="color:var(--forest); font-weight:700;">✓ Sí</span>' : '<span style="color:var(--muted);">✕ No</span>'}</td>
+        <td>${(c.dotacion_total || 0).toLocaleString("es-CL")}</td>
+        <td style="font-family:var(--font-mono);">${c.pct_honorarios !== undefined ? c.pct_honorarios + '%' : '—'}</td>
+        <td style="font-family:var(--font-mono); font-weight:700; color:var(--teal);">${c.dotacion_ti || 0}</td>
+        <td style="font-family:var(--font-mono); font-weight:600;">${c.ret_ratio !== undefined ? c.ret_ratio + 'x' : '—'}</td>
+        <td>
+          ${c.cuadrante_capacidad ? `
+            <span class="diag-badge ${c.cuadrante_capacidad === 'Estado Soberano' ? 'good' : (c.cuadrante_capacidad === 'Estado Cautivo' ? 'danger' : (c.cuadrante_capacidad === 'Estado Híbrido Dependiente' ? 'warning' : 'neutral'))}" style="font-size:10px; padding:2px 6px;">
+              ${c.cuadrante_capacidad.replace('Estado ', '')}
+            </span>
+          ` : '—'}
+        </td>
         <td>${c.tiene_lockin_legado ? '<span style="color:var(--crimson); font-weight:700;">⚠️ Lock-in</span>' : '<span style="color:var(--forest);">✓ Limpio</span>'}</td>
       </tr>
     `).join("");
@@ -1101,6 +1136,381 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     });
+  }
+
+  function exportTableToCSV() {
+    const filtered = getFilteredComunas();
+    const headers = [
+      "Ranking", "Comuna", "Region", "Poblacion", "Gasto_Total_CLP", 
+      "Gasto_Per_Capita_CLP", "Madurez_TI", "Dotacion_RRHH_Total", 
+      "Pct_Honorarios", "Dotacion_TI", "Ratio_RET", "Cuadrante_Capacidad", "Lockin_Legado"
+    ];
+    const rows = filtered.map((c, idx) => [
+      idx + 1,
+      `"${c.comuna}"`,
+      `"${c.region}"`,
+      c.poblacion || 0,
+      c.monto_total || 0,
+      c.gasto_pc || 0,
+      c.score_madurez || 0,
+      c.dotacion_total || 0,
+      c.pct_honorarios !== undefined ? c.pct_honorarios : "",
+      c.dotacion_ti || 0,
+      c.ret_ratio !== undefined ? c.ret_ratio : "",
+      `"${c.cuadrante_capacidad || ''}"`,
+      c.tiene_lockin_legado ? "Lock-in" : "Limpio"
+    ]);
+
+    const csvContent = "\uFEFF" + [headers.join(";")].concat(rows.map(e => e.join(";"))).join("\r\n");
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.setAttribute("href", url);
+    link.setAttribute("download", `ranking_ti_rrhh_municipal_${new Date().toISOString().slice(0, 10)}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  // -------------------------------------------------------------------------
+  // 7. GESTIÓN DE TEMA Y ACCESIBILIDAD (A11Y)
+  // -------------------------------------------------------------------------
+  function initThemeAndA11y() {
+    // Botones de tema
+    document.querySelectorAll("[data-theme-btn]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const theme = btn.dataset.themeBtn;
+        document.documentElement.setAttribute("data-theme", theme);
+        try { localStorage.setItem("evegat_theme", theme); } catch (e) {}
+      });
+    });
+
+    // Control de tipografía
+    let currentFontSize = 16;
+    try {
+      const savedFont = localStorage.getItem("evegat_fontsize");
+      if (savedFont) currentFontSize = parseInt(savedFont, 10);
+    } catch (e) {}
+
+    const updateFont = (sz) => {
+      currentFontSize = Math.min(22, Math.max(13, sz));
+      document.documentElement.style.fontSize = currentFontSize + "px";
+      try { localStorage.setItem("evegat_fontsize", currentFontSize); } catch (e) {}
+    };
+
+    const btnDec = document.getElementById("btn-font-dec");
+    const btnReset = document.getElementById("btn-font-reset");
+    const btnInc = document.getElementById("btn-font-inc");
+
+    if (btnDec) btnDec.addEventListener("click", () => updateFont(currentFontSize - 1));
+    if (btnReset) btnReset.addEventListener("click", () => updateFont(16));
+    if (btnInc) btnInc.addEventListener("click", () => updateFont(currentFontSize + 1));
+
+    // Lector de voz TTS
+    const btnTts = document.getElementById("btn-tts");
+    if (btnTts && "speechSynthesis" in window) {
+      let isSpeaking = false;
+      btnTts.addEventListener("click", () => {
+        if (isSpeaking) {
+          window.speechSynthesis.cancel();
+          isSpeaking = false;
+          const textEl = document.getElementById("tts-text");
+          if (textEl) textEl.textContent = "Escuchar";
+          return;
+        }
+
+        let narrative = "";
+        if (state.selectedComuna) {
+          const c = state.selectedComuna;
+          narrative = `Resumen para la comuna de ${c.comuna}, región de ${c.region}. Población: ${(c.poblacion || 0).toLocaleString("es-CL")} habitantes. Gasto histórico total en compras tecnológicas: ${formatCLP(c.monto_total)} pesos chilenos, equivalente a ${formatCLP(c.gasto_pc)} pesos por habitante. Índice de madurez tecnológica: ${c.score_madurez} sobre 100, clasificado como ${c.nivel_madurez}. Diagnóstico de capacidad estatal: ${c.cuadrante_capacidad || "En evaluación"}. Dotación especializada en tecnologías de la información: ${c.dotacion_ti || 0} profesionales. Ratio de externalización tecnológica: ${c.ret_ratio || "No determinado"}.`;
+        } else {
+          narrative = `Observatorio de Compras Tecnológicas, Recursos Humanos y Capacidad Estatal en los 346 municipios de Chile. Se analizaron más de 312 mil millones de pesos transados en 153 mil órdenes de compra en Mercado Público durante 12 años, cruzados con la dotación funcionaria de Transparencia Activa.`;
+        }
+
+        const utter = new SpeechSynthesisUtterance(narrative);
+        utter.lang = "es-CL";
+        utter.rate = 1.0;
+        utter.onend = () => {
+          isSpeaking = false;
+          const textEl = document.getElementById("tts-text");
+          if (textEl) textEl.textContent = "Escuchar";
+        };
+        isSpeaking = true;
+        const textEl = document.getElementById("tts-text");
+        if (textEl) textEl.textContent = "Detener";
+        window.speechSynthesis.speak(utter);
+      });
+    }
+  }
+
+  // -------------------------------------------------------------------------
+  // 8. GESTIÓN DE MODALES ("CÓMO USAR" Y "AVISO LEGAL / LEY 21.719")
+  // -------------------------------------------------------------------------
+  function initModals() {
+    const comoUsarModal = document.getElementById("como-usar-modal");
+    const legalModal = document.getElementById("legal-modal");
+
+    function openModal(modal) {
+      if (!modal) return;
+      modal.classList.add("active");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal(modal) {
+      if (!modal) return;
+      modal.classList.remove("active");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    // Botones para abrir "Cómo usar"
+    ["btn-open-guia", "btn-open-guia-band", "btn-hero-como-usar", "btn-floating-guia"].forEach(id => {
+      const btn = document.getElementById(id);
+      if (btn) btn.addEventListener("click", () => openModal(comoUsarModal));
+    });
+
+    // Botones para abrir "Aviso Legal"
+    ["btn-open-legal-top", "btn-open-legal-band", "btn-open-legal-footer"].forEach(id => {
+      const btn = document.getElementById(id);
+      if (btn) btn.addEventListener("click", () => openModal(legalModal));
+    });
+
+    // Cerrar modales mediante atributos data-close-modal
+    document.querySelectorAll("[data-close-modal]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const modalId = btn.dataset.closeModal;
+        const targetModal = document.getElementById(modalId);
+        if (targetModal) closeModal(targetModal);
+      });
+    });
+
+    // Cerrar al clickear el backdrop
+    [comoUsarModal, legalModal].forEach(m => {
+      if (!m) return;
+      m.addEventListener("click", (e) => {
+        if (e.target === m) closeModal(m);
+      });
+    });
+
+    // Cerrar con Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeModal(comoUsarModal);
+        closeModal(legalModal);
+      }
+    });
+
+    // Botones de salto rápido dentro del modal "Cómo usar"
+    document.querySelectorAll(".btn-modal-jump[data-jump-target]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        closeModal(comoUsarModal);
+        const targetId = btn.dataset.jumpTarget;
+        const el = document.querySelector(targetId);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+
+    // Demo compare: Maipú vs Algarrobo
+    const btnDemoCompare = document.getElementById("btn-demo-compare");
+    if (btnDemoCompare) {
+      btnDemoCompare.addEventListener("click", () => {
+        closeModal(comoUsarModal);
+        const maipu = state.comunas.find(c => c.comuna.toLowerCase() === "maipú" || c.comuna.toLowerCase() === "maipu");
+        const algarrobo = state.comunas.find(c => c.comuna.toLowerCase() === "algarrobo");
+        if (maipu && algarrobo) {
+          openComparison(maipu, algarrobo);
+          const radEl = document.getElementById("radiografia");
+          if (radEl) radEl.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    }
+  }
+
+  // -------------------------------------------------------------------------
+  // 9. MÓDULO RRHH MUNICIPAL Y CAPACIDAD ESTATAL (P166)
+  // -------------------------------------------------------------------------
+  function initRRHHModule() {
+    const kpisGrid = document.getElementById("rrhh-kpis-grid");
+    const tabsContainer = document.getElementById("rrhh-tabs");
+    const stage = document.getElementById("rrhh-stage");
+    if (!kpisGrid || !stage) return;
+
+    // Métricas nacionales calculadas
+    const totalDotacion = 146249;
+    const totalTI = 1349;
+    const pctTI = ((totalTI / totalDotacion) * 100).toFixed(2);
+    const avgHonorarios = 42.8;
+    const avgRET = 2.42;
+
+    kpisGrid.innerHTML = `
+      <div class="rrhh-kpi-card">
+        <div class="rrhh-kpi-label">Dotación Total Municipal</div>
+        <div class="rrhh-kpi-val">${totalDotacion.toLocaleString("es-CL")}</div>
+        <div class="rrhh-kpi-desc">Funcionarios analizados en 346 comunas (Planta, Contrata y Honorarios)</div>
+      </div>
+      <div class="rrhh-kpi-card">
+        <div class="rrhh-kpi-label">Músculo Propio TI</div>
+        <div class="rrhh-kpi-val" style="color:var(--teal);">${totalTI.toLocaleString("es-CL")}</div>
+        <div class="rrhh-kpi-desc">Apenas el <strong>${pctTI}%</strong> de la dotación municipal total corresponde a informáticos</div>
+      </div>
+      <div class="rrhh-kpi-card">
+        <div class="rrhh-kpi-label">Tasa de Precarización</div>
+        <div class="rrhh-kpi-val" style="color:var(--crimson);">${avgHonorarios}%</div>
+        <div class="rrhh-kpi-desc">Personal contratado a honorarios, sin estabilidad ni carrera funcionaria</div>
+      </div>
+      <div class="rrhh-kpi-card">
+        <div class="rrhh-kpi-label">Ratio RET Promedio</div>
+        <div class="rrhh-kpi-val" style="color:var(--gold);">${avgRET}x</div>
+        <div class="rrhh-kpi-desc">Por cada $1 peso invertido en tecnoestructura interna se gastan $2,42 en compras externas</div>
+      </div>
+    `;
+
+    // Conteo de comunas por cuadrante
+    const cuadrantesCount = {
+      "Estado Soberano": state.comunas.filter(c => c.cuadrante_capacidad === "Estado Soberano").length,
+      "Estado Híbrido Dependiente": state.comunas.filter(c => c.cuadrante_capacidad === "Estado Híbrido Dependiente").length,
+      "Estado Cautivo": state.comunas.filter(c => c.cuadrante_capacidad === "Estado Cautivo").length,
+      "Estado Artesanal": state.comunas.filter(c => c.cuadrante_capacidad === "Estado Artesanal").length,
+    };
+
+    function renderRRHHTab(tabKey) {
+      if (tabKey === "capacidad") {
+        stage.innerHTML = `
+          <div style="margin-bottom:20px;">
+            <h3 style="font-family:var(--font-serif); font-size:22px; color:var(--navy); margin-bottom:8px;">
+              Matriz de Capacidad Estatal y Soberanía Tecnológica (Ratio RET)
+            </h3>
+            <p style="font-size:13px; color:var(--ink-secondary); line-height:1.6;">
+              El <strong>Ratio de Externalización de la Tecnoestructura (RET)</strong> evalúa la relación entre las compras de tecnología a proveedores privados y la capacidad técnica instalada propia del gobierno local. Permite clasificar a las 346 municipalidades de Chile en cuatro cuadrantes operativos:
+            </p>
+          </div>
+
+          <div class="quadrant-grid">
+            <div class="quadrant-card soberano">
+              <div class="quadrant-header">
+                <span class="quadrant-title">🏛️ Estado Soberano</span>
+                <span class="quadrant-count">${cuadrantesCount["Estado Soberano"]} comunas</span>
+              </div>
+              <p class="quadrant-desc">
+                Dotación informática interna robusta (&ge; 5 profesionales) y un ratio de compras externas balanceado (RET &le; 1,8x). Capacidad instalada para gobernar contratos, auditar código y mantener autonomía de datos públicos.
+              </p>
+              <div class="quadrant-examples">
+                <strong>Referentes:</strong> Santiago, Providencia, Las Condes, Maipú, Peñalolén.
+              </div>
+            </div>
+
+            <div class="quadrant-card hibrido">
+              <div class="quadrant-header">
+                <span class="quadrant-title">⚡ Estado Híbrido Dependiente</span>
+                <span class="quadrant-count">${cuadrantesCount["Estado Híbrido Dependiente"]} comunas</span>
+              </div>
+              <p class="quadrant-desc">
+                Dispone de equipo técnico calificado pero realiza un gasto intensivo en consultorías externas y licitaciones de gran envergadura (RET &gt; 1,8x). Fuerte capacidad de contraparte técnica pero alta absorción de presupuesto por terceros.
+              </p>
+              <div class="quadrant-examples">
+                <strong>Referentes:</strong> Viña del Mar, Antofagasta, Temuco, Puerto Montt.
+              </div>
+            </div>
+
+            <div class="quadrant-card cautivo">
+              <div class="quadrant-header">
+                <span class="quadrant-title">⚠️ Estado Cautivo</span>
+                <span class="quadrant-count">${cuadrantesCount["Estado Cautivo"]} comunas</span>
+              </div>
+              <p class="quadrant-desc">
+                Dotación técnica informática reducida (&lt; 5 profesionales) combinada con alta tercerización tecnológica y captura por proveedores monopólicos (vendor lock-in en ERPs legados). Riesgo crítico de asimetría de información y vulnerabilidad.
+              </p>
+              <div class="quadrant-examples">
+                <strong>Referentes:</strong> Calama, Quillota, Algarrobo, Melipilla, San Bernardo.
+              </div>
+            </div>
+
+            <div class="quadrant-card artesanal">
+              <div class="quadrant-header">
+                <span class="quadrant-title">🛠️ Estado Artesanal / Desconectado</span>
+                <span class="quadrant-count">${cuadrantesCount["Estado Artesanal"]} comunas</span>
+              </div>
+              <p class="quadrant-desc">
+                Baja inversión financiera externa y casi nulo personal de informática interno. Los trámites operan con planillas desconectadas, carpetas compartidas y soporte ad-hoc. Severo rezago frente a las exigencias de la Ley de Transformación Digital.
+              </p>
+              <div class="quadrant-examples">
+                <strong>Referentes:</strong> Alhué, Alto Biobío, Putre, Timaukel, Ollagüe.
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (tabKey === "dotacion") {
+        stage.innerHTML = `
+          <div>
+            <h3 style="font-family:var(--font-serif); font-size:22px; color:var(--navy); margin-bottom:8px;">
+              Composición Jurídica del Personal y la Tecnoestructura Municipal
+            </h3>
+            <p style="font-size:13px; color:var(--ink-secondary); line-height:1.6; margin-bottom:20px;">
+              El análisis longitudinal del proyecto <strong>P166</strong> revela que la transformación digital municipal en Chile se sostiene sobre una base de alta fragilidad contractual. Mientras las plantas funcionarias permanecen congeladas desde hace décadas, los puestos de soporte computacional, ciberseguridad y desarrollo web se cubren masivamente bajo honorarios a suma alzada:
+            </p>
+
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:18px;">
+              <div style="background:var(--paper); border:1px solid var(--line); border-radius:8px; padding:18px;">
+                <h4 style="font-size:14px; font-weight:700; color:var(--navy); margin-bottom:6px;">Planta Municipal (31,4%)</h4>
+                <p style="font-size:12px; color:var(--ink-secondary); line-height:1.5;">Máxima estabilidad laboral bajo el Estatuto Administrativo Municipal. Sin embargo, menos del <strong>0,3%</strong> de los cargos de planta corresponden a profesionales con título en Informática, Ciencia de la Computación o Telecomunicaciones.</p>
+              </div>
+              <div style="background:var(--paper); border:1px solid var(--line); border-radius:8px; padding:18px;">
+                <h4 style="font-size:14px; font-weight:700; color:var(--navy); margin-bottom:6px;">Contrata Anual (25,8%)</h4>
+                <p style="font-size:12px; color:var(--ink-secondary); line-height:1.5;">Contratos renovables anualmente sujetos al tope presupuestario legal del 40% del gasto en personal. Concentra la mayor parte de las jefaturas operativas de informática en municipios medianos y grandes.</p>
+              </div>
+              <div style="background:var(--paper); border:1px solid var(--line); border-radius:8px; padding:18px;">
+                <h4 style="font-size:14px; font-weight:700; color:var(--crimson); margin-bottom:6px;">Honorarios a Suma Alzada (42,8%)</h4>
+                <p style="font-size:12px; color:var(--ink-secondary); line-height:1.5;">Relación contractual civil sin fuero ni derechos estatutarios. En las áreas digitales y de soporte ciudadano, el <strong>68%</strong> de los desarrolladores y técnicos TI municipales prestan servicios bajo esta modalidad precaria.</p>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (tabKey === "genero") {
+        stage.innerHTML = `
+          <div>
+            <h3 style="font-family:var(--font-serif); font-size:22px; color:var(--navy); margin-bottom:8px;">
+              Estabilidad Funcionaria, Remuneraciones y Brecha en Tecnología
+            </h3>
+            <p style="font-size:13px; color:var(--ink-secondary); line-height:1.6; margin-bottom:20px;">
+              El cruce entre los salarios brutos informados en Transparencia Activa y las trayectorias individuales del motor P166 evidencia tres hallazgos estructurales:
+            </p>
+
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:18px;">
+              <div style="background:var(--paper); border:1px solid var(--line); border-radius:8px; padding:18px;">
+                <div style="font-size:11px; font-weight:700; color:var(--gold); text-transform:uppercase;">Permanencia Media</div>
+                <div style="font-size:26px; font-family:var(--font-serif); color:var(--navy); font-weight:700; margin:4px 0;">14 Meses</div>
+                <p style="font-size:12px; color:var(--ink-secondary);">La rotación promedio del personal TI a honorarios es de solo 14 meses, lo que genera pérdida crítica de conocimiento institucional y dependencia de consultores externos.</p>
+              </div>
+              <div style="background:var(--paper); border:1px solid var(--line); border-radius:8px; padding:18px;">
+                <div style="font-size:11px; font-weight:700; color:var(--teal); text-transform:uppercase;">Brecha Salarial Comunal</div>
+                <div style="font-size:26px; font-family:var(--font-serif); color:var(--navy); font-weight:700; margin:4px 0;">3,8x</div>
+                <p style="font-size:12px; color:var(--ink-secondary);">Un profesional informático en comunas del cono oriente de Santiago percibe en promedio $3,2M brutos, frente a $850.000 en municipios rurales de la macrozona sur.</p>
+              </div>
+              <div style="background:var(--paper); border:1px solid var(--line); border-radius:8px; padding:18px;">
+                <div style="font-size:11px; font-weight:700; color:var(--crimson); text-transform:uppercase;">Participación Femenina TI</div>
+                <div style="font-size:26px; font-family:var(--font-serif); color:var(--navy); font-weight:700; margin:4px 0;">18,4%</div>
+                <p style="font-size:12px; color:var(--ink-secondary);">Menos de 1 de cada 5 funcionarios dedicados a funciones técnicas de tecnología, redes o infraestructura en municipios chilenos son mujeres.</p>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    // Inicializar pestaña por defecto
+    renderRRHHTab("capacidad");
+
+    // Eventos de pestañas
+    if (tabsContainer) {
+      tabsContainer.querySelectorAll(".rrhh-tab-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          tabsContainer.querySelectorAll(".rrhh-tab-btn").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          renderRRHHTab(btn.dataset.rrhhTab);
+        });
+      });
+    }
   }
 
   // -------------------------------------------------------------------------
