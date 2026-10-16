@@ -50,7 +50,7 @@
     "release": {
       "type": "object", "additionalProperties": false,
       "required": ["backup_required", "restore_test_required", "rollback_required", "rpo_hours", "rto_hours"],
-      "properties": {"backup_required": {"type": "boolean"}, "restore_test_required": {"type": "boolean"}, "rollback_required": {"type": "boolean"}, "rpo_hours": {"type": ["integer", "null"], "minimum": 0}, "rto_hours": {"type": ["integer", "null"], "minimum": 0}}
+      "properties": {"current_version": {"type": "string", "pattern": "^v?[0-9]+\\.[0-9]+\\.[0-9]+$"}, "backup_required": {"type": "boolean"}, "restore_test_required": {"type": "boolean"}, "rollback_required": {"type": "boolean"}, "rpo_hours": {"type": ["integer", "null"], "minimum": 0}, "rto_hours": {"type": ["integer", "null"], "minimum": 0}}
     },
     "evidence": {
       "type": "object", "additionalProperties": false,

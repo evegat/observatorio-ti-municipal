@@ -9,3 +9,7 @@ Thumbs.db
 # Node
 node_modules/
 npm-debug.log
+
+# MyWorld Harness runtime evidence
+.myworld-harness/evidence/
+.myworld-harness/cache/

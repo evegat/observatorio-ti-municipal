@@ -128,36 +128,36 @@
     }
   ],
   "rrhh_nacional": {
-    "dotacion_total_nacional": 146249,
-    "dotacion_planta_nacional": 39879,
-    "dotacion_contrata_nacional": 40456,
-    "dotacion_honorarios_nacional": 65914,
-    "pct_honorarios_nacional": 45.1,
-    "pct_planta_contrata_nacional": 54.9,
+    "dotacion_total_nacional": 151342,
+    "dotacion_planta_nacional": 38502,
+    "dotacion_contrata_nacional": 37983,
+    "dotacion_honorarios_nacional": 74857,
+    "pct_honorarios_nacional": 49.5,
+    "pct_planta_contrata_nacional": 50.5,
     "pct_mujeres_nacional": 53.5,
     "brecha_salarial_genero_nacional_pct": 7.6,
-    "remuneracion_mediana_nacional_clp": 1071000.0,
-    "dotacion_ti_nacional": 1349,
-    "dotacion_ti_formal_nacional": 731,
-    "dotacion_ti_honorarios_nacional": 618,
-    "ret_promedio_nacional": 0.91,
-    "permanencia_media_nacional_meses": 23.8,
-    "cplt_comunas_observadas": 6,
-    "cplt_registros_duckdb": 3928,
+    "remuneracion_mediana_nacional_clp": 1340488.0,
+    "dotacion_ti_nacional": 3647,
+    "dotacion_ti_formal_nacional": 1049,
+    "dotacion_ti_honorarios_nacional": 2598,
+    "ret_promedio_nacional": 0.47,
+    "permanencia_media_nacional_meses": 22.8,
+    "cplt_comunas_observadas": 269,
+    "cplt_registros_duckdb": 1468974,
     "cuadrantes_distribucion": {
-      "Estado Soberano": 72,
-      "Estado Híbrido Dependiente": 4,
-      "Estado Artesanal": 107,
-      "Estado Cautivo": 115,
-      "Estado Desconectado": 99
+      "Estado Soberano": 198,
+      "Estado Híbrido Dependiente": 5,
+      "Estado Artesanal": 99,
+      "Estado Cautivo": 46,
+      "Estado Desconectado": 49
     },
     "estamentos_nacional_pct": {
-      "directivo": 4.3,
-      "profesional": 33.0,
-      "jefatura": 5.6,
-      "tecnico": 24.3,
-      "administrativo": 26.6,
-      "auxiliar": 6.2
+      "directivo": 4.6,
+      "profesional": 33.5,
+      "jefatura": 3.4,
+      "tecnico": 22.2,
+      "administrativo": 28.7,
+      "auxiliar": 7.7
     }
   }
 }

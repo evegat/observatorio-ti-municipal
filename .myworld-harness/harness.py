@@ -59,6 +59,7 @@ CORE_MYWORLD_SKILLS = {
     "checkpoint",
     "unified-memory",
     "client-review-gate",
+    "myworld-kaneo",
 }
 
 
@@ -85,6 +86,11 @@ def result(name: str, status: str, detail: str, **extra: Any) -> dict[str, Any]:
 
 
 def report(command: str, repo: Path | None, checks: list[dict[str, Any]], error: str | None = None) -> dict[str, Any]:
+    checks = [dict(item) for item in checks]
+    for item in checks:
+        if item.get("status") not in {"pass", "fail", "pending", "not_applicable"}:
+            item["detail"] = f"Estado desconocido {item.get('status')}: {item.get('detail', '')}"
+            item["status"] = "fail"
     states = [item["status"] for item in checks]
     if error:
         status = "error"
@@ -92,6 +98,9 @@ def report(command: str, repo: Path | None, checks: list[dict[str, Any]], error:
     elif "fail" in states:
         status = "fail"
         exit_code = 1
+    elif "pending" in states:
+        status = "pending"
+        exit_code = 3 if any(item["status"] == "pending" and item.get("blocking", True) for item in checks) else 0
     else:
         status = "pass"
         exit_code = 0
@@ -211,9 +220,8 @@ def validate_profile(repo: Path) -> list[dict[str, Any]]:
 
 def validate_artifact(path: Path, kind: str) -> dict[str, Any]:
     home = harness_home()
-    if not home:
-        return report("validate", None, [], "Validación de artefactos requiere la fuente canónica")
-    schema = home / "schemas" / ("harness-v1.schema.json" if kind == "product" else f"{kind}.schema.json")
+    schema_root = home / "schemas" if home else Path(__file__).resolve().parent / "schemas"
+    schema = schema_root / ("harness-v1.schema.json" if kind == "product" else f"{kind}.schema.json")
     if not schema.exists() or not path.exists():
         return report("validate", None, [], "Schema o artefacto ausente")
     try:
@@ -251,11 +259,13 @@ def validate_adapter(repo: Path) -> list[dict[str, Any]]:
     body = local_template.read_text(encoding="utf-8").strip()
     expected = sha256_bytes(body.encode("utf-8"))
     text = agents.read_text(encoding="utf-8")
-    match = START_RE.search(text)
-    if not match:
-        return [result("adapter", "fail", "Bloque administrado ausente")]
+    matches = list(START_RE.finditer(text))
+    if len(matches) != 1:
+        return [result("adapter", "fail", "Debe existir exactamente un bloque administrado")]
+    match = matches[0]
     marker = re.search(r"sha256=([a-f0-9]{64})", match.group(0))
-    if not marker or marker.group(1) != expected or body not in match.group(0):
+    managed_body = match.group(0).split("-->", 1)[1].rsplit("<!--", 1)[0].strip()
+    if not marker or marker.group(1) != expected or body != managed_body:
         return [result("adapter", "fail", "Bloque divergente")]
     return [result("adapter", "pass", f"v{VERSION} sha256={expected[:12]}")]
 
@@ -265,8 +275,68 @@ def git_output(repo: Path, *args: str) -> tuple[int, str]:
     return proc.returncode, (proc.stdout + proc.stderr).strip()
 
 
-def preflight(repo: Path) -> dict[str, Any]:
+def lock_checks(repo: Path, vault: Path | None = None, owner: str | None = None, host: str | None = None, session: str | None = None) -> list[dict[str, Any]]:
+    """Conflictos locales/centrales; un lease vencido nunca se libera aquí."""
+    checks: list[dict[str, Any]] = []
+    owner = owner or os.environ.get("MYWORLD_OWNER")
+    host = host or os.environ.get("MYWORLD_HOST")
+    session = session or os.environ.get("MYWORLD_SESSION")
+    roots = [repo.resolve()]
+    home = harness_home()
+    configured = os.environ.get("MYWORLD_VAULT")
+    vault = vault or (Path(configured).resolve() if configured else (home.parents[1] if home else None))
+    if vault and vault.resolve() not in roots:
+        roots.append(vault.resolve())
+    try:
+        project = str(load_profile(repo).get("myworld_project", ""))
+    except (OSError, ValueError):
+        project = ""
+    terminal = {"released", "completed", "complete", "cancelled", "abandoned"}
+    for root in roots:
+        if (root / ".myworld.lock").exists():
+            checks.append(result("locks.global", "fail", f"Lock global presente en {root}; conservar y resolver con su responsable"))
+        directory = root / ".myworld-locks"
+        if not directory.exists():
+            continue
+        for path in sorted(directory.iterdir()):
+            if not path.is_file() or path.suffix.lower() not in {".yaml", ".yml", ".json"}:
+                continue
+            try:
+                data = json_load(path) if path.suffix.lower() == ".json" else parse_simple_frontmatter(path)
+                if not isinstance(data, dict) or not all(data.get(key) for key in ("owner", "host", "session", "scope", "target", "status")):
+                    raise ValueError("Campos mínimos ausentes")
+                if data["scope"] not in {"vault", "project", "repository"} or data["status"] not in terminal | {"active", "paused", "stale"}:
+                    raise ValueError("Scope o status desconocido")
+            except (OSError, ValueError, TypeError):
+                checks.append(result("locks.malformed", "fail", f"{path.name}: lock no interpretable; bloqueo global"))
+                continue
+            if data["status"] in terminal:
+                continue
+            target = str(data["target"])
+            target_path = Path(target) if Path(target).is_absolute() else root / target
+            relevant = data["scope"] == "vault" or root == repo.resolve() or target == project or bool(re.match(r"^(P|PUB|INV)\d{3}$", target) and project.startswith(target + "-"))
+            if not relevant:
+                relevant = repo.resolve().is_relative_to(target_path.resolve())
+            if not relevant:
+                continue
+            own = bool(owner and host and session and (data["owner"], data["host"], data["session"]) == (owner, host, session))
+            if not own:
+                checks.append(result("locks.foreign", "fail", f"{path.name}: custodia ajena ({data['scope']}); no retirar ni tomar"))
+            else:
+                expiry = parse_iso_datetime(data.get("lease_expires_at"))
+                heartbeat = parse_iso_datetime(data.get("heartbeat_at"))
+                live = data["status"] == "active" and expiry and heartbeat and heartbeat <= datetime.now(timezone.utc) < expiry
+                checks.append(result("locks.owned", "pass" if live else "fail", f"{path.name}: identidad exacta; lease {'vigente' if live else 'inválida o vencida'}"))
+    if not checks:
+        checks.append(result("locks.conflicts", "pass", "Sin locks conflictivos en las rutas inspeccionadas", roots=[str(root) for root in roots]))
+    if not vault:
+        checks.append(result("locks.vault", "pending", "Vault central no configurado; usar --vault o MYWORLD_VAULT", blocking=False))
+    return checks
+
+
+def preflight(repo: Path, vault: Path | None = None, owner: str | None = None, host: str | None = None, session: str | None = None) -> dict[str, Any]:
     checks = validate_profile(repo) + validate_adapter(repo)
+    checks.extend(lock_checks(repo, vault, owner, host, session))
     code, branch = git_output(repo, "branch", "--show-current")
     if code != 0:
         checks.append(result("git.repository", "fail", "No es un repositorio Git"))
@@ -274,7 +344,7 @@ def preflight(repo: Path) -> dict[str, Any]:
         checks.append(result("git.repository", "pass", f"Rama: {branch or '(sin commits)'}"))
         _, status = git_output(repo, "status", "--porcelain")
         if status:
-            checks.append(result("git.working_tree", "pending", "Hay cambios previos; deben preservarse", changed_files=len(status.splitlines())))
+            checks.append(result("git.working_tree", "pending", "Hay cambios previos; deben preservarse", changed_files=len(status.splitlines()), blocking=False))
         else:
             checks.append(result("git.working_tree", "pass", "Limpio"))
         _, hooks = git_output(repo, "config", "--get", "core.hooksPath")
@@ -336,11 +406,12 @@ def secret_scan(repo: Path, staged: bool = False) -> list[dict[str, Any]]:
         except OSError:
             continue
         for line_no, line in enumerate(text.splitlines(), 1):
-            lower = line.lower()
-            if "placeholder" in lower or "example" in lower or "fake-secret-for-test" in lower:
-                continue
             for label, pattern in SECRET_PATTERNS.items():
-                if pattern.search(line):
+                for match in pattern.finditer(line):
+                    if label == "assigned_secret":
+                        literal = re.search(r"['\"]([^'\"]+)['\"]$", match.group(0))
+                        if literal and re.fullmatch(r"(?:\$\{[A-Z_][A-Z0-9_]*\}|placeholder(?:[-_][A-Za-z0-9]+)*|fake-secret-for-test(?:[-_][A-Za-z0-9]+)*)", literal.group(1)):
+                            continue
                     findings.append({"path": str(path.relative_to(repo)), "line": line_no, "kind": label})
     if findings:
         return [result("security.builtin_secrets", "fail", f"{len(findings)} posible(s) secreto(s); valores omitidos", findings=findings)]
@@ -359,6 +430,11 @@ def run_shell(command: str, repo: Path, timeout: int = 900) -> tuple[int, str]:
 
 def quality(repo: Path) -> dict[str, Any]:
     checks = validate_profile(repo)
+    if any(item["status"] == "fail" or item["status"] == "pending" and item.get("blocking", True) for item in checks):
+        return report("quality", repo, checks)
+    checks.extend(lock_checks(repo))
+    if any(item["status"] == "fail" for item in checks):
+        return report("quality", repo, checks)
     try:
         profile = load_profile(repo)
     except Exception as exc:
@@ -369,7 +445,7 @@ def quality(repo: Path) -> dict[str, Any]:
             if command not in commands:
                 commands.append(command)
     if not commands:
-        checks.append(result("quality.commands", "not_applicable", "No hay comando automático aplicable; requiere revisión manual"))
+        checks.append(result("quality.commands", "pending", "No hay verificación declarada; registrar comando o evidencia de revisión manual"))
     for index, command in enumerate(commands, 1):
         code, output = run_shell(command, repo)
         checks.append(result(f"quality.command.{index}", "pass" if code == 0 else "fail", f"exit={code}: {command}", output=output))
@@ -398,14 +474,16 @@ def tool_version(name: str) -> tuple[bool, str, str | None]:
 
 def security(repo: Path, staged: bool = False, no_external: bool = False) -> dict[str, Any]:
     checks = validate_profile(repo) + secret_scan(repo, staged)
+    if any(item["status"] == "fail" or item["status"] == "pending" and item.get("blocking", True) for item in checks):
+        return report("security", repo, checks)
     profile = load_profile(repo)
     if no_external:
-        checks.append(result("security.external", "not_applicable", "Scanners externos delegados al runner"))
+        checks.append(result("security.external", "pending", "Solo escaneo incorporado; scanners externos no ejecutados", blocking=False))
         return report("security", repo, checks)
     blocking_tools = profile["risk"] in {"high", "critical"} and profile["deployment"]["state"] == "public"
     for tool in ("gitleaks", "trivy"):
         available, version, executable = tool_version(tool)
-        checks.append(result(f"security.tool.{tool}", "pass" if available else ("fail" if blocking_tools else "pending"), version))
+        checks.append(result(f"security.tool.{tool}", "pass" if available else ("fail" if blocking_tools else "pending"), version, blocking=blocking_tools))
         if available and not staged and executable:
             if tool == "gitleaks":
                 command = f'"{executable}" git --no-banner --redact --exit-code 1 .'
@@ -430,16 +508,266 @@ def release_gate(repo: Path) -> dict[str, Any]:
     else:
         try:
             data = json_load(evidence)
+            schema_report = validate_artifact(evidence, "release")
+            checks.extend(schema_report["checks"])
+            if schema_report["exit_code"]:
+                return report("release", repo, checks, schema_report.get("error"))
             required = {"version", "artifact", "rollback_tested", "monitor_verified"}
             if profile["release"]["backup_required"]:
                 required |= {"backup_verified"}
             if profile["release"]["restore_test_required"]:
                 required |= {"restore_tested"}
-            missing = sorted(key for key in required if not data.get(key))
+            missing = sorted(key for key in required if (data.get(key) is not True if key.endswith(("_tested", "_verified")) else not data.get(key)))
+            if data.get("product_id") != profile["product_id"]:
+                missing.append("product_id del contrato")
             checks.append(result("release.evidence", "fail" if missing else "pass", f"Faltan: {', '.join(missing)}" if missing else "Evidencia completa"))
         except Exception as exc:
             checks.append(result("release.evidence", "fail", f"JSON inválido: {type(exc).__name__}"))
     return report("release", repo, checks)
+
+
+def parse_semver(ver_str: str) -> tuple[int, int, int]:
+    m = re.match(r"^v?(\d+)\.(\d+)\.(\d+)$", ver_str.strip())
+    if not m:
+        raise ValueError(f"Versión inválida para SemVer: {ver_str}")
+    return int(m.group(1)), int(m.group(2)), int(m.group(3))
+
+
+def bump_semver(current: str, bump_type: str) -> str:
+    major, minor, patch = parse_semver(current)
+    if bump_type == "patch":
+        patch += 1
+    elif bump_type == "minor":
+        minor += 1
+        patch = 0
+    elif bump_type == "major":
+        major += 1
+        minor = 0
+        patch = 0
+    else:
+        raise ValueError(f"Tipo de bump desconocido: {bump_type}")
+    return f"{major}.{minor}.{patch}"
+
+
+def detect_current_version(repo: Path) -> str:
+    pkg = repo / "package.json"
+    if pkg.exists():
+        try:
+            data = json_load(pkg)
+            if "version" in data and isinstance(data["version"], str):
+                return data["version"].lstrip("v")
+        except Exception:
+            pass
+    pyproj = repo / "pyproject.toml"
+    if pyproj.exists():
+        m = re.search(r'(?m)^version\s*=\s*["\']([^"\']+)["\']', pyproj.read_text(encoding="utf-8", errors="replace"))
+        if m:
+            return m.group(1).lstrip("v")
+    harness_cfg = repo / "MYWORLD-HARNESS.json"
+    if harness_cfg.exists():
+        try:
+            data = json_load(harness_cfg)
+            if "current_version" in data.get("release", {}):
+                return str(data["release"]["current_version"]).lstrip("v")
+        except Exception:
+            pass
+    code, out = git_output(repo, "describe", "--tags", "--abbrev=0")
+    if code == 0 and out.strip():
+        tag = out.strip().lstrip("v")
+        try:
+            parse_semver(tag)
+            return tag
+        except ValueError:
+            pass
+    return "0.1.0"
+
+
+def release_cut(
+    repo: Path,
+    bump: str | None = None,
+    target_version: str | None = None,
+    title: str | None = None,
+    notes: str | None = None,
+    no_push: bool = True,
+    dry_run: bool = False,
+) -> dict[str, Any]:
+    checks: list[dict[str, Any]] = []
+
+    # 1. Comprobar que sea repo git
+    code, branch = git_output(repo, "branch", "--show-current")
+    if code != 0:
+        return report("release cut", repo, [result("release.git", "fail", "No es un repositorio Git válido")])
+
+    # 2. Comprobar cambios sin commitear
+    code, status = git_output(repo, "status", "--porcelain")
+    if status and not dry_run:
+        lines = [line.strip() for line in status.splitlines() if line.strip()]
+        if lines:
+            return report("release cut", repo, [result("release.working_tree", "fail", f"El working tree tiene {len(lines)} archivo(s) sin commitear. Debe estar limpio antes del release.")])
+
+    # 3. Determinar versiones actual y nueva
+    current_ver = detect_current_version(repo)
+    if target_version:
+        try:
+            parse_semver(target_version)
+            new_ver = target_version.lstrip("v")
+        except ValueError as exc:
+            return report("release cut", repo, [result("release.version", "fail", str(exc))])
+    elif bump:
+        try:
+            new_ver = bump_semver(current_ver, bump)
+        except ValueError as exc:
+            return report("release cut", repo, [result("release.version", "fail", str(exc))])
+    else:
+        new_ver = bump_semver(current_ver, "patch")
+
+    tag_name = f"v{new_ver}"
+    release_title = title or f"Release {tag_name}"
+    release_notes = notes or f"Versión {tag_name} publicada mediante Harness MyWorld."
+
+    checks.append(result("release.version", "pass", f"{current_ver} -> {new_ver} (tag {tag_name})"))
+
+    # Antes de cualquier escritura, comprobar gates y recibo existente.
+    gates = (preflight,) if dry_run else (preflight, quality, security)
+    for gate in gates:
+        gate_report = gate(repo)
+        checks.extend(gate_report["checks"])
+        if gate_report["exit_code"]:
+            return report("release cut", repo, checks, gate_report.get("error"))
+    if dry_run:
+        checks.append(result("release.verification", "pending", "Simulación sin ejecutar tests, builds o scanners; gates operacionales pendientes", blocking=False))
+    evidence_file = repo / ".myworld-harness" / "evidence" / "release.json"
+    receipt = validate_artifact(evidence_file, "release")
+    checks.extend(receipt["checks"])
+    if receipt["exit_code"]:
+        return report("release cut", repo, checks, receipt.get("error"))
+    evidence_payload = json_load(evidence_file)
+    profile = load_profile(repo)
+    required_proofs = {"rollback_tested", "monitor_verified"}
+    if profile["release"]["backup_required"]:
+        required_proofs.add("backup_verified")
+    if profile["release"]["restore_test_required"]:
+        required_proofs.add("restore_tested")
+    valid_receipt = evidence_payload.get("version") == tag_name and evidence_payload.get("product_id") == profile["product_id"] and all(evidence_payload.get(key) is True for key in required_proofs)
+    checks.append(result("release.receipt", "pass" if valid_receipt else "fail", "Recibo previo del candidato; no se fabrican resultados"))
+    if not valid_receipt:
+        return report("release cut", repo, checks)
+
+    # 4. Modificar manifiestos si existen
+    modified_files: list[Path] = []
+
+    pkg_file = repo / "package.json"
+    if pkg_file.exists():
+        try:
+            pkg_data = json_load(pkg_file)
+            pkg_data["version"] = new_ver
+            if not dry_run:
+                pkg_file.write_text(json.dumps(pkg_data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+            modified_files.append(pkg_file)
+            checks.append(result("release.manifest.package_json", "pass", f"Actualizado a {new_ver}"))
+        except Exception as exc:
+            checks.append(result("release.manifest.package_json", "fail", str(exc)))
+
+    pyproj_file = repo / "pyproject.toml"
+    if pyproj_file.exists():
+        try:
+            content = pyproj_file.read_text(encoding="utf-8")
+            updated = re.sub(r'(?m)^version\s*=\s*["\'][^"\']+["\']', f'version = "{new_ver}"', content)
+            if not dry_run:
+                pyproj_file.write_text(updated, encoding="utf-8")
+            modified_files.append(pyproj_file)
+            checks.append(result("release.manifest.pyproject", "pass", f"Actualizado a {new_ver}"))
+        except Exception as exc:
+            checks.append(result("release.manifest.pyproject", "fail", str(exc)))
+
+    harness_file = repo / "MYWORLD-HARNESS.json"
+    if harness_file.exists():
+        try:
+            hdata = json_load(harness_file)
+            if "release" in hdata and isinstance(hdata["release"], dict):
+                hdata["release"]["current_version"] = tag_name
+                if not dry_run:
+                    harness_file.write_text(json.dumps(hdata, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+                modified_files.append(harness_file)
+                checks.append(result("release.manifest.harness", "pass", f"Actualizado a {tag_name}"))
+        except Exception as exc:
+            checks.append(result("release.manifest.harness", "fail", str(exc)))
+
+    # 5. Actualizar CHANGELOG.md
+    changelog_file = repo / "CHANGELOG.md"
+    today_iso = datetime.now().strftime("%Y-%m-%d")
+    changelog_entry = f"## [{new_ver}] - {today_iso}\n### Resumen\n- {release_title}\n"
+    if notes:
+        changelog_entry += f"\n### Detalle\n{notes.strip()}\n"
+
+    if changelog_file.exists():
+        content = changelog_file.read_text(encoding="utf-8", errors="replace")
+        if "# Changelog" in content:
+            idx = content.find("# Changelog") + len("# Changelog")
+            newline_idx = content.find("\n", idx)
+            if newline_idx != -1:
+                content = content[:newline_idx+1] + "\n" + changelog_entry + "\n" + content[newline_idx+1:].lstrip()
+            else:
+                content = content + "\n\n" + changelog_entry
+        else:
+            content = f"# Changelog\n\n{changelog_entry}\n" + content
+    else:
+        content = f"# Changelog\n\nTodos los cambios notables de este proyecto se documentan en este archivo.\nEl formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/)\ny este proyecto se adhiere a [Semantic Versioning](https://semver.org/lang/es/).\n\n{changelog_entry}\n"
+
+    if not dry_run:
+        changelog_file.write_text(content, encoding="utf-8")
+    modified_files.append(changelog_file)
+    checks.append(result("release.changelog", "pass", f"Entrada [{new_ver}] - {today_iso} añadida"))
+
+    # 6. El recibo previo es inmutable; cortar una versión no prueba operación.
+
+    # 7. Git commit, tag y push
+    if not dry_run:
+        for mf in modified_files:
+            if mf.exists():
+                git_output(repo, "add", str(mf.relative_to(repo)))
+
+        c_code, c_out = git_output(repo, "commit", "-m", f"chore(release): {tag_name} - {release_title}")
+        if c_code != 0:
+            checks.append(result("release.git.commit", "fail", f"Fallo al crear commit: {c_out}"))
+            return report("release cut", repo, checks)
+        checks.append(result("release.git.commit", "pass", f"Commit creado: chore(release): {tag_name}"))
+
+        t_code, t_out = git_output(repo, "tag", "-a", tag_name, "-m", f"Release {tag_name}: {release_title}")
+        if t_code != 0:
+            checks.append(result("release.git.tag", "fail", f"Fallo al crear tag {tag_name}: {t_out}"))
+            return report("release cut", repo, checks)
+        checks.append(result("release.git.tag", "pass", f"Tag inmutable creado: {tag_name}"))
+
+        if not no_push:
+            r_code, r_url = git_output(repo, "remote", "get-url", "origin")
+            if r_code == 0:
+                p_code, p_out = git_output(repo, "push", "--follow-tags")
+                if p_code == 0:
+                    checks.append(result("release.git.push", "pass", "Push a origin con tags exitoso"))
+                else:
+                    checks.append(result("release.git.push", "fail", f"Push falló: {p_out}"))
+                    return report("release cut", repo, checks)
+
+                if shutil.which("gh"):
+                    try:
+                        gh_cmd = ["gh", "release", "create", tag_name, "--title", f"{tag_name} - {release_title}", "--notes", release_notes]
+                        gh_proc = subprocess.run(gh_cmd, cwd=str(repo), capture_output=True, text=True, encoding="utf-8", errors="replace")
+                        if gh_proc.returncode == 0:
+                            checks.append(result("release.github", "pass", f"Release {tag_name} publicado en GitHub"))
+                        else:
+                            checks.append(result("release.github", "fail", f"gh release error: {gh_proc.stderr.strip()[:200]}"))
+                    except Exception as exc:
+                        checks.append(result("release.github", "fail", f"No se pudo ejecutar gh: {exc}"))
+                else:
+                    checks.append(result("release.github", "pending", "gh CLI ausente; release GitHub no publicado"))
+            else:
+                checks.append(result("release.git.push", "fail", "No hay remoto origin para la publicación solicitada"))
+    else:
+        checks.append(result("release.simulation", "pass", f"Simulación exitosa: {tag_name} cortaría commit y tag."))
+
+    return report("release cut", repo, checks)
+
 
 
 def postflight(repo: Path) -> dict[str, Any]:
@@ -447,15 +775,23 @@ def postflight(repo: Path) -> dict[str, Any]:
     code, output = git_output(repo, "diff", "--check")
     checks.append(result("postflight.diff_check", "pass" if code == 0 else "fail", "Sin errores de whitespace" if code == 0 else output[:1000]))
     evidence = repo / ".myworld-harness" / "evidence" / "postflight.json"
-    checks.append(result("postflight.evidence", "pass" if evidence.exists() else "pending", "Evidencia presente" if evidence.exists() else "Debe registrarse al cerrar una tarea relevante"))
+    if evidence.exists():
+        validated = validate_artifact(evidence, "evidence")
+        checks.extend(validated["checks"])
+        if validated["exit_code"] == 0:
+            data = json_load(evidence)
+            complete = data["result"] == "pass" and not data["pending"] and all(item["status"] in {"pass", "not_applicable"} for item in data["checks"]) and bool(data["checks"])
+            checks.append(result("postflight.evidence", "pass" if complete else "pending", "Evidencia validada; los pendientes impiden declarar cierre completo"))
+    else:
+        checks.append(result("postflight.evidence", "pending", "Debe registrarse al cerrar una tarea relevante"))
     return report("postflight", repo, checks)
 
 
-def design_gate(repo: Path) -> dict[str, Any]:
+def design_gate(repo: Path, semantic_authorized: bool = False) -> dict[str, Any]:
     checks = validate_profile(repo)
     from myworld_design_engine import MyWorldDesignEngine
     engine = MyWorldDesignEngine(repo)
-    result_data = engine.run_full_design_gate()
+    result_data = engine.run_full_design_gate(semantic_authorized=semantic_authorized)
     checks.extend(result_data["checks"])
     return report("design", repo, checks)
 
@@ -515,6 +851,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
+      - name: Install schema validator
+        run: python -m pip install jsonschema
       - name: Activate repository hooks path
         run: git config core.hooksPath .githooks
       - name: Contract and adapter
@@ -554,7 +892,7 @@ def ensure_gitignore(repo: Path) -> str:
     return current.rstrip() + "\n\n# MyWorld Harness runtime evidence\n" + "\n".join(additions) + "\n"
 
 
-def sync_repositories(dry_run: bool) -> dict[str, Any]:
+def sync_repositories(dry_run: bool, selected_repo: Path | None = None) -> dict[str, Any]:
     home = harness_home()
     if not home:
         return report("sync", None, [], "sync solo está disponible desde la fuente canónica")
@@ -566,14 +904,38 @@ def sync_repositories(dry_run: bool) -> dict[str, Any]:
     checks: list[dict[str, Any]] = []
     for entry in inventory["managed"]:
         repo = Path(entry["path"])
+        if selected_repo and repo.resolve() != selected_repo.resolve():
+            continue
         name = entry["profile"]["product_id"]
         if not repo.exists():
             checks.append(result(f"sync.{name}", "fail", "Ruta ausente"))
             continue
+        conflicts = [item for item in lock_checks(repo) if item["status"] == "fail"]
+        if conflicts:
+            checks.append(result(f"sync.{name}", "fail", "Lock conflictivo; no se modifica este repositorio", conflicts=conflicts))
+            continue
+        local_profile = repo / "MYWORLD-HARNESS.json"
+        if local_profile.exists():
+            try:
+                existing = json_load(local_profile)
+                profile_to_sync = json_load(local_profile)
+                current_version = existing.get("release", {}).pop("current_version", None)
+                if existing != entry["profile"]:
+                    checks.append(result(f"sync.{name}", "fail", "Contrato local diverge del inventario; reconciliar antes de sobrescribir"))
+                    continue
+                if current_version is not None:
+                    profile_to_sync["release"]["current_version"] = current_version
+            except (OSError, ValueError, AttributeError):
+                checks.append(result(f"sync.{name}", "fail", "Contrato local inválido; conservar y reparar antes de sincronizar"))
+                continue
+        else:
+            profile_to_sync = entry["profile"]
         changes = 0
-        changes += write_if_changed(repo / "MYWORLD-HARNESS.json", json_text(entry["profile"]), dry_run)
+        changes += write_if_changed(repo / "MYWORLD-HARNESS.json", json_text(profile_to_sync), dry_run)
         changes += write_if_changed(repo / "AGENTS.md", merge_adapter(repo / "AGENTS.md", block), dry_run)
         changes += write_if_changed(repo / ".myworld-harness" / "harness.py", script, dry_run)
+        for module in ("myworld_design_engine.py", "jev_design_judge.py"):
+            changes += write_if_changed(repo / ".myworld-harness" / module, (home / "src" / module).read_bytes(), dry_run)
         changes += write_if_changed(repo / ".myworld-harness" / "harness.ps1", LAUNCHER, dry_run)
         changes += write_if_changed(repo / ".myworld-harness" / "schema.json", schema, dry_run)
         for schema_source in sorted((home / "schemas").glob("*.schema.json")):
@@ -587,6 +949,8 @@ def sync_repositories(dry_run: bool) -> dict[str, Any]:
         if (repo / ".git").exists() and not dry_run:
             git_output(repo, "config", "core.hooksPath", ".githooks")
         checks.append(result(f"sync.{name}", "pass", f"{changes} cambio(s) {'previstos' if dry_run else 'aplicados'}; adapter={digest[:12]}"))
+    if selected_repo and not checks:
+        return report("sync", None, [], "El repositorio solicitado no está en el inventario")
     return report("sync", None, checks)
 
 
@@ -694,6 +1058,7 @@ def continuity_audit(vault: Path, stale_after_minutes: int = 60) -> dict[str, An
     alias_status: list[str] = []
     duplicate_ids: list[str] = []
     stale_sessions: list[str] = []
+    invalid_timestamps: list[str] = []
     now = datetime.now(timezone.utc).astimezone()
     stale_before = now - timedelta(minutes=max(1, stale_after_minutes))
 
@@ -716,22 +1081,27 @@ def continuity_audit(vault: Path, stale_after_minutes: int = 60) -> dict[str, An
         normalized = CONTINUITY_STATUS_ALIASES.get(raw_status, raw_status)
         if normalized == "active":
             last_seen = parse_iso_datetime(data.get("heartbeat_at") or data.get("updated_at") or data.get("started_at"))
-            if last_seen and last_seen < stale_before:
+            if not last_seen or last_seen > now:
+                invalid_timestamps.append(path.name)
+            elif last_seen < stale_before:
                 stale_sessions.append(session_id)
 
     missing_records: list[str] = []
     malformed_locks: list[str] = []
     active_without_lease: list[str] = []
     expired_leases: list[str] = []
+    retained_locks: list[str] = []
     for path in lock_files:
         try:
             data = json_load(path) if path.suffix.lower() == ".json" else parse_simple_frontmatter(path)
         except (OSError, ValueError, json.JSONDecodeError):
             data = {}
-        if not all(data.get(key) for key in ("owner", "host", "session", "scope", "target", "status")):
+        if not isinstance(data, dict) or not all(data.get(key) for key in ("owner", "host", "session", "scope", "target", "status")) or data.get("scope") not in {"project", "repository", "vault"} or data.get("status") not in {"active", "paused", "stale", "released", "completed", "complete", "cancelled", "abandoned"}:
             malformed_locks.append(path.name)
             continue
         status = str(data.get("status")).casefold()
+        if status in {"paused", "stale"}:
+            retained_locks.append(path.name)
         if status != "active":
             continue
         record = data.get("record")
@@ -743,7 +1113,8 @@ def continuity_audit(vault: Path, stale_after_minutes: int = 60) -> dict[str, An
         elif session_id not in sessions:
             missing_records.append(path.name)
         lease_expires = parse_iso_datetime(data.get("lease_expires_at"))
-        if lease_expires is None:
+        heartbeat = parse_iso_datetime(data.get("heartbeat_at"))
+        if lease_expires is None or heartbeat is None or heartbeat > now:
             active_without_lease.append(path.name)
         elif lease_expires < now:
             expired_leases.append(path.name)
@@ -751,9 +1122,12 @@ def continuity_audit(vault: Path, stale_after_minutes: int = 60) -> dict[str, An
     checks = [
         result("continuity.sessions.discovered", "pass", f"{len(session_files)} registro(s)"),
         result("continuity.sessions.missing_status", "fail" if missing_status else "pass", f"{len(missing_status)} sin status"),
-        result("continuity.sessions.legacy_status", "pending" if alias_status else "pass", f"{len(alias_status)} usan alias complete"),
+        result("continuity.sessions.legacy_status", "pending" if alias_status else "pass", f"{len(alias_status)} usan alias complete", blocking=False),
         result("continuity.sessions.invalid_status", "fail" if invalid_status else "pass", f"{len(invalid_status)} estado(s) inválido(s)"),
         result("continuity.sessions.duplicate_id", "fail" if duplicate_ids else "pass", f"{len(duplicate_ids)} ID duplicado(s)"),
+        result("continuity.sessions.timestamps", "fail" if invalid_timestamps else "pass", f"{len(invalid_timestamps)} activa(s) sin timestamp válido", files=invalid_timestamps),
+        result("continuity.locks.global", "fail" if (vault / ".myworld.lock").exists() else "pass", "Lock global presente" if (vault / ".myworld.lock").exists() else "Sin lock global legado"),
+        result("continuity.locks.retained", "pending" if retained_locks else "pass", f"{len(retained_locks)} lock(s) paused/stale conservan custodia; requieren resolución explícita", files=retained_locks),
         result("continuity.sessions.stale", "pending" if stale_sessions else "pass", f"{len(stale_sessions)} activa(s) sin pulso reciente", session_ids=stale_sessions[:20]),
         result("continuity.locks.discovered", "pass", f"{len(lock_files)} lock(s)"),
         result("continuity.locks.malformed", "fail" if malformed_locks else "pass", f"{len(malformed_locks)} malformado(s)"),
@@ -773,6 +1147,8 @@ def continuity_audit(vault: Path, stale_after_minutes: int = 60) -> dict[str, An
         "missing_records": missing_records,
         "active_without_lease": active_without_lease,
         "expired_leases": expired_leases,
+        "invalid_timestamps": invalid_timestamps,
+        "retained_locks": retained_locks,
     }
     return payload
 
@@ -898,10 +1274,93 @@ def audit(full: bool) -> dict[str, Any]:
             reports.extend([quality(repo), security(repo)])
             if entry["profile"]["deployment"]["state"] == "public":
                 reports.extend([release_gate(repo), observe(repo)])
-        failed = any(item["exit_code"] != 0 for item in reports)
+        failed = any(item["status"] == "fail" for item in reports)
         pending = sum(item["summary"]["pending"] for item in reports)
-        checks.append(result(f"audit.{entry['profile']['product_id']}", "fail" if failed else ("pending" if pending else "pass"), f"{len(reports)} gate(s); pendientes={pending}"))
-    return report("audit", home, checks)
+        blocking = any(item["exit_code"] != 0 for item in reports)
+        checks.append(result(f"audit.{entry['profile']['product_id']}", "fail" if failed else ("pending" if pending else "pass"), f"{len(reports)} gate(s); pendientes={pending}", blocking=blocking, gates=[{"command": item["command"], "status": item["status"], "summary": item["summary"]} for item in reports]))
+    payload = report("audit", home, checks)
+    payload["coverage"] = "preflight_quality_security_release_observe" if full else "preflight_only"
+    return payload
+
+def rules_audit(vault: Path, repositories: bool = False) -> dict[str, Any]:
+    """Auditoría estática y read-only; existencia no equivale a carga en runtime."""
+    checks: list[dict[str, Any]] = []
+    for relative in ("AGENTS.md", "GEMINI.md", "3 - SistemaMyworld/AGENTS.md"):
+        path = vault / relative
+        checks.append(result(f"rules.entry.{relative}", "pass" if path.is_file() else "fail", relative))
+    gemini = vault / "GEMINI.md"
+    if gemini.is_file():
+        text = gemini.read_text(encoding="utf-8-sig")
+        conflict = "[ctx:ok |" in text or ">100k" in text
+        checks.append(result("rules.canary", "fail" if conflict else "pass", "Canario único; no inferir tokens desde cantidad de turnos"))
+    for dirname in (".agents/rules", ".agent/rules"):
+        directory = vault / dirname
+        if not directory.exists():
+            continue
+        for path in sorted(directory.glob("*.md")):
+            meta = parse_simple_frontmatter(path)
+            trigger = meta.get("trigger")
+            valid = trigger in {"always_on", "model_decision", "glob", "manual"}
+            valid = valid and (trigger != "model_decision" or bool(meta.get("description"))) and (trigger != "glob" or bool(meta.get("globs") or meta.get("glob")))
+            checks.append(result(f"rules.{path.stem}", "fail" if not valid else ("not_applicable" if trigger == "manual" else "pass"), f"{dirname}/{path.name}: trigger={trigger or 'ausente'}"))
+    hookfile = vault / ".codex/hooks.json"
+    if hookfile.exists():
+        try:
+            hooks = json_load(hookfile)["hooks"]
+            if not isinstance(hooks, dict):
+                raise ValueError("hooks debe ser objeto")
+            events = sorted(hooks)
+            checks.append(result("rules.codex.hooks", "pass", "JSON de hooks válido; no demuestra confianza ni ejecución", events=events))
+            coverage = bool(hooks.get("SessionStart")) and any(group.get("matcher") in {".*", "Bash|apply_patch", "Bash|Edit|Write"} for group in hooks.get("PreToolUse", []))
+            checks.append(result("rules.codex.coverage", "pending", "Cobertura de bootstrap y edición declarada" if coverage else "Falta hook de bootstrap o cobertura de edición; verificar /hooks", blocking=False))
+        except (OSError, ValueError, TypeError, KeyError):
+            checks.append(result("rules.codex.hooks", "fail", "JSON/configuración de hooks inválido"))
+    else:
+        checks.append(result("rules.codex.hooks", "pending", "No hay hooks locales; aplicar bootstrap desde AGENTS", blocking=False))
+    home = vault / "3 - SistemaMyworld/harness"
+    master = home / "00 - Estándar maestro de ingeniería.md"
+    if master.is_file():
+        text = master.read_text(encoding="utf-8-sig")
+        checks.append(result("rules.proportionality", "fail" if "| SDD +" in text else "pass", "ODD por defecto; SDD solo cuando aplica"))
+    if repositories:
+        inventory = home / "inventory/repos.json"
+        if not inventory.exists():
+            return report("rules audit", vault, checks, "Falta inventario canónico")
+        canonical = {
+            "harness.py": home / "src/myworld_harness.py",
+            "AGENTS.block.md": home / "templates/AGENTS.block.md",
+            "myworld_design_engine.py": home / "src/myworld_design_engine.py",
+            "jev_design_judge.py": home / "src/jev_design_judge.py",
+            "schema.json": home / "schemas/harness-v1.schema.json",
+        }
+        for schema in sorted((home / "schemas").glob("*.schema.json")):
+            canonical[f"schemas/{schema.name}"] = schema
+        for entry in json_load(inventory)["managed"]:
+            repo = Path(entry["path"])
+            missing, stale = [], []
+            for filename, source in canonical.items():
+                local = repo / ".myworld-harness" / filename
+                if not local.exists():
+                    missing.append(filename)
+                elif source.read_bytes() != local.read_bytes():
+                    stale.append(filename)
+            for relative, expected in ((".myworld-harness/harness.ps1", LAUNCHER), (".githooks/pre-commit", PRE_COMMIT), (".githooks/pre-push", PRE_PUSH), (".github/workflows/myworld-harness.yml", CI_WORKFLOW)):
+                local = repo / relative
+                if not local.exists():
+                    missing.append(relative)
+                elif local.read_text(encoding="utf-8-sig") != expected:
+                    stale.append(relative)
+            try:
+                local_profile = json_load(repo / "MYWORLD-HARNESS.json")
+                local_profile.get("release", {}).pop("current_version", None)
+                profile_drift = local_profile != entry["profile"]
+            except (OSError, ValueError):
+                profile_drift = True
+            dirty = missing or stale or profile_drift
+            checks.append(result(f"rules.bundle.{entry['profile']['product_id']}", "pending" if dirty else "pass", "Bundle pendiente de sincronización" if dirty else "Bundle coincide con fuente", missing=missing, stale=stale, profile_drift=profile_drift))
+    checks.append(result("rules.runtime", "pending", "Carga, confianza de hooks y obediencia en sesiones nuevas de Codex/Antigravity no probadas por esta auditoría estática", blocking=False))
+    return report("rules audit", vault, checks)
+
 
 def skill_vault(explicit: str | None = None) -> Path:
     return continuity_vault(explicit)
@@ -1037,19 +1496,42 @@ def main(argv: list[str] | None = None) -> int:
         item = sub.add_parser(name)
         item.add_argument("--repo")
         item.add_argument("--json", action="store_true")
+        if name == "preflight":
+            item.add_argument("--vault")
+            item.add_argument("--owner")
+            item.add_argument("--host")
+            item.add_argument("--session")
+        if name == "design":
+            item.add_argument("--semantic-authorized", action="store_true", help="Solo con autorización para enviar contenido UI al proveedor externo")
         if name == "security":
             item.add_argument("--staged", action="store_true")
             item.add_argument("--no-external", action="store_true")
+        if name == "release":
+            item.add_argument("--cut", action="store_true", help="Corta y publica un nuevo release")
+            item.add_argument("--bump", choices=["patch", "minor", "major"], help="Tipo de incremento SemVer")
+            item.add_argument("--target-version", help="Versión explícita (ej. 1.2.0)")
+            item.add_argument("--title", help="Título del release")
+            item.add_argument("--notes", help="Notas o resumen de cambios")
+            item.add_argument("--no-push", action="store_true", help="No enviar a remoto git/gh")
+            item.add_argument("--publish", action="store_true", help="Publicar remoto solo con autorización explícita; por defecto el corte es local")
+            item.add_argument("--dry-run", action="store_true", help="Simulación sin modificar archivos ni git")
     inv = sub.add_parser("inventory")
     inv.add_argument("--json", action="store_true")
     sync = sub.add_parser("sync")
     sync.add_argument("--dry-run", action="store_true")
+    sync.add_argument("--repo", help="Limitar al repositorio exacto declarado en el inventario")
     sync.add_argument("--json", action="store_true")
     pending = sub.add_parser("pending")
     pending.add_argument("--json", action="store_true")
     audit_parser = sub.add_parser("audit")
     audit_parser.add_argument("--full", action="store_true")
     audit_parser.add_argument("--json", action="store_true")
+    rules_parser = sub.add_parser("rules", help="Auditoría read-only de reglas, adaptadores y distribución")
+    rules_sub = rules_parser.add_subparsers(dest="rules_command", required=True)
+    rules_check = rules_sub.add_parser("audit")
+    rules_check.add_argument("--vault")
+    rules_check.add_argument("--repositories", action="store_true")
+    rules_check.add_argument("--json", action="store_true")
     validate_parser = sub.add_parser("validate")
     validate_parser.add_argument("file")
     validate_parser.add_argument("--kind", required=True, choices=["product", "task", "session", "lock", "handoff", "artifact", "checkpoint", "evidence", "incident", "release", "pending", "event"])
@@ -1128,20 +1610,45 @@ def main(argv: list[str] | None = None) -> int:
     scan_parser.add_argument("--from", dest="source", default="Auditoria-Masiva", help="Origen del requerimiento")
     scan_parser.add_argument("--json", action="store_true")
 
+    kaneo_parser = sub.add_parser("kaneo", help="Operación y consulta de tableros Kaneo (https://proyectos.evegat.cl)")
+    kaneo_sub = kaneo_parser.add_subparsers(dest="kaneo_command", required=True)
+    kaneo_status = kaneo_sub.add_parser("status", help="Estado de conexión y resumen de proyectos en Kaneo")
+    kaneo_status.add_argument("--json", action="store_true")
+
+    kaneo_projects = kaneo_sub.add_parser("projects", help="Listar proyectos en Kaneo")
+    kaneo_projects.add_argument("--json", action="store_true")
+
+    kaneo_tasks = kaneo_sub.add_parser("tasks", help="Listar tareas de un proyecto en Kaneo")
+    kaneo_tasks.add_argument("project", help="Código (PXXX) o slug del proyecto")
+    kaneo_tasks.add_argument("--json", action="store_true")
+
+    asinc_parser = sub.add_parser("asincronia", help="Orquestador asíncrono Kaneo <-> Paperclip (P088 AsincronIA)")
+    asinc_sub = asinc_parser.add_subparsers(dest="asincronia_command", required=True)
+    asinc_status = asinc_sub.add_parser("status", help="Estado del puente Paperclip y Kaneo")
+    asinc_status.add_argument("--json", action="store_true")
+    asinc_sync = asinc_sub.add_parser("sync", help="Sincronizar tareas de Kaneo a Paperclip y viceversa")
+    asinc_sync.add_argument("--project", default="p088-asincronia", help="Código o slug del proyecto (default: p088-asincronia)")
+    asinc_sync.add_argument("--dry-run", action="store_true")
+    asinc_sync.add_argument("--json", action="store_true")
+
     args = parser.parse_args(argv)
 
     try:
         if args.command == "inventory":
             payload = inventory_report()
         elif args.command == "sync":
-            payload = sync_repositories(args.dry_run)
+            payload = sync_repositories(args.dry_run, Path(args.repo).resolve() if args.repo else None)
         elif args.command == "pending":
             payload = pending_report()
         elif args.command == "audit":
             payload = audit(args.full)
+        elif args.command == "rules":
+            payload = rules_audit(continuity_vault(args.vault), args.repositories)
         elif args.command == "validate":
             payload = validate_artifact(Path(args.file).resolve(), args.kind)
         elif args.command == "coordination":
+            if not harness_home():
+                return print_report(report("coordination", None, [], "Usar CLI canónico del vault; el bundle no contiene el plano de coordinación"), bool(getattr(args, "json", False)))
             from coordination_plane import main as coord_main
             return coord_main(args.coord_args)
         elif args.command == "skill":
@@ -1174,6 +1681,8 @@ def main(argv: list[str] | None = None) -> int:
             else:
                 payload = continuity_recover(vault, args.session)
         elif args.command == "dispatch":
+            if not harness_home():
+                return print_report(report("dispatch", None, [], "Usar CLI canónico del vault; el bundle no contiene las bandejas interproyectos"), bool(getattr(args, "json", False)))
             from project_dispatch import VAULT_ROOT, dispatch_message, list_inbox, mark_processed
             if args.dispatch_command == "send":
                 targets = [t.strip() for t in args.to.split(",") if t.strip()]
@@ -1237,23 +1746,112 @@ def main(argv: list[str] | None = None) -> int:
                 return 0
             else:
                 payload = {"error": f"Comando dispatch desconocido: {args.dispatch_command}"}
+        elif args.command == "kaneo":
+            if not harness_home():
+                return print_report(report("kaneo", None, [], "Usar CLI canónico del vault"), bool(getattr(args, "json", False)))
+            from kaneo_bridge import get_kaneo_status, list_project_tasks_summary, KaneoClient
+            client = KaneoClient()
+            if args.kaneo_command in ("status", "projects"):
+                res = get_kaneo_status(client)
+                if getattr(args, "json", False):
+                    print(json_text(res), end="")
+                else:
+                    print("=" * 82)
+                    print(f"KANEO BRIDGE | Usuario: {res['user']['name']} ({res['user']['email']}) | {res['url']}")
+                    print(f"Workspaces: {res['workspaces_count']} | Proyectos activos: {res['projects_count']}")
+                    print("=" * 82)
+                    print(f"{'WORKSPACE':<15} | {'PROYECTO':<26} | {'SLUG':<22} | {'TAREAS':<6} | {'AVANCE':<6}")
+                    print("-" * 82)
+                    for p in res["projects"]:
+                        ws_name = (p.get("workspace_name") or "-")[:15]
+                        print(f"{ws_name:<15} | {p['name'][:26]:<26} | {p['slug'][:22]:<22} | {p['total_tasks']:<6} | {p['completion']}%")
+                    print("=" * 82)
+                return 0
+            elif args.kaneo_command == "tasks":
+                res = list_project_tasks_summary(args.project, client)
+                if getattr(args, "json", False):
+                    print(json_text(res), end="")
+                else:
+                    print("=" * 70)
+                    print(f"KANEO TAREAS | Proyecto: {res['project']} ({res['tasks_count']} tareas)")
+                    if res.get("workspace"):
+                        print(f"Workspace: {res['workspace']}")
+                    print(f"Tablero: {res['url']}")
+                    print("=" * 70)
+                    print(f"{'#':<3} | {'ESTADO':<12} | {'PRIORIDAD':<10} | {'TÍTULO'}")
+                    print("-" * 70)
+                    for t in res["tasks"]:
+                        prio = t.get("priority") or "-"
+                        print(f"{t['number']:<3} | {t['status'][:12]:<12} | {prio[:10]:<10} | {t['title']}")
+                    print("=" * 70)
+                return 0
+            else:
+                payload = {"error": f"Comando kaneo desconocido: {args.kaneo_command}"}
+        elif args.command == "asincronia":
+            from paperclip_kaneo_bridge import AsincroniaBridge
+            bridge = AsincroniaBridge()
+            if args.asincronia_command == "status":
+                rep = bridge.status()
+                if getattr(args, "json", False):
+                    print(json_text(rep), end="")
+                else:
+                    print("=" * 72)
+                    print("ASINCRONIA | PUENTE KANEO <-> PAPERCLIP")
+                    print("=" * 72)
+                    pc_st = rep["paperclip"]["status"].upper()
+                    print(f"Paperclip Local: [{pc_st}] (Compañía: {rep['paperclip'].get('company', '-')})")
+                    print(f"Agentes activos: {rep['paperclip'].get('agents_count', 0)}")
+                    kn_st = rep["kaneo"]["status"].upper()
+                    print(f"Kaneo Cloud:    [{kn_st}] (Usuario: {rep['kaneo'].get('user', '-')})")
+                    print(f"Mapeos activos: {rep['active_mappings']} | Último sync: {rep['last_sync'] or 'Nunca'}")
+                    print("=" * 72)
+                return 0
+            elif args.asincronia_command == "sync":
+                rep = bridge.sync_project(project_code_or_slug=args.project, dry_run=args.dry_run)
+                if getattr(args, "json", False):
+                    print(json_text(rep), end="")
+                else:
+                    print("=" * 72)
+                    print(f"ASINCRONIA SYNC | Proyecto: {rep.get('project', args.project)}")
+                    print("=" * 72)
+                    print(f"Tareas despachadas a Paperclip: {rep.get('dispatched_count', 0)}")
+                    for d in rep.get("dispatched", []):
+                        print(f"  -> Kaneo {d.get('task_id')} -> Paperclip {d.get('issue_identifier')}: {d.get('task_title')}")
+                    print(f"Tareas completadas hacia Vault:  {rep.get('completed_count', 0)}")
+                    for c in rep.get("completed", []):
+                        print(f"  <- Entregable en: {c.get('deliverable')}")
+                    print("=" * 72)
+                return 0
+            else:
+                payload = {"error": f"Comando asincronia desconocido: {args.asincronia_command}"}
         else:
             repo = repository_root(args.repo)
             if args.command == "preflight":
-                payload = preflight(repo)
+                payload = preflight(repo, Path(args.vault).resolve() if args.vault else None, args.owner, args.host, args.session)
             elif args.command == "quality":
                 payload = quality(repo)
             elif args.command == "security":
                 payload = security(repo, args.staged, args.no_external)
             elif args.command == "design":
-                payload = design_gate(repo)
+                payload = design_gate(repo, args.semantic_authorized)
             elif args.command == "release":
-                payload = release_gate(repo)
+                if getattr(args, "cut", False) or getattr(args, "bump", None) or getattr(args, "target_version", None):
+                    payload = release_cut(
+                        repo,
+                        bump=getattr(args, "bump", None),
+                        target_version=getattr(args, "target_version", None),
+                        title=getattr(args, "title", None),
+                        notes=getattr(args, "notes", None),
+                        no_push=not getattr(args, "publish", False) or getattr(args, "no_push", False),
+                        dry_run=getattr(args, "dry_run", False),
+                    )
+                else:
+                    payload = release_gate(repo)
             elif args.command == "postflight":
                 payload = postflight(repo)
             else:
                 payload = observe(repo)
-    except (OSError, ValueError, json.JSONDecodeError) as exc:
+    except (OSError, ValueError, ImportError, json.JSONDecodeError) as exc:
         payload = report(args.command, None, [], f"{type(exc).__name__}: {exc}")
     return print_report(payload, bool(getattr(args, "json", False)))
 
