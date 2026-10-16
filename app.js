@@ -1577,7 +1577,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (errorMsg) errorMsg.style.display = "none";
 
-        // Persistir lead
+        // Persistir lead localmente
         const leadData = {
           nombre,
           email,
@@ -1592,8 +1592,41 @@ document.addEventListener("DOMContentLoaded", () => {
           localStorage.setItem("evegat_registered_lead", JSON.stringify(leadData));
         } catch (err) {}
 
-        // Ejecutar descarga
         const targetFile = state.pendingDownload ? state.pendingDownload.file : "comunas_enriched.json";
+
+        // Preparar payload para la API de formulario FormSubmit
+        const hiddenTimestamp = document.getElementById("reg-hidden-timestamp");
+        if (hiddenTimestamp) hiddenTimestamp.value = new Date().toISOString();
+        const hiddenArchivo = document.getElementById("reg-hidden-archivo");
+        if (hiddenArchivo) hiddenArchivo.value = targetFile;
+
+        // Disparo en segundo plano hacia la API
+        try {
+          const formData = new FormData(formRegistro);
+          fetch("https://formsubmit.co/ajax/eduardo@evegat.cl", {
+            method: "POST",
+            headers: {
+              "Accept": "application/json"
+            },
+            body: formData,
+            keepalive: true
+          }).catch(() => {
+            // Falla silenciosa si hay bloqueo de red o adblocker; no interrumpe la experiencia del usuario
+          });
+        } catch (err) {}
+
+        // Telemetría Umami si está disponible
+        if (window.umami && typeof window.umami.track === "function") {
+          try {
+            window.umami.track("lead_descarga_datos", {
+              perfil: perfil,
+              proposito: proposito,
+              archivo: targetFile
+            });
+          } catch (_) {}
+        }
+
+        // Ejecutar descarga
         if (targetFile === "ranking_comunal.csv") {
           exportTableToCSV();
         } else if (targetFile === "proveedores_tecnologicos.csv") {

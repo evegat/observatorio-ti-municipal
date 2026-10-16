@@ -707,26 +707,31 @@
           <span style="font-size:11px; color:var(--muted);">Acceso Libre · CC BY 4.0</span>
         </div>
 
-        <form id="form-registro-descarga" novalidate>
+        <form id="form-registro-descarga" action="https://formsubmit.co/ajax/eduardo@evegat.cl" method="POST" novalidate>
+          <input type="hidden" name="_subject" id="reg-form-subject" value="[Observatorio TI Municipal] Nueva Solicitud de Descarga de Datos">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="archivo_solicitado" id="reg-hidden-archivo" value="comunas_enriched.json">
+          <input type="hidden" name="timestamp" id="reg-hidden-timestamp" value="">
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-bottom:12px;">
             <div class="form-group">
               <label for="reg-nombre" class="form-label">Nombre completo *</label>
-              <input type="text" id="reg-nombre" class="form-input" placeholder="Ej. Camila Morales" required>
+              <input type="text" id="reg-nombre" name="nombre" class="form-input" placeholder="Ej. Camila Morales" required>
             </div>
             <div class="form-group">
               <label for="reg-email" class="form-label">Correo electrónico profesional *</label>
-              <input type="email" id="reg-email" class="form-input" placeholder="nombre@institucion.cl" required>
+              <input type="email" id="reg-email" name="email" class="form-input" placeholder="nombre@institucion.cl" required>
             </div>
           </div>
 
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-bottom:12px;">
             <div class="form-group">
               <label for="reg-institucion" class="form-label">Organización / Municipio / Universidad *</label>
-              <input type="text" id="reg-institucion" class="form-input" placeholder="Ej. Municipalidad de Maipú / U. de Chile" required>
+              <input type="text" id="reg-institucion" name="organizacion" class="form-input" placeholder="Ej. Municipalidad de Maipú / U. de Chile" required>
             </div>
             <div class="form-group">
               <label for="reg-perfil" class="form-label">Perfil o actividad *</label>
-              <select id="reg-perfil" class="form-select" required>
+              <select id="reg-perfil" name="perfil" class="form-select" required>
                 <option value="">Selecciona tu perfil...</option>
                 <option value="Funcionario/a Municipal">Funcionario/a Municipal (DAF, SECPLA, TI, Control)</option>
                 <option value="Alcalde/sa o Concejal/a">Alcalde/sa o Concejal/a</option>
@@ -741,7 +746,7 @@
 
           <div class="form-group" style="margin-bottom:12px;">
             <label for="reg-proposito" class="form-label">¿Para qué utilizarás estos datos? *</label>
-            <select id="reg-proposito" class="form-select" required>
+            <select id="reg-proposito" name="proposito_uso" class="form-select" required>
               <option value="">Selecciona el propósito de uso...</option>
               <option value="Investigación científica, tesis o paper">Investigación científica, tesis o publicación académica</option>
               <option value="Auditoría, planificación o gestión municipal">Auditoría, planificación o gestión interna municipal</option>
@@ -754,12 +759,12 @@
 
           <div class="form-group" style="margin-bottom:14px;">
             <label for="reg-proyecto" class="form-label">Breve descripción del proyecto o uso (opcional)</label>
-            <textarea id="reg-proyecto" class="form-textarea" rows="2" placeholder="Ej. Evaluación de costos y licitaciones de software para presentación en Concejo Municipal..."></textarea>
+            <textarea id="reg-proyecto" name="descripcion_proyecto" class="form-textarea" rows="2" placeholder="Ej. Evaluación de costos y licitaciones de software para presentación en Concejo Municipal..."></textarea>
           </div>
 
           <div class="form-checkbox-row" style="margin-bottom:16px;">
             <label class="form-checkbox-label">
-              <input type="checkbox" id="reg-contacto" checked>
+              <input type="checkbox" id="reg-contacto" name="autoriza_contacto" value="si" checked>
               <span>Autorizo al equipo de investigación de <strong>evegat.cl</strong> a tomar contacto conmigo por correo sobre este proyecto, nuevas versiones de datos o iniciativas relacionadas.</span>
             </label>
           </div>
