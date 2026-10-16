@@ -12,6 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
     comunas: [],
     regiones: [],
     kpis: {},
+    proveedores: [],
+    provSearchQuery: "",
+    pendingDownload: null,
     currentLayer: "madurez",
     selectedComuna: null,
     compareComuna: null,
@@ -65,15 +68,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function init() {
     try {
-      const [comunasRes, regionesRes, kpisRes] = await Promise.all([
+      const [comunasRes, regionesRes, kpisRes, provRes] = await Promise.all([
         fetch("data/comunas_enriched.json"),
         fetch("data/regiones_enriched.json"),
-        fetch("data/national_kpis.json")
+        fetch("data/national_kpis.json"),
+        fetch("data/proveedores_ranking.json").catch(() => null)
       ]);
 
       state.comunas = await comunasRes.json();
       state.regiones = await regionesRes.json();
       state.kpis = await kpisRes.json();
+      state.proveedores = provRes ? await provRes.json() : [];
 
       initScrollytelling();
       initRegionDropdown();
@@ -83,6 +88,8 @@ document.addEventListener("DOMContentLoaded", () => {
       initModals();
       initRRHHModule();
       renderTable();
+      renderProveedoresTable();
+      renderCuadrantesSummary();
 
       // Enrutamiento directo por hash o comuna inicial por defecto
       const routed = handleHashRoute();
@@ -210,24 +217,24 @@ document.addEventListener("DOMContentLoaded", () => {
       `
     },
     3: {
-      title: "3. El Monopolio Silencioso de CAS-Chile y el Exilio del FOSS",
-      text: "La métrica antimonopolio más alarmante corresponde a los Sistemas de Información Municipal (ERPs que gestionan rentas, patentes, finanzas y personal). El Índice Herfindahl-Hirschman (HHI) para este segmento alcanza un estratosférico 7.607 puntos (un mercado sobre 2.500 ya es considerado oligopolio de alto riesgo por las autoridades de libre competencia). Un único proveedor privado, CAS-CHILE S.A., concentra el 87,2% del monto total licitado en la categoría, bloqueando la interoperabilidad e imponiendo costos de cambio prohibitivos para las alcaldías. Como contrapartida, el Software Libre (FOSS) ha recibido apenas $514 millones en 12 años (0,17%).",
+      title: "3. Concentración en Software de Gestión y Ecosistema de Proveedores",
+      text: "El análisis de libre competencia y estructura de mercado revela una altísima concentración en los Sistemas de Información y Gestión Municipal (ERPs de rentas, patentes, finanzas y personal). El Índice Herfindahl-Hirschman (HHI) para este segmento alcanza 7.607 puntos (un mercado sobre 2.500 ya es considerado de alta concentración por las autoridades antimonopolio). Los proveedores tradicionales e históricos concentran más del 87% del volumen transado en este rubro, generando elevados costos de cambio (switching costs) y barreras técnicas de interoperabilidad para las alcaldías. En contraste, el Software Libre (FOSS) y estándares abiertos han recibido apenas el 0,17% del gasto total ($514 millones en 12 años).",
       findings: [
-        "HHI de 7.607 en ERPs municipales: Monopolio de facto crítico a nivel nacional.",
-        "CAS-CHILE S.A. concentra $1.291 millones de los $1.481 millones del segmento.",
-        "Captura tecnológica por costos de cambio: imposible migrar datos históricos.",
-        "El Software Libre (FOSS) representa sólo el 0,17% del gasto de modernización."
+        "HHI de 7.607 en ERPs de gestión: Alta concentración de mercado a nivel nacional.",
+        "El segmento ERP municipal concentra el 87,2% del gasto en proveedores históricos especializados.",
+        "Elevados costos de cambio (switching costs) e inercias técnicas para migrar bases de datos.",
+        "El Software Libre (FOSS) y estándares abiertos representan solo el 0,17% del gasto de modernización."
       ],
       chartHtml: `
         <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); margin-bottom:12px;">Concentración del Mercado de Software Municipal (HHI)</div>
-        <div style="background:var(--crimson-bg); border:1px solid var(--crimson-border); border-radius:6px; padding:16px; margin-bottom:14px;">
-          <div style="font-size:28px; font-family:var(--font-serif); font-weight:700; color:var(--crimson); line-height:1;">HHI: 7.607,1</div>
-          <div style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--crimson); margin-top:4px;">Monopolio Extremo (Límite antimonopolio = 2.500)</div>
-          <div style="font-size:12px; color:var(--ink-secondary); margin-top:6px;">CAS-CHILE S.A. controla el 87,2% del gasto total transado en software local.</div>
+        <div style="background:var(--paper-soft); border:1px solid var(--gold-border); border-radius:6px; padding:16px; margin-bottom:14px;">
+          <div style="font-size:28px; font-family:var(--font-serif); font-weight:700; color:var(--navy); line-height:1;">HHI: 7.607,1</div>
+          <div style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--gold); margin-top:4px;">Alta Concentración de Mercado (Umbral HHI &gt; 2.500)</div>
+          <div style="font-size:12px; color:var(--ink-secondary); margin-top:6px;">Proveedores tradicionales concentran más del 87% del volumen transado en software ERP local.</div>
         </div>
         <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--muted); border-top:1px solid var(--line); padding-top:10px;">
-          <span>SaaS / Cloud: <strong>HHI 950</strong> (Oligopolio Telcos)</span>
-          <span>Hardware: <strong>HHI 107</strong> (Atomizado)</span>
+          <span>SaaS / Cloud: <strong>HHI 950</strong> (Moderado)</span>
+          <span>Hardware: <strong>HHI 107</strong> (Competitivo y Atomizado)</span>
         </div>
       `
     },
@@ -464,10 +471,10 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
     } else if (state.currentLayer === "lockin") {
       legendEl.innerHTML = `
-        <div class="map-legend-title">Riesgo de Captura / Vendor Lock-in</div>
+        <div class="map-legend-title">Nivel de Dependencia ERP / Vendor Lock-in</div>
         <div class="map-legend-items">
-          <div class="map-legend-item"><span class="legend-color-box" style="background:#9b2226;"></span><span>Lock-in ERP Crítico (CAS-Chile u otros)</span></div>
-          <div class="map-legend-item"><span class="legend-color-box" style="background:#e5eee9;"></span><span>Sin compras de sistemas legados</span></div>
+          <div class="map-legend-item"><span class="legend-color-box" style="background:#9b2226;"></span><span>Alta Dependencia ERP / Lock-in Legado</span></div>
+          <div class="map-legend-item"><span class="legend-color-box" style="background:#e5eee9;"></span><span>Ecosistema Diversificado / Abierto</span></div>
         </div>
       `;
     } else if (state.currentLayer === "foss") {
@@ -591,8 +598,8 @@ document.addEventListener("DOMContentLoaded", () => {
           ? `<span class="diag-badge ${comuna.cuadrante_capacidad === 'Estado Soberano' ? 'good' : (comuna.cuadrante_capacidad === 'Estado Cautivo' ? 'danger' : 'warning')}">🏛️ ${comuna.cuadrante_capacidad}</span>`
           : ''}
         ${comuna.tiene_lockin_legado
-          ? `<span class="diag-badge danger">⚠️ Captura CAS-Chile / Lock-in</span>`
-          : `<span class="diag-badge good">✓ Libre de Monopolio Legado</span>`}
+          ? `<span class="diag-badge danger">⚠️ Alta Dependencia ERP / Lock-in</span>`
+          : `<span class="diag-badge good">✓ Ecosistema Diversificado / Abierto</span>`}
         ${comuna.tiene_foss
           ? `<span class="diag-badge good">🐧 Usa Software Libre (FOSS)</span>`
           : `<span class="diag-badge neutral">✕ Sin Adopción FOSS</span>`}
@@ -661,7 +668,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <div class="cat-item">
           <div class="cat-item-header">
-            <span class="cat-name">Sistemas Legados (CAS-Chile)</span>
+            <span class="cat-name">Sistemas ERP de Gestión (Legados)</span>
             <span class="cat-amount">${pPc(comuna.monto_legado)}$${formatCLP(comuna.monto_legado)} (${pPct(comuna.monto_legado)}%)</span>
           </div>
           <div class="cat-bar-bg"><div class="cat-bar-fill" style="width:${pPct(comuna.monto_legado)}%; background:var(--crimson);"></div></div>
@@ -902,12 +909,12 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="drawer-section-title" style="margin-top:8px;">Diagnóstico Institucional</div>
         <div class="compare-grid">
           <div class="compare-col" style="font-size:11px;">
-            <div>${cA.tiene_lockin_legado ? '⚠️ <span style="color:var(--crimson); font-weight:700;">Lock-in CAS-Chile</span>' : '✓ Libre de Monopolio'}</div>
+            <div>${cA.tiene_lockin_legado ? '⚠️ <span style="color:var(--crimson); font-weight:700;">Alta Dependencia ERP</span>' : '✓ Ecosistema Diversificado'}</div>
             <div>${cA.tiene_foss ? '🐧 <span style="color:var(--forest); font-weight:700;">Usa Software Libre</span>' : '✕ Sin FOSS'}</div>
             <div>${cA.tiene_infra_propia ? '🖥️ <span style="color:var(--navy); font-weight:700;">Infra TI Propia</span>' : '⚡ Tercerizado'}</div>
           </div>
           <div class="compare-col" style="font-size:11px;">
-            <div>${cB.tiene_lockin_legado ? '⚠️ <span style="color:var(--crimson); font-weight:700;">Lock-in CAS-Chile</span>' : '✓ Libre de Monopolio'}</div>
+            <div>${cB.tiene_lockin_legado ? '⚠️ <span style="color:var(--crimson); font-weight:700;">Alta Dependencia ERP</span>' : '✓ Ecosistema Diversificado'}</div>
             <div>${cB.tiene_foss ? '🐧 <span style="color:var(--forest); font-weight:700;">Usa Software Libre</span>' : '✕ Sin FOSS'}</div>
             <div>${cB.tiene_infra_propia ? '🖥️ <span style="color:var(--navy); font-weight:700;">Infra TI Propia</span>' : '⚡ Tercerizado'}</div>
           </div>
@@ -1040,16 +1047,64 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // Exportar CSV
+    // Exportar CSV Comunal
     const btnExport = document.getElementById("btn-export-csv");
     if (btnExport) {
       btnExport.addEventListener("click", () => {
-        exportTableToCSV();
+        // Interceptado por initModals
       });
     }
 
+    // Exportar CSV Proveedores
+    const btnExportProv = document.getElementById("btn-export-prov-csv");
+    if (btnExportProv) {
+      btnExportProv.addEventListener("click", () => {
+        // Interceptado por initModals
+      });
+    }
+
+    // Buscador de Proveedores
+    const provSearchInput = document.getElementById("prov-search");
+    if (provSearchInput) {
+      provSearchInput.addEventListener("input", (e) => {
+        state.provSearchQuery = e.target.value.toLowerCase().trim();
+        renderProveedoresTable();
+      });
+    }
+
+    // Pestañas del Centro de Rankings
+    const rankTabs = document.querySelectorAll(".rank-tab-btn[data-rank-pane]");
+    rankTabs.forEach(btn => {
+      btn.addEventListener("click", () => {
+        rankTabs.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const paneId = btn.dataset.rankPane;
+        document.querySelectorAll(".rank-pane").forEach(pane => {
+          pane.classList.remove("active");
+        });
+        const targetPane = document.getElementById(paneId);
+        if (targetPane) targetPane.classList.add("active");
+        if (paneId === "pane-proveedores") renderProveedoresTable();
+        if (paneId === "pane-cuadrantes") renderCuadrantesSummary();
+      });
+    });
+
+    // Clicks en comunas de los Podios
+    document.querySelectorAll(".rank-podium-item .comuna-name").forEach(span => {
+      span.addEventListener("click", () => {
+        const cName = span.dataset.comuna;
+        if (!cName) return;
+        const target = state.comunas.find(c => c.comuna.toLowerCase() === cName.toLowerCase());
+        if (target) {
+          selectComuna(target);
+          const radEl = document.getElementById("radiografia");
+          if (radEl) radEl.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    });
+
     // Table sorting headers
-    const ths = document.querySelectorAll(".data-table th[data-sort]");
+    const ths = document.querySelectorAll("#ranking-table th[data-sort]");
     ths.forEach(th => {
       th.addEventListener("click", () => {
         const field = th.dataset.sort;
@@ -1172,6 +1227,146 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.removeChild(link);
   }
 
+  function renderProveedoresTable() {
+    const tbody = document.getElementById("prov-tbody");
+    if (!tbody || !state.proveedores) return;
+
+    let filtered = state.proveedores.filter(p => {
+      if (!state.provSearchQuery) return true;
+      return (
+        (p.proveedor && p.proveedor.toLowerCase().includes(state.provSearchQuery)) ||
+        (p.rut && p.rut.toLowerCase().includes(state.provSearchQuery)) ||
+        (p.rubro_principal && p.rubro_principal.toLowerCase().includes(state.provSearchQuery))
+      );
+    });
+
+    tbody.innerHTML = filtered.map((p, idx) => {
+      let badgeClass = "general";
+      const rubro = p.rubro_principal || "";
+      if (rubro.includes("ERP") || rubro.includes("Gestión")) badgeClass = "erp";
+      else if (rubro.includes("Telecom")) badgeClass = "telecom";
+      else if (rubro.includes("Hardware")) badgeClass = "hardware";
+      else if (rubro.includes("Cloud") || rubro.includes("Software")) badgeClass = "cloud";
+      else if (rubro.includes("Seguridad")) badgeClass = "seguridad";
+      else if (rubro.includes("Consultoría")) badgeClass = "consultoria";
+
+      return `
+        <tr>
+          <td style="font-weight:700; color:var(--muted);">${idx + 1}</td>
+          <td style="font-weight:600; color:var(--navy);">${p.proveedor}</td>
+          <td style="font-family:var(--font-mono); font-size:11px; color:var(--muted);">${p.rut || "—"}</td>
+          <td><span class="prov-badge ${badgeClass}">${rubro}</span></td>
+          <td style="font-family:var(--font-mono); text-align:center;">${p.total_munis} comunas</td>
+          <td style="font-family:var(--font-mono); text-align:center;">${(p.total_ocs || 0).toLocaleString("es-CL")}</td>
+          <td style="font-family:var(--font-mono); font-weight:700; color:var(--navy);">$${formatCLP(p.monto_total_clp)}</td>
+          <td style="font-family:var(--font-mono); font-weight:700; color:var(--gold);">${p.cuota_mercado_pct}%</td>
+        </tr>
+      `;
+    }).join("");
+  }
+
+  function exportProveedoresToCSV() {
+    if (!state.proveedores || state.proveedores.length === 0) return;
+    const headers = [
+      "Ranking", "Proveedor", "RUT", "Rubro_Principal", 
+      "Municipios_Clientes", "Total_OCs", "Monto_Total_CLP", "Cuota_Mercado_Pct"
+    ];
+    const rows = state.proveedores.map((p, idx) => [
+      idx + 1,
+      `"${p.proveedor}"`,
+      `"${p.rut || ''}"`,
+      `"${p.rubro_principal || ''}"`,
+      p.total_munis || 0,
+      p.total_ocs || 0,
+      p.monto_total_clp || 0,
+      p.cuota_mercado_pct || 0
+    ]);
+    const csvContent = "\uFEFF" + [headers.join(";")].concat(rows.map(e => e.join(";"))).join("\r\n");
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.setAttribute("href", url);
+    link.setAttribute("download", `proveedores_ti_municipal_${new Date().toISOString().slice(0, 10)}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  function renderCuadrantesSummary() {
+    const container = document.getElementById("rank-cuadrantes-summary");
+    if (!container) return;
+    const dist = (state.kpis && state.kpis.rrhh_nacional && state.kpis.rrhh_nacional.cuadrantes_distribucion) || {
+      "Estado Soberano": 198,
+      "Estado Híbrido Dependiente": 5,
+      "Estado Artesanal": 99,
+      "Estado Cautivo": 46,
+      "Estado Desconectado": 49
+    };
+
+    container.innerHTML = `
+      <div class="quadrant-card soberano" style="cursor:pointer;" data-filter-quadrant="Estado Soberano">
+        <div class="quadrant-header">
+          <span class="quadrant-title">🏛️ Estado Soberano</span>
+          <span class="quadrant-count">${dist["Estado Soberano"] || 198} comunas</span>
+        </div>
+        <p class="quadrant-desc">
+          Gobiernos locales con equipo TI propio robusto (&ge; 5 profesionales) y un gasto externo equilibrado (RET &le; 1,8x). Mantienen autonomía técnica sobre sus datos y plataformas.
+        </p>
+        <div style="font-size:11px; font-weight:700; color:var(--forest);">Click para filtrar ranking por este cuadrante →</div>
+      </div>
+
+      <div class="quadrant-card hibrido" style="cursor:pointer;" data-filter-quadrant="Estado Híbrido Dependiente">
+        <div class="quadrant-header">
+          <span class="quadrant-title">⚡ Estado Híbrido Dependiente</span>
+          <span class="quadrant-count">${dist["Estado Híbrido Dependiente"] || 5} comunas</span>
+        </div>
+        <p class="quadrant-desc">
+          Municipios con alta capacidad técnica interna pero con un gasto masivo en consultoras y proveedores externos (RET &gt; 1,8x). Riesgo de duplicidad presupuestaria.
+        </p>
+        <div style="font-size:11px; font-weight:700; color:var(--teal);">Click para filtrar ranking por este cuadrante →</div>
+      </div>
+
+      <div class="quadrant-card artesanal" style="cursor:pointer;" data-filter-quadrant="Estado Artesanal">
+        <div class="quadrant-header">
+          <span class="quadrant-title">🛠️ Estado Artesanal</span>
+          <span class="quadrant-count">${dist["Estado Artesanal"] || 99} comunas</span>
+        </div>
+        <p class="quadrant-desc">
+          Baja dotación informática (&lt; 5 profesionales) y bajo gasto externo. Operación austera o manual con baja penetración de sistemas digitales avanzados.
+        </p>
+        <div style="font-size:11px; font-weight:700; color:var(--gold);">Click para filtrar ranking por este cuadrante →</div>
+      </div>
+
+      <div class="quadrant-card cautivo" style="cursor:pointer;" data-filter-quadrant="Estado Cautivo">
+        <div class="quadrant-header">
+          <span class="quadrant-title">⚠️ Estado Cautivo</span>
+          <span class="quadrant-count">${dist["Estado Cautivo"] || 46} comunas</span>
+        </div>
+        <p class="quadrant-desc">
+          Escaso personal informático interno (&lt; 5 profesionales) y alta dependencia financiera de proveedores y ERPs externos (RET &gt; 1,8x). Máximo riesgo de vendor lock-in.
+        </p>
+        <div style="font-size:11px; font-weight:700; color:var(--crimson);">Click para filtrar ranking por este cuadrante →</div>
+      </div>
+    `;
+
+    container.querySelectorAll(".quadrant-card[data-filter-quadrant]").forEach(card => {
+      card.addEventListener("click", () => {
+        const qName = card.dataset.filterQuadrant;
+        const cuadranteSelect = document.getElementById("cuadrante-filter");
+        if (cuadranteSelect) {
+          cuadranteSelect.value = qName;
+          state.selectedCuadrante = qName;
+          renderTable();
+        }
+        // Cambiar a la pestaña de comunas
+        const btnComunasTab = document.querySelector(".rank-tab-btn[data-rank-pane='pane-comunas']");
+        if (btnComunasTab) btnComunasTab.click();
+        const tableEl = document.getElementById("ranking-table");
+        if (tableEl) tableEl.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  }
+
   // -------------------------------------------------------------------------
   // 7. GESTIÓN DE TEMA Y ACCESIBILIDAD (A11Y)
   // -------------------------------------------------------------------------
@@ -1249,6 +1444,11 @@ document.addEventListener("DOMContentLoaded", () => {
   function initModals() {
     const comoUsarModal = document.getElementById("como-usar-modal");
     const legalModal = document.getElementById("legal-modal");
+    const registroModal = document.getElementById("registro-descarga-modal");
+    const formRegistro = document.getElementById("form-registro-descarga");
+    const errorMsg = document.getElementById("reg-error-msg");
+    const filenameLabel = document.getElementById("descarga-filename-label");
+    const chkNoAutoShow = document.getElementById("chk-no-auto-show");
 
     function openModal(modal) {
       if (!modal) return;
@@ -1262,10 +1462,23 @@ document.addEventListener("DOMContentLoaded", () => {
       modal.classList.remove("active");
       modal.setAttribute("aria-hidden", "true");
       document.body.style.overflow = "";
+      if (modal === comoUsarModal && chkNoAutoShow && chkNoAutoShow.checked) {
+        try { localStorage.setItem("evegat_seen_guide_v3", "1"); } catch (e) {}
+      }
     }
 
+    // Auto-apertura de la guía de uso en primera visita
+    try {
+      const seenGuide = localStorage.getItem("evegat_seen_guide_v3");
+      if (!seenGuide) {
+        setTimeout(() => {
+          openModal(comoUsarModal);
+        }, 1200);
+      }
+    } catch (e) {}
+
     // Botones para abrir "Cómo usar"
-    ["btn-open-guia", "btn-open-guia-band", "btn-hero-como-usar", "btn-floating-guia"].forEach(id => {
+    ["btn-open-guia", "btn-open-guia-band", "btn-hero-como-usar", "btn-banner-open-modal", "btn-floating-guia"].forEach(id => {
       const btn = document.getElementById(id);
       if (btn) btn.addEventListener("click", () => openModal(comoUsarModal));
     });
@@ -1275,6 +1488,97 @@ document.addEventListener("DOMContentLoaded", () => {
       const btn = document.getElementById(id);
       if (btn) btn.addEventListener("click", () => openModal(legalModal));
     });
+
+    // Interceptor para todas las descargas de datos (exige registro previo)
+    document.querySelectorAll(".btn-intercept-download").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const file = btn.dataset.file || "comunas_enriched.json";
+        const label = btn.dataset.label || file;
+        state.pendingDownload = { file, label };
+
+        if (filenameLabel) filenameLabel.textContent = label;
+
+        // Pre-cargar datos del usuario si ya se registró previamente
+        try {
+          const rawLead = localStorage.getItem("evegat_registered_lead");
+          if (rawLead) {
+            const lead = JSON.parse(rawLead);
+            const inNombre = document.getElementById("reg-nombre");
+            const inEmail = document.getElementById("reg-email");
+            const inInst = document.getElementById("reg-institucion");
+            const inPerfil = document.getElementById("reg-perfil");
+            const inProp = document.getElementById("reg-proposito");
+            const inProy = document.getElementById("reg-proyecto");
+
+            if (inNombre && lead.nombre) inNombre.value = lead.nombre;
+            if (inEmail && lead.email) inEmail.value = lead.email;
+            if (inInst && lead.institucion) inInst.value = lead.institucion;
+            if (inPerfil && lead.perfil) inPerfil.value = lead.perfil;
+            if (inProp && lead.proposito) inProp.value = lead.proposito;
+            if (inProy && lead.proyecto) inProy.value = lead.proyecto;
+          }
+        } catch (e) {}
+
+        if (errorMsg) errorMsg.style.display = "none";
+        openModal(registroModal);
+      });
+    });
+
+    // Envío del formulario de registro y disparo de descarga
+    if (formRegistro) {
+      formRegistro.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const nombre = (document.getElementById("reg-nombre")?.value || "").trim();
+        const email = (document.getElementById("reg-email")?.value || "").trim();
+        const institucion = (document.getElementById("reg-institucion")?.value || "").trim();
+        const perfil = (document.getElementById("reg-perfil")?.value || "").trim();
+        const proposito = (document.getElementById("reg-proposito")?.value || "").trim();
+        const proyecto = (document.getElementById("reg-proyecto")?.value || "").trim();
+        const contacto = document.getElementById("reg-contacto")?.checked !== false;
+
+        // Validación básica
+        if (!nombre || !email || !institucion || !perfil || !proposito || !email.includes("@")) {
+          if (errorMsg) errorMsg.style.display = "block";
+          return;
+        }
+
+        if (errorMsg) errorMsg.style.display = "none";
+
+        // Persistir lead
+        const leadData = {
+          nombre,
+          email,
+          institucion,
+          perfil,
+          proposito,
+          proyecto,
+          contacto,
+          fecha: new Date().toISOString()
+        };
+        try {
+          localStorage.setItem("evegat_registered_lead", JSON.stringify(leadData));
+        } catch (err) {}
+
+        // Ejecutar descarga
+        const targetFile = state.pendingDownload ? state.pendingDownload.file : "comunas_enriched.json";
+        if (targetFile === "ranking_comunal.csv") {
+          exportTableToCSV();
+        } else if (targetFile === "proveedores_tecnologicos.csv") {
+          exportProveedoresToCSV();
+        } else {
+          const a = document.createElement("a");
+          a.href = "data/" + targetFile;
+          a.download = targetFile;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        }
+
+        closeModal(registroModal);
+        showToast("✓ ¡Registro completado! Tu descarga ha comenzado.");
+      });
+    }
 
     // Cerrar modales mediante atributos data-close-modal
     document.querySelectorAll("[data-close-modal]").forEach(btn => {
@@ -1286,7 +1590,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Cerrar al clickear el backdrop
-    [comoUsarModal, legalModal].forEach(m => {
+    [comoUsarModal, legalModal, registroModal].forEach(m => {
       if (!m) return;
       m.addEventListener("click", (e) => {
         if (e.target === m) closeModal(m);
@@ -1298,6 +1602,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (e.key === "Escape") {
         closeModal(comoUsarModal);
         closeModal(legalModal);
+        closeModal(registroModal);
       }
     });
 
@@ -1325,6 +1630,21 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     }
+  }
+
+  function showToast(msg) {
+    let toast = document.getElementById("obs-toast-el");
+    if (!toast) {
+      toast = document.createElement("div");
+      toast.id = "obs-toast-el";
+      toast.className = "obs-toast";
+      document.body.appendChild(toast);
+    }
+    toast.textContent = msg;
+    toast.classList.add("show");
+    setTimeout(() => {
+      toast.classList.remove("show");
+    }, 3500);
   }
 
   // -------------------------------------------------------------------------

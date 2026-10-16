@@ -1,0 +1,302 @@
+[
+  {
+    "proveedor": "OPCIONES SA SISTEMAS DE INFORMACION",
+    "rut": "96.523.180-3",
+    "total_lineas": 2334,
+    "total_ocs": 1765,
+    "total_munis": 192,
+    "monto_total_clp": 9185185014.0,
+    "cuota_mercado_pct": 2.94,
+    "rubro_principal": "Telecomunicaciones y Conectividad"
+  },
+  {
+    "proveedor": "CIA NACIONAL DE TELEFONOS TELEFONICA DEL SUR S.A.",
+    "rut": "90.299.000-3",
+    "total_lineas": 257,
+    "total_ocs": 215,
+    "total_munis": 52,
+    "monto_total_clp": 6046627701.0,
+    "cuota_mercado_pct": 1.93,
+    "rubro_principal": "Telecomunicaciones y Conectividad"
+  },
+  {
+    "proveedor": "SOCIEDAD ONE CONSULTORES SPA",
+    "rut": "76.286.397-9",
+    "total_lineas": 259,
+    "total_ocs": 198,
+    "total_munis": 8,
+    "monto_total_clp": 5703790470.0,
+    "cuota_mercado_pct": 1.82,
+    "rubro_principal": "Hardware e Infraestructura"
+  },
+  {
+    "proveedor": "TECHNOSYSTEMS CHILE SPA",
+    "rut": "96.678.350-8",
+    "total_lineas": 1874,
+    "total_ocs": 1497,
+    "total_munis": 279,
+    "monto_total_clp": 5498587520.0,
+    "cuota_mercado_pct": 1.76,
+    "rubro_principal": "Telecomunicaciones y Conectividad"
+  },
+  {
+    "proveedor": "TELEFONICA EMPRESAS CHILE SA",
+    "rut": "78.703.410-1",
+    "total_lineas": 1113,
+    "total_ocs": 864,
+    "total_munis": 86,
+    "monto_total_clp": 4996955096.0,
+    "cuota_mercado_pct": 1.6,
+    "rubro_principal": "Telecomunicaciones y Conectividad"
+  },
+  {
+    "proveedor": "SOC TECNOLOGICA Y SERVICIOS EXPRESS LIMITADA",
+    "rut": "77.730.550-6",
+    "total_lineas": 6086,
+    "total_ocs": 4994,
+    "total_munis": 333,
+    "monto_total_clp": 4252730109.0,
+    "cuota_mercado_pct": 1.36,
+    "rubro_principal": "Sistemas ERP y Gestión Municipal"
+  },
+  {
+    "proveedor": "COMPUTACION INTEGRAL S A",
+    "rut": "96.689.970-0",
+    "total_lineas": 4250,
+    "total_ocs": 3400,
+    "total_munis": 269,
+    "monto_total_clp": 3268482919.0,
+    "cuota_mercado_pct": 1.05,
+    "rubro_principal": "Sistemas ERP y Gestión Municipal"
+  },
+  {
+    "proveedor": "INTERGRADE S A",
+    "rut": "96.669.540-4",
+    "total_lineas": 247,
+    "total_ocs": 207,
+    "total_munis": 74,
+    "monto_total_clp": 2512117464.0,
+    "cuota_mercado_pct": 0.8,
+    "rubro_principal": "Telecomunicaciones y Conectividad"
+  },
+  {
+    "proveedor": "COMERCIALIZADORA JMC LIMITADA",
+    "rut": "76.426.373-1",
+    "total_lineas": 55,
+    "total_ocs": 22,
+    "total_munis": 18,
+    "monto_total_clp": 2422310670.0,
+    "cuota_mercado_pct": 0.77,
+    "rubro_principal": "Telecomunicaciones y Conectividad"
+  },
+  {
+    "proveedor": "INGENIERIA Y PROCESOS ELECTRONICOS CONTA",
+    "rut": "85.825.700-K",
+    "total_lineas": 172,
+    "total_ocs": 154,
+    "total_munis": 13,
+    "monto_total_clp": 2371512547.0,
+    "cuota_mercado_pct": 0.76,
+    "rubro_principal": "Telecomunicaciones y Conectividad"
+  },
+  {
+    "proveedor": "COMERCIALIZADORA TODOTABLET SPA",
+    "rut": "76.292.976-7",
+    "total_lineas": 2062,
+    "total_ocs": 1486,
+    "total_munis": 306,
+    "monto_total_clp": 2286870526.0,
+    "cuota_mercado_pct": 0.73,
+    "rubro_principal": "Telecomunicaciones y Conectividad"
+  },
+  {
+    "proveedor": "COMPANIA DE PETROLEOS DE CHILE COPEC SA",
+    "rut": "99.520.000-7",
+    "total_lineas": 578,
+    "total_ocs": 480,
+    "total_munis": 87,
+    "monto_total_clp": 2169973132.0,
+    "cuota_mercado_pct": 0.69,
+    "rubro_principal": "Hardware e Infraestructura"
+  },
+  {
+    "proveedor": "TRANSPORTES CARLOS ESTRADA LTDA.",
+    "rut": "78.814.380-k",
+    "total_lineas": 12,
+    "total_ocs": 11,
+    "total_munis": 1,
+    "monto_total_clp": 2101336492.0,
+    "cuota_mercado_pct": 0.67,
+    "rubro_principal": "Tecnología General"
+  },
+  {
+    "proveedor": "PCINBOX SPA",
+    "rut": "76.074.614-2",
+    "total_lineas": 2859,
+    "total_ocs": 2331,
+    "total_munis": 325,
+    "monto_total_clp": 2029754528.0,
+    "cuota_mercado_pct": 0.65,
+    "rubro_principal": "Sistemas ERP y Gestión Municipal"
+  },
+  {
+    "proveedor": "GTD TELEDUCTOS S.A",
+    "rut": "88.983.600-8",
+    "total_lineas": 201,
+    "total_ocs": 165,
+    "total_munis": 34,
+    "monto_total_clp": 1988079854.0,
+    "cuota_mercado_pct": 0.64,
+    "rubro_principal": "Telecomunicaciones y Conectividad"
+  },
+  {
+    "proveedor": "Hernán Felix",
+    "rut": "76.739.669-4",
+    "total_lineas": 117,
+    "total_ocs": 102,
+    "total_munis": 27,
+    "monto_total_clp": 1976325830.0,
+    "cuota_mercado_pct": 0.63,
+    "rubro_principal": "Hardware e Infraestructura"
+  },
+  {
+    "proveedor": "MAVE TECHNOLOGY SPA",
+    "rut": "77.415.422-1",
+    "total_lineas": 1001,
+    "total_ocs": 771,
+    "total_munis": 250,
+    "monto_total_clp": 1969881265.0,
+    "cuota_mercado_pct": 0.63,
+    "rubro_principal": "Sistemas ERP y Gestión Municipal"
+  },
+  {
+    "proveedor": "FIGUZ S.A.",
+    "rut": "77.617.000-3",
+    "total_lineas": 1,
+    "total_ocs": 1,
+    "total_munis": 1,
+    "monto_total_clp": 1929134737.0,
+    "cuota_mercado_pct": 0.62,
+    "rubro_principal": "Tecnología General"
+  },
+  {
+    "proveedor": "patricio medin",
+    "rut": "76.420.646-0",
+    "total_lineas": 330,
+    "total_ocs": 300,
+    "total_munis": 75,
+    "monto_total_clp": 1790376252.0,
+    "cuota_mercado_pct": 0.57,
+    "rubro_principal": "Hardware e Infraestructura"
+  },
+  {
+    "proveedor": "GTD TELESAT S A",
+    "rut": "96.721.280-6",
+    "total_lineas": 39,
+    "total_ocs": 37,
+    "total_munis": 12,
+    "monto_total_clp": 1776908761.0,
+    "cuota_mercado_pct": 0.57,
+    "rubro_principal": "Telecomunicaciones y Conectividad"
+  },
+  {
+    "proveedor": "CLARO CHILE S.A.",
+    "rut": "96.799.250-k",
+    "total_lineas": 58,
+    "total_ocs": 46,
+    "total_munis": 30,
+    "monto_total_clp": 1719055918.0,
+    "cuota_mercado_pct": 0.55,
+    "rubro_principal": "Telecomunicaciones y Conectividad"
+  },
+  {
+    "proveedor": "SANDOS SPA",
+    "rut": "77.319.537-4",
+    "total_lineas": 344,
+    "total_ocs": 243,
+    "total_munis": 117,
+    "monto_total_clp": 1686574085.0,
+    "cuota_mercado_pct": 0.54,
+    "rubro_principal": "Telecomunicaciones y Conectividad"
+  },
+  {
+    "proveedor": "IMPORTADORA HEVIA SPA",
+    "rut": "76.872.717-1",
+    "total_lineas": 163,
+    "total_ocs": 116,
+    "total_munis": 83,
+    "monto_total_clp": 1678453935.0,
+    "cuota_mercado_pct": 0.54,
+    "rubro_principal": "Telecomunicaciones y Conectividad"
+  },
+  {
+    "proveedor": "COMERCIALIZADORA IGESCOM SPA",
+    "rut": "77.152.668-3",
+    "total_lineas": 198,
+    "total_ocs": 166,
+    "total_munis": 95,
+    "monto_total_clp": 1672170488.0,
+    "cuota_mercado_pct": 0.53,
+    "rubro_principal": "Telecomunicaciones y Conectividad"
+  },
+  {
+    "proveedor": "TOMAS TAPIA URETA S. A.",
+    "rut": "76.888.230-4",
+    "total_lineas": 1,
+    "total_ocs": 1,
+    "total_munis": 1,
+    "monto_total_clp": 1622867439.0,
+    "cuota_mercado_pct": 0.52,
+    "rubro_principal": "Tecnología General"
+  },
+  {
+    "proveedor": "STM Computacion Limitada.",
+    "rut": "77.383.510-1",
+    "total_lineas": 803,
+    "total_ocs": 399,
+    "total_munis": 32,
+    "monto_total_clp": 1549132117.0,
+    "cuota_mercado_pct": 0.5,
+    "rubro_principal": "Sistemas ERP y Gestión Municipal"
+  },
+  {
+    "proveedor": "ROBERTO HERNÁN ALARCÓN CABEZAS",
+    "rut": "12.090.170-2",
+    "total_lineas": 2061,
+    "total_ocs": 1859,
+    "total_munis": 297,
+    "monto_total_clp": 1473405921.0,
+    "cuota_mercado_pct": 0.47,
+    "rubro_principal": "Sistemas ERP y Gestión Municipal"
+  },
+  {
+    "proveedor": "PRODUCTOS Y SERVICIOS INFORMATICOS TORRES SpA",
+    "rut": "77.229.656-8",
+    "total_lineas": 1180,
+    "total_ocs": 922,
+    "total_munis": 256,
+    "monto_total_clp": 1434913195.0,
+    "cuota_mercado_pct": 0.46,
+    "rubro_principal": "Sistemas ERP y Gestión Municipal"
+  },
+  {
+    "proveedor": "SOCIEDAD COMERCIAL ALCA LIMITADA",
+    "rut": "76.596.570-5",
+    "total_lineas": 1080,
+    "total_ocs": 796,
+    "total_munis": 262,
+    "monto_total_clp": 1390443163.0,
+    "cuota_mercado_pct": 0.44,
+    "rubro_principal": "Telecomunicaciones y Conectividad"
+  },
+  {
+    "proveedor": "CAS-CHILE S. A. de I.",
+    "rut": "96.525.030-1",
+    "total_lineas": 310,
+    "total_ocs": 289,
+    "total_munis": 90,
+    "monto_total_clp": 1367569737.0,
+    "cuota_mercado_pct": 0.44,
+    "rubro_principal": "Sistemas ERP y Gestión Municipal"
+  }
+]
