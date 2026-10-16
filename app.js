@@ -342,18 +342,49 @@ document.addEventListener("DOMContentLoaded", () => {
     map.on("click", () => { map.scrollWheelZoom.enable(); });
     map.on("focus", () => { map.scrollWheelZoom.enable(); });
 
-    // Fondo cartográfico sobrio CartoDB Positron
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-      attribution: '&copy; <a href="https://carto.com/">CARTO</a> | ChileCompra',
-      subdomains: "abcd",
-      maxZoom: 19
-    }).addTo(map);
+    // Fondo cartográfico sobrio de alta resolución sin API key ni marcas de agua (Esri World Gray Canvas)
+    const esriLightBase = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}", {
+      attribution: 'Esri, HERE, Garmin, &copy; OpenStreetMap contributors | Observatorio TI',
+      maxZoom: 16
+    });
+    const esriLightLabels = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}", {
+      maxZoom: 16
+    });
+
+    const esriDarkBase = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}", {
+      attribution: 'Esri, HERE, Garmin, &copy; OpenStreetMap contributors | Observatorio TI',
+      maxZoom: 16
+    });
+    const esriDarkLabels = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}", {
+      maxZoom: 16
+    });
+
+    state.esriLightGroup = L.layerGroup([esriLightBase, esriLightLabels]);
+    state.esriDarkGroup = L.layerGroup([esriDarkBase, esriDarkLabels]);
+
+    const initialTheme = document.documentElement.getAttribute("data-theme") || "light";
+    if (initialTheme === "dark") {
+      state.esriDarkGroup.addTo(map);
+    } else {
+      state.esriLightGroup.addTo(map);
+    }
 
     state.map = map;
     state.markersLayer = L.layerGroup().addTo(map);
 
     renderMapMarkers();
     updateLegend();
+  }
+
+  function updateMapTheme(theme) {
+    if (!state.map || !state.esriLightGroup || !state.esriDarkGroup) return;
+    if (theme === "dark") {
+      if (state.map.hasLayer(state.esriLightGroup)) state.map.removeLayer(state.esriLightGroup);
+      if (!state.map.hasLayer(state.esriDarkGroup)) state.map.addLayer(state.esriDarkGroup);
+    } else {
+      if (state.map.hasLayer(state.esriDarkGroup)) state.map.removeLayer(state.esriDarkGroup);
+      if (!state.map.hasLayer(state.esriLightGroup)) state.map.addLayer(state.esriLightGroup);
+    }
   }
 
   function getMarkerStyle(comuna) {
@@ -426,10 +457,10 @@ document.addEventListener("DOMContentLoaded", () => {
           <div style="font-family:var(--font-sans); min-width:180px;">
             <div style="font-size:10px; font-weight:700; color:var(--muted); text-transform:uppercase;">${c.region}</div>
             <strong style="font-family:var(--font-serif); font-size:16px; color:var(--navy); display:block; margin:2px 0 6px;">${c.comuna}</strong>
-            <div style="font-size:12px; margin-bottom:2px;">Gasto Total: <strong>$${formatCLP(c.monto_total)}</strong></div>
-            <div style="font-size:12px; margin-bottom:2px;">Gasto Per Cápita: <strong>$${formatCLP(c.gasto_pc)} / hab</strong></div>
-            <div style="font-size:12px; margin-bottom:6px;">Madurez TI: <strong>${c.score_madurez}/100</strong> (${c.nivel_madurez})</div>
-            <div style="font-size:11px; color:var(--gold); font-weight:600;">Haz click para abrir Radiografía 4D ↗</div>
+            <div style="font-size:12px; margin-bottom:2px;">Inversión TI Total: <strong>$${formatCLP(c.monto_total)}</strong></div>
+            <div style="font-size:12px; margin-bottom:2px;">Inversión Per Cápita: <strong>$${formatCLP(c.gasto_pc)} / hab</strong></div>
+            <div style="font-size:12px; margin-bottom:6px;">Madurez Tecnológica: <strong>${c.score_madurez}/100</strong> (${c.nivel_madurez})</div>
+            <div style="font-size:11px; color:var(--gold); font-weight:600;">Haz click para abrir Ficha de Capacidades ↗</div>
           </div>
         `;
 
@@ -1377,6 +1408,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const theme = btn.dataset.themeBtn;
         document.documentElement.setAttribute("data-theme", theme);
         try { localStorage.setItem("evegat_theme", theme); } catch (e) {}
+        updateMapTheme(theme);
       });
     });
 
@@ -1417,9 +1449,9 @@ document.addEventListener("DOMContentLoaded", () => {
         let narrative = "";
         if (state.selectedComuna) {
           const c = state.selectedComuna;
-          narrative = `Resumen para la comuna de ${c.comuna}, región de ${c.region}. Población: ${(c.poblacion || 0).toLocaleString("es-CL")} habitantes. Gasto histórico total en compras tecnológicas: ${formatCLP(c.monto_total)} pesos chilenos, equivalente a ${formatCLP(c.gasto_pc)} pesos por habitante. Índice de madurez tecnológica: ${c.score_madurez} sobre 100, clasificado como ${c.nivel_madurez}. Diagnóstico de capacidad estatal: ${c.cuadrante_capacidad || "En evaluación"}. Dotación especializada en tecnologías de la información: ${c.dotacion_ti || 0} profesionales. Ratio de externalización tecnológica: ${c.ret_ratio || "No determinado"}.`;
+          narrative = `Resumen de capacidades tecnológicas para la comuna de ${c.comuna}, región de ${c.region}. Población: ${(c.poblacion || 0).toLocaleString("es-CL")} habitantes. Inversión histórica en contratos tecnológicos: ${formatCLP(c.monto_total)} pesos chilenos, equivalente a ${formatCLP(c.gasto_pc)} pesos por habitante. Índice de madurez tecnológica: ${c.score_madurez} sobre 100, clasificado como ${c.nivel_madurez}. Diagnóstico de capacidad estatal: ${c.cuadrante_capacidad || "En evaluación"}. Tecnoestructura municipal: ${c.dotacion_ti || 0} profesionales TI contratados. Ratio de externalización tecnológica: ${c.ret_ratio || "No determinado"}.`;
         } else {
-          narrative = `Observatorio de Compras Tecnológicas, Recursos Humanos y Capacidad Estatal en los 346 municipios de Chile. Se analizaron más de 312 mil millones de pesos transados en 153 mil órdenes de compra en Mercado Público durante 12 años, cruzados con la dotación funcionaria de Transparencia Activa.`;
+          narrative = `Observatorio de Capacidades Tecnológicas y Capacidad Estatal en los 346 municipios de Chile. Se analizaron más de 312 mil millones de pesos transados en 153 mil contratos en Mercado Público durante 12 años, cruzados con la dotación funcionaria y tecnoestructura de Transparencia Activa.`;
         }
 
         const utter = new SpeechSynthesisUtterance(narrative);
