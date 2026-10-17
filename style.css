@@ -1981,6 +1981,18 @@ footer {
 
 @media (max-width: 640px) {
   .a11y-hide-sm { display: none !important; }
+  .guia-banner-header { flex-direction: column; align-items: stretch; }
+  .btn-guia-detail { white-space: normal; text-align: center; }
+  .a11y-controls { flex-wrap: wrap; gap: 8px; }
+  .a11y-topbar-inner, .a11y-container { flex-wrap: wrap; gap: 8px; }
+  .layer-toggles-group, .filter-controls-group { flex-wrap: wrap; max-width: 100%; }
+  .filter-controls-group select,
+  .filter-controls-group input,
+  .search-input,
+  .region-select {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 860px) {
@@ -2676,7 +2688,7 @@ html[data-theme="dark"] .btn-hero-share {
 }
 
 html[data-theme="dark"] .btn-hero-primary {
-  background: #f59e0b;
+  background: #f59e0b !important;
   color: #04142b !important;
   font-weight: 700;
 }
@@ -2688,8 +2700,9 @@ html[data-theme="dark"] .btn-modal-primary,
 html[data-theme="dark"] .btn-footer-cta,
 html[data-theme="dark"] .btn-export-csv,
 html[data-theme="dark"] .floating-guide-btn,
+html[data-theme="dark"] .skip-link,
 html[data-theme="dark"] .skip-link:focus {
-  background: #38bdf8;
+  background: #38bdf8 !important;
   color: #04142b !important;
   font-weight: 700;
 }
@@ -2811,18 +2824,21 @@ html[data-theme="contrast"] .leaflet-popup-tip {
 }
 
 html[data-theme="contrast"] .btn-hero-primary {
-  background: #ffff00;
+  background: #ffff00 !important;
   color: #000000 !important;
-  border: 2px solid #ffff00;
+  border: 2px solid #ffff00 !important;
   font-weight: 700;
 }
 
 html[data-theme="contrast"] .btn-pill,
 html[data-theme="contrast"] .story-tab-btn.active,
 html[data-theme="contrast"] .layer-btn.active,
+html[data-theme="contrast"] .skip-link,
 html[data-theme="contrast"] .skip-link:focus,
 html[data-theme="contrast"] .btn-modal-primary,
-html[data-theme="contrast"] .btn-footer-cta {
+html[data-theme="contrast"] .btn-footer-cta,
+html[data-theme="contrast"] .btn-export-csv,
+html[data-theme="contrast"] .floating-guide-btn {
   background: #ffff00 !important;
   color: #000000 !important;
   border: 2px solid #ffff00 !important;
