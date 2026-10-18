@@ -350,16 +350,16 @@ def test_jev_all_sections_pass_invariant():
     slices = [
         ("a11y_bar", 1, 83),
         ("topbar", 84, 110),
-        ("hero", 111, 218),
-        ("scrollytelling", 219, 240),
-        ("radiografia_mapa", 241, 291),
-        ("rrhh_section", 292, 327),
-        ("ranking_center", 328, 473),
-        ("metodologia_academic", 474, 503),
-        ("site_footer", 504, 563),
-        ("modal_como_usar", 564, 634),
-        ("modal_legal", 635, 687),
-        ("modal_registro_descarga", 688, 781)
+        ("hero", 111, 224),
+        ("scrollytelling", 225, 248),
+        ("radiografia_mapa", 249, 301),
+        ("rrhh_section", 302, 339),
+        ("ranking_center", 340, 609),
+        ("metodologia_academic", 610, 640),
+        ("site_footer", 641, 702),
+        ("modal_como_usar", 703, 773),
+        ("modal_legal", 774, 826),
+        ("modal_registro_descarga", 827, 925)
     ]
     
     for name, start, end in slices:

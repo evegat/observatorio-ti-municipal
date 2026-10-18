@@ -251,6 +251,49 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  function switchView(viewId, pushHash = true) {
+    const validViews = ["inicio", "mapa", "hallazgos", "rrhh", "ranking", "metodologia"];
+    const targetViewId = validViews.includes(viewId) ? viewId : "inicio";
+
+    // Ocultar todas las vistas y mostrar solo la seleccionada
+    document.querySelectorAll(".obs-view").forEach(view => {
+      const vid = view.dataset.viewId || view.id.replace("view-", "");
+      if (vid === targetViewId) {
+        view.classList.remove("obs-view-hidden");
+      } else {
+        view.classList.add("obs-view-hidden");
+      }
+    });
+
+    // Actualizar estado activo en la barra de navegación superior
+    document.querySelectorAll(".nav-links a.nav-view-link").forEach(link => {
+      if (link.dataset.view === targetViewId) {
+        link.classList.add("nav-view-active");
+      } else {
+        link.classList.remove("nav-view-active");
+      }
+    });
+
+    // Si se activa la vista del mapa, invalidar tamaño en Leaflet para recalcular canvas
+    if (targetViewId === "mapa" && state.map) {
+      setTimeout(() => {
+        state.map.invalidateSize();
+      }, 100);
+    }
+
+    // Actualizar hash deeplinking en la URL si se solicitó
+    if (pushHash && window.history && window.history.replaceState) {
+      if (targetViewId === "inicio") {
+        window.history.replaceState(null, null, window.location.pathname + window.location.search);
+      } else {
+        window.history.replaceState(null, null, "#" + targetViewId);
+      }
+    }
+
+    // Scroll suave al inicio de la página
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   function handleHashRoute() {
     const hash = window.location.hash;
     if (hash && hash.startsWith("#comparar=")) {
@@ -259,11 +302,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const cA = findComunaByName(decodeURIComponent(parts[0]));
         const cB = findComunaByName(decodeURIComponent(parts[1]));
         if (cA && cB) {
+          switchView("mapa", false);
           openComparison(cA, cB);
-          const radEl = document.getElementById("radiografia");
-          if (radEl && window.scrollY < 200) {
-            radEl.scrollIntoView({ behavior: "smooth" });
-          }
           return true;
         }
       }
@@ -271,15 +311,33 @@ document.addEventListener("DOMContentLoaded", () => {
       const rawName = decodeURIComponent(hash.replace("#comuna=", "")).trim();
       const target = findComunaByName(rawName);
       if (target) {
+        switchView("mapa", false);
         state.isCompareMode = false;
         selectComuna(target);
-        const radEl = document.getElementById("radiografia");
-        if (radEl && window.scrollY < 200) {
-          radEl.scrollIntoView({ behavior: "smooth" });
-        }
+        return true;
+      }
+    } else if (hash) {
+      const cleanHash = hash.replace("#", "").toLowerCase().trim();
+      const hashViewMap = {
+        "inicio": "inicio",
+        "home": "inicio",
+        "mapa": "mapa",
+        "radiografia": "mapa",
+        "hallazgos": "hallazgos",
+        "scrollytelling": "hallazgos",
+        "rrhh": "rrhh",
+        "ranking": "ranking",
+        "rankings": "ranking",
+        "metodologia": "metodologia"
+      };
+      if (hashViewMap[cleanHash]) {
+        switchView(hashViewMap[cleanHash], false);
         return true;
       }
     }
+
+    // Si no hay hash o es desconocido, mostrar vista inicial
+    switchView("inicio", false);
     return false;
   }
 
@@ -1274,6 +1332,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function initControls() {
+    // Enrutador de Vistas / Páginas (SPA)
+    document.querySelectorAll(".nav-view-link").forEach(link => {
+      link.addEventListener("click", (e) => {
+        const viewId = link.dataset.view;
+        if (viewId) {
+          e.preventDefault();
+          switchView(viewId, true);
+        }
+      });
+    });
+
     // Botones de capas
     const layerBtns = document.querySelectorAll(".layer-btn[data-layer]");
     layerBtns.forEach(btn => {
@@ -1392,9 +1461,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!cName) return;
         const target = state.comunas.find(c => c.comuna.toLowerCase() === cName.toLowerCase());
         if (target) {
+          switchView("mapa", true);
           selectComuna(target);
-          const radEl = document.getElementById("radiografia");
-          if (radEl) radEl.scrollIntoView({ behavior: "smooth" });
         }
       });
     });
@@ -1621,15 +1689,14 @@ document.addEventListener("DOMContentLoaded", () => {
       </tr>
     `).join("");
 
-    // Click y Enter en fila selecciona comuna y hace scroll al mapa
+    // Click y Enter en fila selecciona comuna y cambia a la vista del mapa
     tbody.querySelectorAll("tr").forEach(tr => {
       const selectRow = () => {
         const cName = tr.dataset.comunaName;
         const target = state.comunas.find(c => c.comuna === cName);
         if (target) {
+          switchView("mapa", true);
           selectComuna(target);
-          const radEl = document.getElementById("radiografia");
-          if (radEl) radEl.scrollIntoView({ behavior: "smooth" });
         }
       };
       tr.addEventListener("click", selectRow);
@@ -2144,9 +2211,16 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".btn-modal-jump[data-jump-target]").forEach(btn => {
       btn.addEventListener("click", () => {
         closeModal(comoUsarModal);
-        const targetId = btn.dataset.jumpTarget;
-        const el = document.querySelector(targetId);
-        if (el) el.scrollIntoView({ behavior: "smooth" });
+        const targetId = btn.dataset.jumpTarget.replace("#", "");
+        const viewMap = {
+          "radiografia": "mapa",
+          "mapa": "mapa",
+          "ranking": "ranking",
+          "rrhh": "rrhh",
+          "metodologia": "metodologia"
+        };
+        const targetView = viewMap[targetId] || targetId;
+        switchView(targetView, true);
       });
     });
 
@@ -2158,9 +2232,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const maipu = state.comunas.find(c => c.comuna.toLowerCase() === "maipú" || c.comuna.toLowerCase() === "maipu");
         const algarrobo = state.comunas.find(c => c.comuna.toLowerCase() === "algarrobo");
         if (maipu && algarrobo) {
+          switchView("mapa", true);
           openComparison(maipu, algarrobo);
-          const radEl = document.getElementById("radiografia");
-          if (radEl) radEl.scrollIntoView({ behavior: "smooth" });
         }
       });
     }

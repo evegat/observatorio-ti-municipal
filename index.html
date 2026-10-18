@@ -82,7 +82,7 @@
 
   <!-- ================= TOPBAR PRINCIPAL ================= -->
   <header class="topbar">
-    <a href="#" class="brand">
+    <a href="#inicio" class="brand nav-view-link" data-view="inicio">
       <span class="brand-mark">e.</span>
       <div>
         <span class="brand-title">evegat.cl <span style="font-weight:400; opacity:0.65;">· Observatorio de Capacidades Tecnológicas</span></span>
@@ -93,10 +93,11 @@
       <button type="button" id="btn-open-guia" class="btn-nav-guide" title="Abrir manual interactivo de uso del aplicativo">
         🧭 ¿Cómo usar esta página?
       </button>
-      <a href="#scrollytelling">4 Hallazgos</a>
-      <a href="#radiografia">Mapa de Capacidades</a>
-      <a href="#rrhh">RRHH y Capacidad Estatal</a>
-      <a href="#ranking">Centro de Rankings</a>
+      <a href="#inicio" class="nav-view-link" data-view="inicio">Inicio</a>
+      <a href="#mapa" class="nav-view-link" data-view="mapa">Mapa de Capacidades</a>
+      <a href="#hallazgos" class="nav-view-link" data-view="hallazgos">4 Hallazgos</a>
+      <a href="#rrhh" class="nav-view-link" data-view="rrhh">RRHH y Capacidad Estatal</a>
+      <a href="#ranking" class="nav-view-link" data-view="ranking">Centro de Rankings</a>
       <button type="button" id="btn-open-legal-top" class="btn-nav-link" title="Ver metodología, fuentes y cumplimiento Ley 21.719">
         ⚖️ Metodología y Ley 21.719
       </button>
@@ -106,147 +107,155 @@
     </nav>
   </header>
 
-  <!-- ================= HERO ================= -->
+  <!-- ================= HERO / VISTA INICIO ================= -->
   <main id="main-content" tabindex="-1">
-    <section class="hero">
-      <div class="hero-top-row">
-        <div class="eyebrow">OBSERVATORIO DE CAPACIDADES TECNOLÓGICAS MUNICIPALES · DIAGNÓSTICO INTEGRAL 2014–2026</div>
-        <div class="hero-status-pill">
-          <span class="status-dot"></span> 346 Municipios · 153.770 OCs · Dotación Municipal Integrada
-        </div>
-      </div>
-
-      <h1 class="hero-title">Capacidades Tecnológicas, Tecnoestructura y Capacidad Estatal en los Municipios de Chile</h1>
-      <p class="hero-lead">
-        ¿Qué capacidad real tienen los gobiernos locales de Chile para sostener su transformación digital y responder a sus comunidades? Medimos y evaluamos las capacidades tecnológicas de los 346 municipios del país a través de dos dimensiones empíricas complementarias: su inversión en tecnología (<strong>$312.571 millones de pesos</strong> transados en Mercado Público) y su dotación de <strong>Recursos Humanos</strong> (1,46 millones de registros de personal en Planta, Contrata y Honorarios, identificando 3.647 profesionales TI, estabilidad laboral y dependencia de proveedores externos).
-      </p>
-
-      <!-- HERO QUICK ACTIONS (LOOK & FEEL EVEGAT.CL) -->
-      <div class="hero-actions-bar">
-        <button type="button" id="btn-hero-como-usar" class="btn-hero-primary" aria-label="Abrir guía interactiva de uso del observatorio">
-          🧭 ¿Cómo usar esta plataforma?
-        </button>
-        <a href="#radiografia" class="btn-hero-secondary">
-          🗺️ Explorar Capacidades Comuna a Comuna
-        </a>
-        <a href="#rrhh" class="btn-hero-secondary">
-          🏛️ Explorar RRHH Municipal y Matriz RET
-        </a>
-        <div class="hero-share-group">
-          <button type="button" id="btn-share-wa" class="btn-hero-share" title="Compartir Observatorio por WhatsApp" aria-label="Compartir en WhatsApp">
-            📲 WhatsApp
-          </button>
-          <button type="button" id="btn-share-li" class="btn-hero-share" title="Compartir en LinkedIn" aria-label="Compartir en LinkedIn">
-            💼 LinkedIn
-          </button>
-        </div>
-      </div>
-
-      <!-- METRICS GRID -->
-      <div class="metrics-grid">
-        <div class="metric-card accent">
-          <div class="metric-label">Gasto TI Total Auditado</div>
-          <div class="metric-value">$312.571 MM</div>
-          <div class="metric-desc">Pesos chilenos (~US$ 338 millones) transados en 153.770 órdenes de compra (2014–2026).</div>
-        </div>
-
-        <div class="metric-card">
-          <div class="metric-label">El Peso del Fierro</div>
-          <div class="metric-value">47,88%</div>
-          <div class="metric-desc">$143.698 MM destinados a reposición de hardware y cómputo físico frente a solo 0,17% en Software Libre.</div>
-        </div>
-
-        <div class="metric-card alert">
-          <div class="metric-label">Concentración Mercado ERP</div>
-          <div class="metric-value">HHI 7.607</div>
-          <div class="metric-desc">Índice HHI 7.607 en ERPs de gestión municipal. Fuerte concentración en proveedores históricos y altos costos de cambio.</div>
-        </div>
-
-        <div class="metric-card">
-          <div class="metric-label">Dotación Municipal Total</div>
-          <div class="metric-value" id="hero-kpi-dotacion">142.661</div>
-          <div class="metric-desc" id="hero-kpi-dotacion-desc">Funcionarios municipales a nivel nacional (43,9% sujetos a régimen de honorarios).</div>
-        </div>
-
-        <div class="metric-card">
-          <div class="metric-label">Tecnoestructura TI Propia</div>
-          <div class="metric-value" id="hero-kpi-ti">1.301</div>
-          <div class="metric-desc" id="hero-kpi-ti-desc">Profesionales y técnicos informáticos internos en las 346 comunas (Ratio RET mediano: 1,18x).</div>
-        </div>
-      </div>
-
-      <!-- ================= BANDA DE ORIENTACIÓN RÁPIDA (CÓMO USAR EN 4 PASOS) ================= -->
-      <div class="guia-banner" id="guia-uso">
-        <div class="guia-banner-header">
-          <div>
-            <span class="guia-badge">ORIENTACIÓN RÁPIDA</span>
-            <h2 class="guia-banner-title">¿Cómo recorrer y aprovechar este Observatorio?</h2>
+    <div class="obs-view" id="view-inicio" data-view-id="inicio">
+      <section class="hero">
+        <div class="hero-top-row">
+          <div class="eyebrow">OBSERVATORIO DE CAPACIDADES TECNOLÓGICAS MUNICIPALES · DIAGNÓSTICO INTEGRAL 2014–2026</div>
+          <div class="hero-status-pill">
+            <span class="status-dot"></span> 346 Municipios · 153.770 OCs · Dotación Municipal Integrada
           </div>
-          <button type="button" id="btn-banner-open-modal" class="btn-guia-detail">
-            Abrir manual interactivo detallado →
+        </div>
+
+        <h1 class="hero-title">Capacidades Tecnológicas, Tecnoestructura y Capacidad Estatal en los Municipios de Chile</h1>
+        <p class="hero-lead">
+          ¿Qué capacidad real tienen los gobiernos locales de Chile para sostener su transformación digital y responder a sus comunidades? Medimos y evaluamos las capacidades tecnológicas de los 346 municipios del país a través de dos dimensiones empíricas complementarias: su inversión en tecnología (<strong>$312.571 millones de pesos</strong> transados en Mercado Público) y su dotación de <strong>Recursos Humanos</strong> (1,46 millones de registros de personal en Planta, Contrata y Honorarios, identificando 3.647 profesionales TI, estabilidad laboral y dependencia de proveedores externos).
+        </p>
+
+        <!-- HERO QUICK ACTIONS (LOOK & FEEL EVEGAT.CL) -->
+        <div class="hero-actions-bar">
+          <button type="button" id="btn-hero-como-usar" class="btn-hero-primary" aria-label="Abrir guía interactiva de uso del observatorio">
+            🧭 ¿Cómo usar esta plataforma?
           </button>
+          <a href="#mapa" class="btn-hero-secondary nav-view-link" data-view="mapa">
+            🗺️ Explorar Capacidades Comuna a Comuna
+          </a>
+          <a href="#rrhh" class="btn-hero-secondary nav-view-link" data-view="rrhh">
+            🏛️ Explorar RRHH Municipal y Matriz RET
+          </a>
+          <a href="#ranking" class="btn-hero-secondary nav-view-link" data-view="ranking">
+            🏢 Ver Centro de Rankings
+          </a>
+          <div class="hero-share-group">
+            <button type="button" id="btn-share-wa" class="btn-hero-share" title="Compartir Observatorio por WhatsApp" aria-label="Compartir en WhatsApp">
+              📲 WhatsApp
+            </button>
+            <button type="button" id="btn-share-li" class="btn-hero-share" title="Compartir en LinkedIn" aria-label="Compartir en LinkedIn">
+              💼 LinkedIn
+            </button>
+          </div>
         </div>
 
-        <div class="guia-steps-grid">
-          <a href="#scrollytelling" class="guia-step-card">
-            <div class="guia-step-num">PASO 01</div>
-            <h3>Comprende los 4 Hallazgos</h3>
-            <p>Recorre la evidencia nacional: la ilusión de la IA frente al hardware, el shock pandémico de 2021, la concentración de mercado ERP (HHI 7.607) y la desigualdad per cápita.</p>
-          </a>
+        <!-- METRICS GRID -->
+        <div class="metrics-grid">
+          <div class="metric-card accent">
+            <div class="metric-label">Gasto TI Total Auditado</div>
+            <div class="metric-value">$312.571 MM</div>
+            <div class="metric-desc">Pesos chilenos (~US$ 338 millones) transados en 153.770 órdenes de compra (2014–2026).</div>
+          </div>
 
-          <a href="#radiografia" class="guia-step-card">
-            <div class="guia-step-num">PASO 02</div>
-            <h3>Diagnostica tu Comuna</h3>
-            <p>Usa el mapa interactivo o el buscador para evaluar las capacidades tecnológicas comunales: índice de madurez digital, músculo informático propio y canasta de inversión.</p>
-          </a>
+          <div class="metric-card">
+            <div class="metric-label">El Peso del Fierro</div>
+            <div class="metric-value">47,88%</div>
+            <div class="metric-desc">$143.698 MM destinados a reposición de hardware y cómputo físico frente a solo 0,17% en Software Libre.</div>
+          </div>
 
-          <a href="#rrhh" class="guia-step-card">
-            <div class="guia-step-num">PASO 03</div>
-            <h3>Cruza Inversión TI con RRHH</h3>
-            <p>Analiza la dotación municipal (Planta, Contrata, Honorarios), brecha salarial de género y el cuadrante de Capacidad Estatal (Estado Soberano vs. Estado Cautivo).</p>
-          </a>
+          <div class="metric-card alert">
+            <div class="metric-label">Concentración Mercado ERP</div>
+            <div class="metric-value">HHI 7.607</div>
+            <div class="metric-desc">Índice HHI 7.607 en ERPs de gestión municipal. Fuerte concentración en proveedores históricos y altos costos de cambio.</div>
+          </div>
 
-          <a href="#ranking" class="guia-step-card">
-            <div class="guia-step-num">PASO 04</div>
-            <h3>Compara A vs B y Exporta</h3>
-            <p>Enfrenta a dos municipios cualesquiera lado a lado en el Comparador Comunal o exporta el ranking completo de 346 comunas en formato CSV y JSON abierto.</p>
-          </a>
+          <div class="metric-card">
+            <div class="metric-label">Dotación Municipal Total</div>
+            <div class="metric-value" id="hero-kpi-dotacion">142.661</div>
+            <div class="metric-desc" id="hero-kpi-dotacion-desc">Funcionarios municipales a nivel nacional (43,9% sujetos a régimen de honorarios).</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-label">Tecnoestructura TI Propia</div>
+            <div class="metric-value" id="hero-kpi-ti">1.301</div>
+            <div class="metric-desc" id="hero-kpi-ti-desc">Profesionales y técnicos informáticos internos en las 346 comunas (Ratio RET mediano: 1,18x).</div>
+          </div>
         </div>
-      </div>
-    </section>
 
-    <!-- ================= SCROLLYTELLING / HISTORIA EN 4 ACTOS ================= -->
-    <section class="scrolly-container" id="scrollytelling">
-      <div class="scrolly-inner">
+        <!-- ================= BANDA DE ORIENTACIÓN RÁPIDA (CÓMO USAR EN 4 PASOS) ================= -->
+        <div class="guia-banner" id="guia-uso">
+          <div class="guia-banner-header">
+            <div>
+              <span class="guia-badge">ORIENTACIÓN RÁPIDA</span>
+              <h2 class="guia-banner-title">¿Cómo recorrer y aprovechar este Observatorio?</h2>
+            </div>
+            <button type="button" id="btn-banner-open-modal" class="btn-guia-detail">
+              Abrir manual interactivo detallado →
+            </button>
+          </div>
+
+          <div class="guia-steps-grid">
+            <a href="#hallazgos" class="guia-step-card nav-view-link" data-view="hallazgos">
+              <div class="guia-step-num">PÁGINA 01</div>
+              <h3>4 Hallazgos Nacionales</h3>
+              <p>Recorre la evidencia nacional: la ilusión de la IA frente al hardware, el shock pandémico de 2021, la concentración de mercado ERP (HHI 7.607) y la desigualdad per cápita.</p>
+            </a>
+
+            <a href="#mapa" class="guia-step-card nav-view-link" data-view="mapa">
+              <div class="guia-step-num">PÁGINA 02</div>
+              <h3>Mapa de Capacidades</h3>
+              <p>Usa el mapa interactivo o el buscador para evaluar las capacidades tecnológicas comunales: índice de madurez digital, músculo informático propio y canasta de inversión.</p>
+            </a>
+
+            <a href="#rrhh" class="guia-step-card nav-view-link" data-view="rrhh">
+              <div class="guia-step-num">PÁGINA 03</div>
+              <h3>RRHH y Capacidad Estatal</h3>
+              <p>Analiza la dotación municipal (Planta, Contrata, Honorarios), brecha salarial de género y el cuadrante de Capacidad Estatal (Estado Soberano vs. Estado Cautivo).</p>
+            </a>
+
+            <a href="#ranking" class="guia-step-card nav-view-link" data-view="ranking">
+              <div class="guia-step-num">PÁGINA 04</div>
+              <h3>Rankings y Gobernanza</h3>
+              <p>Enfrenta a dos municipios cualesquiera lado a lado en el Comparador Comunal, revisa las 4 leyes clave o exporta el ranking completo de 346 comunas en CSV y JSON.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ================= VISTA: 4 HALLAZGOS ================= -->
+    <div class="obs-view" id="view-hallazgos" data-view-id="hallazgos">
+      <section class="scrolly-container" id="scrollytelling">
+        <div class="scrolly-inner">
+          <div class="section-header">
+            <div class="eyebrow">EVIDENCIA EMPÍRICA INTEGRADA · INVERSIÓN TI × RRHH (2014–2026)</div>
+            <h2 class="section-title">Cuatro Hallazgos sobre la Capacidad Tecnológica Local</h2>
+            <p class="section-desc">Selecciona cada capítulo para explorar los patrones estructurales de la inversión tecnológica, la dotación humana y las tensiones institucionales en los municipios de Chile.</p>
+          </div>
+
+          <div class="story-tabs" id="story-tabs" role="tablist" aria-label="Capítulos de la investigación">
+            <button class="story-tab-btn active" data-chapter="1" role="tab" aria-selected="true" aria-label="Capítulo 1: Fierro vs Espejismo de la IA">1. Fierro vs. Espejismo de la IA</button>
+            <button class="story-tab-btn" data-chapter="2" role="tab" aria-selected="false" aria-label="Capítulo 2: El Choque de 2021">2. El Choque de 2021</button>
+            <button class="story-tab-btn" data-chapter="3" role="tab" aria-selected="false" aria-label="Capítulo 3: Concentración de Mercado ERP y Proveedores">3. Concentración de Mercado ERP y Proveedores</button>
+            <button class="story-tab-btn" data-chapter="4" role="tab" aria-selected="false" aria-label="Capítulo 4: La Fractura Territorial Per Cápita">4. La Fractura Territorial Per Cápita</button>
+          </div>
+
+          <div class="story-stage" id="story-stage">
+            <!-- Dynamic Content rendered by JS -->
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ================= VISTA: MAPA DE CAPACIDADES ================= -->
+    <div class="obs-view" id="view-mapa" data-view-id="mapa">
+      <section class="radiografia-section" id="radiografia">
         <div class="section-header">
-          <div class="eyebrow">EVIDENCIA EMPÍRICA INTEGRADA · INVERSIÓN TI × RRHH (2014–2026)</div>
-          <h2 class="section-title">Cuatro Hallazgos sobre la Capacidad Tecnológica Local</h2>
-          <p class="section-desc">Selecciona cada capítulo para explorar los patrones estructurales de la inversión tecnológica, la dotación humana y las tensiones institucionales en los municipios de Chile.</p>
+          <div class="eyebrow">EXPLORADOR TERRITORIAL DE CAPACIDADES TECNOLÓGICAS</div>
+          <h2 class="section-title">Mapa Interactivo de Capacidades Municipales</h2>
+          <p class="section-desc">Alterna entre las 7 dimensiones de capacidad (madurez digital, tecnoestructura interna, ratio RET, dotación de honorarios y ecosistema de software), filtra por región o haz click en cualquier comuna para abrir su Ficha de Capacidades y el Comparador A vs B.</p>
         </div>
 
-        <div class="story-tabs" id="story-tabs" role="tablist" aria-label="Capítulos de la investigación">
-          <button class="story-tab-btn active" data-chapter="1" role="tab" aria-selected="true" aria-label="Capítulo 1: Fierro vs Espejismo de la IA">1. Fierro vs. Espejismo de la IA</button>
-          <button class="story-tab-btn" data-chapter="2" role="tab" aria-selected="false" aria-label="Capítulo 2: El Choque de 2021">2. El Choque de 2021</button>
-          <button class="story-tab-btn" data-chapter="3" role="tab" aria-selected="false" aria-label="Capítulo 3: Concentración de Mercado ERP y Proveedores">3. Concentración de Mercado ERP y Proveedores</button>
-          <button class="story-tab-btn" data-chapter="4" role="tab" aria-selected="false" aria-label="Capítulo 4: La Fractura Territorial Per Cápita">4. La Fractura Territorial Per Cápita</button>
-        </div>
-
-        <div class="story-stage" id="story-stage">
-          <!-- Dynamic Content rendered by JS -->
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= MAPA DE CAPACIDADES TECNOLÓGICAS ================= -->
-    <section class="radiografia-section" id="radiografia">
-      <div class="section-header">
-        <div class="eyebrow">EXPLORADOR TERRITORIAL DE CAPACIDADES TECNOLÓGICAS</div>
-        <h2 class="section-title">Mapa Interactivo de Capacidades Municipales</h2>
-        <p class="section-desc">Alterna entre las 7 dimensiones de capacidad (madurez digital, tecnoestructura interna, ratio RET, dotación de honorarios y ecosistema de software), filtra por región o haz click en cualquier comuna para abrir su Ficha de Capacidades y el Comparador A vs B.</p>
-      </div>
-
-      <!-- MAP CONTROLS BAR -->
-      <div class="map-controls-bar">
+        <!-- MAP CONTROLS BAR -->
+        <div class="map-controls-bar">
         <div class="layer-toggles-group">
           <span class="layer-title">Dimensiones de Capacidad:</span>
           <button class="layer-btn active" data-layer="madurez">🌡️ Madurez TI (0-100)</button>
@@ -287,8 +296,10 @@
         </aside>
       </div>
     </section>
+  </div>
 
-    <!-- ================= MÓDULO: RRHH MUNICIPAL Y CAPACIDAD ESTATAL ================= -->
+  <!-- ================= VISTA: RRHH Y CAPACIDAD ESTATAL ================= -->
+  <div class="obs-view" id="view-rrhh" data-view-id="rrhh">
     <section class="rrhh-section" id="rrhh">
       <div class="rrhh-container">
         <div class="section-header">
@@ -323,8 +334,10 @@
         </div>
       </div>
     </section>
+  </div>
 
-    <!-- ================= DATABASE & RANKING TABLE ================= -->
+  <!-- ================= VISTA: CENTRO DE RANKINGS Y GOBERNANZA ================= -->
+  <div class="obs-view" id="view-ranking" data-view-id="ranking">
     <section class="ranking-section" id="ranking">
       <div class="ranking-container">
         <div class="section-header" style="margin-bottom: 24px;">
@@ -591,8 +604,10 @@
 
       </div>
     </section>
+  </div>
 
-    <!-- ================= ACADEMIC / METHODOLOGY ================= -->
+  <!-- ================= VISTA: METODOLOGÍA Y CIENCIA ABIERTA ================= -->
+  <div class="obs-view" id="view-metodologia" data-view-id="metodologia">
     <section class="academic-band" id="metodologia">
       <div class="academic-inner">
         <div class="academic-text">
@@ -620,6 +635,7 @@
         </div>
       </div>
     </section>
+  </div>
   </main>
 
   <!-- ================= FOOTER INSTITUCIONAL 3 COLUMNAS (LOOK & FEEL EVEGAT.CL) ================= -->

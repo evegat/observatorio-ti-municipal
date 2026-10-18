@@ -2875,3 +2875,32 @@ textarea:focus-visible,
   outline: 3px solid var(--focus-outline-color) !important;
   outline-offset: 2px !important;
 }
+
+/* ==========================================================================
+   ARQUITECTURA DE VISTAS INDEPENDIENTES (PAGINACIÓN SPA MODERNA)
+   ========================================================================== */
+.obs-view {
+  display: block;
+}
+
+.obs-view.obs-view-hidden {
+  display: none !important;
+}
+
+.nav-links a.nav-view-active {
+  color: var(--navy) !important;
+  font-weight: 700 !important;
+  border-bottom: 2px solid var(--gold) !important;
+  padding-bottom: 2px;
+}
+
+html[data-theme="dark"] .nav-links a.nav-view-active {
+  color: #38bdf8 !important;
+  border-bottom-color: #38bdf8 !important;
+}
+
+html[data-theme="contrast"] .nav-links a.nav-view-active {
+  color: #ffff00 !important;
+  border-bottom-color: #ffff00 !important;
+}
+
