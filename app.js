@@ -316,11 +316,8 @@ document.addEventListener("DOMContentLoaded", () => {
       renderProveedoresTable();
       renderCuadrantesSummary();
 
-      // Enrutamiento directo por hash o comuna inicial por defecto
-      const routed = handleHashRoute();
-      if (!routed && state.comunas.length > 0) {
-        selectComuna(state.comunas[0]);
-      }
+      // Enrutamiento directo por hash (solo si el usuario viene con un link específico)
+      handleHashRoute();
 
       window.addEventListener("hashchange", () => {
         handleHashRoute();
@@ -1945,13 +1942,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // Auto-apertura de la guía de uso en primera visita
+    // Auto-apertura de la guía de uso al inicio (explica cómo se usa la plataforma)
     try {
       const seenGuide = localStorage.getItem("evegat_seen_guide_v3");
       if (!seenGuide) {
         setTimeout(() => {
           openModal(comoUsarModal);
-        }, 1200);
+        }, 300);
       }
     } catch (e) {}
 
@@ -2185,7 +2182,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // -------------------------------------------------------------------------
-  // 9. MÓDULO RRHH MUNICIPAL Y CAPACIDAD ESTATAL (P166)
+  // 9. MÓDULO RRHH MUNICIPAL Y CAPACIDAD ESTATAL
   // -------------------------------------------------------------------------
   function initRRHHModule() {
     const kpisGrid = document.getElementById("rrhh-kpis-grid");
@@ -2310,7 +2307,7 @@ document.addEventListener("DOMContentLoaded", () => {
               Composición Jurídica del Personal y la Tecnoestructura Municipal
             </h3>
             <p style="font-size:13px; color:var(--ink-secondary); line-height:1.6; margin-bottom:20px;">
-              El análisis longitudinal del proyecto <strong>P166</strong> revela que la transformación digital municipal en Chile se sostiene sobre una base de alta fragilidad contractual. Mientras las plantas funcionarias permanecen congeladas desde hace décadas, los puestos de soporte computacional, ciberseguridad y desarrollo web se cubren masivamente bajo honorarios a suma alzada:
+              El análisis longitudinal sobre dotación de personal revela que la transformación digital municipal en Chile se sostiene sobre una base de alta fragilidad contractual. Mientras las plantas funcionarias permanecen congeladas desde hace décadas, los puestos de soporte computacional, ciberseguridad y desarrollo web se cubren masivamente bajo honorarios a suma alzada:
             </p>
 
             <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:18px;">
@@ -2336,7 +2333,7 @@ document.addEventListener("DOMContentLoaded", () => {
               Estabilidad Funcionaria, Remuneraciones y Brecha en Tecnología
             </h3>
             <p style="font-size:13px; color:var(--ink-secondary); line-height:1.6; margin-bottom:20px;">
-              El cruce entre los salarios brutos informados en Transparencia Activa y las trayectorias individuales del motor P166 evidencia tres hallazgos estructurales:
+              El cruce entre los salarios brutos informados en Transparencia Activa y las trayectorias individuales evidencia tres hallazgos estructurales:
             </p>
 
             <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:18px;">

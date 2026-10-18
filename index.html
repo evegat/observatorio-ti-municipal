@@ -86,7 +86,7 @@
       <span class="brand-mark">e.</span>
       <div>
         <span class="brand-title">evegat.cl <span style="font-weight:400; opacity:0.65;">· Observatorio de Capacidades Tecnológicas</span></span>
-        <span class="brand-sub">Diagnóstico Territorial de Capacidades Digitales, Tecnoestructura y RRHH (PUB021 × P166)</span>
+        <span class="brand-sub">Diagnóstico Territorial de Capacidades Digitales, Tecnoestructura y Personal Municipal</span>
       </div>
     </a>
     <nav class="nav-links" aria-label="Navegación principal">
@@ -112,7 +112,7 @@
       <div class="hero-top-row">
         <div class="eyebrow">OBSERVATORIO DE CAPACIDADES TECNOLÓGICAS MUNICIPALES · DIAGNÓSTICO INTEGRAL 2014–2026</div>
         <div class="hero-status-pill">
-          <span class="status-dot"></span> 346 Municipios · 153.770 OCs · Cruce MuniData RRHH (P166)
+          <span class="status-dot"></span> 346 Municipios · 153.770 OCs · Dotación Municipal Integrada
         </div>
       </div>
 
@@ -163,7 +163,7 @@
         </div>
 
         <div class="metric-card">
-          <div class="metric-label">Dotación Municipal (P166)</div>
+          <div class="metric-label">Dotación Municipal Total</div>
           <div class="metric-value" id="hero-kpi-dotacion">142.661</div>
           <div class="metric-desc" id="hero-kpi-dotacion-desc">Funcionarios municipales a nivel nacional (43,9% sujetos a régimen de honorarios).</div>
         </div>
@@ -202,7 +202,7 @@
 
           <a href="#rrhh" class="guia-step-card">
             <div class="guia-step-num">PASO 03</div>
-            <h3>Cruza Inversión TI × RRHH (P166)</h3>
+            <h3>Cruza Inversión TI con RRHH</h3>
             <p>Analiza la dotación municipal (Planta, Contrata, Honorarios), brecha salarial de género y el cuadrante de Capacidad Estatal (Estado Soberano vs. Estado Cautivo).</p>
           </a>
 
@@ -288,11 +288,11 @@
       </div>
     </section>
 
-    <!-- ================= NUEVO MÓDULO: RRHH MUNICIPAL Y CAPACIDAD ESTATAL (P166) ================= -->
+    <!-- ================= MÓDULO: RRHH MUNICIPAL Y CAPACIDAD ESTATAL ================= -->
     <section class="rrhh-section" id="rrhh">
       <div class="rrhh-container">
         <div class="section-header">
-          <div class="eyebrow">MOTOR MUNIDATA RRHH (PROYECTO P166 × PUB021) · LEY 20.285 &amp; LEY 21.719</div>
+          <div class="eyebrow">ESTRUCTURA DE PERSONAL MUNICIPAL · LEY 20.285 &amp; LEY 21.719</div>
           <h2 class="section-title">Recursos Humanos Municipales, Tecnoestructura y Capacidad Estatal</h2>
           <p class="section-desc">
             La tecnología no opera en el vacío: sin profesionales informáticos propios ni estabilidad funcionaria, el gasto público en TI termina capturado por consultoras externas. Analizamos la dotación municipal por calidad jurídica, escalafón, remuneraciones, equidad de género y el <strong>Ratio de Externalización de la Tecnoestructura (RET)</strong>.
@@ -374,13 +374,16 @@
           <button type="button" class="rank-tab-btn" data-rank-pane="pane-cuadrantes" role="tab">
             ⚖️ 3. Distribución por Cuadrantes RET
           </button>
+          <button type="button" class="rank-tab-btn" data-rank-pane="pane-gobernanza" role="tab">
+            📜 4. Políticas, Normativas y Gobernanza Tecnológica
+          </button>
         </div>
 
         <!-- PANEL 1: RANKING COMUNAL -->
         <div class="rank-pane active" id="pane-comunas">
           <div class="ranking-header-row" style="margin-bottom:16px;">
             <div style="font-size:13px; color:var(--ink-secondary);">
-              Haz click en cualquier cabecera para ordenar o selecciona una fila para abrir su radiografía completa en el mapa.
+              Haz click en cualquier cabecera para ordenar o selecciona una fila para abrir su Ficha de Capacidades en el mapa.
             </div>
             <div class="ranking-actions" style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
               <select id="cuadrante-filter" class="filter-select" aria-label="Filtrar por cuadrante de capacidad estatal" style="padding:6px 12px; border-radius:6px; border:1px solid var(--line); background:var(--paper); font-size:12px; font-weight:600; color:var(--ink);">
@@ -467,6 +470,125 @@
           </div>
         </div>
 
+        <!-- PANEL 4: POLÍTICAS, NORMATIVAS Y GOBERNANZA TECNOLÓGICA -->
+        <div class="rank-pane" id="pane-gobernanza">
+          <div style="margin-bottom: 24px;">
+            <div style="font-size: 13px; color: var(--ink-secondary); line-height: 1.6;">
+              Diagnóstico del marco legal vinculante y exigencias normativas que rigen la gestión de tecnología, datos y ciberseguridad en las 346 municipalidades de Chile. Sin institucionalidad normativa ni tecnoestructura interna, la inversión en TI carece de sostenibilidad jurídica y operativa.
+            </div>
+          </div>
+
+          <div class="gobernanza-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 18px; margin-bottom: 24px;">
+            <!-- Pilar 1: Ley 21.180 -->
+            <div class="gobernanza-card" style="background: var(--paper-card); border: 1px solid var(--line); border-radius: 8px; padding: 20px; display: flex; flex-direction: column;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                <span style="display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; background: var(--teal-bg); color: var(--teal);">LEY N° 21.180</span>
+                <span style="font-size: 12px; color: var(--muted); font-weight: 600;">Plazo Fase Gradual</span>
+              </div>
+              <h3 style="font-family: var(--font-serif); font-size: 17px; color: var(--navy); margin: 0 0 8px 0; font-weight: 700;">Transformación Digital del Estado</h3>
+              <p style="font-size: 12.5px; color: var(--ink-secondary); line-height: 1.55; margin: 0 0 14px 0; flex-grow: 1;">
+                Exige expedientes electrónicos íntegros, notificaciones digitales obligatorias, interoperabilidad entre servicios y firma electrónica avanzada. En los gobiernos locales, la falta de plataformas de gestión documental (SGD) interoperables perpetúa la dependencia del papel y sistemas cerrados.
+              </p>
+              <div style="background: var(--paper-soft); border-left: 3px solid var(--teal); padding: 10px 12px; border-radius: 4px; font-size: 11.5px; color: var(--ink);">
+                <strong>Impacto Municipal:</strong> 346 municipios obligados a ingresar a la Red de Conectividad del Estado y adoptar ClaveÚnica y DocDigital.
+              </div>
+            </div>
+
+            <!-- Pilar 2: Ley 21.719 -->
+            <div class="gobernanza-card" style="background: var(--paper-card); border: 1px solid var(--line); border-radius: 8px; padding: 20px; display: flex; flex-direction: column;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                <span style="display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; background: var(--forest-bg); color: var(--forest);">LEY N° 21.719</span>
+                <span style="font-size: 12px; color: var(--muted); font-weight: 600;">Promulgada 2024</span>
+              </div>
+              <h3 style="font-family: var(--font-serif); font-size: 17px; color: var(--navy); margin: 0 0 8px 0; font-weight: 700;">Protección de Datos Personales</h3>
+              <p style="font-size: 12.5px; color: var(--ink-secondary); line-height: 1.55; margin: 0 0 14px 0; flex-grow: 1;">
+                Crea la Agencia de Protección de Datos Personales con potestad sancionatoria patrimonial. Obliga a las municipalidades a contar con Registro de Actividades de Tratamiento (RAT), Oficial de Protección de Datos (OPD) y estándares de privacidad por diseño y por defecto en trámites ciudadanos.
+              </p>
+              <div style="background: var(--paper-soft); border-left: 3px solid var(--forest); padding: 10px 12px; border-radius: 4px; font-size: 11.5px; color: var(--ink);">
+                <strong>Riesgo Crítico:</strong> Solo un porcentaje marginal de comunas ha formalizado protocolos de gobernanza de bases de datos sociales y tributarias.
+              </div>
+            </div>
+
+            <!-- Pilar 3: Ley 21.663 -->
+            <div class="gobernanza-card" style="background: var(--paper-card); border: 1px solid var(--line); border-radius: 8px; padding: 20px; display: flex; flex-direction: column;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                <span style="display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; background: var(--crimson-bg); color: var(--crimson);">LEY N° 21.663</span>
+                <span style="font-size: 12px; color: var(--muted); font-weight: 600;">Ley Marco ANCI</span>
+              </div>
+              <h3 style="font-family: var(--font-serif); font-size: 17px; color: var(--navy); margin: 0 0 8px 0; font-weight: 700;">Ciberseguridad e Infraestructura Crítica</h3>
+              <p style="font-size: 12.5px; color: var(--ink-secondary); line-height: 1.55; margin: 0 0 14px 0; flex-grow: 1;">
+                Crea la Agencia Nacional de Ciberseguridad (ANCI) y el CSIRT Nacional. Establece la obligación de reportar incidentes de seguridad informática en un plazo máximo de 3 horas, designar enlaces técnicos y proteger redes locales contra ransomware y filtraciones de información comunal.
+              </p>
+              <div style="background: var(--paper-soft); border-left: 3px solid var(--crimson); padding: 10px 12px; border-radius: 4px; font-size: 11.5px; color: var(--ink);">
+                <strong>Exigencia Operativa:</strong> Municipios calificados como Operadores de Importancia Vital (OIV) requieren planes de continuidad operativa 24/7.
+              </div>
+            </div>
+
+            <!-- Pilar 4: Gobernanza Ética de IA Local -->
+            <div class="gobernanza-card" style="background: var(--paper-card); border: 1px solid var(--line); border-radius: 8px; padding: 20px; display: flex; flex-direction: column;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                <span style="display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; background: var(--gold-bg); color: var(--gold-text);">GOBERNANZA ÉTICA</span>
+                <span style="font-size: 12px; color: var(--muted); font-weight: 600;">Estándar Local</span>
+              </div>
+              <h3 style="font-family: var(--font-serif); font-size: 17px; color: var(--navy); margin: 0 0 8px 0; font-weight: 700;">Adopción de Inteligencia Artificial</h3>
+              <p style="font-size: 12.5px; color: var(--ink-secondary); line-height: 1.55; margin: 0 0 14px 0; flex-grow: 1;">
+                Lineamientos para el uso de modelos de lenguaje, automatización de ventanilla única y análisis predictivo en fiscalización comunal. Exige supervisión humana obligatoria, auditoría algorítmica contra sesgos socioeconómicos y prohibición de entregar datos ciudadanos a nubes privadas sin soberanía.
+              </p>
+              <div style="background: var(--paper-soft); border-left: 3px solid var(--gold); padding: 10px 12px; border-radius: 4px; font-size: 11.5px; color: var(--ink);">
+                <strong>Recomendación de Política Pública:</strong> Establecer decretos alcaldicios de gobernanza tecnológica y cláusulas abiertas en compras públicas de software.
+              </div>
+            </div>
+          </div>
+
+          <!-- Matriz de Obligaciones Normativas por Tramo Municipal -->
+          <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 18px 20px;">
+            <h4 style="font-size: 14px; font-weight: 700; color: var(--navy); margin: 0 0 10px 0;">📋 Matriz Resumen de Cumplimiento Normativo Municipal</h4>
+            <div class="table-responsive">
+              <table class="data-table" style="font-size: 12px;">
+                <thead>
+                  <tr>
+                    <th>Normativa / Ley</th>
+                    <th>Órgano Rector</th>
+                    <th>Exigencia Clave</th>
+                    <th>Estado en Municipios Grupo 1-2</th>
+                    <th>Estado en Municipios Grupo 4-5</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Ley 21.180</strong> (Transf. Digital)</td>
+                    <td>Secretaría de Gobierno Digital (MinHac)</td>
+                    <td>Expediente y notificación electrónica</td>
+                    <td><span class="badge" style="background: var(--teal-bg); color: var(--teal); font-weight:700;">En implementación</span></td>
+                    <td><span class="badge" style="background: var(--crimson-bg); color: var(--crimson); font-weight:700;">Rezago crítico</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Ley 21.719</strong> (Datos Personales)</td>
+                    <td>Agencia de Protección de Datos</td>
+                    <td>Oficial de Protección de Datos (OPD) y RAT</td>
+                    <td><span class="badge" style="background: var(--gold-bg); color: var(--gold-text); font-weight:700;">Diagnóstico inicial</span></td>
+                    <td><span class="badge" style="background: var(--crimson-bg); color: var(--crimson); font-weight:700;">Sin designación</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Ley 21.663</strong> (Ciberseguridad)</td>
+                    <td>ANCI / CSIRT Nacional</td>
+                    <td>Reporte de incidentes en 3 horas y CSIRT</td>
+                    <td><span class="badge" style="background: var(--teal-bg); color: var(--teal); font-weight:700;">Enlaces designados</span></td>
+                    <td><span class="badge" style="background: var(--crimson-bg); color: var(--crimson); font-weight:700;">Alta vulnerabilidad</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Ley 19.886</strong> (Compras Públicas)</td>
+                    <td>Dirección ChileCompra</td>
+                    <td>Convenio Marco, Licitación y Ley 21.634</td>
+                    <td><span class="badge" style="background: var(--forest-bg); color: var(--forest); font-weight:700;">Cumplimiento regular</span></td>
+                    <td><span class="badge" style="background: var(--forest-bg); color: var(--forest); font-weight:700;">Cumplimiento regular</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -477,10 +599,10 @@
           <div class="eyebrow" style="color: #e6cb85;">MARCO CIENTÍFICO, REPRODUCIBILIDAD Y PROTECCIÓN DE DATOS</div>
           <h2>Ciencia Abierta y Privacidad por Diseño (Ley N° 21.719)</h2>
           <p>
-            Este observatorio integra las investigaciones <strong>PUB021 (Adopción de IA y Tecnologías Municipales)</strong> y <strong>P166 (Motor Longitudinal de Personal Municipal de Chile)</strong>. Clasificamos 197.662 líneas de compra de Mercado Público en 11 canastas funcionales y las cruzamos con las nóminas de Transparencia Activa (CPLT) y registros SINIM/SUBDERE mediante DuckDB y Python.
+            Este observatorio integra la evaluación empírica de <strong>Adopción de Tecnologías e IA en Gobiernos Locales</strong> con el <strong>Análisis Longitudinal de Dotación Municipal de Chile</strong>. Clasificamos 197.662 líneas de compra de Mercado Público en 11 canastas funcionales y las cruzamos con las nóminas de Transparencia Activa (CPLT) y registros SINIM/SUBDERE mediante DuckDB y Python.
           </p>
           <p>
-            En estricto cumplimiento de la <strong>Ley N° 21.719 sobre Protección de Datos Personales</strong>, el motor P166 aplica seudonimización criptográfica irreversible (<code>HMAC-SHA256</code>) en tránsito y regla de celda mínima (<code>k-anonimato n &ge; 3</code>), sin almacenar ni exponer nombres ni RUN de funcionarios en la capa pública.
+            En estricto cumplimiento de la <strong>Ley N° 21.719 sobre Protección de Datos Personales</strong>, se aplica seudonimización criptográfica irreversible (<code>HMAC-SHA256</code>) en tránsito y regla de celda mínima (<code>k-anonimato n &ge; 3</code>), sin almacenar ni exponer nombres ni RUN de funcionarios en la capa pública.
           </p>
           <div style="margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap;">
             <button type="button" id="btn-open-legal-academic" class="btn-academic-action" aria-label="Ver nota metodológica y aviso legal completo">
@@ -494,7 +616,7 @@
 
         <div class="citation-box">
           <strong style="color:#fff; display:block; margin-bottom:8px;">Cita académica sugerida (APA 7):</strong>
-          Vega Toledo, E. (2026). <em>Capacidades Tecnológicas, Tecnoestructura y Transformación Digital en los Gobiernos Locales de Chile: Análisis Integrado de Inversión Pública y Recursos Humanos (2014–2026)</em>. Proyectos PUB021 &amp; P166 · Ecosistema de Inteligencia Pública evegat.cl. Disponible en: <a href="https://observatoriotimunicipal.evegat.cl" style="color:#e6cb85; text-decoration:underline;">https://observatoriotimunicipal.evegat.cl</a>
+          Vega Toledo, E. (2026). <em>Capacidades Tecnológicas, Tecnoestructura y Transformación Digital en los Gobiernos Locales de Chile: Análisis Integrado de Inversión Pública y Recursos Humanos (2014–2026)</em>. Ecosistema de Inteligencia Pública evegat.cl. Disponible en: <a href="https://observatoriotimunicipal.evegat.cl" style="color:#e6cb85; text-decoration:underline;">https://observatoriotimunicipal.evegat.cl</a>
         </div>
       </div>
     </section>
@@ -576,7 +698,7 @@
         <div style="background:var(--paper-soft); border-left:4px solid var(--gold); border-radius:6px; padding:12px 16px; margin-bottom:18px;">
           <div style="font-size:12px; font-weight:700; color:var(--navy); margin-bottom:4px;">🎯 ¿Cuál es tu objetivo principal?</div>
           <p style="font-size:12px; color:var(--ink-secondary); margin:0;">
-            Este observatorio integra <strong>$312.571 millones en compras públicas TI (2014–2026)</strong> con <strong>1,46 millones de registros de dotación municipal (MuniData P166)</strong> para transparentar capacidades, costos y dependencias tecnológicas locales.
+            Este observatorio integra <strong>$312.571 millones en compras públicas TI (2014–2026)</strong> con <strong>1,46 millones de registros de dotación municipal</strong> para transparentar capacidades, costos y dependencias tecnológicas locales.
           </p>
         </div>
 
@@ -647,12 +769,12 @@
         <div class="legal-block">
           <h4>1. Propósito Académico y de Interés Público</h4>
           <p>
-            El <strong>Observatorio de Compras TI y RRHH Municipal (observatoriotimunicipal.evegat.cl)</strong> es una plataforma de investigación empírica independiente desarrollada por Eduardo Vega Toledo dentro del ecosistema <a href="https://evegat.cl" target="_blank" rel="noopener">evegat.cl</a>. Su objetivo es transparentar la inversión tecnológica local, evaluar la concentración de mercado (Índice Herfindahl-Hirschman, HHI) y fortalecer las capacidades institucionales de los 346 municipios de Chile.
+            El <strong>Observatorio de Capacidades Tecnológicas Municipales (observatoriotimunicipal.evegat.cl)</strong> es una plataforma de investigación empírica independiente desarrollada por Eduardo Vega Toledo dentro del ecosistema <a href="https://evegat.cl" target="_blank" rel="noopener">evegat.cl</a>. Su objetivo es evaluar las capacidades estatales, la tecnoestructura interna, la inversión tecnológica local y fortalecer a los 346 municipios de Chile.
           </p>
         </div>
 
         <div class="legal-block">
-          <h4>2. Fuentes Oficiales y Arquitectura Metodológica (PUB021 × P166)</h4>
+          <h4>2. Fuentes Oficiales y Arquitectura Metodológica</h4>
           <p>
             Los indicadores presentados integran cuatro registros públicos oficiales: (a) <strong>Mercado Público / Dirección ChileCompra</strong> (148.652 órdenes de compra y 197.662 líneas de ítem entre 2014 y 2026); (b) <strong>Portal de Transparencia Activa del Consejo para la Transparencia (CPLT)</strong> bajo la Ley N° 20.285 (nóminas municipales de Planta, Contrata y Honorarios cosechadas en DuckDB); (c) <strong>Instituto Nacional de Estadísticas (INE)</strong> (población comunal oficial); y (d) <strong>Sistema Nacional de Información Municipal (SINIM - SUBDERE)</strong> para la calibración paramétrica de comunas en proceso de cosecha activa.
           </p>
