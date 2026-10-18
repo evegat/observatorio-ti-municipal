@@ -352,9 +352,9 @@
           <div class="rank-podium-card">
             <div class="rank-podium-title">🏆 Top 3 · Madurez Digital TI</div>
             <ul class="rank-podium-list" id="podium-madurez">
-              <li class="rank-podium-item"><button type="button" class="comuna-name rank-podium-btn" data-comuna="Valdivia" aria-label="Ver ficha de Valdivia, Madurez 100 sobre 100">1. Valdivia (Los Ríos)</button><span class="val-badge">100 / 100</span></li>
-              <li class="rank-podium-item"><button type="button" class="comuna-name rank-podium-btn" data-comuna="Ovalle" aria-label="Ver ficha de Ovalle, Madurez 100 sobre 100">2. Ovalle (Coquimbo)</button><span class="val-badge">100 / 100</span></li>
-              <li class="rank-podium-item"><button type="button" class="comuna-name rank-podium-btn" data-comuna="Temuco" aria-label="Ver ficha de Temuco, Madurez 100 sobre 100">3. Temuco (Araucanía)</button><span class="val-badge">100 / 100</span></li>
+              <li class="rank-podium-item"><button type="button" class="comuna-name rank-podium-btn" data-comuna="La Pintana" aria-label="Ver ficha de La Pintana, Madurez 97 sobre 100">1. La Pintana (RM)</button><span class="val-badge">97 / 100</span></li>
+              <li class="rank-podium-item"><button type="button" class="comuna-name rank-podium-btn" data-comuna="Codegua" aria-label="Ver ficha de Codegua, Madurez 93 sobre 100">2. Codegua (O'Higgins)</button><span class="val-badge">93 / 100</span></li>
+              <li class="rank-podium-item"><button type="button" class="comuna-name rank-podium-btn" data-comuna="Quilpué" aria-label="Ver ficha de Quilpué, Madurez 92 sobre 100">3. Quilpué (Valparaíso)</button><span class="val-badge">92 / 100</span></li>
             </ul>
           </div>
 
@@ -400,6 +400,13 @@
               Haz click en cualquier cabecera para ordenar o selecciona una fila para abrir su Ficha de Capacidades en el mapa.
             </div>
             <div class="ranking-actions" style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+              <select id="poblacion-filter" class="filter-select" aria-label="Filtrar por escala poblacional municipal" style="padding:6px 12px; border-radius:6px; border:1px solid var(--line); background:var(--paper); font-size:12px; font-weight:600; color:var(--ink);">
+                <option value="">👥 Todas las Escalas Poblacionales</option>
+                <option value="grande">Metropolitanas / Grandes (&gt; 100k habs)</option>
+                <option value="mediana">Intermedias (40k – 100k habs)</option>
+                <option value="pequena">Menores (10k – 40k habs)</option>
+                <option value="rural">Rurales y Aisladas (&lt; 10k habs)</option>
+              </select>
               <select id="cuadrante-filter" class="filter-select" aria-label="Filtrar por cuadrante de capacidad estatal" style="padding:6px 12px; border-radius:6px; border:1px solid var(--line); background:var(--paper); font-size:12px; font-weight:600; color:var(--ink);">
                 <option value="">🏛️ Todos los Cuadrantes de Capacidad</option>
                 <option value="Estado Soberano">🏛️ Estado Soberano (RET ≤ 1.8x, Staff TI ≥ 5)</option>
@@ -913,11 +920,16 @@
             ⚠️ Por favor completa los campos requeridos con un correo electrónico válido.
           </div>
 
-          <div class="obs-modal-footer" style="padding: 12px 0 0 0; background: transparent; border-top: 1px solid var(--line); display:flex; justify-content:space-between; align-items:center;">
+          <div class="obs-modal-footer" style="padding: 12px 0 0 0; background: transparent; border-top: 1px solid var(--line); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
             <button type="button" class="btn-modal-cancel" data-close-modal="registro-descarga-modal">Cancelar</button>
-            <button type="submit" class="btn-modal-primary" id="btn-submit-descarga">
-              ✓ Confirmar Registro y Descargar Archivo
-            </button>
+            <div style="display:flex; gap:8px; align-items:center;">
+              <button type="button" id="btn-direct-download" class="btn-academic-action secondary" style="padding:7px 12px; font-size:12px;" title="Descarga directa inmediata sin registro">
+                ⚡ Descarga Directa (Sin Registro)
+              </button>
+              <button type="submit" class="btn-modal-primary" id="btn-submit-descarga">
+                ✓ Registrar y Descargar
+              </button>
+            </div>
           </div>
         </form>
       </div>

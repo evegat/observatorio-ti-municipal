@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     searchQuery: "",
     selectedRegion: "",
     selectedCuadrante: "",
+    selectedPoblacionScale: "",
     currentChapter: 1,
     sortField: "monto_total",
     sortAsc: false,
@@ -1435,6 +1436,15 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
+    // Filtro por Escala Poblacional
+    const poblacionSelect = document.getElementById("poblacion-filter");
+    if (poblacionSelect) {
+      poblacionSelect.addEventListener("change", (e) => {
+        state.selectedPoblacionScale = e.target.value;
+        renderTable();
+      });
+    }
+
     // Reset Map
     const btnReset = document.getElementById("btn-reset-map");
     if (btnReset) {
@@ -1637,7 +1647,20 @@ document.addEventListener("DOMContentLoaded", () => {
         normRegion.includes(normQuery);
       const matchRegion = !state.selectedRegion || c.region === state.selectedRegion;
       const matchCuadrante = !state.selectedCuadrante || c.cuadrante_capacidad === state.selectedCuadrante;
-      return matchSearch && matchRegion && matchCuadrante;
+      
+      let matchPoblacion = true;
+      const pob = c.poblacion || 0;
+      if (state.selectedPoblacionScale === "grande") {
+        matchPoblacion = pob >= 100000;
+      } else if (state.selectedPoblacionScale === "mediana") {
+        matchPoblacion = pob >= 40000 && pob < 100000;
+      } else if (state.selectedPoblacionScale === "pequena") {
+        matchPoblacion = pob >= 10000 && pob < 40000;
+      } else if (state.selectedPoblacionScale === "rural") {
+        matchPoblacion = pob < 10000;
+      }
+
+      return matchSearch && matchRegion && matchCuadrante && matchPoblacion;
     });
   }
 
@@ -2217,6 +2240,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
         closeModal(registroModal);
         showToast("✓ ¡Registro completado! Tu descarga ha comenzado.");
+      });
+    }
+
+    // Botón de Descarga Directa sin Registro (Principio de Ciencia Abierta)
+    const btnDirectDownload = document.getElementById("btn-direct-download");
+    if (btnDirectDownload) {
+      btnDirectDownload.addEventListener("click", () => {
+        const targetFile = (state.pendingDownload && state.pendingDownload.file) || "comunas_enriched.json";
+        if (targetFile === "ranking_comunal.csv") {
+          exportTableToCSV();
+        } else if (targetFile === "proveedores_tecnologicos.csv") {
+          exportProveedoresToCSV();
+        } else {
+          const a = document.createElement("a");
+          a.href = "data/" + targetFile;
+          a.download = targetFile;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        }
+        closeModal(registroModal);
+        showToast("⚡ Descarga directa iniciada (Ciencia Abierta).");
       });
     }
 
