@@ -129,8 +129,8 @@ document.addEventListener("DOMContentLoaded", () => {
         monto_foss: 0,
         tiene_foss: false,
         tiene_infra_propia: true,
-        tiene_lockin_legado: true,
-        top_proveedores: [{ proveedor: "CAS-CHILE S.A.", monto: 45000000, ocs: 12 }],
+        tiene_lockin_legado: false,
+        top_proveedores: [],
         top_contratos: [],
         lat: -31.1800,
         lng: -71.0031,
@@ -155,64 +155,6 @@ document.addEventListener("DOMContentLoaded", () => {
         gasto_rrhh_ti_anual: 32000000,
         ret_ratio: 0.95,
         cuadrante_capacidad: "Estado Artesanal",
-        fuente_rrhh: "Estimación SUBDERE / SINIM"
-      });
-    }
-
-    if (!existingNames.has("antartica")) {
-      consolidated.push({
-        comuna: "Antártica",
-        comuna_raw: "Antartica",
-        region: "Región de Magallanes y de la Antártica",
-        codigo_cut: 12202,
-        poblacion: 137,
-        total_ocs: 15,
-        monto_total: 42000000,
-        gasto_pc: 306569,
-        score_madurez: 45,
-        nivel_madurez: "Madurez Inicial",
-        monto_hardware: 28000000,
-        hardware_pc: 204379,
-        monto_saas: 0,
-        saas_pc: 0,
-        monto_ia: 0,
-        ia_pc: 0,
-        monto_telecom: 14000000,
-        telecom_pc: 102189,
-        monto_cyber: 0,
-        cyber_pc: 0,
-        monto_atencion: 0,
-        monto_televigilancia: 0,
-        monto_legado: 0,
-        monto_foss: 0,
-        tiene_foss: false,
-        tiene_infra_propia: true,
-        tiene_lockin_legado: false,
-        top_proveedores: [{ proveedor: "ENTEL CHILE S.A.", monto: 14000000, ocs: 4 }],
-        top_contratos: [],
-        lat: -62.1917,
-        lng: -58.9653,
-        dotacion_total: 25,
-        dotacion_planta: 8,
-        dotacion_contrata: 12,
-        dotacion_honorarios: 5,
-        pct_honorarios: 20.0,
-        pct_planta_contrata: 80.0,
-        pct_mujeres: 30.0,
-        pct_hombres: 70.0,
-        brecha_salarial_genero_pct: 2.1,
-        remuneracion_mediana_clp: 1450000,
-        gasto_remuneraciones_anual_clp: 435000000,
-        estamento_predominante: "TECNICO",
-        estamentos_pct: { directivo: 8.0, profesional: 24.0, jefatura: 8.0, tecnico: 40.0, administrativo: 16.0, auxiliar: 4.0 },
-        permanencia_media_meses: 12.0,
-        tasa_movilidad_formalizacion_pct: 5.0,
-        dotacion_ti: 1,
-        dotacion_ti_formal: 1,
-        dotacion_ti_honorarios: 0,
-        gasto_rrhh_ti_anual: 18000000,
-        ret_ratio: 1.25,
-        cuadrante_capacidad: "Estado Desconectado",
         fuente_rrhh: "Estimación SUBDERE / SINIM"
       });
     }
@@ -967,8 +909,8 @@ document.addEventListener("DOMContentLoaded", () => {
           ? `<span class="diag-badge ${comuna.cuadrante_capacidad === 'Estado Soberano' ? 'good' : (comuna.cuadrante_capacidad === 'Estado Cautivo' ? 'danger' : 'warning')}">🏛️ ${comuna.cuadrante_capacidad}</span>`
           : ''}
         ${comuna.tiene_lockin_legado
-          ? `<span class="diag-badge danger">⚠️ Alta Dependencia ERP / Lock-in</span>`
-          : `<span class="diag-badge good">✓ Ecosistema Diversificado / Abierto</span>`}
+          ? `<span class="diag-badge warning">Concentración en Software ERP Propietario</span>`
+          : `<span class="diag-badge good">✓ Ecosistema de Software Diversificado</span>`}
         ${comuna.tiene_foss
           ? `<span class="diag-badge good">🐧 Usa Software Libre (FOSS)</span>`
           : `<span class="diag-badge neutral">✕ Sin Adopción FOSS</span>`}
@@ -2457,7 +2399,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <span class="quadrant-count">${cuadrantesCount["Estado Cautivo"]} comunas</span>
               </div>
               <p class="quadrant-desc">
-                Dotación técnica informática reducida (&lt; 5 profesionales) combinada con alta tercerización tecnológica y captura por proveedores monopólicos (vendor lock-in en ERPs legados). Riesgo crítico de asimetría de información y vulnerabilidad.
+                Dotación informática interna reducida (&lt; 5 profesionales) combinada con alta tercerización tecnológica externa (RET &gt; 1,8x). Elevada dependencia operativa de contratos de soporte de software propietario y vulnerabilidad técnica ante cambios de proveedor.
               </p>
               <div class="quadrant-examples">
                 <strong>Referentes:</strong> Calama, Quillota, Algarrobo, Melipilla, San Bernardo.

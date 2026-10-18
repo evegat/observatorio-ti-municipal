@@ -7,7 +7,7 @@ y este proyecto se adhiere a [Semantic Versioning](https://semver.org/lang/es/).
 ## [1.0.0] - 2026-10-04
 
 ### Agregado
-- **Observatorio Territorial y Cartografía:** Mapa interactivo con Leaflet 1.9.4 empaquetado en local (cero dependencias de CDNs externas), con capas de Madurez TI (0-100), Gasto Per Cápita, Vendor Lock-in (CAS-Chile), Software Libre (FOSS) e Infraestructura Propia.
+- **Observatorio Territorial y Cartografía:** Mapa interactivo con Leaflet 1.9.4 empaquetado en local (cero dependencias de CDNs externas), con capas de Madurez TI (0-100), Gasto Per Cápita, Concentración de Software de Gestión ERP, Software Libre (FOSS) e Infraestructura Propia.
 - **Dataset Auditado Longitudinal:** 148.652 órdenes de compra y 197.662 ítems de Mercado Público (2014–2026) totalizando $300.125 millones de pesos chilenos en las 346 comunas de Chile.
 - **Termómetro Radial SVG:** Indicador gráfico de madurez semicircular (0 a 100 puntos) con cuadrantes calibrados (Rezago Crítico, Inicial, Intermedia, Avanzada) y aguja vectorial sin librerías externas.
 - **Gasto Per Cápita por Categoría:** Visualizador desglosado en las 7 canastas clave (Hardware, IA, Telecomunicaciones, Ciberseguridad, SaaS, Legado y FOSS) con cálculo en tiempo real contra el padrón comunal INE 2024.

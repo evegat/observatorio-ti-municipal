@@ -1,7 +1,7 @@
 /**
  * tests/test_search_normalization_stress.js
  * =========================================
- * Empirical Stress Test Suite for Observatorio TI Municipal (PUB021)
+ * Empirical Stress Test Suite for Observatorio TI Municipal
  * Milestone 1 - Challenger 2
  */
 
