@@ -1855,7 +1855,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderCuadrantesSummary() {
     const container = document.getElementById("rank-cuadrantes-summary");
     if (!container) return;
-    // Conteo dinámico exacto de los 346 municipios reales
+    // Conteo dinámico exacto de los 345 municipios reales
     const dist = {
       "Estado Soberano": state.comunas.filter(c => c.cuadrante_capacidad === "Estado Soberano").length,
       "Estado Híbrido Dependiente": state.comunas.filter(c => c.cuadrante_capacidad === "Estado Híbrido Dependiente").length,
@@ -1993,7 +1993,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const c = state.selectedComuna;
           narrative = `Resumen de capacidades tecnológicas para la comuna de ${c.comuna}, región de ${c.region}. Población: ${(c.poblacion || 0).toLocaleString("es-CL")} habitantes. Inversión histórica en contratos tecnológicos: ${formatCLP(c.monto_total)} pesos chilenos, equivalente a ${formatCLP(c.gasto_pc)} pesos por habitante. Índice de madurez tecnológica: ${c.score_madurez} sobre 100, clasificado como ${c.nivel_madurez}. Diagnóstico de capacidad estatal: ${c.cuadrante_capacidad || "En evaluación"}. Tecnoestructura municipal: ${c.dotacion_ti || 0} profesionales TI contratados. Ratio de externalización tecnológica: ${c.ret_ratio || "No determinado"}.`;
         } else {
-          narrative = `Observatorio de Capacidades Tecnológicas y Capacidad Estatal en los 346 municipios de Chile. Se analizaron más de 312 mil millones de pesos transados en 153 mil contratos en Mercado Público durante 12 años, cruzados con la dotación funcionaria y tecnoestructura de Transparencia Activa.`;
+          narrative = `Observatorio de Capacidades Tecnológicas y Capacidad Estatal en las 345 municipalidades de Chile (346 comunas). Se analizaron más de 312 mil millones de pesos transados en 153 mil contratos en Mercado Público durante 12 años, cruzados con la dotación funcionaria y tecnoestructura de Transparencia Activa.`;
         }
 
         const utter = new SpeechSynthesisUtterance(narrative);
@@ -2340,7 +2340,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="rrhh-kpi-card">
         <div class="rrhh-kpi-label">Dotación Total Municipal</div>
         <div class="rrhh-kpi-val">${totalDotacion.toLocaleString("es-CL")}</div>
-        <div class="rrhh-kpi-desc">Funcionarios analizados en 346 comunas (Planta, Contrata y Honorarios)</div>
+        <div class="rrhh-kpi-desc">Funcionarios analizados en las 345 municipalidades (Planta, Contrata y Honorarios)</div>
       </div>
       <div class="rrhh-kpi-card">
         <div class="rrhh-kpi-label">Músculo Propio TI</div>
@@ -2375,7 +2375,7 @@ document.addEventListener("DOMContentLoaded", () => {
               Matriz de Capacidad Estatal y Soberanía Tecnológica (Ratio RET)
             </h3>
             <p style="font-size:13px; color:var(--ink-secondary); line-height:1.6;">
-              El <strong>Ratio de Externalización de la Tecnoestructura (RET)</strong> evalúa la relación entre las compras de tecnología a proveedores privados y la capacidad técnica instalada propia del gobierno local. Permite clasificar a las 346 municipalidades de Chile en cuatro cuadrantes operativos:
+              El <strong>Ratio de Externalización de la Tecnoestructura (RET)</strong> evalúa la relación entre las compras de tecnología a proveedores privados y la capacidad técnica instalada propia del gobierno local. Permite clasificar a las 345 municipalidades de Chile en cuatro cuadrantes operativos:
             </p>
           </div>
 

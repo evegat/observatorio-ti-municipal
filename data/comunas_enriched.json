@@ -1110,83 +1110,6 @@
     "fuente_rrhh": "CPLT Transparencia Activa (Observado)"
   },
   {
-    "comuna": "Antártica",
-    "comuna_raw": "Antártica",
-    "region": "Región de Magallanes y de la Antártica",
-    "codigo_cut": 12202,
-    "poblacion": 137,
-    "total_ocs": 12,
-    "monto_total": 24500000.0,
-    "gasto_pc": 178832.0,
-    "score_madurez": 40,
-    "nivel_madurez": "Madurez Inicial",
-    "monto_hardware": 12500000.0,
-    "hardware_pc": 91241.0,
-    "monto_saas": 0.0,
-    "saas_pc": 0.0,
-    "monto_ia": 0.0,
-    "ia_pc": 0.0,
-    "monto_telecom": 12000000.0,
-    "telecom_pc": 87591.0,
-    "monto_cyber": 0.0,
-    "cyber_pc": 0.0,
-    "monto_atencion": 0.0,
-    "monto_televigilancia": 0.0,
-    "monto_legado": 0.0,
-    "monto_foss": 0.0,
-    "tiene_foss": false,
-    "tiene_infra_propia": true,
-    "tiene_lockin_legado": false,
-    "top_proveedores": [
-      {
-        "proveedor": "ENTEL CHILE S.A.",
-        "monto": 12000000.0,
-        "ocs": 1
-      }
-    ],
-    "top_contratos": [
-      {
-        "codigo_oc": "3704-12-SE22",
-        "proveedor": "ENTEL CHILE S.A.",
-        "anio": 2022,
-        "monto": 12000000.0,
-        "descripcion": "Enlace satelital Villa Las Estrellas Territorio Antártico",
-        "url_mercadopublico": "https://www.mercadopublico.cl"
-      }
-    ],
-    "lat": -62.2014,
-    "lng": -58.9628,
-    "dotacion_total": 12,
-    "dotacion_planta": 4,
-    "dotacion_contrata": 4,
-    "dotacion_honorarios": 4,
-    "pct_honorarios": 33.3,
-    "pct_planta_contrata": 66.7,
-    "pct_mujeres": 35.0,
-    "pct_hombres": 65.0,
-    "brecha_salarial_genero_pct": 4.5,
-    "remuneracion_mediana_clp": 1850000.0,
-    "gasto_remuneraciones_anual_clp": 266400000.0,
-    "estamento_predominante": "TECNICO",
-    "estamentos_pct": {
-      "directivo": 8.3,
-      "profesional": 25.0,
-      "jefatura": 8.3,
-      "tecnico": 33.4,
-      "administrativo": 16.7,
-      "auxiliar": 8.3
-    },
-    "permanencia_media_meses": 18.0,
-    "tasa_movilidad_formalizacion_pct": 5.0,
-    "dotacion_ti": 1,
-    "dotacion_ti_formal": 1,
-    "dotacion_ti_honorarios": 0,
-    "gasto_rrhh_ti_anual": 22200000.0,
-    "ret_ratio": 0.37,
-    "cuadrante_capacidad": "Estado Soberano",
-    "fuente_rrhh": "Modelo Paramétrico SINIM/FIGEM (P166)"
-  },
-  {
     "comuna": "Arauco",
     "comuna_raw": "Arauco",
     "region": "Región del Biobío",
@@ -1961,7 +1884,9 @@
     "gasto_rrhh_ti_anual": 21600000.0,
     "ret_ratio": 1.91,
     "cuadrante_capacidad": "Estado Cautivo",
-    "fuente_rrhh": "Modelo Paramétrico SINIM/FIGEM (P166)"
+    "fuente_rrhh": "Modelo Paramétrico SINIM/FIGEM (P166)",
+    "nota_territorial": "Sede edilicia en Puerto Williams. Administra la agrupación de comunas de Cabo de Hornos y Antártica (DFL N° 1-19.704).",
+    "comuna_completa": "Cabo de Hornos (y Antártica)"
   },
   {
     "comuna": "Cabrero",
