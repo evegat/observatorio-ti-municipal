@@ -1077,12 +1077,15 @@ body {
   font-weight: 700;
   padding: 14px 16px;
   border-bottom: 1px solid var(--line);
-  cursor: pointer;
   user-select: none;
   white-space: nowrap;
 }
 
-.data-table th:hover {
+.data-table th[data-sort] {
+  cursor: pointer;
+}
+
+.data-table th[data-sort]:hover {
   background: #ede8dc;
 }
 
@@ -1243,12 +1246,14 @@ footer {
   justify-content: center;
   padding: 20px;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
 }
 
 .obs-modal-backdrop.active {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
 }
 
@@ -2904,3 +2909,35 @@ html[data-theme="contrast"] .nav-links a.nav-view-active {
   border-bottom-color: #ffff00 !important;
 }
 
+
+/* Soporte de accesibilidad y foco en podios */
+.rank-podium-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.rank-podium-btn:hover {
+  text-decoration: underline;
+  color: var(--forest);
+}
+.rank-podium-btn:focus-visible {
+  outline: 2px solid var(--forest);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Reducción de movimiento para usuarios con sensibilidad vestibular */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

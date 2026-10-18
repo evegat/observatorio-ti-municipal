@@ -1,6 +1,6 @@
 {
   "total_ocs": 153770,
-  "total_entidades": 637,
+  "total_entidades": 346,
   "monto_total_clp": 312570954499.0,
   "hhi_legados": 7607.1,
   "pct_cas_chile": 87.2,
@@ -145,11 +145,11 @@
     "cplt_comunas_observadas": 269,
     "cplt_registros_duckdb": 1468974,
     "cuadrantes_distribucion": {
-      "Estado Soberano": 198,
+      "Estado Soberano": 169,
       "Estado Híbrido Dependiente": 5,
-      "Estado Artesanal": 99,
-      "Estado Cautivo": 46,
-      "Estado Desconectado": 49
+      "Estado Desconectado": 40,
+      "Estado Artesanal": 86,
+      "Estado Cautivo": 46
     },
     "estamentos_nacional_pct": {
       "directivo": 4.6,

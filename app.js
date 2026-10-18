@@ -281,17 +281,26 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 100);
     }
 
-    // Actualizar hash deeplinking en la URL si se solicitó
-    if (pushHash && window.history && window.history.replaceState) {
-      if (targetViewId === "inicio") {
-        window.history.replaceState(null, null, window.location.pathname + window.location.search);
-      } else {
-        window.history.replaceState(null, null, "#" + targetViewId);
+    // Actualizar hash deeplinking en la URL con pushState para soportar Atrás/Adelante
+    if (pushHash && window.history && window.history.pushState) {
+      const targetHash = targetViewId === "inicio" ? "" : "#" + targetViewId;
+      if (window.location.hash !== targetHash) {
+        window.history.pushState({ viewId: targetViewId }, "", targetHash || window.location.pathname + window.location.search);
       }
     }
 
-    // Scroll suave al inicio de la página
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // Mover foco a la vista activa para accesibilidad
+    const activeViewEl = document.getElementById("view-" + targetViewId);
+    if (activeViewEl) {
+      activeViewEl.setAttribute("tabindex", "-1");
+      activeViewEl.focus({ preventScroll: true });
+    }
+
+    // Scroll al inicio respetando prefers-reduced-motion
+    if (typeof window.scrollTo === "function") {
+      const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
+    }
   }
 
   function handleHashRoute() {
@@ -379,6 +388,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
       window.addEventListener("hashchange", () => {
         handleHashRoute();
+      });
+      window.addEventListener("popstate", (e) => {
+        if (e.state && e.state.viewId) {
+          switchView(e.state.viewId, false);
+        } else {
+          handleHashRoute();
+        }
       });
     } catch (err) {
       console.error("Error al inicializar la aplicación:", err);
@@ -1355,14 +1371,38 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // Búsqueda instantánea
+    // Búsqueda instantánea con datalist y navegación por teclado Enter
     const searchInput = document.getElementById("comuna-search");
+    const comunaDatalist = document.getElementById("comunas-datalist");
+    if (comunaDatalist && state.comunas) {
+      comunaDatalist.innerHTML = state.comunas.map(c => `<option value="${c.comuna}">${c.region}</option>`).join("");
+    }
+
     if (searchInput) {
       searchInput.addEventListener("input", (e) => {
         state.searchQuery = e.target.value;
         renderMapMarkers();
         renderTable();
         updateProviderCrossSuggestion();
+      });
+
+      searchInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          const val = searchInput.value.trim().toLowerCase();
+          if (!val) return;
+          const matched = state.comunas.find(c => 
+            c.comuna.toLowerCase() === val || 
+            normalizeSearch(c.comuna) === normalizeSearch(val)
+          ) || state.comunas.find(c => 
+            normalizeSearch(c.comuna).includes(normalizeSearch(val))
+          );
+          if (matched) {
+            selectComuna(matched);
+            if (state.map && matched.lat && matched.lng) {
+              state.map.setView([matched.lat, matched.lng], 12);
+            }
+          }
+        }
       });
     }
 
@@ -1437,12 +1477,16 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // Pestañas del Centro de Rankings
+    // Pestañas del Centro de Rankings con ARIA sincronizado
     const rankTabs = document.querySelectorAll(".rank-tab-btn[data-rank-pane]");
     rankTabs.forEach(btn => {
       btn.addEventListener("click", () => {
-        rankTabs.forEach(b => b.classList.remove("active"));
+        rankTabs.forEach(b => {
+          b.classList.remove("active");
+          b.setAttribute("aria-selected", "false");
+        });
         btn.classList.add("active");
+        btn.setAttribute("aria-selected", "true");
         const paneId = btn.dataset.rankPane;
         document.querySelectorAll(".rank-pane").forEach(pane => {
           pane.classList.remove("active");
@@ -1811,12 +1855,13 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderCuadrantesSummary() {
     const container = document.getElementById("rank-cuadrantes-summary");
     if (!container) return;
-    const dist = (state.kpis && state.kpis.rrhh_nacional && state.kpis.rrhh_nacional.cuadrantes_distribucion) || {
-      "Estado Soberano": 198,
-      "Estado Híbrido Dependiente": 5,
-      "Estado Artesanal": 99,
-      "Estado Cautivo": 46,
-      "Estado Desconectado": 49
+    // Conteo dinámico exacto de los 346 municipios reales
+    const dist = {
+      "Estado Soberano": state.comunas.filter(c => c.cuadrante_capacidad === "Estado Soberano").length,
+      "Estado Híbrido Dependiente": state.comunas.filter(c => c.cuadrante_capacidad === "Estado Híbrido Dependiente").length,
+      "Estado Cautivo": state.comunas.filter(c => c.cuadrante_capacidad === "Estado Cautivo").length,
+      "Estado Artesanal": state.comunas.filter(c => c.cuadrante_capacidad === "Estado Artesanal").length,
+      "Estado Desconectado": state.comunas.filter(c => c.cuadrante_capacidad === "Estado Desconectado").length
     };
 
     container.innerHTML = `
@@ -1866,7 +1911,11 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
 
     container.querySelectorAll(".quadrant-card[data-filter-quadrant]").forEach(card => {
-      card.addEventListener("click", () => {
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("role", "button");
+      card.setAttribute("aria-label", `Filtrar ranking por cuadrante ${card.dataset.filterQuadrant}`);
+
+      const activate = () => {
         const qName = card.dataset.filterQuadrant;
         const cuadranteSelect = document.getElementById("cuadrante-filter");
         if (cuadranteSelect) {
@@ -1879,6 +1928,14 @@ document.addEventListener("DOMContentLoaded", () => {
         if (btnComunasTab) btnComunasTab.click();
         const tableEl = document.getElementById("ranking-table");
         if (tableEl) tableEl.scrollIntoView({ behavior: "smooth" });
+      };
+
+      card.addEventListener("click", activate);
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          activate();
+        }
       });
     });
   }
@@ -1986,12 +2043,13 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.style.overflow = "hidden";
 
       const card = modal.querySelector(".obs-modal-card") || modal;
-      const focusables = getFocusableElements(card);
-      if (focusables.length > 0) {
-        const firstInput = card.querySelector("input:not([type='hidden']), select, textarea");
-        const closeBtn = card.querySelector(".obs-modal-close");
-        const target = firstInput || closeBtn || focusables[0];
-        setTimeout(() => target.focus(), 50);
+      const closeBtn = card.querySelector(".obs-modal-close");
+      const titleEl = card.querySelector("h2, h3");
+      if (titleEl) {
+        titleEl.setAttribute("tabindex", "-1");
+        setTimeout(() => titleEl.focus(), 50);
+      } else if (closeBtn) {
+        setTimeout(() => closeBtn.focus(), 50);
       }
     }
 
@@ -2245,6 +2303,8 @@ document.addEventListener("DOMContentLoaded", () => {
       toast = document.createElement("div");
       toast.id = "obs-toast-el";
       toast.className = "obs-toast";
+      toast.setAttribute("role", "status");
+      toast.setAttribute("aria-live", "polite");
       document.body.appendChild(toast);
     }
     toast.textContent = msg;
@@ -2434,12 +2494,16 @@ document.addEventListener("DOMContentLoaded", () => {
     // Inicializar pestaña por defecto
     renderRRHHTab("capacidad");
 
-    // Eventos de pestañas
+    // Eventos de pestañas con ARIA sincronizado
     if (tabsContainer) {
       tabsContainer.querySelectorAll(".rrhh-tab-btn").forEach(btn => {
         btn.addEventListener("click", () => {
-          tabsContainer.querySelectorAll(".rrhh-tab-btn").forEach(b => b.classList.remove("active"));
+          tabsContainer.querySelectorAll(".rrhh-tab-btn").forEach(b => {
+            b.classList.remove("active");
+            b.setAttribute("aria-selected", "false");
+          });
           btn.classList.add("active");
+          btn.setAttribute("aria-selected", "true");
           renderRRHHTab(btn.dataset.rrhhTab);
         });
       });

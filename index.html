@@ -268,7 +268,8 @@
         </div>
 
         <div class="filter-controls-group">
-          <input type="text" id="comuna-search" class="search-input" placeholder="Buscar comuna (ej. Algarrobo, Maipú, Valdivia)...">
+          <input type="text" id="comuna-search" class="search-input" list="comunas-datalist" placeholder="Buscar comuna (ej. Algarrobo, Maipú, Valdivia)..." aria-label="Buscar comuna por nombre o código CUT">
+          <datalist id="comunas-datalist"></datalist>
           <select id="region-filter" class="region-select" aria-label="Filtrar por región">
             <option value="">Todas las Regiones (Chile)</option>
           </select>
@@ -316,14 +317,14 @@
         </div>
 
         <!-- PESTAÑAS INTERACTIVAS DEL MÓDULO RRHH -->
-        <div class="rrhh-tabs" id="rrhh-tabs" role="tablist">
-          <button type="button" class="rrhh-tab-btn active" data-rrhh-tab="capacidad" role="tab">
+        <div class="rrhh-tabs" id="rrhh-tabs" role="tablist" aria-label="Módulos de análisis de personal municipal">
+          <button type="button" class="rrhh-tab-btn active" data-rrhh-tab="capacidad" role="tab" aria-selected="true" aria-controls="rrhh-stage" id="tab-rrhh-capacidad">
             1. Matriz de Capacidad Estatal y Soberanía TI (RET)
           </button>
-          <button type="button" class="rrhh-tab-btn" data-rrhh-tab="dotacion" role="tab">
+          <button type="button" class="rrhh-tab-btn" data-rrhh-tab="dotacion" role="tab" aria-selected="false" aria-controls="rrhh-stage" id="tab-rrhh-dotacion">
             2. Calidad Jurídica (Planta, Contrata, Honorarios) y Estamentos
           </button>
-          <button type="button" class="rrhh-tab-btn" data-rrhh-tab="genero" role="tab">
+          <button type="button" class="rrhh-tab-btn" data-rrhh-tab="genero" role="tab" aria-selected="false" aria-controls="rrhh-stage" id="tab-rrhh-genero">
             3. Remuneraciones, Brecha de Género y Estabilidad Funcionaria
           </button>
         </div>
@@ -351,43 +352,43 @@
           <div class="rank-podium-card">
             <div class="rank-podium-title">🏆 Top 3 · Madurez Digital TI</div>
             <ul class="rank-podium-list" id="podium-madurez">
-              <li class="rank-podium-item"><span class="comuna-name" data-comuna="Providencia">1. Providencia (RM)</span><span class="val-badge">92 / 100</span></li>
-              <li class="rank-podium-item"><span class="comuna-name" data-comuna="Las Condes">2. Las Condes (RM)</span><span class="val-badge">89 / 100</span></li>
-              <li class="rank-podium-item"><span class="comuna-name" data-comuna="Santiago">3. Santiago (RM)</span><span class="val-badge">87 / 100</span></li>
+              <li class="rank-podium-item"><button type="button" class="comuna-name rank-podium-btn" data-comuna="Valdivia" aria-label="Ver ficha de Valdivia, Madurez 100 sobre 100">1. Valdivia (Los Ríos)</button><span class="val-badge">100 / 100</span></li>
+              <li class="rank-podium-item"><button type="button" class="comuna-name rank-podium-btn" data-comuna="Ovalle" aria-label="Ver ficha de Ovalle, Madurez 100 sobre 100">2. Ovalle (Coquimbo)</button><span class="val-badge">100 / 100</span></li>
+              <li class="rank-podium-item"><button type="button" class="comuna-name rank-podium-btn" data-comuna="Temuco" aria-label="Ver ficha de Temuco, Madurez 100 sobre 100">3. Temuco (Araucanía)</button><span class="val-badge">100 / 100</span></li>
             </ul>
           </div>
 
           <div class="rank-podium-card">
             <div class="rank-podium-title">👥 Top 3 · Músculo Propio (Staff TI)</div>
             <ul class="rank-podium-list" id="podium-staff">
-              <li class="rank-podium-item"><span class="comuna-name" data-comuna="Maipú">1. Maipú (RM)</span><span class="val-badge">42 profesionales</span></li>
-              <li class="rank-podium-item"><span class="comuna-name" data-comuna="Santiago">2. Santiago (RM)</span><span class="val-badge">38 profesionales</span></li>
-              <li class="rank-podium-item"><span class="comuna-name" data-comuna="Puente Alto">3. Puente Alto (RM)</span><span class="val-badge">31 profesionales</span></li>
+              <li class="rank-podium-item"><button type="button" class="comuna-name rank-podium-btn" data-comuna="El Tabo" aria-label="Ver ficha de El Tabo, 96 profesionales TI">1. El Tabo (Valparaíso)</button><span class="val-badge">96 profesionales</span></li>
+              <li class="rank-podium-item"><button type="button" class="comuna-name rank-podium-btn" data-comuna="Talcahuano" aria-label="Ver ficha de Talcahuano, 90 profesionales TI">2. Talcahuano (Biobío)</button><span class="val-badge">90 profesionales</span></li>
+              <li class="rank-podium-item"><button type="button" class="comuna-name rank-podium-btn" data-comuna="Cunco" aria-label="Ver ficha de Cunco, 73 profesionales TI">3. Cunco (Araucanía)</button><span class="val-badge">73 profesionales</span></li>
             </ul>
           </div>
 
           <div class="rank-podium-card">
-            <div class="rank-podium-title">💰 Top 3 · Inversión Per Cápita</div>
+            <div class="rank-podium-title">💰 Top 3 · Inversión Per Cápita (Población &ge; 10k)</div>
             <ul class="rank-podium-list" id="podium-gasto">
-              <li class="rank-podium-item"><span class="comuna-name" data-comuna="Ovalle">1. Ovalle (Coquimbo)</span><span class="val-badge">$39.404 / hab</span></li>
-              <li class="rank-podium-item"><span class="comuna-name" data-comuna="Valdivia">2. Valdivia (Los Ríos)</span><span class="val-badge">$36.789 / hab</span></li>
-              <li class="rank-podium-item"><span class="comuna-name" data-comuna="Vitacura">3. Vitacura (RM)</span><span class="val-badge">$34.120 / hab</span></li>
+              <li class="rank-podium-item"><button type="button" class="comuna-name rank-podium-btn" data-comuna="Peralillo" aria-label="Ver ficha de Peralillo, 166.163 pesos por habitante">1. Peralillo (O'Higgins)</button><span class="val-badge">$166.163 / hab</span></li>
+              <li class="rank-podium-item"><button type="button" class="comuna-name rank-podium-btn" data-comuna="Colbún" aria-label="Ver ficha de Colbún, 148.535 pesos por habitante">2. Colbún (Maule)</button><span class="val-badge">$148.535 / hab</span></li>
+              <li class="rank-podium-item"><button type="button" class="comuna-name rank-podium-btn" data-comuna="Río Claro" aria-label="Ver ficha de Río Claro, 119.050 pesos por habitante">3. Río Claro (Maule)</button><span class="val-badge">$119.050 / hab</span></li>
             </ul>
           </div>
         </div>
 
         <!-- PESTAÑAS DE RANKING -->
-        <div class="rank-tabs-bar" role="tablist">
-          <button type="button" class="rank-tab-btn active" data-rank-pane="pane-comunas" role="tab">
+        <div class="rank-tabs-bar" role="tablist" aria-label="Secciones del centro de rankings">
+          <button type="button" class="rank-tab-btn active" data-rank-pane="pane-comunas" role="tab" aria-selected="true" aria-controls="pane-comunas" id="tab-rank-comunas">
             🏛️ 1. Ranking Comunal Integral (346 Municipios)
           </button>
-          <button type="button" class="rank-tab-btn" data-rank-pane="pane-proveedores" role="tab">
+          <button type="button" class="rank-tab-btn" data-rank-pane="pane-proveedores" role="tab" aria-selected="false" aria-controls="pane-proveedores" id="tab-rank-proveedores">
             🏢 2. Ranking de Proveedores Tecnológicos (Mercado Público)
           </button>
-          <button type="button" class="rank-tab-btn" data-rank-pane="pane-cuadrantes" role="tab">
+          <button type="button" class="rank-tab-btn" data-rank-pane="pane-cuadrantes" role="tab" aria-selected="false" aria-controls="pane-cuadrantes" id="tab-rank-cuadrantes">
             ⚖️ 3. Distribución por Cuadrantes RET
           </button>
-          <button type="button" class="rank-tab-btn" data-rank-pane="pane-gobernanza" role="tab">
+          <button type="button" class="rank-tab-btn" data-rank-pane="pane-gobernanza" role="tab" aria-selected="false" aria-controls="pane-gobernanza" id="tab-rank-gobernanza">
             📜 4. Políticas, Normativas y Gobernanza Tecnológica
           </button>
         </div>
@@ -445,7 +446,7 @@
               Principales 30 empresas proveedoras de tecnología, conectividad y software municipal en Mercado Público (2014–2026).
             </div>
             <div class="ranking-actions" style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
-              <input type="text" id="prov-search" class="search-input" placeholder="Buscar proveedor (ej. Opciones, Telefónica, Entel)..." style="width:260px;">
+              <input type="text" id="prov-search" class="search-input" placeholder="Buscar proveedor (ej. Opciones, Telefónica, Entel)..." aria-label="Buscar proveedor tecnológico en Mercado Público" style="width:260px;">
               <button type="button" id="btn-export-prov-csv" class="btn-export-csv btn-intercept-download" data-file="proveedores_tecnologicos.csv" data-label="Ranking de Proveedores Tecnológicos (CSV)">
                 📥 Exportar Proveedores CSV
               </button>
@@ -898,12 +899,12 @@
 
           <div class="form-checkbox-row" style="margin-bottom:16px;">
             <label class="form-checkbox-label">
-              <input type="checkbox" id="reg-contacto" name="consentimiento" value="true" checked>
+              <input type="checkbox" id="reg-contacto" name="consentimiento" value="true">
               <span>Autorizo el registro de mis datos para trazabilidad académica y autorizo al equipo de investigación de <strong>evegat.cl</strong> a tomar contacto conmigo ante actualizaciones.</span>
             </label>
           </div>
 
-          <div id="reg-error-msg" style="display:none; color:var(--crimson); font-size:12px; margin-bottom:10px; font-weight:600;">
+          <div id="reg-error-msg" role="alert" style="display:none; color:var(--crimson); font-size:12px; margin-bottom:10px; font-weight:600;">
             ⚠️ Por favor completa los campos requeridos con un correo electrónico válido.
           </div>
 
