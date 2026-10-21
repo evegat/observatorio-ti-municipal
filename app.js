@@ -1013,9 +1013,6 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
 
       <div class="drawer-section-title">Contratos Emblemáticos en Mercado Público</div>
-      <div style="font-size:11px; color:var(--muted); margin-top:-6px; margin-bottom:10px; line-height:1.4;">
-        ℹ️ <strong>Rigor Metodológico:</strong> Los montos corresponden a <em>Órdenes de Compra (OCs)</em> efectivamente emitidas y aceptadas. Las licitaciones públicas de origen constituyen el acto administrativo habilitante y no representan gasto sumable adicional.
-      </div>
       <div class="top-contracts-list">
         ${(comuna.top_contratos && comuna.top_contratos.length > 0)
           ? comuna.top_contratos.map(oc => `
