@@ -159,5 +159,19 @@
       "administrativo": 28.7,
       "auxiliar": 7.7
     }
+  },
+  "gobernanza_tecnologica": {
+    "corte": "Octubre 2026",
+    "fuente": "MuniData P090 (ordenanzas.evegat.cl)",
+    "total_comunas_auditadas": 345,
+    "comunas_con_normativa_tech": 38,
+    "pct_con_normativa_tech": 11.01,
+    "desierto_regulatorio_comunas": 307,
+    "pct_desierto_regulatorio": 88.99,
+    "comunas_directriz_estrategica_ia": 3,
+    "comunas_piloto_operativo_ia": 3,
+    "comunas_regulacion_infra_telecom": 31,
+    "comunas_regulacion_tic_digital": 1,
+    "total_ordenanzas_tecnologicas": 45
   }
 }

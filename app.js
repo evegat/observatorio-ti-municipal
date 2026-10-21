@@ -1015,6 +1015,54 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       </div>
 
+      <!-- Gobernanza y Normativa Tecnológica (MuniData Normas) -->
+      <div class="drawer-section-title">Gobernanza & Normativa Tecnológica (MuniData Normas)</div>
+      <div class="normativa-box" style="background:var(--paper-soft); border:1px solid var(--line-light); border-radius:6px; padding:12px; margin-bottom:12px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; gap:8px;">
+          <span class="diag-badge ${comuna.normativa_tech && comuna.normativa_tech.tiene_normativa ? (comuna.normativa_tech.estado_gobernanza.includes('IA') ? 'good' : 'warning') : 'neutral'}">
+            ${comuna.normativa_tech && comuna.normativa_tech.tiene_normativa ? (comuna.normativa_tech.estado_gobernanza.includes('IA') ? '🏛️ ' : '📡 ') + comuna.normativa_tech.estado_gobernanza : '🏜️ Desierto Regulatorio Tecnológico'}
+          </span>
+          <span style="font-size:11px; font-weight:600; color:var(--muted);">${(comuna.normativa_tech ? comuna.normativa_tech.total_instrumentos : 0)} instrumento(s)</span>
+        </div>
+        ${(comuna.normativa_tech && comuna.normativa_tech.tiene_normativa)
+          ? `
+            <div style="display:flex; flex-direction:column; gap:8px; margin-top:8px;">
+              ${(comuna.normativa_tech.politicas_ia || []).map(p => `
+                <div style="background:var(--paper); border:1px solid var(--line-light); border-left:3px solid var(--teal); border-radius:4px; padding:8px 10px;">
+                  <div style="display:flex; justify-content:space-between; align-items:center; font-size:10px; font-weight:700; color:var(--teal); text-transform:uppercase;">
+                    <span>${p.tipo_instrumento}</span>
+                    <span>${p.año || ''}</span>
+                  </div>
+                  <div style="font-size:12px; font-weight:600; color:var(--navy); margin-top:2px;">${p.titulo}</div>
+                  <div style="font-size:11px; color:var(--ink-secondary); margin-top:3px;">${p.descripcion || p.decreto}</div>
+                  ${p.url_oficial ? `<a href="${p.url_oficial}" target="_blank" rel="noopener noreferrer" style="display:inline-block; margin-top:4px; font-size:11px; color:var(--teal); font-weight:600; text-decoration:none;">Consultar instrumento oficial ↗</a>` : ''}
+                </div>
+              `).join("")}
+              ${(comuna.normativa_tech.ordenanzas || []).map(o => `
+                <div style="background:var(--paper); border:1px solid var(--line-light); border-left:3px solid var(--navy); border-radius:4px; padding:8px 10px;">
+                  <div style="display:flex; justify-content:space-between; align-items:center; font-size:10px; font-weight:700; color:var(--navy); text-transform:uppercase;">
+                    <span>${o.categoria_tech}</span>
+                    <span>${o.fecha || ''}</span>
+                  </div>
+                  <div style="font-size:12px; font-weight:600; color:var(--ink); margin-top:2px;">${o.titulo}</div>
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px; font-size:11px;">
+                    <span style="color:var(--muted); font-size:10px;">Norma N° ${o.numero} · ${o.fuente}</span>
+                    ${o.url_oficial ? `<a href="${o.url_oficial}" target="_blank" rel="noopener noreferrer" style="color:var(--teal); font-weight:600; text-decoration:none;">Ver norma oficial ↗</a>` : ''}
+                  </div>
+                </div>
+              `).join("")}
+            </div>
+          `
+          : `<div style="font-size:11px; color:var(--muted); line-height:1.4; margin-top:4px;">Este municipio no registra ordenanzas de telecomunicaciones ni decretos de gobernanza algorítmica en el catastro nacional consolidado.</div>`
+        }
+        <div style="margin-top:10px; padding-top:8px; border-top:1px dashed var(--line-light); display:flex; justify-content:space-between; align-items:center; font-size:11px;">
+          <span style="color:var(--muted);">Auditoría normativa P090 (BCN / CPLT)</span>
+          <a href="https://ordenanzas.evegat.cl/#busqueda=${encodeURIComponent(comuna.comuna)}" target="_blank" rel="noopener noreferrer" style="color:var(--teal); font-weight:600; text-decoration:none;">
+            Explorar en ordenanzas.evegat.cl ↗
+          </a>
+        </div>
+      </div>
+
       <!-- Top Suppliers -->
       <div class="drawer-section-title">Principales Proveedores Contratados</div>
       <div class="top-suppliers-list">
@@ -1213,6 +1261,19 @@ document.addEventListener("DOMContentLoaded", () => {
               <span>${cA.comuna}: <strong>$${formatCLP(Math.round(cA.monto_cyber / pobA))}</strong></span>
               <span>${cB.comuna}: <strong>$${formatCLP(Math.round(cB.monto_cyber / pobB))}</strong></span>
             </div>
+          </div>
+        </div>
+
+        <!-- Gobernanza y Normativa Tecnológica -->
+        <div class="drawer-section-title" style="margin-top:8px;">Gobernanza y Normativa Tecnológica (MuniData)</div>
+        <div class="compare-grid">
+          <div class="compare-col" style="font-size:11px;">
+            <div style="font-weight:700; color:var(--navy);">${cA.normativa_tech ? cA.normativa_tech.estado_gobernanza : 'Desierto Regulatorio'}</div>
+            <div style="color:var(--muted); font-size:10px; margin-top:2px;">${cA.normativa_tech ? cA.normativa_tech.total_instrumentos : 0} instrumentos registrados</div>
+          </div>
+          <div class="compare-col" style="font-size:11px;">
+            <div style="font-weight:700; color:var(--teal);">${cB.normativa_tech ? cB.normativa_tech.estado_gobernanza : 'Desierto Regulatorio'}</div>
+            <div style="color:var(--muted); font-size:10px; margin-top:2px;">${cB.normativa_tech ? cB.normativa_tech.total_instrumentos : 0} instrumentos registrados</div>
           </div>
         </div>
 
