@@ -1563,6 +1563,67 @@ footer {
 /* --------------------------------------------------------------------------
    HUB DE RANKINGS Y PODIOS (ESTÉTICA MEJORADA)
    -------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------
+   GATED DOSSIER BOX (EMBUDO DE CAPTACIÓN FREEMIUM)
+   -------------------------------------------------------------------------- */
+.gated-dossier-box {
+  background: linear-gradient(135deg, var(--paper-card) 0%, var(--paper-soft) 100%);
+  border: 1px solid var(--gold);
+  border-left: 4px solid var(--gold);
+  border-radius: 8px;
+  padding: 16px 18px;
+  margin: 18px 0;
+  box-shadow: 0 4px 16px rgba(179, 130, 9, 0.08);
+}
+
+.gated-lock-icon {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.gated-title {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.gated-desc {
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--ink-secondary);
+  margin-bottom: 12px;
+}
+
+.btn-request-dossier {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: var(--navy);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 43, 73, 0.15);
+}
+
+.btn-request-dossier:hover {
+  background: var(--navy-soft);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 43, 73, 0.22);
+}
+
+.btn-request-dossier:active {
+  transform: translateY(0);
+}
+
 .rank-podiums-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1571,7 +1632,68 @@ footer {
 }
 
 @media (max-width: 900px) {
-  .rank-podiums-grid {
+  /* --------------------------------------------------------------------------
+   GATED DOSSIER BOX (EMBUDO DE CAPTACIÓN FREEMIUM)
+   -------------------------------------------------------------------------- */
+.gated-dossier-box {
+  background: linear-gradient(135deg, var(--paper-card) 0%, var(--paper-soft) 100%);
+  border: 1px solid var(--gold);
+  border-left: 4px solid var(--gold);
+  border-radius: 8px;
+  padding: 16px 18px;
+  margin: 18px 0;
+  box-shadow: 0 4px 16px rgba(179, 130, 9, 0.08);
+}
+
+.gated-lock-icon {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.gated-title {
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.gated-desc {
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--ink-secondary);
+  margin-bottom: 12px;
+}
+
+.btn-request-dossier {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: var(--navy);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 43, 73, 0.15);
+}
+
+.btn-request-dossier:hover {
+  background: var(--navy-soft);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 43, 73, 0.22);
+}
+
+.btn-request-dossier:active {
+  transform: translateY(0);
+}
+
+.rank-podiums-grid {
     grid-template-columns: 1fr;
   }
 }

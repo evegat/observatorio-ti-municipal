@@ -920,7 +920,12 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
 
       <!-- Tecnoestructura y RRHH Propio -->
-      <div class="drawer-section-title">Tecnoestructura & Músculo Propio (MuniData RRHH)</div>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px; margin-bottom:8px;">
+        <div class="drawer-section-title" style="margin:0;">Tecnoestructura & Músculo Propio (MuniData RRHH)</div>
+        <span class="diag-badge ${comuna.fuente_rrhh && comuna.fuente_rrhh.includes('CPLT') ? 'good' : 'warning'}" style="font-size:10px; padding:3px 8px;" title="${comuna.fuente_rrhh || 'Metodología mixta'}">
+          ${comuna.fuente_rrhh && comuna.fuente_rrhh.includes('CPLT') ? '✓ Nómina Observada CPLT' : 'ℹ️ Estimado SINIM / SUBDERE'}
+        </span>
+      </div>
       <div class="financial-strip">
         <div class="f-card">
           <div class="f-card-label">Dotación TI Interna</div>
@@ -995,19 +1000,37 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
 
       <!-- Contratos Emblemáticos Mercado Público -->
+      <!-- Gated Dossier Ejecutivo (Lead Capture) -->
+      <div class="gated-dossier-box">
+        <div class="gated-lock-icon">🔒</div>
+        <div class="gated-title">Ficha Ejecutiva & Hoja de Ruta para ${comuna.comuna}</div>
+        <p class="gated-desc">
+          ¿Perteneces a este municipio, al concejo o asesoras licitaciones públicas? Accede al informe pormenorizado con evaluación de costos de cambio de proveedores ERP, brechas presupuestarias de soporte y hoja de ruta sugerida.
+        </p>
+        <button type="button" class="btn-request-dossier" data-comuna="${comuna.comuna}">
+          📋 Solicitar Dossier Comunal Gratuito
+        </button>
+      </div>
+
       <div class="drawer-section-title">Contratos Emblemáticos en Mercado Público</div>
+      <div style="font-size:11px; color:var(--muted); margin-top:-6px; margin-bottom:10px; line-height:1.4;">
+        ℹ️ <strong>Rigor Metodológico:</strong> Los montos corresponden a <em>Órdenes de Compra (OCs)</em> efectivamente emitidas y aceptadas. Las licitaciones públicas de origen constituyen el acto administrativo habilitante y no representan gasto sumable adicional.
+      </div>
       <div class="top-contracts-list">
         ${(comuna.top_contratos && comuna.top_contratos.length > 0)
           ? comuna.top_contratos.map(oc => `
             <div class="contract-card">
               <div class="contract-card-header">
-                <span class="contract-code">${oc.codigo_oc}</span>
+                <div>
+                  <span class="contract-code">${oc.codigo_oc}</span>
+                  <div style="font-size:10px; font-weight:600; color:var(--teal); margin-top:2px;">Origen: ${((oc.descripcion || "").match(/(?:DESDE|LICITACI[OÓ]N|PROPUESTA|ID)\s*([0-9]{3,5}-[0-9]{1,4}-[A-Z0-9]{2,4})/i) ? (oc.descripcion || "").match(/(?:DESDE|LICITACI[OÓ]N|PROPUESTA|ID)\s*([0-9]{3,5}-[0-9]{1,4}-[A-Z0-9]{2,4})/i)[1] : (oc.codigo_oc.includes('-CM') ? 'Convenio Marco' : (oc.codigo_oc.includes('-SE') ? 'Licitación / Trato Directo' : 'Proceso Licitatorio')))}</div>
+                </div>
                 <span class="contract-amount">$${formatCLP(oc.monto)}</span>
               </div>
               <div class="contract-prov">${oc.proveedor} (${oc.anio})</div>
               <div class="contract-desc">${oc.descripcion}</div>
               <a href="${oc.url_mercadopublico}" target="_blank" rel="noopener noreferrer" class="contract-link">
-                Auditar en MercadoPúblico ↗
+                Auditar OC en MercadoPúblico ↗
               </a>
             </div>
           `).join("")
@@ -1109,6 +1132,33 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         if (other) {
           openComparison(comuna, other);
+        }
+      });
+    }
+
+    // Conectar botón de solicitar dossier comunal
+    const btnDossier = drawer.querySelector(".btn-request-dossier");
+    if (btnDossier) {
+      btnDossier.addEventListener("click", () => {
+        const comName = btnDossier.dataset.comuna || comuna.comuna;
+        const regModal = document.getElementById("registro-descarga-modal");
+        const modalTitle = document.getElementById("modal-descarga-title");
+        const inProy = document.getElementById("reg-proyecto");
+        const inProp = document.getElementById("reg-proposito");
+
+        if (modalTitle) modalTitle.textContent = "📋 Solicitud de Dossier Comunal: " + comName;
+        if (inProy) inProy.value = "Solicitud de Dossier Ejecutivo y Hoja de Ruta Tecnológica para la Municipalidad de " + comName;
+        if (inProp && !inProp.value) inProp.value = "gestión";
+
+        state.pendingDownload = {
+          file: "dossier_ejecutivo_" + encodeURIComponent(comName) + ".pdf",
+          label: "Dossier Ejecutivo: Municipalidad de " + comName
+        };
+
+        if (regModal) {
+          regModal.classList.add("active");
+          regModal.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
         }
       });
     }
