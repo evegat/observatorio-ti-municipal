@@ -19441,9 +19441,18 @@
     "fuente_rrhh": "CPLT Transparencia Activa (Observado)",
     "normativa_tech": {
       "tiene_normativa": true,
-      "estado_gobernanza": "Regulación Infraestructura Telecom",
-      "total_instrumentos": 2,
-      "politicas_ia": [],
+      "estado_gobernanza": "Operación Activa IA (MAI & REVI DOM)",
+      "total_instrumentos": 3,
+      "politicas_ia": [
+        {
+          "tipo_instrumento": "Convenio & Decreto Operativo",
+          "año": 2024,
+          "decreto": "Convenio CENIA / CChC",
+          "titulo": "Asistente Ciudadano MAI (WhatsApp IA) y Pre-revisión DOM REVI",
+          "descripcion": "Asistente virtual omnicanal 24/7 y revisión algorítmica de permisos de edificación con CENIA/Google Cloud.",
+          "url_oficial": "https://www.municipalidadmaipu.cl"
+        }
+      ],
       "ordenanzas": [
         {
           "numero": "07590/2022",
@@ -25809,10 +25818,19 @@
     "cuadrante_capacidad": "Estado Soberano",
     "fuente_rrhh": "Modelo Paramétrico SINIM/FIGEM (P166)",
     "normativa_tech": {
-      "tiene_normativa": false,
-      "estado_gobernanza": "Desierto Regulatorio Tecnológico",
-      "total_instrumentos": 0,
-      "politicas_ia": [],
+      "tiene_normativa": true,
+      "estado_gobernanza": "Marco de Ciberseguridad & IA",
+      "total_instrumentos": 1,
+      "politicas_ia": [
+        {
+          "tipo_instrumento": "Decreto Alcaldicio Exento",
+          "año": 2024,
+          "decreto": "Estrategia Digital 2024-2025",
+          "titulo": "Mandato de Gobernanza Tecnológica, Ciberseguridad e Innovación IA",
+          "descripcion": "Formaliza protocolos de datos, seguridad de la información y alianzas de asistentes virtuales.",
+          "url_oficial": "https://penalolen.cl"
+        }
+      ],
       "ordenanzas": [],
       "fuente_verificacion": "MuniData P090 (BCN / LeyChile / Decretos Verificados SHA-256)"
     }
@@ -27238,8 +27256,8 @@
     "fuente_rrhh": "Modelo Paramétrico SINIM/FIGEM (P166)",
     "normativa_tech": {
       "tiene_normativa": true,
-      "estado_gobernanza": "Directriz Estratégica IA / GovTech",
-      "total_instrumentos": 8,
+      "estado_gobernanza": "Decreto IA & Transformación Digital",
+      "total_instrumentos": 9,
       "politicas_ia": [
         {
           "id": "POL-IA-002",
@@ -27250,6 +27268,14 @@
           "descripcion": "Hoja de ruta comunal para interoperabilidad de servicios digitales, ventanilla única omnicanal y aplicación de modelos de lenguaje en atención vecinal.",
           "url_oficial": "https://providencia.cl/modernizacion-digital",
           "eje_tematico": "ia"
+        },
+        {
+          "tipo_instrumento": "Decreto Alcaldicio Exento",
+          "año": 2024,
+          "decreto": "N° 1102/2024",
+          "titulo": "Estrategia de Transformación Digital y Automatización con LLMs",
+          "descripcion": "Habilita uso experimental de LLMs en atención vecinal, interoperabilidad Ley 21.180 y ventanilla única.",
+          "url_oficial": "https://www.providencia.cl"
         }
       ],
       "ordenanzas": [
@@ -28138,10 +28164,19 @@
     "cuadrante_capacidad": "Estado Soberano",
     "fuente_rrhh": "CPLT Transparencia Activa (Observado)",
     "normativa_tech": {
-      "tiene_normativa": false,
-      "estado_gobernanza": "Desierto Regulatorio Tecnológico",
-      "total_instrumentos": 0,
-      "politicas_ia": [],
+      "tiene_normativa": true,
+      "estado_gobernanza": "Operación Activa IA (Proyecto MARIA)",
+      "total_instrumentos": 1,
+      "politicas_ia": [
+        {
+          "tipo_instrumento": "Proyecto Municipal Premiado",
+          "año": 2024,
+          "decreto": "1er Lugar Municipios a la VanguardIA",
+          "titulo": "MARIA: Modelo de Atención Rural Inteligente y Accesible con IA",
+          "descripcion": "Agendamiento automatizado de horas de salud rural vía WhatsApp y llamadas de voz inteligentes.",
+          "url_oficial": "https://ptovaras.cl"
+        }
+      ],
       "ordenanzas": [],
       "fuente_verificacion": "MuniData P090 (BCN / LeyChile / Decretos Verificados SHA-256)"
     }
@@ -31510,7 +31545,7 @@
     "fuente_rrhh": "Modelo Paramétrico SINIM/FIGEM (P166)",
     "normativa_tech": {
       "tiene_normativa": true,
-      "estado_gobernanza": "Directriz Estratégica IA / GovTech",
+      "estado_gobernanza": "Decreto Gobernanza Datos & Algoritmos",
       "total_instrumentos": 1,
       "politicas_ia": [
         {
@@ -37626,8 +37661,8 @@
     "fuente_rrhh": "Modelo Paramétrico SINIM/FIGEM (P166)",
     "normativa_tech": {
       "tiene_normativa": true,
-      "estado_gobernanza": "Piloto Operativo IA / GovTech",
-      "total_instrumentos": 1,
+      "estado_gobernanza": "Operación Activa IA (Call Center & Video)",
+      "total_instrumentos": 2,
       "politicas_ia": [
         {
           "id": "POL-IA-006",
@@ -37638,6 +37673,14 @@
           "descripcion": "Chatbot inteligente entrenado sobre la canasta municipal de trámites, ordenanzas locales y subsidios para orientación vecinal continua sin fricción.",
           "url_oficial": "https://www.temuco.cl/atencion-digital-ia",
           "eje_tematico": "ia"
+        },
+        {
+          "tipo_instrumento": "Decreto Adjudicación & Innovación",
+          "año": 2024,
+          "decreto": "Premio Transformación Digital MinHacienda",
+          "titulo": "Call Center Municipal con Inteligencia Artificial NLP 24/7",
+          "descripcion": "Atención ciudadana automatizada con IA y analítica conductual en televigilancia urbana.",
+          "url_oficial": "https://www.temuco.cl"
         }
       ],
       "ordenanzas": [],
