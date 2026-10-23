@@ -921,21 +921,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <!-- Tecnoestructura y RRHH Propio -->
       <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px; margin-bottom:8px;">
-        <div class="drawer-section-title" style="margin:0;">Tecnoestructura & Músculo Propio (MuniData RRHH)</div>
-        <span class="diag-badge ${comuna.fuente_rrhh && comuna.fuente_rrhh.includes('CPLT') ? 'good' : 'warning'}" style="font-size:10px; padding:3px 8px;" title="${comuna.fuente_rrhh || 'Metodología mixta'}">
-          ${comuna.fuente_rrhh && comuna.fuente_rrhh.includes('CPLT') ? '✓ Nómina Observada CPLT' : 'ℹ️ Estimado SINIM / SUBDERE'}
+        <div class="drawer-section-title" style="margin:0;">Tecnoestructura & Dotación Activa (MuniData RRHH)</div>
+        <span class="diag-badge good" style="font-size:10px; padding:3px 8px;" title="${comuna.fuente_rrhh || 'Microdatos web observados'}">
+          ✓ Nómina Directa Observada
         </span>
       </div>
-      <div class="financial-strip">
+      <div class="financial-strip" style="grid-template-columns: repeat(3, 1fr);">
         <div class="f-card">
-          <div class="f-card-label">Dotación TI Interna</div>
-          <div class="f-card-val">${comuna.dotacion_ti || 0} profesionales</div>
-          <div style="font-size:10px; color:var(--muted); margin-top:2px;">Planta y contrata de informática</div>
+          <div class="f-card-label">Dotación Activa Total</div>
+          <div class="f-card-val">${(comuna.dotacion_total || 0).toLocaleString("es-CL")}</div>
+          <div style="font-size:10px; color:var(--muted); margin-top:2px;">Último mes reportado</div>
         </div>
         <div class="f-card">
-          <div class="f-card-label">Ratio Externalización (RET)</div>
+          <div class="f-card-label">Staff TI Activo</div>
+          <div class="f-card-val">${comuna.dotacion_ti || 0}</div>
+          <div style="font-size:10px; color:var(--muted); margin-top:2px;">Sistemas/Informática</div>
+        </div>
+        <div class="f-card">
+          <div class="f-card-label">Ratio Externalización</div>
           <div class="f-card-val">${comuna.ret_ratio !== undefined ? comuna.ret_ratio : "—"}</div>
-          <div style="font-size:10px; color:var(--muted); margin-top:2px;">Gasto compras vs masa TI propia</div>
+          <div style="font-size:10px; color:var(--muted); margin-top:2px;">Compras vs masa TI</div>
         </div>
       </div>
 
