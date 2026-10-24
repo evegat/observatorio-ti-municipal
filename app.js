@@ -2097,6 +2097,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const comoUsarModal = document.getElementById("como-usar-modal");
     const legalModal = document.getElementById("legal-modal");
     const registroModal = document.getElementById("registro-descarga-modal");
+    const glosarioModal = document.getElementById("glosario-modal");
+    const btnOpenGlosarioTop = document.getElementById("btn-open-glosario-top");
+    const btnOpenGlosarioGuide = document.getElementById("btn-open-glosario-from-guide");
+    if (btnOpenGlosarioTop && glosarioModal) {
+      btnOpenGlosarioTop.addEventListener("click", () => openModal(glosarioModal));
+    }
+    if (btnOpenGlosarioGuide && glosarioModal) {
+      btnOpenGlosarioGuide.addEventListener("click", () => {
+        closeModal(comoUsarModal);
+        openModal(glosarioModal);
+      });
+    }
     const formRegistro = document.getElementById("form-registro-descarga");
     const errorMsg = document.getElementById("reg-error-msg");
     const filenameLabel = document.getElementById("descarga-filename-label");

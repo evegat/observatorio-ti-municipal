@@ -98,8 +98,11 @@
       <a href="#hallazgos" class="nav-view-link" data-view="hallazgos">4 Hallazgos</a>
       <a href="#rrhh" class="nav-view-link" data-view="rrhh">RRHH y Capacidad Estatal</a>
       <a href="#ranking" class="nav-view-link" data-view="ranking">Centro de Rankings</a>
+      <button type="button" id="btn-open-glosario-top" class="btn-nav-link" style="font-weight:700; color:var(--teal);" title="Ver glosario de términos, termómetro de madurez y fórmulas metodológicas">
+        📖 Glosario &amp; Madurez TI
+      </button>
       <button type="button" id="btn-open-legal-top" class="btn-nav-link" title="Ver metodología, fuentes y cumplimiento Ley 21.719">
-        ⚖️ Metodología y Ley 21.719
+        ⚖️ Fuentes y Ley 21.719
       </button>
       <button type="button" class="btn-pill btn-intercept-download" data-file="comunas_enriched.json" data-label="Microdatos 345 Municipalidades (JSON)">
         Descargar Datos ↓
@@ -774,6 +777,7 @@
           <button type="button" class="btn-modal-jump" data-jump-target="#ranking">🏢 Ver Rankings</button>
           <button type="button" class="btn-modal-jump" data-jump-target="#rrhh">🏛️ Ver RRHH &amp; RET</button>
           <button type="button" class="btn-modal-jump" id="btn-demo-compare">⚖️ Ejemplo: Maipú vs Algarrobo</button>
+          <button type="button" class="btn-modal-jump" id="btn-open-glosario-from-guide" style="background:#eaf0f8; color:var(--navy); font-weight:700;">📖 Glosario &amp; Madurez</button>
         </div>
         <div style="display:flex; align-items:center; gap:12px;">
           <label style="font-size:11px; color:var(--muted); display:flex; align-items:center; gap:5px; cursor:pointer;">
@@ -943,8 +947,116 @@
     <span>🧭</span><span>¿Cómo usar?</span>
   </button>
 
+
+  <!-- ================= MODAL: GLOSARIO METODOLÓGICO Y DICCIONARIO DE TÉRMINOS ================= -->
+  <div class="obs-modal-backdrop" id="glosario-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-glosario-title">
+    <div class="obs-modal-card" style="max-width: 820px; max-height: 85vh; overflow-y: auto;">
+      <div class="obs-modal-header" style="position: sticky; top: 0; background: var(--paper); z-index: 10; border-bottom: 1px solid var(--paper-border); padding-bottom: 12px;">
+        <div>
+          <span class="guia-badge" style="background:var(--teal-bg); color:var(--teal); font-weight:700;">MARCO CONCEPTUAL Y METODOLOGÍA</span>
+          <h2 id="modal-glosario-title" class="obs-modal-title" style="margin-top:4px;">📖 Glosario de Términos, Métricas y Termómetro de Madurez</h2>
+          <div style="font-size:12px; color:var(--ink-secondary); margin-top:2px;">Definiciones operacionales, fórmulas matemáticas y criterios de interpretación técnica.</div>
+        </div>
+        <button type="button" class="obs-modal-close" data-close-modal="glosario-modal" aria-label="Cerrar glosario">✕</button>
+      </div>
+
+      <div class="obs-modal-body" style="padding-top: 16px;">
+        
+        <!-- SECCIÓN 1: TERMÓMETRO DE MADUREZ -->
+        <div class="legal-block" style="border-left: 4px solid var(--teal); background: #f4faf9; padding: 14px 18px; margin-bottom: 20px; border-radius: 4px;">
+          <h3 style="font-size: 16px; color: var(--navy); margin-top: 0; margin-bottom: 8px;">🌡️ Termómetro de Madurez Tecnológica (0 a 100 puntos)</h3>
+          <p style="font-size: 13px; line-height: 1.55; margin-bottom: 10px;">
+            El <strong>Índice de Madurez Tecnológica Municipal</strong> es una evaluación empírica multidimensional que mide el nivel de consolidación digital, soberanía tecnológica y músculo técnico propio de cada gobierno local. Se calibra sobre cinco dimensiones observables:
+          </p>
+          <ul style="font-size: 12.5px; line-height: 1.6; padding-left: 20px; margin-bottom: 12px;">
+            <li><strong>1. Infraestructura y Conectividad Propia (20 pts):</strong> Presencia de servidores locales, salas de cómputo, redes dedicadas y equipamiento propio que garanticen autonomía operativa.</li>
+            <li><strong>2. Adopción de Software Libre vs Soberanía FOSS (20 pts):</strong> Despliegue de tecnologías abiertas (Linux, PostgreSQL, plataformas FOSS) reduciendo el cautiverio contractual.</li>
+            <li><strong>3. Diversificación del Software y ERP (20 pts):</strong> Ecosistema de aplicaciones competitivo vs concentración monopólica en un único proveedor cautivo (Lock-in legado).</li>
+            <li><strong>4. Modernización Funcional y Ciberseguridad (20 pts):</strong> Inversión verificada en herramientas SaaS, ciberseguridad, firma electrónica y automatización/IA básica.</li>
+            <li><strong>5. Tecnoestructura y Músculo Humano Propio (20 pts):</strong> Dotación interna activa de ingenieros y técnicos de sistemas que gobiernan la tecnología y no dependen 100% de consultoras.</li>
+          </ul>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; font-size: 11px; text-align: center; margin-top: 12px;">
+            <div style="background: #e6f7f2; border: 1px solid #a3e0ce; padding: 8px; border-radius: 4px;">
+              <strong style="color: #0b7a55; display: block; font-size: 13px;">80 - 100 pts</strong>
+              <span>Líder Digital / Estado Soberano</span>
+            </div>
+            <div style="background: #edf4fb; border: 1px solid #b2d2f2; padding: 8px; border-radius: 4px;">
+              <strong style="color: #1a5694; display: block; font-size: 13px;">60 - 79 pts</strong>
+              <span>Madurez Media-Alta</span>
+            </div>
+            <div style="background: #fdf8e8; border: 1px solid #fae69e; padding: 8px; border-radius: 4px;">
+              <strong style="color: #946900; display: block; font-size: 13px;">40 - 59 pts</strong>
+              <span>Madurez Básica / Riesgo</span>
+            </div>
+            <div style="background: #fdeeee; border: 1px solid #f9bebe; padding: 8px; border-radius: 4px;">
+              <strong style="color: #ab1f1f; display: block; font-size: 13px;">0 - 39 pts</strong>
+              <span>Brecha Severa / Cautiverio</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECCIÓN 2: GASTO PER CÁPITA Y DISPARIDADES -->
+        <div class="legal-block" style="border-left: 4px solid var(--gold); background: #fdfcf7; padding: 14px 18px; margin-bottom: 20px; border-radius: 4px;">
+          <h3 style="font-size: 16px; color: var(--navy); margin-top: 0; margin-bottom: 8px;">💰 Gasto TI Per Cápita: ¿Por qué Maipú ($5.149) y Algarrobo ($35.091) son tan distintos?</h3>
+          <p style="font-size: 13px; line-height: 1.55; margin-bottom: 10px;">
+            Una de las paradojas más evidentes del gasto público tecnológico es que <strong>comunas rurales o balnearios pequeños registran gastos per cápita entre 5 y 10 veces mayores que las grandes urbes metropolitanas</strong>. Esto no significa que inviertan más tecnología en valor absoluto, sino que responde a tres factores estructurales:
+          </p>
+          <ol style="font-size: 12.5px; line-height: 1.6; padding-left: 20px; margin-bottom: 10px;">
+            <li><strong>Indivisibilidad del Costo Fijo Tecnológico (Piso Mínimo Operativo):</strong> Para funcionar, una municipalidad de 16.000 habitantes (como Algarrobo) necesita adquirir prácticamente los mismos sistemas de base que una de 500.000: ERP de rentas y patentes, enlaces troncales de fibra óptica, servidores centrales y soporte. Ese costo fijo base no se puede reducir a escala proporcional; al dividirlo entre una población pequeña, el ratio por habitante se multiplica artificialmente.</li>
+            <li><strong>Economías de Escala Masivas en Metrópolis:</strong> Maipú transó <strong>$3.021 millones de pesos</strong> en tecnología (6 veces más que Algarrobo), pero al prorratearse entre sus <strong>586.812 habitantes censados</strong>, el indicador desciende a $5.149 por habitante.</li>
+            <li><strong>Población Flotante Estival vs Población Censada:</strong> Comunas turísticas o balnearios costeros tienen una población censada reducida, pero sus sistemas municipales y redes deben dimensionarse para atender picos de población flotante en verano que triplican o cuadruplican a sus residentes permanentes.</li>
+          </ol>
+        </div>
+
+        <!-- SECCIÓN 3: RATIO RET -->
+        <div class="legal-block" style="border-left: 4px solid #7c3aed; background: #faf5ff; padding: 14px 18px; margin-bottom: 20px; border-radius: 4px;">
+          <h3 style="font-size: 16px; color: var(--navy); margin-top: 0; margin-bottom: 8px;">🔄 Ratio de Externalización de la Tecnoestructura (RET)</h3>
+          <p style="font-size: 13px; line-height: 1.55; margin-bottom: 8px;">
+            El <strong>Ratio RET</strong> es un indicador original de este Observatorio que mide la relación de subordinación entre el gasto municipal en compras a proveedores externos y la masa salarial del equipo informático interno propio:
+          </p>
+          <div style="background: #fff; border: 1px dashed #7c3aed; padding: 10px; border-radius: 4px; font-family: var(--font-mono); font-size: 12px; text-align: center; margin-bottom: 10px;">
+            RET = Gasto Acumulado en Compras TI (2014-2026) / Masa Salarial Anual de Informática Propia
+          </div>
+          <p style="font-size: 12.5px; line-height: 1.6; margin: 0;">
+            • <strong>RET &gt; 15.0x (Estado Cautivo):</strong> La municipalidad gasta sumas millonarias en contratos externos pero carece de ingenieros propios para auditarlos o mantener el control técnico del servicio.<br>
+            • <strong>RET entre 1.0x y 5.0x (Estado Soberano):</strong> La municipalidad sostiene un equipo interno estable capaz de desarrollar, licitar y operar sus sistemas con alta soberanía institucional.<br>
+            • <strong>RET &lt; 1.0x (Infra-inversión o Brecha):</strong> Gasto de compras mínimo frente a dotaciones precarias o desactualizadas.
+          </p>
+        </div>
+
+        <!-- SECCIÓN 4: DOTACIÓN ACTIVA -->
+        <div class="legal-block" style="border-left: 4px solid var(--forest); background: #f6fcf8; padding: 14px 18px; margin-bottom: 20px; border-radius: 4px;">
+          <h3 style="font-size: 16px; color: var(--navy); margin-top: 0; margin-bottom: 8px;">👥 Dotación Activa Total vs Staff TI Activo</h3>
+          <p style="font-size: 13px; line-height: 1.55; margin-bottom: 8px;">
+            <strong>¿Qué representan exactamente estas cifras en la ficha comunal?</strong>
+          </p>
+          <ul style="font-size: 12.5px; line-height: 1.6; padding-left: 20px; margin: 0;">
+            <li><strong>Dotación Activa Total:</strong> Es el total de funcionarios y trabajadores en servicio activo contratados en el <strong>último período mensual reportado (corte Septiembre 2026)</strong> en Planta, Contrata y Honorarios. <em>No es una suma acumulada anual de personas diferentes, sino la dotación efectiva en ejercicio al mes de corte.</em></li>
+            <li><strong>Staff TI Activo:</strong> Cantidad de personas que cumplen funciones específicas de informática, jefatura de sistemas, análisis de datos, redes, desarrollo de software o soporte computacional en el municipio durante ese mismo mes de corte.</li>
+            <li><strong>% Honorarios:</strong> Porcentaje de la dotación total que trabaja bajo la modalidad de contrato a honorarios (prestación de servicios a suma alzada), indicador directo de precarización laboral y vulnerabilidad en la continuidad de los servicios.</li>
+          </ul>
+        </div>
+
+        <!-- SECCIÓN 5: LOCK-IN Y SOFTWARE LIBRE -->
+        <div class="legal-block" style="border-left: 4px solid var(--crimson); background: #fdf7f7; padding: 14px 18px; margin-bottom: 10px; border-radius: 4px;">
+          <h3 style="font-size: 16px; color: var(--navy); margin-top: 0; margin-bottom: 8px;">🔒 Lock-in Legado ERP vs 🐧 Soberanía FOSS</h3>
+          <p style="font-size: 13px; line-height: 1.55; margin-bottom: 8px;">
+            • <strong>Lock-in Legado ERP:</strong> Se diagnostica cuando más del 40% del gasto histórico en software está concentrado en un único proveedor de sistemas administrativos propietarios (ERP municipal), lo que genera altos costos de salida, barreras para la interoperabilidad y dependencia tecnológica monopólica.<br>
+            • <strong>Adopción FOSS:</strong> Se reconoce cuando la municipalidad registra adquisiciones, soporte o implementación de plataformas de código abierto (Linux, LibreOffice, PostgreSQL, Moodle) o mantiene infraestructura y desarrollo propio en repositorios auditables.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="obs-modal-footer" style="position: sticky; bottom: 0; background: var(--paper); border-top: 1px solid var(--paper-border); padding-top: 10px;">
+        <span style="font-size: 12px; color: var(--muted);">Marco Metodológico MuniData GovTech · Transparencia Activa CPLT &amp; Mercado Público</span>
+        <button type="button" class="btn-modal-primary" data-close-modal="glosario-modal">Entendido, cerrar glosario</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Scripts -->
   <script src="assets/leaflet/leaflet.js"></script>
-  <script src="app.js"></script>
+  <script src="app.js?v=20261022_glosario"></script>
 </body>
 </html>
