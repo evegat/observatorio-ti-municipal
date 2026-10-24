@@ -1017,15 +1017,21 @@ document.addEventListener("DOMContentLoaded", () => {
         </button>
       </div>
 
-      <div class="drawer-section-title">Contratos Emblemáticos en Mercado Público</div>
-      <div class="top-contracts-list">
-        ${(comuna.top_contratos && comuna.top_contratos.length > 0)
-          ? comuna.top_contratos.map(oc => `
-            <div class="contract-card">
+      <!-- FEED DUAL: RECIENTES 2025-2026 Y EMBLEMÁTICOS HISTÓRICOS -->
+      ${(comuna.top_contratos_recientes && comuna.top_contratos_recientes.length > 0) ? `
+        <div class="drawer-section-title" style="display:flex; justify-content:space-between; align-items:center;">
+          <span>Últimas Adquisiciones TI</span>
+          <span class="diag-badge good" style="font-size:10px; padding:2px 8px;">Feed Reciente 2025–2026</span>
+        </div>
+        <div class="top-contracts-list">
+          ${comuna.top_contratos_recientes.map(oc => `
+            <div class="contract-card" style="border-left: 3px solid var(--teal);">
               <div class="contract-card-header">
                 <div>
                   <span class="contract-code">${oc.codigo_oc}</span>
-                  <div style="font-size:10px; font-weight:600; color:var(--teal); margin-top:2px;">Origen: ${((oc.descripcion || "").match(/(?:DESDE|LICITACI[OÓ]N|PROPUESTA|ID)\s*([0-9]{3,5}-[0-9]{1,4}-[A-Z0-9]{2,4})/i) ? (oc.descripcion || "").match(/(?:DESDE|LICITACI[OÓ]N|PROPUESTA|ID)\s*([0-9]{3,5}-[0-9]{1,4}-[A-Z0-9]{2,4})/i)[1] : (oc.codigo_oc.includes('-CM') ? 'Convenio Marco' : (oc.codigo_oc.includes('-SE') ? 'Licitación / Trato Directo' : 'Proceso Licitatorio')))}</div>
+                  <div style="font-size:10px; font-weight:600; color:var(--teal); margin-top:2px;">
+                    ${oc.fecha_aceptacion ? 'Aceptada: ' + oc.fecha_aceptacion : (oc.anio || '2025-2026')} · ${((oc.descripcion || "").match(/(?:DESDE|LICITACI[OÓ]N|PROPUESTA|ID)\s*([0-9]{3,5}-[0-9]{1,4}-[A-Z0-9]{2,4})/i) ? (oc.descripcion || "").match(/(?:DESDE|LICITACI[OÓ]N|PROPUESTA|ID)\s*([0-9]{3,5}-[0-9]{1,4}-[A-Z0-9]{2,4})/i)[1] : (oc.codigo_oc.includes('-CM') ? 'Convenio Marco' : (oc.codigo_oc.includes('-SE') ? 'Licitación' : (oc.codigo_oc.includes('-AG') ? 'Compra Ágil' : 'Trato Directo'))))}
+                  </div>
                 </div>
                 <span class="contract-amount">$${formatCLP(oc.monto)}</span>
               </div>
@@ -1035,9 +1041,31 @@ document.addEventListener("DOMContentLoaded", () => {
                 Auditar OC en MercadoPúblico ↗
               </a>
             </div>
-          `).join("")
-          : `<div style="font-size:12px; color:var(--muted);">Sin detalle de contratos individuales disponible.</div>`
-        }
+          `).join("")}
+        </div>
+      ` : ''}
+
+      <div class="drawer-section-title" style="margin-top:16px; display:flex; justify-content:space-between; align-items:center;">
+        <span>Contratos Emblemáticos de Mayor Cuantía</span>
+        <span class="diag-badge neutral" style="font-size:10px; padding:2px 8px;">Histórico 2014–2026</span>
+      </div>
+      <div class="top-contracts-list">
+        ${((comuna.top_contratos_historicos && comuna.top_contratos_historicos.length > 0) ? comuna.top_contratos_historicos : (comuna.top_contratos || [])).map(oc => `
+          <div class="contract-card">
+            <div class="contract-card-header">
+              <div>
+                <span class="contract-code">${oc.codigo_oc}</span>
+                <div style="font-size:10px; font-weight:600; color:var(--teal); margin-top:2px;">Origen: ${((oc.descripcion || "").match(/(?:DESDE|LICITACI[OÓ]N|PROPUESTA|ID)\s*([0-9]{3,5}-[0-9]{1,4}-[A-Z0-9]{2,4})/i) ? (oc.descripcion || "").match(/(?:DESDE|LICITACI[OÓ]N|PROPUESTA|ID)\s*([0-9]{3,5}-[0-9]{1,4}-[A-Z0-9]{2,4})/i)[1] : (oc.codigo_oc.includes('-CM') ? 'Convenio Marco' : (oc.codigo_oc.includes('-SE') ? 'Licitación / Trato Directo' : 'Proceso Licitatorio')))}</div>
+              </div>
+              <span class="contract-amount">$${formatCLP(oc.monto)}</span>
+            </div>
+            <div class="contract-prov">${oc.proveedor} (${oc.anio})</div>
+            <div class="contract-desc">${oc.descripcion}</div>
+            <a href="${oc.url_mercadopublico}" target="_blank" rel="noopener noreferrer" class="contract-link">
+              Auditar OC en MercadoPúblico ↗
+            </a>
+          </div>
+        `).join("")}
       </div>
 
       <!-- Gobernanza y Normativa Tecnológica (MuniData Normas) -->
