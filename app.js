@@ -1591,18 +1591,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // Clicks en comunas de los Podios
-    document.querySelectorAll(".rank-podium-item .comuna-name").forEach(span => {
-      span.addEventListener("click", () => {
-        const cName = span.dataset.comuna;
-        if (!cName) return;
-        const target = state.comunas.find(c => c.comuna.toLowerCase() === cName.toLowerCase());
-        if (target) {
-          switchView("mapa", true);
-          selectComuna(target);
-        }
-      });
-    });
+
 
     // Table sorting headers
     const ths = document.querySelectorAll("#ranking-table th[data-sort]");
