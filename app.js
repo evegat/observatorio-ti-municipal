@@ -418,56 +418,56 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     2: {
       title: "2. El Choque Estructural de 2021: Pandemia y Ley 21.180",
-      text: "La serie histórica de contrataciones TI revela un punto de quiebre indiscutible. Entre 2015 y 2019, la inversión municipal anual en tecnologías se mantenía plana en un promedio de $11.000 millones de pesos. En 2021, impulsado por la necesidad operativa del teletrabajo durante el confinamiento y la entrada en vigencia de la Ley 21.180 de Transformación Digital del Estado, el gasto se triplicó súbitamente a $37.530 millones de pesos, marcando un nuevo umbral estructural que trepó hasta los $48.010 millones en 2025.",
+      text: "La serie histórica de contrataciones TI revela un punto de inflexión definitivo. Entre 2015 y 2019, la inversión municipal anual en tecnologías se mantenía en un promedio de $3.400 millones de pesos ($4.060 MM en 2019). En 2021, empujado por la urgencia del teletrabajo durante los confinamientos y la promulgación de la Ley 21.180 de Transformación Digital del Estado, el gasto anual saltó súbitamente a $30.885 millones de pesos (más de 7 veces el piso pre-pandémico), estableciendo un nuevo umbral permanente que promedia sobre $23.000 millones anuales entre 2022 y 2025.",
       findings: [
-        "Inflexión histórica 2021: Salto de $11.980 MM (2019) a $37.530 MM (2021).",
-        "El gasto anual no retrocedió tras la pandemia: se duplicó como piso permanente.",
-        "SaaS y Cloud creció un 139% entre 2015 y 2025 (migración a M365 y Azure).",
-        "Pico histórico en 2025 con $48.010 millones de pesos transados en 17.530 órdenes."
+        "Inflexión histórica 2021: Salto de $4.060 MM (2019) a $30.885 MM (2021) en 11.822 órdenes.",
+        "El gasto no retrocedió post-pandemia: se consolidó en un piso estructural de $20.000–$25.000 MM anuales.",
+        "SaaS y Cloud Computing creció un 1.010% entre 2015 ($594 MM) y 2025 ($6.597 MM), migrando a M365 y Azure.",
+        "Pico histórico en 2025 con $25.832 millones de pesos transados en 9.388 órdenes saneadas."
       ],
       chartHtml: `
-        <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); margin-bottom:12px;">Evolución Anual del Gasto TI Municipal (MM CLP)</div>
+        <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); margin-bottom:12px;">Evolución Anual del Gasto TI Municipal Saneado (MM CLP)</div>
         <div style="display:flex; align-items:flex-end; gap:6px; height:180px; padding-top:20px; border-bottom:1px solid var(--line); position:relative;">
-          <div style="flex:1; display:flex; flex-direction:column; align-items:center; height:100%;">
-            <div style="margin-top:auto; width:100%; height:24%; background:#c7d1cc; border-radius:2px;"></div>
+          <div style="flex:1; display:flex; flex-direction:column; align-items:center; height:100%;" title="2015: $4.194 MM (7.178 OCs)">
+            <div style="margin-top:auto; width:100%; height:14%; background:#c7d1cc; border-radius:2px;"></div>
             <span style="font-size:9px; margin-top:4px; color:var(--muted);">'15</span>
           </div>
-          <div style="flex:1; display:flex; flex-direction:column; align-items:center; height:100%;">
-            <div style="margin-top:auto; width:100%; height:25%; background:#c7d1cc; border-radius:2px;"></div>
+          <div style="flex:1; display:flex; flex-direction:column; align-items:center; height:100%;" title="2017: $2.496 MM (6.046 OCs)">
+            <div style="margin-top:auto; width:100%; height:8%; background:#c7d1cc; border-radius:2px;"></div>
             <span style="font-size:9px; margin-top:4px; color:var(--muted);">'17</span>
           </div>
-          <div style="flex:1; display:flex; flex-direction:column; align-items:center; height:100%;">
-            <div style="margin-top:auto; width:100%; height:25%; background:#c7d1cc; border-radius:2px;"></div>
+          <div style="flex:1; display:flex; flex-direction:column; align-items:center; height:100%;" title="2019: $4.060 MM (4.766 OCs)">
+            <div style="margin-top:auto; width:100%; height:13%; background:#c7d1cc; border-radius:2px;"></div>
             <span style="font-size:9px; margin-top:4px; color:var(--muted);">'19</span>
           </div>
-          <div style="flex:1; display:flex; flex-direction:column; align-items:center; height:100%;">
-            <div style="margin-top:auto; width:100%; height:36%; background:#a0b8af; border-radius:2px;"></div>
+          <div style="flex:1; display:flex; flex-direction:column; align-items:center; height:100%;" title="2020: $10.577 MM (6.293 OCs)">
+            <div style="margin-top:auto; width:100%; height:34%; background:#a0b8af; border-radius:2px;"></div>
             <span style="font-size:9px; margin-top:4px; color:var(--muted);">'20</span>
           </div>
-          <div style="flex:1; display:flex; flex-direction:column; align-items:center; height:100%;">
-            <div style="margin-top:auto; width:100%; height:78%; background:var(--gold); border-radius:2px; box-shadow:0 0 8px rgba(179,130,9,0.3);"></div>
+          <div style="flex:1; display:flex; flex-direction:column; align-items:center; height:100%;" title="2021: $30.885 MM (11.822 OCs)">
+            <div style="margin-top:auto; width:100%; height:100%; background:var(--gold); border-radius:2px; box-shadow:0 0 8px rgba(179,130,9,0.3);"></div>
             <span style="font-size:9px; margin-top:4px; font-weight:700; color:var(--gold);">'21</span>
           </div>
-          <div style="flex:1; display:flex; flex-direction:column; align-items:center; height:100%;">
-            <div style="margin-top:auto; width:100%; height:83%; background:var(--teal); border-radius:2px;"></div>
+          <div style="flex:1; display:flex; flex-direction:column; align-items:center; height:100%;" title="2023: $23.892 MM (10.497 OCs)">
+            <div style="margin-top:auto; width:100%; height:77%; background:var(--teal); border-radius:2px;"></div>
             <span style="font-size:9px; margin-top:4px; color:var(--muted);">'23</span>
           </div>
-          <div style="flex:1; display:flex; flex-direction:column; align-items:center; height:100%;">
-            <div style="margin-top:auto; width:100%; height:100%; background:var(--navy); border-radius:2px;"></div>
+          <div style="flex:1; display:flex; flex-direction:column; align-items:center; height:100%;" title="2025: $25.832 MM (9.388 OCs)">
+            <div style="margin-top:auto; width:100%; height:84%; background:var(--navy); border-radius:2px;"></div>
             <span style="font-size:9px; margin-top:4px; font-weight:700; color:var(--navy);">'25</span>
           </div>
         </div>
-        <div style="font-size:10px; color:var(--muted); margin-top:8px; text-align:center;">Salto estructural 2021: El presupuesto anual se triplicó en 12 meses.</div>
+        <div style="font-size:10px; color:var(--muted); margin-top:8px; text-align:center;">Salto estructural 2021: Inversión anual creció 7x respecto a 2019 por teletrabajo y Ley 21.180.</div>
       `
     },
     3: {
       title: "3. Concentración en Software de Gestión y Ecosistema de Proveedores",
-      text: "El análisis de libre competencia y estructura de mercado revela una altísima concentración en los Sistemas de Información y Gestión Municipal (ERPs de rentas, patentes, finanzas y personal). El Índice Herfindahl-Hirschman (HHI) para este segmento alcanza 7.607 puntos (un mercado sobre 2.500 ya es considerado de alta concentración por las autoridades antimonopolio). Los proveedores tradicionales e históricos concentran más del 87% del volumen transado en este rubro, generando elevados costos de cambio (switching costs) y barreras técnicas de interoperabilidad para las alcaldías. En contraste, el Software Libre (FOSS) y estándares abiertos han recibido apenas el 0,17% del gasto total ($514 millones en 12 años).",
+      text: "El análisis de libre competencia y estructura de mercado revela una altísima concentración en los Sistemas de Información y Gestión Municipal (ERPs de rentas, patentes, finanzas y personal). El Índice Herfindahl-Hirschman (HHI) para este segmento alcanza 7.607 puntos (un mercado sobre 2.500 ya es considerado de alta concentración por las autoridades antimonopolio). Los proveedores tradicionales e históricos concentran más del 87% del volumen transado en este rubro (liderados por CAS-Chile con 87,2%), generando elevados costos de cambio (switching costs) y barreras técnicas de interoperabilidad para las alcaldías. En contraste, el Software Libre (FOSS) y estándares abiertos han recibido apenas el 0,17% del gasto total ($295 millones de pesos en 12 años).",
       findings: [
-        "HHI de 7.607 en ERPs de gestión: Alta concentración de mercado a nivel nacional.",
-        "El segmento ERP municipal concentra el 87,2% del gasto en proveedores históricos especializados.",
+        "HHI de 7.607 en ERPs de gestión: Alta concentración oligopólica a nivel nacional.",
+        "El segmento ERP municipal concentra el 87,2% del gasto en proveedores tradicionales (CAS-Chile).",
         "Elevados costos de cambio (switching costs) e inercias técnicas para migrar bases de datos.",
-        "El Software Libre (FOSS) y estándares abiertos representan solo el 0,17% del gasto de modernización."
+        "El Software Libre (FOSS) y estándares abiertos capturan apenas el 0,17% ($295 MM) en 12 años."
       ],
       chartHtml: `
         <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); margin-bottom:12px;">Concentración del Mercado de Software Municipal (HHI)</div>
@@ -484,19 +484,19 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     4: {
       title: "4. La Fractura Territorial del Gasto Per Cápita",
-      text: "El análisis per cápita ($ invertido por cada habitante comunal) desnuda la profunda desigualdad territorial en la capacidad de los gobiernos locales de Chile. Municipios con alta recaudación propia o capitales regionales (como Valdivia con $36.789 CLP/hab o Ovalle con $39.404 CLP/hab) despliegan infraestructuras robustas de ciberseguridad, centros de monitoreo y servicios en la nube. En contraste, más de 120 municipios semi-urbanos y rurales de los grupos FIGEM 4 y 5 gastan menos de $1.500 CLP por habitante, condenando a su ciudadanía a brechas críticas de acceso y seguridad digital.",
+      text: "El análisis per cápita ($ invertido por cada habitante comunal) desnuda la profunda desigualdad territorial en la capacidad de los gobiernos locales de Chile. Municipios con alta inversión acumulada per cápita como Valdivia ($31.334 CLP/hab) u Ovalle ($22.243 CLP/hab) despliegan infraestructura de conectividad, centros de monitoreo y servicios cloud. En contraste, comunas densamente pobladas como Puente Alto ($4.571 CLP/hab) y Maipú ($2.566 CLP/hab), o municipios rurales de los grupos FIGEM 4 y 5 con menos de $1.150 CLP por habitante, sufren severas restricciones de escala. En el plano regional, la Región Metropolitana concentra el 21,28% del gasto nacional ($36.319 MM en 14.807 OCs), mientras regiones extremas como Arica (0,73%), Aysén (0,78%) y Magallanes (1,01%) no superan el 1% de participación individual.",
       findings: [
-        "Brecha de hasta 30x entre comunas de alta inversión per cápita y comunas rezagadas.",
-        "Puente Alto (667k hab) invierte $6.986 CLP/hab, frente a Valdivia con $36.789 CLP/hab.",
-        "La Región Metropolitana absorbe el 23,75% del gasto nacional ($71.290 MM).",
-        "Regiones extremas (Aysén, Arica, Magallanes) no superan el 1,5% de participación cada una."
+        "Brecha de hasta 27x entre comunas de alta inversión per cápita ($31.334/hab) y municipios rurales rezagados ($1.150/hab).",
+        "Valdivia ($31.334/hab con $5.705 MM) y Ovalle ($22.243/hab con $2.767 MM) lideran la inversión por habitante.",
+        "Puente Alto invierte $4.571 CLP/hab y Maipú $2.566 CLP/hab, evidenciando el desafío de escala en grandes urbes.",
+        "La Región Metropolitana concentra el 21,28% del gasto ($36.319 MM), frente a menos del 1% en Aysén y Arica."
       ],
       chartHtml: `
-        <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); margin-bottom:12px;">Disparidad de Inversión Per Cápita Acumulada (CLP / Habitante)</div>
+        <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); margin-bottom:12px;">Disparidad de Inversión Per Cápita Acumulada Real (CLP / Habitante)</div>
         <div style="display:flex; flex-direction:column; gap:10px;">
           <div>
             <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:3px;">
-              <span>Ovalle (Región de Coquimbo)</span><strong>$39.404 / hab</strong>
+              <span>Valdivia (Región de Los Ríos)</span><strong>$31.334 / hab</strong>
             </div>
             <div style="height:8px; background:var(--line-light); border-radius:4px; overflow:hidden;">
               <div style="width:100%; height:100%; background:var(--teal);"></div>
@@ -504,34 +504,50 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
           <div>
             <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:3px;">
-              <span>Valdivia (Región de Los Ríos)</span><strong>$36.789 / hab</strong>
+              <span>Ovalle (Región de Coquimbo)</span><strong>$22.243 / hab</strong>
             </div>
             <div style="height:8px; background:var(--line-light); border-radius:4px; overflow:hidden;">
-              <div style="width:93%; height:100%; background:var(--teal);"></div>
+              <div style="width:71%; height:100%; background:var(--teal);"></div>
             </div>
           </div>
           <div>
             <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:3px;">
-              <span>Temuco (Región de La Araucanía)</span><strong>$14.280 / hab</strong>
+              <span>Algarrobo (Región de Valparaíso)</span><strong>$15.559 / hab</strong>
             </div>
             <div style="height:8px; background:var(--line-light); border-radius:4px; overflow:hidden;">
-              <div style="width:36%; height:100%; background:var(--navy);"></div>
+              <div style="width:50%; height:100%; background:var(--navy);"></div>
             </div>
           </div>
           <div>
             <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:3px;">
-              <span>Puente Alto (Región Metropolitana)</span><strong>$6.986 / hab</strong>
+              <span>Temuco (Región de La Araucanía)</span><strong>$7.611 / hab</strong>
             </div>
             <div style="height:8px; background:var(--line-light); border-radius:4px; overflow:hidden;">
-              <div style="width:17%; height:100%; background:var(--gold);"></div>
+              <div style="width:24%; height:100%; background:var(--navy);"></div>
             </div>
           </div>
           <div>
             <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:3px;">
-              <span>Comuna Rural Promedio (Grupo FIGEM 5)</span><strong>$1.150 / hab</strong>
+              <span>Puente Alto (Región Metropolitana)</span><strong>$4.571 / hab</strong>
             </div>
             <div style="height:8px; background:var(--line-light); border-radius:4px; overflow:hidden;">
-              <div style="width:3%; height:100%; background:var(--crimson);"></div>
+              <div style="width:15%; height:100%; background:var(--gold);"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:3px;">
+              <span>Maipú (Región Metropolitana)</span><strong>$2.566 / hab</strong>
+            </div>
+            <div style="height:8px; background:var(--line-light); border-radius:4px; overflow:hidden;">
+              <div style="width:8%; height:100%; background:var(--gold);"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:3px;">
+              <span>Comuna Rural Mínima (Grupo FIGEM 5)</span><strong>$1.150 / hab</strong>
+            </div>
+            <div style="height:8px; background:var(--line-light); border-radius:4px; overflow:hidden;">
+              <div style="width:4%; height:100%; background:var(--crimson);"></div>
             </div>
           </div>
         </div>
@@ -1583,6 +1599,14 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
+    // Selector de cantidad de muestras a mostrar (Top 50, Top 100, Todas las 345)
+    const pageSizeSelect = document.getElementById("pagesize-filter");
+    if (pageSizeSelect) {
+      pageSizeSelect.addEventListener("change", () => {
+        renderTable();
+      });
+    }
+
     // Reset Map
     const btnReset = document.getElementById("btn-reset-map");
     if (btnReset) {
@@ -1855,7 +1879,9 @@ document.addEventListener("DOMContentLoaded", () => {
       return 0;
     });
 
-    tbody.innerHTML = filtered.slice(0, 100).map((c, idx) => `
+        const pageSizeSelect = document.getElementById("pagesize-filter");
+    const pageSize = pageSizeSelect && pageSizeSelect.value === "all" ? filtered.length : (pageSizeSelect && pageSizeSelect.value === "50" ? 50 : 100);
+    tbody.innerHTML = filtered.slice(0, pageSize).map((c, idx) => `
       <tr data-comuna-name="${c.comuna}" tabindex="0" role="button" aria-label="Ver ficha y radiografía de ${c.comuna}">
         <td style="font-weight:700; color:var(--muted);">${idx + 1}</td>
         <td style="font-weight:600; color:var(--navy);">${c.comuna}</td>
@@ -2143,7 +2169,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const c = state.selectedComuna;
           narrative = `Resumen de capacidades tecnológicas para la comuna de ${c.comuna}, región de ${c.region}. Población: ${(c.poblacion || 0).toLocaleString("es-CL")} habitantes. Inversión histórica en contratos tecnológicos: ${formatCLP(c.monto_total)} pesos chilenos, equivalente a ${formatCLP(c.gasto_pc)} pesos por habitante. Índice de madurez tecnológica: ${c.score_madurez} sobre 100, clasificado como ${c.nivel_madurez}. Diagnóstico de capacidad estatal: ${c.cuadrante_capacidad || "En evaluación"}. Tecnoestructura municipal: ${c.dotacion_ti || 0} profesionales TI contratados. Ratio de externalización tecnológica: ${c.ret_ratio || "No determinado"}.`;
         } else {
-          narrative = `Observatorio de Capacidades Tecnológicas y Capacidad Estatal en las 345 municipalidades de Chile (346 comunas). Se analizaron más de 312 mil millones de pesos transados en 153 mil contratos en Mercado Público durante 12 años, cruzados con la dotación funcionaria y tecnoestructura de Transparencia Activa.`;
+          narrative = `Observatorio de Capacidades Tecnológicas y Capacidad Estatal en las 345 municipalidades de Chile (346 comunas). Se analizaron más de 170 mil millones de pesos saneados transados en 95.379 órdenes de compra en Mercado Público durante 12 años, cruzados con la dotación funcionaria y tecnoestructura observada en las 345 municipalidades de Chile.`;
         }
 
         const utter = new SpeechSynthesisUtterance(narrative);
