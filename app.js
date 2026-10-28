@@ -354,62 +354,63 @@ document.addEventListener("DOMContentLoaded", () => {
   const storyChapters = {
     1: {
       title: "1. El Fierro vs. El Espejismo de la Inteligencia Artificial",
-      text: "A pesar de la retórica sobre 'ciudades inteligentes', modernización algorítmica y chatbots, la evidencia demuestra que casi la mitad del presupuesto municipal de TI (47,88%, equivalente a $143.698 millones de pesos) se destina exclusivamente a la adquisición y reposición de infraestructura física: computadores de escritorio, impresoras, servidores y cableado. La categoría de IA y automatización (26,48%) se encuentra concentrada casi en su totalidad en sistemas de marcación biométrica de personal y atención municipal automatizada por WhatsApp, sin despliegues analíticos predictivos estructurales.",
+      text: "A pesar de la retórica pública sobre 'ciudades inteligentes', IA y chatbots, la evidencia empírica saneada demuestra que más de tres cuartas partes del presupuesto municipal de TI (77,49%, equivalente a $132.244 millones de pesos) se destinan exclusivamente a adquirir y reponer infraestructura física básica: computadores, impresoras y servidores. La categoría de IA y automatización suma apenas el 0,99% ($1.698 MM), concentrada en relojes de control biométrico y turnomáticas, sin despliegues analíticos predictivos estructurales. En paralelo, la capacitación y habilidades digitales representa solo un 2,01% ($3.431 MM), evidenciando que el gasto privilegia el equipamiento sobre el capital humano.",
       findings: [
-        "47,88% del gasto total se absorbe en infraestructura física de cómputo básico.",
-        "La categoría de IA suma $79.476 millones, pero atomizada en biometría y trámites.",
-        "Telecomunicaciones y enlaces dedicados representan el 10,47% ($31.422 MM).",
-        "SaaS y Cloud Computing sólo alcanza un 4,57% ($13.704 MM) a nivel nacional."
+        "77,49% del gasto municipal ($132.244 MM) se absorbe en infraestructura física de cómputo básico.",
+        "La Inteligencia Artificial representa apenas el 0,99% ($1.698 MM), atomizada en biometría y trámites.",
+        "SaaS y Cloud Computing alcanza el 12,03% ($20.528 MM), consolidando migración a nube pública.",
+        "Capacitación tecnológica suma $3.431 MM (2,01%), concentrada en un 99,2% en dotación interna.",
+        "Software Libre (FOSS) y estándares abiertos capturan solo el 0,17% ($295 MM) a nivel nacional."
       ],
       chartHtml: `
-        <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); margin-bottom:12px;">Composición de la Canasta TI Municipal (12 Años)</div>
+        <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); margin-bottom:12px;">Composición Real de la Canasta TI Municipal (12 Años Saneados)</div>
         <div style="display:flex; flex-direction:column; gap:8px;">
           <div>
             <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:3px;">
-              <span>Infraestructura y Hardware</span><strong>47,9% ($143.7B)</strong>
+              <span>Infraestructura y Hardware</span><strong>77,5% ($132.2B)</strong>
             </div>
             <div style="height:8px; background:var(--line-light); border-radius:4px; overflow:hidden;">
-              <div style="width:47.9%; height:100%; background:var(--navy);"></div>
+              <div style="width:77.5%; height:100%; background:var(--navy);"></div>
             </div>
           </div>
           <div>
             <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:3px;">
-              <span>IA y Automatización Básica</span><strong>26,5% ($79.5B)</strong>
+              <span>SaaS y Cloud Computing</span><strong>12,0% ($20.5B)</strong>
             </div>
             <div style="height:8px; background:var(--line-light); border-radius:4px; overflow:hidden;">
-              <div style="width:26.5%; height:100%; background:var(--teal);"></div>
+              <div style="width:12.0%; height:100%; background:#385bb2;"></div>
             </div>
           </div>
           <div>
             <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:3px;">
-              <span>Redes y Telecomunicaciones</span><strong>10,5% ($31.4B)</strong>
+              <span>Capacitación y Formación Digital</span><strong>2,0% ($3.4B)</strong>
             </div>
             <div style="height:8px; background:var(--line-light); border-radius:4px; overflow:hidden;">
-              <div style="width:10.5%; height:100%; background:var(--gold);"></div>
+              <div style="width:4.0%; height:100%; background:#e07a5f;"></div>
             </div>
           </div>
           <div>
             <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:3px;">
-              <span>Ciberseguridad y Backup</span><strong>6,9% ($20.6B)</strong>
+              <span>IA y Automatización Básica</span><strong>1,0% ($1.7B)</strong>
             </div>
             <div style="height:8px; background:var(--line-light); border-radius:4px; overflow:hidden;">
-              <div style="width:6.9%; height:100%; background:#70587c;"></div>
+              <div style="width:2.5%; height:100%; background:var(--teal);"></div>
             </div>
           </div>
           <div>
             <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:3px;">
-              <span>SaaS y Cloud Computing</span><strong>4,6% ($13.7B)</strong>
+              <span>Sistemas ERP de Gestión (Legados)</span><strong>0,7% ($1.2B)</strong>
             </div>
             <div style="height:8px; background:var(--line-light); border-radius:4px; overflow:hidden;">
-              <div style="width:4.6%; height:100%; background:#385bb2;"></div>
+              <div style="width:2.0%; height:100%; background:var(--crimson);"></div>
             </div>
           </div>
           <div>
             <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:3px;">
-              <span>Software Libre (FOSS)</span><strong>0,17% ($514M)</strong>
+              <span>Software Libre (FOSS)</span><strong>0,17% ($295M)</strong>
             </div>
             <div style="height:8px; background:var(--line-light); border-radius:4px; overflow:hidden;">
-              <div style="width:1.5%; height:100%; background:var(--crimson);"></div>
+              <div style="width:1.5%; height:100%; background:var(--forest);"></div>
             </div>
           </div>
         </div>
@@ -538,7 +539,47 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  function renderTotalesHallazgos() {
+    if (!state.kpis) return;
+    const k = state.kpis;
+    const mTotal = k.monto_total_clp || 170664667908;
+    const ocsTotal = k.total_ocs || 95379;
+    const mCap = k.monto_capacitacion_total || 3431261578;
+    const ocsCap = k.ocs_capacitacion_total || 1765;
+    
+    // Total dotación observada
+    const totalDotacion = state.comunas.reduce((acc, c) => acc + (c.dotacion_total || 0), 0) || 142661;
+    const totalTI = state.comunas.reduce((acc, c) => acc + (c.dotacion_ti || 0), 0) || 1301;
+
+    // Calcular hardware total desde series
+    const totHw = (k.series_anual || []).reduce((acc, s) => acc + (s.hardware_clp || 0), 0) || 132244422381;
+    const pctHw = ((totHw / mTotal) * 100).toFixed(2);
+
+    // Actualizar elementos en vista Hallazgos
+    const elGasto = document.getElementById("kpi-hallazgo-gasto");
+    if (elGasto) elGasto.textContent = `$${Math.round(mTotal / 1000000).toLocaleString("es-CL")} MM`;
+
+    const elCap = document.getElementById("kpi-hallazgo-capacitacion");
+    if (elCap) elCap.textContent = `$${Math.round(mCap / 1000000).toLocaleString("es-CL")} MM`;
+
+    const elFierro = document.getElementById("kpi-hallazgo-fierro");
+    if (elFierro) elFierro.textContent = `${pctHw.replace(".", ",")}%`;
+
+    const elHhi = document.getElementById("kpi-hallazgo-hhi");
+    if (elHhi && k.hhi_legados) elHhi.textContent = `HHI ${k.hhi_legados.toFixed(1)}`;
+
+    const elTi = document.getElementById("kpi-hallazgo-ti");
+    if (elTi) elTi.textContent = totalTI.toLocaleString("es-CL");
+
+    // Actualizar también el Hero si existen los elementos
+    const heroDot = document.getElementById("hero-kpi-dotacion");
+    if (heroDot) heroDot.textContent = totalDotacion.toLocaleString("es-CL");
+    const heroTi = document.getElementById("hero-kpi-ti");
+    if (heroTi) heroTi.textContent = totalTI.toLocaleString("es-CL");
+  }
+
   function initScrollytelling() {
+    renderTotalesHallazgos();
     renderChapter(1);
     const tabBtns = document.querySelectorAll(".story-tab-btn");
     tabBtns.forEach(btn => {

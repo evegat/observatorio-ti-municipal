@@ -117,13 +117,13 @@
         <div class="hero-top-row">
           <div class="eyebrow">OBSERVATORIO DE CAPACIDADES TECNOLÓGICAS MUNICIPALES · DIAGNÓSTICO INTEGRAL 2014–2026</div>
           <div class="hero-status-pill">
-            <span class="status-dot"></span> 345 Municipalidades · 346 Comunas · 153.770 OCs · Dotación Municipal Integrada
+            <span class="status-dot"></span> 345 Municipalidades · 346 Comunas · 95.379 OCs Saneadas · Dotación 100% Observada
           </div>
         </div>
 
         <h1 class="hero-title">Capacidades Tecnológicas, Tecnoestructura y Capacidad Estatal en los Municipios de Chile</h1>
         <p class="hero-lead">
-          ¿Qué capacidad real tienen los gobiernos locales de Chile para sostener su transformación digital y responder a sus comunidades? Medimos y evaluamos las capacidades tecnológicas de los 345 municipios del país (que administran las 346 comunas de Chile) a través de dos dimensiones empíricas complementarias: su inversión en tecnología (<strong>$312.571 millones de pesos</strong> transados en Mercado Público) y su dotación de <strong>Recursos Humanos</strong> (1,46 millones de registros de personal en Planta, Contrata y Honorarios, identificando 3.647 profesionales TI, estabilidad laboral y dependencia de proveedores externos).
+          ¿Qué capacidad real tienen los gobiernos locales de Chile para sostener su transformación digital y responder a sus comunidades? Medimos y evaluamos las capacidades tecnológicas de los 345 municipios del país (que administran las 346 comunas de Chile) a través de dos dimensiones empíricas complementarias: su inversión en tecnología (<strong>$170.665 millones de pesos</strong> saneados transados en 95.379 órdenes de compra en Mercado Público) y su dotación de <strong>Recursos Humanos</strong> (100% de comunas observadas con 142.661 funcionarios municipales, identificando 1.301 profesionales y técnicos informáticos propios, estabilidad laboral y dependencia de proveedores externos).
         </p>
 
         <!-- HERO QUICK ACTIONS (LOOK & FEEL EVEGAT.CL) -->
@@ -154,14 +154,14 @@
         <div class="metrics-grid">
           <div class="metric-card accent">
             <div class="metric-label">Gasto TI Total Auditado</div>
-            <div class="metric-value">$312.571 MM</div>
-            <div class="metric-desc">Pesos chilenos (~US$ 338 millones) transados en 153.770 órdenes de compra (2014–2026).</div>
+            <div class="metric-value">$170.665 MM</div>
+            <div class="metric-desc">Pesos chilenos transados en 95.379 órdenes de compra auditadas en las 345 comunas (2014–2026).</div>
           </div>
 
           <div class="metric-card">
             <div class="metric-label">El Peso del Fierro</div>
-            <div class="metric-value">47,88%</div>
-            <div class="metric-desc">$143.698 MM destinados a reposición de hardware y cómputo físico frente a solo 0,17% en Software Libre.</div>
+            <div class="metric-value">77,49%</div>
+            <div class="metric-desc">$132.244 MM absorbidos en hardware y equipamiento básico frente a solo 0,17% en Software Libre.</div>
           </div>
 
           <div class="metric-card alert">
@@ -234,6 +234,44 @@
             <p class="section-desc">Selecciona cada capítulo para explorar los patrones estructurales de la inversión tecnológica, la dotación humana y las tensiones institucionales en los municipios de Chile.</p>
           </div>
 
+          <!-- TOTALES NACIONALES DE LOS HALLAZGOS (EVIDENCIA CONSOLIDADA) -->
+          <div class="metrics-grid" id="hallazgos-totales-grid" style="margin-bottom: 36px;">
+            <div class="metric-card accent">
+              <div class="metric-label">Gasto TI Total Auditado</div>
+              <div class="metric-value" id="kpi-hallazgo-gasto">$170.665 MM</div>
+              <div class="metric-desc">95.379 órdenes de compra saneadas a lo largo de las 345 municipalidades del país (2014–2026).</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-label">Capacitación y Habilidades Digitales</div>
+              <div class="metric-value" id="kpi-hallazgo-capacitacion">$3.431 MM</div>
+              <div class="metric-desc">1.765 órdenes de compra únicas: 99,2% en formación técnica institucional y 0,8% en inclusión comunitaria.</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-label">El Peso del Fierro</div>
+              <div class="metric-value" id="kpi-hallazgo-fierro">77,49%</div>
+              <div class="metric-desc">$132.244 MM consumidos en reposición de computadores e infraestructura física frente a 0,17% en FOSS.</div>
+            </div>
+
+            <div class="metric-card alert">
+              <div class="metric-label">Concentración Mercado ERP</div>
+              <div class="metric-value" id="kpi-hallazgo-hhi">HHI 7.607</div>
+              <div class="metric-desc">Índice HHI crítico en software de gestión municipal (CAS-Chile y afines), con altos costos de cambio.</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-label">Músculo Propio TI</div>
+              <div class="metric-value" id="kpi-hallazgo-ti">1.301</div>
+              <div class="metric-desc">Profesionales y técnicos informáticos observados directamente en las 345 municipalidades de Chile.</div>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-label">Fractura Territorial Per Cápita</div>
+              <div class="metric-value" id="kpi-hallazgo-brecha">30x</div>
+              <div class="metric-desc">Disparidad extrema de gasto per cápita acumulado entre comunas de altos ingresos ($39k/hab) y rurales ($1.1k/hab).</div>
+            </div>
+          </div>
           <div class="story-tabs" id="story-tabs" role="tablist" aria-label="Capítulos de la investigación">
             <button class="story-tab-btn active" data-chapter="1" role="tab" aria-selected="true" aria-label="Capítulo 1: Fierro vs Espejismo de la IA">1. Fierro vs. Espejismo de la IA</button>
             <button class="story-tab-btn" data-chapter="2" role="tab" aria-selected="false" aria-label="Capítulo 2: El Choque de 2021">2. El Choque de 2021</button>
