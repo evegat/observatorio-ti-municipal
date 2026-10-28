@@ -6,7 +6,7 @@
     "total_ocs": 2261,
     "total_munis": 209,
     "monto_total_clp": 9157168317.0,
-    "cuota_mercado_pct": 5.38,
+    "cuota_mercado_pct": 5.37,
     "rubro_principal": "Hardware e Infraestructura"
   },
   {
@@ -16,7 +16,7 @@
     "total_ocs": 207,
     "total_munis": 7,
     "monto_total_clp": 5703789553.0,
-    "cuota_mercado_pct": 3.35,
+    "cuota_mercado_pct": 3.34,
     "rubro_principal": "Hardware e Infraestructura"
   },
   {
@@ -26,7 +26,7 @@
     "total_ocs": 1918,
     "total_munis": 297,
     "monto_total_clp": 5102870406.0,
-    "cuota_mercado_pct": 3.0,
+    "cuota_mercado_pct": 2.99,
     "rubro_principal": "Hardware e Infraestructura"
   },
   {
@@ -36,16 +36,16 @@
     "total_ocs": 195,
     "total_munis": 52,
     "monto_total_clp": 4952234136.0,
-    "cuota_mercado_pct": 2.91,
+    "cuota_mercado_pct": 2.9,
     "rubro_principal": "Telecomunicaciones y Conectividad"
   },
   {
     "proveedor": "SOC TECNOLOGICA Y SERVICIOS EXPRESS LIMITADA",
     "rut": "77.730.550-6",
-    "total_lineas": 5755,
-    "total_ocs": 4928,
+    "total_lineas": 5757,
+    "total_ocs": 4929,
     "total_munis": 329,
-    "monto_total_clp": 4155459751.0,
+    "monto_total_clp": 4155900917.0,
     "cuota_mercado_pct": 2.44,
     "rubro_principal": "Hardware e Infraestructura"
   },
@@ -56,16 +56,16 @@
     "total_ocs": 820,
     "total_munis": 106,
     "monto_total_clp": 3845350353.0,
-    "cuota_mercado_pct": 2.26,
+    "cuota_mercado_pct": 2.25,
     "rubro_principal": "Telecomunicaciones y Conectividad"
   },
   {
     "proveedor": "COMPUTACION INTEGRAL S A",
     "rut": "96.689.970-0",
-    "total_lineas": 5929,
+    "total_lineas": 5931,
     "total_ocs": 4556,
     "total_munis": 276,
-    "monto_total_clp": 3224272191.0,
+    "monto_total_clp": 3224940661.0,
     "cuota_mercado_pct": 1.89,
     "rubro_principal": "Hardware e Infraestructura"
   },
@@ -76,7 +76,7 @@
     "total_ocs": 272,
     "total_munis": 86,
     "monto_total_clp": 2512108884.0,
-    "cuota_mercado_pct": 1.48,
+    "cuota_mercado_pct": 1.47,
     "rubro_principal": "Hardware e Infraestructura"
   },
   {
@@ -112,20 +112,20 @@
   {
     "proveedor": "PCINBOX SPA",
     "rut": "76.074.614-2",
-    "total_lineas": 2744,
+    "total_lineas": 2745,
     "total_ocs": 2305,
     "total_munis": 323,
-    "monto_total_clp": 1995655013.0,
+    "monto_total_clp": 1996243003.0,
     "cuota_mercado_pct": 1.17,
     "rubro_principal": "Hardware e Infraestructura"
   },
   {
     "proveedor": "MAVE TECHNOLOGY SPA",
     "rut": "77.415.422-1",
-    "total_lineas": 949,
-    "total_ocs": 760,
+    "total_lineas": 952,
+    "total_ocs": 761,
     "total_munis": 249,
-    "monto_total_clp": 1929150141.0,
+    "monto_total_clp": 1930252435.0,
     "cuota_mercado_pct": 1.13,
     "rubro_principal": "Hardware e Infraestructura"
   },
@@ -166,7 +166,7 @@
     "total_ocs": 56,
     "total_munis": 33,
     "monto_total_clp": 1576404771.0,
-    "cuota_mercado_pct": 0.93,
+    "cuota_mercado_pct": 0.92,
     "rubro_principal": "Telecomunicaciones y Conectividad"
   },
   {
@@ -202,10 +202,10 @@
   {
     "proveedor": "PRODUCTOS Y SERVICIOS INFORMATICOS TORRES SpA",
     "rut": "77.229.656-8",
-    "total_lineas": 1075,
-    "total_ocs": 880,
+    "total_lineas": 1077,
+    "total_ocs": 881,
     "total_munis": 250,
-    "monto_total_clp": 1396850352.0,
+    "monto_total_clp": 1397686057.0,
     "cuota_mercado_pct": 0.82,
     "rubro_principal": "Hardware e Infraestructura"
   },
@@ -226,14 +226,14 @@
     "total_ocs": 401,
     "total_munis": 56,
     "monto_total_clp": 1319959655.0,
-    "cuota_mercado_pct": 0.78,
+    "cuota_mercado_pct": 0.77,
     "rubro_principal": "Hardware e Infraestructura"
   },
   {
     "proveedor": "SOCIEDAD COMERCIAL ALCA LIMITADA",
     "rut": "76.596.570-5",
-    "total_lineas": 1358,
-    "total_ocs": 1050,
+    "total_lineas": 1364,
+    "total_ocs": 1051,
     "total_munis": 277,
     "monto_total_clp": 1319202534.0,
     "cuota_mercado_pct": 0.77,
@@ -242,10 +242,10 @@
   {
     "proveedor": "SINATEX CHILE LTDA.",
     "rut": "76.297.487-8",
-    "total_lineas": 1065,
-    "total_ocs": 768,
+    "total_lineas": 1067,
+    "total_ocs": 769,
     "total_munis": 60,
-    "monto_total_clp": 1250368680.0,
+    "monto_total_clp": 1250708680.0,
     "cuota_mercado_pct": 0.73,
     "rubro_principal": "Hardware e Infraestructura"
   },
@@ -256,7 +256,7 @@
     "total_ocs": 459,
     "total_munis": 144,
     "monto_total_clp": 1236975292.0,
-    "cuota_mercado_pct": 0.73,
+    "cuota_mercado_pct": 0.72,
     "rubro_principal": "Hardware e Infraestructura"
   },
   {
@@ -276,16 +276,16 @@
     "total_ocs": 71,
     "total_munis": 22,
     "monto_total_clp": 1217313027.0,
-    "cuota_mercado_pct": 0.72,
+    "cuota_mercado_pct": 0.71,
     "rubro_principal": "Hardware e Infraestructura"
   },
   {
     "proveedor": "CAS-CHILE S. A. de I.",
     "rut": "96.525.030-1",
-    "total_lineas": 312,
-    "total_ocs": 287,
-    "total_munis": 85,
-    "monto_total_clp": 1090593036.0,
+    "total_lineas": 314,
+    "total_ocs": 289,
+    "total_munis": 87,
+    "monto_total_clp": 1095893036.0,
     "cuota_mercado_pct": 0.64,
     "rubro_principal": "Sistemas Municipales Legados"
   },
@@ -296,7 +296,7 @@
     "total_ocs": 328,
     "total_munis": 130,
     "monto_total_clp": 1081973496.0,
-    "cuota_mercado_pct": 0.64,
+    "cuota_mercado_pct": 0.63,
     "rubro_principal": "Hardware e Infraestructura"
   },
   {

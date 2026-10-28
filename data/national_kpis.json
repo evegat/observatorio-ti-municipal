@@ -1,130 +1,142 @@
 {
-  "total_ocs": 95120,
+  "total_ocs": 95379,
   "total_entidades": 345,
-  "monto_total_clp": 170235495556.0,
+  "monto_total_clp": 170664667908.0,
   "hhi_legados": 7607.1,
   "pct_cas_chile": 87.2,
   "hhi_saas": 950.0,
   "series_anual": [
     {
       "anio": 2015,
-      "ocs": 7169,
-      "total_clp": 4160816202.0,
-      "hardware_clp": 3624653067.0,
+      "ocs": 7178,
+      "total_clp": 4193648650.0,
+      "hardware_clp": 3648003934.0,
       "ia_clp": 3050625.0,
       "saas_clp": 594190423.0,
       "legado_clp": 6929979.0,
-      "foss_clp": 24048995.0
+      "foss_clp": 24048995.0,
+      "capacitacion_clp": 86073873.0
     },
     {
       "anio": 2016,
-      "ocs": 5796,
-      "total_clp": 2873400408.0,
-      "hardware_clp": 1938668577.0,
+      "ocs": 5808,
+      "total_clp": 2899446917.0,
+      "hardware_clp": 1959493153.0,
       "ia_clp": 0.0,
       "saas_clp": 348401408.0,
       "legado_clp": 20462186.0,
-      "foss_clp": 16000311.0
+      "foss_clp": 16000311.0,
+      "capacitacion_clp": 100676816.0
     },
     {
       "anio": 2017,
-      "ocs": 6035,
-      "total_clp": 2479468155.0,
-      "hardware_clp": 1659294845.0,
+      "ocs": 6046,
+      "total_clp": 2495588950.0,
+      "hardware_clp": 1665978258.0,
       "ia_clp": 7992930.0,
       "saas_clp": 372706601.0,
       "legado_clp": 63403094.0,
-      "foss_clp": 21046162.0
+      "foss_clp": 21046162.0,
+      "capacitacion_clp": 117593377.0
     },
     {
       "anio": 2018,
-      "ocs": 5316,
-      "total_clp": 3373899783.0,
-      "hardware_clp": 2689216524.0,
+      "ocs": 5327,
+      "total_clp": 3380629685.0,
+      "hardware_clp": 2690625114.0,
       "ia_clp": 13818401.0,
       "saas_clp": 640402891.0,
       "legado_clp": 68730682.0,
-      "foss_clp": 7586948.0
+      "foss_clp": 7586948.0,
+      "capacitacion_clp": 89365389.0
     },
     {
       "anio": 2019,
-      "ocs": 4742,
-      "total_clp": 4018760429.0,
-      "hardware_clp": 2278616811.0,
-      "ia_clp": 3338600.0,
+      "ocs": 4766,
+      "total_clp": 4060002865.0,
+      "hardware_clp": 2289961427.0,
+      "ia_clp": 3405400.0,
       "saas_clp": 436068288.0,
       "legado_clp": 110689314.0,
-      "foss_clp": 7690372.0
+      "foss_clp": 9900898.0,
+      "capacitacion_clp": 152832333.0
     },
     {
       "anio": 2020,
-      "ocs": 6286,
-      "total_clp": 10574294519.0,
-      "hardware_clp": 8846868501.0,
+      "ocs": 6293,
+      "total_clp": 10577474460.0,
+      "hardware_clp": 8847113451.0,
       "ia_clp": 10503544.0,
       "saas_clp": 505073889.0,
       "legado_clp": 63571983.0,
-      "foss_clp": 14499984.0
+      "foss_clp": 14499984.0,
+      "capacitacion_clp": 75546614.0
     },
     {
       "anio": 2021,
-      "ocs": 11812,
-      "total_clp": 30855735011.0,
-      "hardware_clp": 27114784517.0,
+      "ocs": 11822,
+      "total_clp": 30884530916.0,
+      "hardware_clp": 27130008422.0,
       "ia_clp": 29650822.0,
       "saas_clp": 1559396299.0,
       "legado_clp": 70395398.0,
-      "foss_clp": 44972945.0
+      "foss_clp": 44972945.0,
+      "capacitacion_clp": 215171386.0
     },
     {
       "anio": 2022,
-      "ocs": 11162,
-      "total_clp": 25318043876.0,
-      "hardware_clp": 19397395590.0,
-      "ia_clp": 47434838.0,
+      "ocs": 11180,
+      "total_clp": 25336915628.0,
+      "hardware_clp": 19402687879.0,
+      "ia_clp": 47434839.0,
       "saas_clp": 1759743387.0,
-      "legado_clp": 88492160.0,
-      "foss_clp": 8902765.0
+      "legado_clp": 90292160.0,
+      "foss_clp": 10402765.0,
+      "capacitacion_clp": 419537762.0
     },
     {
       "anio": 2023,
-      "ocs": 10470,
-      "total_clp": 23859654152.0,
-      "hardware_clp": 20382565347.0,
-      "ia_clp": 63754092.0,
-      "saas_clp": 2120506470.0,
+      "ocs": 10497,
+      "total_clp": 23891898691.0,
+      "hardware_clp": 20395279061.0,
+      "ia_clp": 65054092.0,
+      "saas_clp": 2123867815.0,
       "legado_clp": 122254650.0,
-      "foss_clp": 30647741.0
+      "foss_clp": 30647741.0,
+      "capacitacion_clp": 405858200.0
     },
     {
       "anio": 2024,
-      "ocs": 10065,
-      "total_clp": 20423664740.0,
-      "hardware_clp": 16464286650.0,
-      "ia_clp": 649705850.0,
+      "ocs": 10099,
+      "total_clp": 20460844983.0,
+      "hardware_clp": 16467725220.0,
+      "ia_clp": 667135850.0,
       "saas_clp": 3119726560.0,
-      "legado_clp": 195792357.0,
-      "foss_clp": 16613786.0
+      "legado_clp": 197765457.0,
+      "foss_clp": 16613786.0,
+      "capacitacion_clp": 496988890.0
     },
     {
       "anio": 2025,
-      "ocs": 9349,
-      "total_clp": 25751654606.0,
-      "hardware_clp": 17632989121.0,
-      "ia_clp": 307716764.0,
-      "saas_clp": 6604691137.0,
+      "ocs": 9388,
+      "total_clp": 25831872704.0,
+      "hardware_clp": 17628278150.0,
+      "ia_clp": 354678837.0,
+      "saas_clp": 6597341137.0,
       "legado_clp": 225330162.0,
-      "foss_clp": 59724407.0
+      "foss_clp": 61459407.0,
+      "capacitacion_clp": 607055267.0
     },
     {
       "anio": 2026,
-      "ocs": 4847,
-      "total_clp": 12906610103.0,
-      "hardware_clp": 10113617864.0,
-      "ia_clp": 412820898.0,
+      "ocs": 4900,
+      "total_clp": 13006599703.0,
+      "hardware_clp": 10119268312.0,
+      "ia_clp": 495361998.0,
       "saas_clp": 2470636827.0,
-      "legado_clp": 140982038.0,
-      "foss_clp": 37406492.0
+      "legado_clp": 144482038.0,
+      "foss_clp": 37406492.0,
+      "capacitacion_clp": 585334616.0
     }
   ],
   "rrhh_nacional": {
@@ -173,5 +185,9 @@
     "comunas_regulacion_infra_telecom": 31,
     "comunas_regulacion_tic_digital": 1,
     "total_ordenanzas_tecnologicas": 45
-  }
+  },
+  "monto_capacitacion_total": 3431261578.0,
+  "ocs_capacitacion_total": 1765,
+  "monto_cap_funcionarios_total": 3403118216.0,
+  "monto_cap_comunitaria_total": 28143362.0
 }

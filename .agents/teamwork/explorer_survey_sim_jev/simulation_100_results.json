@@ -1,0 +1,3260 @@
+{
+  "timestamp": "2026-10-16T23:58:15Z",
+  "total_users": 100,
+  "overall_success_rate": 97.0,
+  "task_counters": {
+    "encontrar_comuna": {
+      "success": 98,
+      "fail": 2
+    },
+    "comparar_comuna": {
+      "success": 99,
+      "fail": 1
+    },
+    "registro_modal": {
+      "success": 100,
+      "fail": 0
+    },
+    "descargar_datos": {
+      "success": 100,
+      "fail": 0
+    },
+    "archetype_specific": {
+      "success": 98,
+      "fail": 2
+    }
+  },
+  "personas_results": [
+    {
+      "id": "P001",
+      "arquetipo": "Funcionario Municipal (DAF/SECPLA/TI)",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Colchane",
+          "cut": 1403,
+          "score": 80
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "daf.colchane@municipalidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "pct_honorarios": 31.9,
+          "ret": 1.13
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 2.82,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P002",
+      "arquetipo": "Funcionario Municipal (DAF/SECPLA/TI)",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Tirúa",
+          "cut": 8207,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "secpla.tirúa@municipalidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "pct_honorarios": 50.6,
+          "ret": 1.48
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.15,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P003",
+      "arquetipo": "Funcionario Municipal (DAF/SECPLA/TI)",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Putre",
+          "cut": 15201,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "ti.putre@municipalidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "pct_honorarios": 76.2,
+          "ret": 0.34
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.22,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P004",
+      "arquetipo": "Funcionario Municipal (DAF/SECPLA/TI)",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "General Lagos",
+          "cut": 15202,
+          "score": 80
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "administrador.generallagos@municipalidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "pct_honorarios": 59.6,
+          "ret": 0.25
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.48,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P005",
+      "arquetipo": "Funcionario Municipal (DAF/SECPLA/TI)",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Camiña",
+          "cut": 1402,
+          "score": 80
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "control.camiña@municipalidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "pct_honorarios": 83.9,
+          "ret": 0.81
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.43,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P006",
+      "arquetipo": "Funcionario Municipal (DAF/SECPLA/TI)",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Ollagüe",
+          "cut": 2202,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "daf.ollagüe@municipalidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "pct_honorarios": 63.6,
+          "ret": 0.2
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.28,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P007",
+      "arquetipo": "Funcionario Municipal (DAF/SECPLA/TI)",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Alto Hospicio",
+          "cut": 1107,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "secpla.altohospicio@municipalidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "pct_honorarios": 45.8,
+          "ret": 0.64
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.14,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P008",
+      "arquetipo": "Funcionario Municipal (DAF/SECPLA/TI)",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Mejillones",
+          "cut": 2102,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "ti.mejillones@municipalidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "pct_honorarios": 47.4,
+          "ret": 1.91
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.16,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P009",
+      "arquetipo": "Funcionario Municipal (DAF/SECPLA/TI)",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Diego de Almagro",
+          "cut": 3202,
+          "score": 80
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "daf.diegodealmagro@municipalidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "pct_honorarios": 46.2,
+          "ret": 0.36
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.26,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P010",
+      "arquetipo": "Funcionario Municipal (DAF/SECPLA/TI)",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Petorca",
+          "cut": 5404,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "secpla.petorca@municipalidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "pct_honorarios": 64.5,
+          "ret": 0.16
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.36,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P011",
+      "arquetipo": "Funcionario Municipal (DAF/SECPLA/TI)",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Alhué",
+          "cut": 13502,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "ti.alhué@municipalidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "pct_honorarios": 67.5,
+          "ret": 2.42
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.11,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P012",
+      "arquetipo": "Funcionario Municipal (DAF/SECPLA/TI)",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Marchihue",
+          "cut": 6204,
+          "score": 80
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "daf.marchigüe@municipalidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "pct_honorarios": 33.9,
+          "ret": 9.15
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.09,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P013",
+      "arquetipo": "Funcionario Municipal (DAF/SECPLA/TI)",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Empedrado",
+          "cut": 7104,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "secpla.empedrado@municipalidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "pct_honorarios": 28.1,
+          "ret": 0.3
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.38,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P014",
+      "arquetipo": "Funcionario Municipal (DAF/SECPLA/TI)",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Cobquecura",
+          "cut": 16202,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "control.cobquecura@municipalidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "pct_honorarios": 32.7,
+          "ret": 0.47
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.38,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P015",
+      "arquetipo": "Funcionario Municipal (DAF/SECPLA/TI)",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Saavedra",
+          "cut": 9116,
+          "score": 80
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "ti.saavedra@municipalidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "pct_honorarios": 67.3,
+          "ret": 0.37
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.33,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P016",
+      "arquetipo": "Funcionario Municipal (DAF/SECPLA/TI)",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Curarrehue",
+          "cut": 9104,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "daf.curarrehue@municipalidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "pct_honorarios": 0.0,
+          "ret": 0.66
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.38,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P017",
+      "arquetipo": "Funcionario Municipal (DAF/SECPLA/TI)",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Futaleufú",
+          "cut": 10402,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "secpla.futaleufú@municipalidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "pct_honorarios": 79.0,
+          "ret": 0.64
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.4,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P018",
+      "arquetipo": "Funcionario Municipal (DAF/SECPLA/TI)",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Chile Chico",
+          "cut": 11401,
+          "score": 80
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "ti.chilechico@municipalidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "pct_honorarios": 77.0,
+          "ret": 0.22
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.25,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P019",
+      "arquetipo": "Funcionario Municipal (DAF/SECPLA/TI)",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Timaukel",
+          "cut": 12303,
+          "score": 80
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "administrador.timaukel@municipalidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "pct_honorarios": 0.0,
+          "ret": 0.19
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.23,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P020",
+      "arquetipo": "Funcionario Municipal (DAF/SECPLA/TI)",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Cabo de Hornos",
+          "cut": 12201,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "daf.navarino/cabodehornos@municipalidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "pct_honorarios": 55.8,
+          "ret": 1.91
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.14,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P021",
+      "arquetipo": "Concejal/a o Alcalde/sa",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Maipú",
+          "cut": 13119,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "pair": "Maipú vs La Florida",
+          "pc_diff": -989.0
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "concejal.maipú@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "detail": "Completado"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.06,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P022",
+      "arquetipo": "Concejal/a o Alcalde/sa",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Providencia",
+          "cut": 13123,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "FAIL",
+          "detail": "Uno de los municipios no se encontró"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "concejal.providencia@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "detail": "Completado"
+        }
+      },
+      "friction_points": [
+        "Comparación fallida para par Providencia vs Santiago"
+      ],
+      "latency_ms": 0.08,
+      "overall_status": "FAIL"
+    },
+    {
+      "id": "P023",
+      "arquetipo": "Concejal/a o Alcalde/sa",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Las Condes",
+          "cut": 13114,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "pair": "Las Condes vs Puente Alto",
+          "pc_diff": -1048.0
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "concejal.lascondes@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "detail": "Completado"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.06,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P024",
+      "arquetipo": "Concejal/a o Alcalde/sa",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Valparaíso",
+          "cut": 5101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "pair": "Valparaíso vs Viña del Mar",
+          "pc_diff": -3588.0
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "concejal.valparaíso@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "detail": "Completado"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.12,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P025",
+      "arquetipo": "Concejal/a o Alcalde/sa",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Concepción",
+          "cut": 8101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "pair": "Concepción vs Talcahuano",
+          "pc_diff": -11579.0
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "concejal.concepción@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "detail": "Completado"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.06,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P026",
+      "arquetipo": "Concejal/a o Alcalde/sa",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Temuco",
+          "cut": 9101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "pair": "Temuco vs Padre las Casas",
+          "pc_diff": -3550.0
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "concejal.temuco@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "detail": "Completado"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.04,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P027",
+      "arquetipo": "Concejal/a o Alcalde/sa",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Antofagasta",
+          "cut": 2101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "pair": "Antofagasta vs Calama",
+          "pc_diff": 1951.0
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "concejal.antofagasta@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "detail": "Completado"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.04,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P028",
+      "arquetipo": "Concejal/a o Alcalde/sa",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Rancagua",
+          "cut": 6101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "pair": "Rancagua vs Machalí",
+          "pc_diff": 4362.0
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "concejal.rancagua@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "detail": "Completado"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.04,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P029",
+      "arquetipo": "Concejal/a o Alcalde/sa",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Talca",
+          "cut": 7101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "pair": "Talca vs Curicó",
+          "pc_diff": -19408.0
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "concejal.talca@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "detail": "Completado"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.04,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P030",
+      "arquetipo": "Concejal/a o Alcalde/sa",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Chillán",
+          "cut": 16101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "pair": "Chillán vs Chillán Viejo",
+          "pc_diff": 288.0
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "concejal.chillán@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "detail": "Completado"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.06,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P031",
+      "arquetipo": "Concejal/a o Alcalde/sa",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Puerto Montt",
+          "cut": 10101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "pair": "Puerto Montt vs Puerto Varas",
+          "pc_diff": -23459.0
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "concejal.puertomontt@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "detail": "Completado"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.05,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P032",
+      "arquetipo": "Concejal/a o Alcalde/sa",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Coquimbo",
+          "cut": 4102,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "pair": "Coquimbo vs La Serena",
+          "pc_diff": 3407.0
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "concejal.coquimbo@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "detail": "Completado"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.05,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P033",
+      "arquetipo": "Concejal/a o Alcalde/sa",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Arica",
+          "cut": 15101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "pair": "Arica vs Iquique",
+          "pc_diff": -4210.0
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "concejal.arica@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "detail": "Completado"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.05,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P034",
+      "arquetipo": "Concejal/a o Alcalde/sa",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Punta Arenas",
+          "cut": 12101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "pair": "Punta Arenas vs Natales",
+          "pc_diff": 14466.0
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "concejal.puntaarenas@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "detail": "Completado"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.05,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P035",
+      "arquetipo": "Concejal/a o Alcalde/sa",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Valdivia",
+          "cut": 14101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "pair": "Valdivia vs Osorno",
+          "pc_diff": 21773.0
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "concejal.valdivia@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "detail": "Completado"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.03,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P036",
+      "arquetipo": "Concejal/a o Alcalde/sa",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Quilpué",
+          "cut": 5801,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "pair": "Quilpué vs Villa Alemana",
+          "pc_diff": 4717.0
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "concejal.quilpué@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "detail": "Completado"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.07,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P037",
+      "arquetipo": "Concejal/a o Alcalde/sa",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Recoleta",
+          "cut": 13127,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "pair": "Recoleta vs Independencia",
+          "pc_diff": 2217.0
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "concejal.recoleta@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "detail": "Completado"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.08,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P038",
+      "arquetipo": "Concejal/a o Alcalde/sa",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "ÑuÑoa",
+          "cut": 13120,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "pair": "ÑuÑoa vs Macul",
+          "pc_diff": 1046.0
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "concejal.ñuñoa@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "detail": "Completado"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.09,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P039",
+      "arquetipo": "Concejal/a o Alcalde/sa",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "San Bernardo",
+          "cut": 13401,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "pair": "San Bernardo vs Buin",
+          "pc_diff": -4780.0
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "concejal.sanbernardo@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "detail": "Completado"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.07,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P040",
+      "arquetipo": "Concejal/a o Alcalde/sa",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Castro",
+          "cut": 10201,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "pair": "Castro vs Ancud",
+          "pc_diff": 260.0
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "concejal.castro@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "detail": "Completado"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.15,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P041",
+      "arquetipo": "Investigador/a o Analista de Datos",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "detail": "Vista nacional seleccionada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigador1@universidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "ranking_comunal.csv",
+          "type": "client-side-generated"
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "sort_verified": "ret_ratio"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.01,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P042",
+      "arquetipo": "Investigador/a o Analista de Datos",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "detail": "Vista nacional seleccionada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigador2@universidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "sort_verified": "gasto_pc"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.04,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P043",
+      "arquetipo": "Investigador/a o Analista de Datos",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "detail": "Vista nacional seleccionada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigador3@universidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "ranking_comunal.csv",
+          "type": "client-side-generated"
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "sort_verified": "pct_honorarios"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.0,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P044",
+      "arquetipo": "Investigador/a o Analista de Datos",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "detail": "Vista nacional seleccionada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigador4@universidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "sort_verified": "brecha_salarial_genero_pct"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.03,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P045",
+      "arquetipo": "Investigador/a o Analista de Datos",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "detail": "Vista nacional seleccionada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigador5@universidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "ranking_comunal.csv",
+          "type": "client-side-generated"
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "sort_verified": "cuadrante_capacidad"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.0,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P046",
+      "arquetipo": "Investigador/a o Analista de Datos",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "detail": "Vista nacional seleccionada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigador6@universidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "proveedores_tecnologicos.csv",
+          "type": "client-side-generated"
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "sort_verified": "monto_total"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.0,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P047",
+      "arquetipo": "Investigador/a o Analista de Datos",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "detail": "Vista nacional seleccionada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigador7@universidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "sort_verified": "saas_pc"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.04,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P048",
+      "arquetipo": "Investigador/a o Analista de Datos",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "detail": "Vista nacional seleccionada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigador8@universidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "ranking_comunal.csv",
+          "type": "client-side-generated"
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "sort_verified": "cyber_pc"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.0,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P049",
+      "arquetipo": "Investigador/a o Analista de Datos",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "detail": "Vista nacional seleccionada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigador9@universidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "ranking_comunal.csv",
+          "type": "client-side-generated"
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "sort_verified": "monto_televigilancia"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.0,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P050",
+      "arquetipo": "Investigador/a o Analista de Datos",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "detail": "Vista nacional seleccionada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigador10@universidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "sort_verified": "permanencia_media_meses"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.03,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P051",
+      "arquetipo": "Investigador/a o Analista de Datos",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "detail": "Vista nacional seleccionada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigador11@universidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "ranking_comunal.csv",
+          "type": "client-side-generated"
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "sort_verified": "monto_foss"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.0,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P052",
+      "arquetipo": "Investigador/a o Analista de Datos",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "detail": "Vista nacional seleccionada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigador12@universidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "sort_verified": "tiene_lockin_legado"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.03,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P053",
+      "arquetipo": "Investigador/a o Analista de Datos",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "detail": "Vista nacional seleccionada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigador13@universidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "ranking_comunal.csv",
+          "type": "client-side-generated"
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "sort_verified": "monto_hardware"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.0,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P054",
+      "arquetipo": "Investigador/a o Analista de Datos",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "detail": "Vista nacional seleccionada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigador14@universidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "sort_verified": "score_madurez"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.03,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P055",
+      "arquetipo": "Investigador/a o Analista de Datos",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "detail": "Vista nacional seleccionada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigador15@universidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "ranking_comunal.csv",
+          "type": "client-side-generated"
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "sort_verified": "region"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.0,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P056",
+      "arquetipo": "Investigador/a o Analista de Datos",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "detail": "Vista nacional seleccionada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigador16@universidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "proveedores_tecnologicos.csv",
+          "type": "client-side-generated"
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "sort_verified": "total_ocs"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.0,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P057",
+      "arquetipo": "Investigador/a o Analista de Datos",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "detail": "Vista nacional seleccionada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigador17@universidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "ranking_comunal.csv",
+          "type": "client-side-generated"
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "sort_verified": "poblacion"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.0,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P058",
+      "arquetipo": "Investigador/a o Analista de Datos",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "detail": "Vista nacional seleccionada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigador18@universidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "national_kpis.json",
+          "size_bytes": 4361
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "sort_verified": "hhi_legados"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.04,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P059",
+      "arquetipo": "Investigador/a o Analista de Datos",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "detail": "Vista nacional seleccionada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigador19@universidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "ranking_comunal.csv",
+          "type": "client-side-generated"
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "sort_verified": "gasto_rrhh_ti_anual"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.0,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P060",
+      "arquetipo": "Investigador/a o Analista de Datos",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "detail": "Vista nacional seleccionada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigador20@universidad.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "sort_verified": "score_madurez"
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.03,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P061",
+      "arquetipo": "Periodista de Investigación",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "detail": "Proveedor ERP CAS-CHILE S. A. de I. detectado con sugerencia cruzada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigacion1@prensa.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "evidence_found": true
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.06,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P062",
+      "arquetipo": "Periodista de Investigación",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "detail": "Proveedor ERP CIA NACIONAL DE TELEFONOS TELEFONICA DEL SUR S.A. detectado con sugerencia cruzada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigacion2@prensa.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "evidence_found": true
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.04,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P063",
+      "arquetipo": "Periodista de Investigación",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "detail": "Proveedor ERP OPCIONES SA SISTEMAS DE INFORMACION detectado con sugerencia cruzada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigacion3@prensa.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "evidence_found": true
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.03,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P064",
+      "arquetipo": "Periodista de Investigación",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "detail": "Proveedor ERP TECHNOSYSTEMS CHILE SPA detectado con sugerencia cruzada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigacion4@prensa.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "evidence_found": true
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.03,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P065",
+      "arquetipo": "Periodista de Investigación",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Vitacura",
+          "cut": 13132,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigacion5@prensa.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "evidence_found": true
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.08,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P066",
+      "arquetipo": "Periodista de Investigación",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Río Ibáñez",
+          "cut": 11402,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigacion6@prensa.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "evidence_found": true
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.28,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P067",
+      "arquetipo": "Periodista de Investigación",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Lo Barnechea",
+          "cut": 13115,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigacion7@prensa.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "evidence_found": true
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.24,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P068",
+      "arquetipo": "Periodista de Investigación",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Valdivia",
+          "cut": 14101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigacion8@prensa.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "evidence_found": true
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.09,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P069",
+      "arquetipo": "Periodista de Investigación",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Ovalle",
+          "cut": 4301,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigacion9@prensa.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "evidence_found": true
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.07,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P070",
+      "arquetipo": "Periodista de Investigación",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "FAIL",
+          "detail": "Comuna Limchile no encontrada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigacion10@prensa.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "FAIL",
+          "detail": "Proveedor o anomalía no rastreable"
+        }
+      },
+      "friction_points": [
+        "Búsqueda de Limchile fallida"
+      ],
+      "latency_ms": 0.6,
+      "overall_status": "FAIL"
+    },
+    {
+      "id": "P071",
+      "arquetipo": "Periodista de Investigación",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "FAIL",
+          "detail": "Comuna NADIA ELIZABETH no encontrada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigacion11@prensa.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "FAIL",
+          "detail": "Proveedor o anomalía no rastreable"
+        }
+      },
+      "friction_points": [
+        "Búsqueda de NADIA ELIZABETH fallida"
+      ],
+      "latency_ms": 0.61,
+      "overall_status": "FAIL"
+    },
+    {
+      "id": "P072",
+      "arquetipo": "Periodista de Investigación",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "La Pintana",
+          "cut": 13112,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigacion12@prensa.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "evidence_found": true
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.11,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P073",
+      "arquetipo": "Periodista de Investigación",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Santiago Centro",
+          "cut": 13101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigacion13@prensa.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "evidence_found": true
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.08,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P074",
+      "arquetipo": "Periodista de Investigación",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Temuco",
+          "cut": 9101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigacion14@prensa.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "evidence_found": true
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.07,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P075",
+      "arquetipo": "Periodista de Investigación",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Renca",
+          "cut": 13128,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigacion15@prensa.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "evidence_found": true
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.12,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P076",
+      "arquetipo": "Periodista de Investigación",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Puente Alto",
+          "cut": 13201,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigacion16@prensa.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "evidence_found": true
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.09,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P077",
+      "arquetipo": "Periodista de Investigación",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "San Ramón",
+          "cut": 13131,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigacion17@prensa.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "evidence_found": true
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.31,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P078",
+      "arquetipo": "Periodista de Investigación",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Antofagasta",
+          "cut": 2101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigacion18@prensa.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "evidence_found": true
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.1,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P079",
+      "arquetipo": "Periodista de Investigación",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Juan Fernández",
+          "cut": 5104,
+          "score": 80
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigacion19@prensa.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "evidence_found": true
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.48,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P080",
+      "arquetipo": "Periodista de Investigación",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "detail": "Vista nacional seleccionada"
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "investigacion20@prensa.cl"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "evidence_found": true
+        }
+      },
+      "friction_points": [],
+      "latency_ms": 0.07,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P081",
+      "arquetipo": "Ciudadano/a o Dirigente Vecinal",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Puente Alto",
+          "cut": 13201,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "vecino.puentealto@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "readability_evaluated": true
+        }
+      },
+      "friction_points": [
+        "Términos 'HHI', 'RET', 'Lock-in' en tarjetas sin glosario flotante"
+      ],
+      "latency_ms": 0.08,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P082",
+      "arquetipo": "Ciudadano/a o Dirigente Vecinal",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Maipú",
+          "cut": 13119,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "vecino.maipú@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "readability_evaluated": true
+        }
+      },
+      "friction_points": [
+        "Términos 'HHI', 'RET', 'Lock-in' en tarjetas sin glosario flotante"
+      ],
+      "latency_ms": 0.08,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P083",
+      "arquetipo": "Ciudadano/a o Dirigente Vecinal",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "La Florida",
+          "cut": 13110,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "vecino.laflorida@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "readability_evaluated": true
+        }
+      },
+      "friction_points": [
+        "Términos 'HHI', 'RET', 'Lock-in' en tarjetas sin glosario flotante"
+      ],
+      "latency_ms": 0.09,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P084",
+      "arquetipo": "Ciudadano/a o Dirigente Vecinal",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Valparaíso",
+          "cut": 5101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "vecino.valparaíso@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "readability_evaluated": true
+        }
+      },
+      "friction_points": [
+        "Términos 'HHI', 'RET', 'Lock-in' en tarjetas sin glosario flotante"
+      ],
+      "latency_ms": 0.22,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P085",
+      "arquetipo": "Ciudadano/a o Dirigente Vecinal",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Concepción",
+          "cut": 8101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "vecino.concepción@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "readability_evaluated": true
+        }
+      },
+      "friction_points": [
+        "Términos 'HHI', 'RET', 'Lock-in' en tarjetas sin glosario flotante"
+      ],
+      "latency_ms": 0.11,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P086",
+      "arquetipo": "Ciudadano/a o Dirigente Vecinal",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Antofagasta",
+          "cut": 2101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "vecino.antofagasta@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "readability_evaluated": true
+        }
+      },
+      "friction_points": [
+        "Términos 'HHI', 'RET', 'Lock-in' en tarjetas sin glosario flotante"
+      ],
+      "latency_ms": 0.08,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P087",
+      "arquetipo": "Ciudadano/a o Dirigente Vecinal",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Arica",
+          "cut": 15101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "vecino.arica@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "readability_evaluated": true
+        }
+      },
+      "friction_points": [
+        "Términos 'HHI', 'RET', 'Lock-in' en tarjetas sin glosario flotante"
+      ],
+      "latency_ms": 0.09,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P088",
+      "arquetipo": "Ciudadano/a o Dirigente Vecinal",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Iquique",
+          "cut": 1101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "vecino.iquique@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "readability_evaluated": true
+        }
+      },
+      "friction_points": [
+        "Términos 'HHI', 'RET', 'Lock-in' en tarjetas sin glosario flotante"
+      ],
+      "latency_ms": 0.07,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P089",
+      "arquetipo": "Ciudadano/a o Dirigente Vecinal",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Copiapó",
+          "cut": 3101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "vecino.copiapó@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "readability_evaluated": true
+        }
+      },
+      "friction_points": [
+        "Términos 'HHI', 'RET', 'Lock-in' en tarjetas sin glosario flotante"
+      ],
+      "latency_ms": 0.06,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P090",
+      "arquetipo": "Ciudadano/a o Dirigente Vecinal",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "La Serena",
+          "cut": 4101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "vecino.laserena@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "readability_evaluated": true
+        }
+      },
+      "friction_points": [
+        "Términos 'HHI', 'RET', 'Lock-in' en tarjetas sin glosario flotante"
+      ],
+      "latency_ms": 0.1,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P091",
+      "arquetipo": "Ciudadano/a o Dirigente Vecinal",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Rancagua",
+          "cut": 6101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "vecino.rancagua@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "readability_evaluated": true
+        }
+      },
+      "friction_points": [
+        "Términos 'HHI', 'RET', 'Lock-in' en tarjetas sin glosario flotante"
+      ],
+      "latency_ms": 0.07,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P092",
+      "arquetipo": "Ciudadano/a o Dirigente Vecinal",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Talca",
+          "cut": 7101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "vecino.talca@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "readability_evaluated": true
+        }
+      },
+      "friction_points": [
+        "Términos 'HHI', 'RET', 'Lock-in' en tarjetas sin glosario flotante"
+      ],
+      "latency_ms": 0.07,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P093",
+      "arquetipo": "Ciudadano/a o Dirigente Vecinal",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Chillán",
+          "cut": 16101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "vecino.chillán@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "readability_evaluated": true
+        }
+      },
+      "friction_points": [
+        "Términos 'HHI', 'RET', 'Lock-in' en tarjetas sin glosario flotante"
+      ],
+      "latency_ms": 0.11,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P094",
+      "arquetipo": "Ciudadano/a o Dirigente Vecinal",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Temuco",
+          "cut": 9101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "vecino.temuco@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "readability_evaluated": true
+        }
+      },
+      "friction_points": [
+        "Términos 'HHI', 'RET', 'Lock-in' en tarjetas sin glosario flotante"
+      ],
+      "latency_ms": 0.07,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P095",
+      "arquetipo": "Ciudadano/a o Dirigente Vecinal",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Valdivia",
+          "cut": 14101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "vecino.valdivia@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "readability_evaluated": true
+        }
+      },
+      "friction_points": [
+        "Términos 'HHI', 'RET', 'Lock-in' en tarjetas sin glosario flotante"
+      ],
+      "latency_ms": 0.06,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P096",
+      "arquetipo": "Ciudadano/a o Dirigente Vecinal",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Puerto Montt",
+          "cut": 10101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "vecino.puertomontt@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "readability_evaluated": true
+        }
+      },
+      "friction_points": [
+        "Términos 'HHI', 'RET', 'Lock-in' en tarjetas sin glosario flotante"
+      ],
+      "latency_ms": 0.08,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P097",
+      "arquetipo": "Ciudadano/a o Dirigente Vecinal",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Coihaique",
+          "cut": 11101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "vecino.coyhaique@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "readability_evaluated": true
+        }
+      },
+      "friction_points": [
+        "Términos 'HHI', 'RET', 'Lock-in' en tarjetas sin glosario flotante"
+      ],
+      "latency_ms": 0.14,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P098",
+      "arquetipo": "Ciudadano/a o Dirigente Vecinal",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Punta Arenas",
+          "cut": 12101,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "vecino.puntaarenas@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "readability_evaluated": true
+        }
+      },
+      "friction_points": [
+        "Términos 'HHI', 'RET', 'Lock-in' en tarjetas sin glosario flotante"
+      ],
+      "latency_ms": 0.1,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P099",
+      "arquetipo": "Ciudadano/a o Dirigente Vecinal",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Quilicura",
+          "cut": 13125,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "vecino.quilicura@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "readability_evaluated": true
+        }
+      },
+      "friction_points": [
+        "Términos 'HHI', 'RET', 'Lock-in' en tarjetas sin glosario flotante"
+      ],
+      "latency_ms": 0.09,
+      "overall_status": "PASS"
+    },
+    {
+      "id": "P100",
+      "arquetipo": "Ciudadano/a o Dirigente Vecinal",
+      "tasks": {
+        "encontrar_comuna": {
+          "status": "SUCCESS",
+          "comuna": "Cerro Navia",
+          "cut": 13103,
+          "score": 100
+        },
+        "comparar_comuna": {
+          "status": "SUCCESS",
+          "detail": "N/A directo o bypass evaluado"
+        },
+        "registro_modal": {
+          "status": "SUCCESS",
+          "email": "vecino.cerronavia@gmail.com"
+        },
+        "descargar_datos": {
+          "status": "SUCCESS",
+          "file": "comunas_enriched.json",
+          "size_bytes": 1581832
+        },
+        "archetype_specific": {
+          "status": "SUCCESS",
+          "readability_evaluated": true
+        }
+      },
+      "friction_points": [
+        "Términos 'HHI', 'RET', 'Lock-in' en tarjetas sin glosario flotante"
+      ],
+      "latency_ms": 0.15,
+      "overall_status": "PASS"
+    }
+  ]
+}

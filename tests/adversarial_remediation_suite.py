@@ -356,7 +356,67 @@ def run_suite():
             passes.append(f"Spurious term '{term}': 0 occurrences in Parquet")
 
     # -------------------------------------------------------------
-    # 7. SUMMARY & VERDICT
+    # 7. TECHNOLOGICAL TRAINING LAYER AUDIT (CAPACITACIONES TI)
+    # -------------------------------------------------------------
+    print("\n--- 7. TECHNOLOGICAL TRAINING LAYER AUDIT ---")
+    # 7.1 Anti-catering blacklist check in training orders
+    catering_terms = ["coffee break", "coffe break", "catering", "almuerzo", "desayuno", "banquete", "coctel", "cóctel"]
+    cat_failures = 0
+    for c_term in catering_terms:
+        cnt_cat = con.execute(f"""
+            SELECT count(*)
+            FROM read_parquet('{pq_path}')
+            WHERE flag_capacitacion_ti = true
+              AND (
+                lower(texto_descriptivo) LIKE '%{c_term}%'
+                OR lower(nombre_proveedor) LIKE '%{c_term}%'
+              )
+        """).fetchone()[0]
+        if cnt_cat > 0:
+            failures.append(f"Training order contaminated with catering term '{c_term}': {cnt_cat} rows")
+            cat_failures += 1
+    if cat_failures == 0:
+        passes.append("Anti-catering audit: 0 coffee break, catering or banqueting terms in training orders")
+
+    # 7.2 Parquet vs KPIs vs Comunas vs Regiones training convergence
+    pq_cap_stats = con.execute(f"""
+        SELECT 
+            count(distinct codigo_orden) as ocs,
+            round(sum(monto_linea), 0) as monto,
+            round(sum(case when subcategoria_capacitacion = 'institucional_funcionarios' then monto_linea else 0 end), 0) as monto_func,
+            round(sum(case when subcategoria_capacitacion = 'alfabetizacion_comunitaria' then monto_linea else 0 end), 0) as monto_com
+        FROM read_parquet('{pq_path}')
+        WHERE flag_capacitacion_ti = true
+    """).fetchone()
+
+    kpi_cap_monto = float(national_kpis.get("monto_capacitacion_total", 0.0))
+    kpi_cap_ocs = int(national_kpis.get("ocs_capacitacion_total", 0))
+    kpi_cap_func = float(national_kpis.get("monto_cap_funcionarios_total", 0.0))
+    kpi_cap_com = float(national_kpis.get("monto_cap_comunitaria_total", 0.0))
+
+    sum_comunas_cap = sum(c.get("monto_capacitacion", 0.0) for c in comunas_enriched)
+    sum_comunas_func = sum(c.get("monto_cap_funcionarios", 0.0) for c in comunas_enriched)
+    sum_comunas_com = sum(c.get("monto_cap_comunitaria", 0.0) for c in comunas_enriched)
+
+    sum_regiones_cap = sum(r.get("monto_capacitacion", 0.0) for r in regiones_enriched)
+
+    print(f"Training Parquet:    ${pq_cap_stats[1]:,.0f} CLP | {pq_cap_stats[0]:,} OCs (Func: ${pq_cap_stats[2]:,.0f}, Com: ${pq_cap_stats[3]:,.0f})")
+    print(f"Training KPIs:       ${kpi_cap_monto:,.0f} CLP | {kpi_cap_ocs:,} OCs (Func: ${kpi_cap_func:,.0f}, Com: ${kpi_cap_com:,.0f})")
+    print(f"Training Comunas:    ${sum_comunas_cap:,.0f} CLP | Func: ${sum_comunas_func:,.0f}, Com: ${sum_comunas_com:,.0f}")
+    print(f"Training Regiones:   ${sum_regiones_cap:,.0f} CLP")
+
+    if abs(pq_cap_stats[1] - kpi_cap_monto) < 1.0 and abs(pq_cap_stats[1] - sum_comunas_cap) < 1.0 and abs(pq_cap_stats[1] - sum_regiones_cap) < 1.0:
+        passes.append("100% Training Convergence: Exactly $0 CLP gap between Parquet, KPIs, Comunas and Regiones")
+    else:
+        failures.append(f"Training divergence: Parquet=${pq_cap_stats[1]:,.0f}, KPIs=${kpi_cap_monto:,.0f}, Comunas=${sum_comunas_cap:,.0f}, Regiones=${sum_regiones_cap:,.0f}")
+
+    if abs(pq_cap_stats[2] - kpi_cap_func) < 1.0 and abs(pq_cap_stats[3] - kpi_cap_com) < 1.0:
+        passes.append("100% Subcategory Convergence: Funcionario and Comunitaria subtotals match exactly")
+    else:
+        failures.append("Subcategory divergence in training data")
+
+    # -------------------------------------------------------------
+    # 8. SUMMARY & VERDICT
     # -------------------------------------------------------------
     print("\n" + "=" * 80)
     print(f"RESULTS: {len(passes)} PASSED, {len(failures)} FAILED")

@@ -1002,6 +1002,20 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
           <div class="cat-bar-bg"><div class="cat-bar-fill" style="width:${pPct(comuna.monto_foss)}%; background:var(--forest);"></div></div>
         </div>
+
+        ${comuna.monto_capacitacion > 0 ? `
+        <div class="cat-item" style="background: rgba(224, 122, 95, 0.05); padding: 8px; border-radius: 6px; border: 1px dashed rgba(224, 122, 95, 0.3);">
+          <div class="cat-item-header">
+            <span class="cat-name">🎓 Capacitación & Habilidades Digitales</span>
+            <span class="cat-amount">${pPc(comuna.monto_capacitacion)}$${formatCLP(comuna.monto_capacitacion)} (${pPct(comuna.monto_capacitacion)}%)</span>
+          </div>
+          <div class="cat-bar-bg"><div class="cat-bar-fill" style="width:${pPct(comuna.monto_capacitacion)}%; background:#e07a5f;"></div></div>
+          <div style="display:flex; justify-content:space-between; font-size:10px; color:var(--ink-secondary); margin-top:4px;">
+            <span>🏛️ Dotación interna: $${formatCLP(comuna.monto_cap_funcionarios || 0)}</span>
+            <span>👥 Comunitaria: $${formatCLP(comuna.monto_cap_comunitaria || 0)}</span>
+          </div>
+        </div>
+        ` : ''}
       </div>
 
       <!-- Contratos Emblemáticos Mercado Público -->

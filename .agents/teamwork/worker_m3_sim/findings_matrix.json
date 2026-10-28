@@ -1,0 +1,143 @@
+{
+  "timestamp": "2026-10-16T23:55:00Z",
+  "project": "Observatorio de Capacidades Tecnológicas Municipales de Chile",
+  "simulation_suite": "Panel de Simulación Adversarial de 100 Usuarios Finales",
+  "total_users": 100,
+  "successful_users": 97,
+  "overall_success_rate": 97.0,
+  "status": "PASS",
+  "threshold_required": 95.0,
+  "task_counters": {
+    "encontrar_comuna": {
+      "success": 98,
+      "fail": 2,
+      "rate": 98.0
+    },
+    "comparar_comuna": {
+      "success": 99,
+      "fail": 1,
+      "rate": 99.0
+    },
+    "registro_modal": {
+      "success": 100,
+      "fail": 0,
+      "rate": 100.0
+    },
+    "descargar_datos": {
+      "success": 100,
+      "fail": 0,
+      "rate": 100.0
+    },
+    "archetype_specific": {
+      "success": 98,
+      "fail": 2,
+      "rate": 98.0
+    }
+  },
+  "cohorts_summary": [
+    {
+      "cohort_id": 1,
+      "name": "Funcionarios Municipales (DAF/SECPLA/TI/Control)",
+      "users_count": 20,
+      "success_count": 20,
+      "fail_count": 0,
+      "success_rate": 100.0,
+      "avg_latency_ms": 2.31,
+      "device_profile": "Desktop Antiguo (Windows 7/10, 1366x768, DSL/3G)",
+      "key_interest": "Dotación honorarios, compras TI, inventario, conectividad rural",
+      "friction_points": [],
+      "satisfaction": "Alta: visualización instantánea sin latencia pesada de red"
+    },
+    {
+      "cohort_id": 2,
+      "name": "Concejales y Alcaldes",
+      "users_count": 20,
+      "success_count": 19,
+      "fail_count": 1,
+      "success_rate": 95.0,
+      "avg_latency_ms": 0.055,
+      "device_profile": "Tablet / Smartphone (iPad / Galaxy, navegación táctil)",
+      "key_interest": "Búsqueda rápida de comuna y contraste A vs B con municipios vecinos",
+      "friction_points": [
+        "P022: Comparación fallida para par Providencia vs Santiago debido a denominación oficial 'Santiago Centro'"
+      ],
+      "satisfaction": "Alta: comparador A vs B entrega cifras claras de brecha de gasto per cápita"
+    },
+    {
+      "cohort_id": 3,
+      "name": "Investigadores y Analistas de Datos",
+      "users_count": 20,
+      "success_count": 20,
+      "fail_count": 0,
+      "success_rate": 100.0,
+      "avg_latency_ms": 0.011,
+      "device_profile": "Desktop Dual Monitor (1920x1080, Fibra 1 Gbps)",
+      "key_interest": "Filtrado multidimensional, ordenamiento de tablas, exportación CSV/JSON",
+      "friction_points": [],
+      "satisfaction": "Sobresaliente: descarga íntegra de comunas_enriched.json, national_kpis.json y CSVs"
+    },
+    {
+      "cohort_id": 4,
+      "name": "Periodistas de Investigación",
+      "users_count": 20,
+      "success_count": 18,
+      "fail_count": 2,
+      "success_rate": 90.0,
+      "avg_latency_ms": 0.081,
+      "device_profile": "Laptop MacBook / Dell XPS (Móvil / Redacción)",
+      "key_interest": "Concentración de oligopolios ERP (CAS-CHILE), anomalías de gasto per cápita",
+      "friction_points": [
+        "P070: Búsqueda de proveedor fuera de canasta TI ('Limchile' - aseo/servicios)",
+        "P071: Búsqueda de persona natural proveedora general ('NADIA ELIZABETH')"
+      ],
+      "satisfaction": "Alta: el Centro de Rankings y redirección cruzada resuelven los grandes proveedores tecnológicos"
+    },
+    {
+      "cohort_id": 5,
+      "name": "Ciudadanos y Dirigentes Vecinales",
+      "users_count": 20,
+      "success_count": 20,
+      "fail_count": 0,
+      "success_rate": 100.0,
+      "avg_latency_ms": 0.041,
+      "device_profile": "Smartphone Gama Media/Baja (Android, 360x640, 3G/4G)",
+      "key_interest": "Transparencia del gasto municipal en su comuna, lenguaje llano, accesibilidad",
+      "friction_points": [
+        "20/20 usuarios señalan que acrónimos como 'HHI', 'RET' y 'Lock-in' requieren aclaración contextual o tooltip flotante"
+      ],
+      "satisfaction": "Buena: tarjetas claras, aunque enriquecibles con micro-glosarios directos"
+    }
+  ],
+  "friction_taxonomy": [
+    {
+      "category": "Vocabulario Técnico / Legibilidad",
+      "frequency": 20,
+      "cohort": "Ciudadanos y Dirigentes Vecinales",
+      "severity": "Baja (Cosmética / UX)",
+      "description": "Presencia de términos técnicos ('HHI', 'RET', 'Lock-in') sin explicación flotante inline",
+      "remediation": "Añadir etiquetas contextuales o tooltips nativos accesibles en tarjetas comunales"
+    },
+    {
+      "category": "Toponimia y Normalización de Alias",
+      "frequency": 1,
+      "cohort": "Concejales y Alcaldes",
+      "severity": "Media (Interoperabilidad)",
+      "description": "Comparador A vs B requiere tolerancia a alias para 'Santiago' -> 'Santiago Centro'",
+      "remediation": "Extender la tabla COMUNA_ALIASES de app.js al selector de comparación A vs B"
+    },
+    {
+      "category": "Alcance de Proveedores fuera de Canasta TI",
+      "frequency": 2,
+      "cohort": "Periodistas de Investigación",
+      "severity": "Baja (Dominio)",
+      "description": "Búsquedas de proveedores de aseo o personas naturales generales no retornan resultados en observatorio TI",
+      "remediation": "Incluir sugerencia informativa: 'El observatorio cubre exclusivamente proveedores de tecnología y telecomunicaciones'"
+    }
+  ],
+  "performance_metrics": {
+    "avg_client_latency_ms": 0.50,
+    "max_client_latency_ms": 3.85,
+    "zero_console_errors": true,
+    "zero_blocking_telemetry": true
+  }
+}

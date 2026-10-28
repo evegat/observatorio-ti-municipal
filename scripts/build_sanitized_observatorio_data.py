@@ -181,7 +181,15 @@ def sanitize_purchases(con: duckdb.DuckDBPyConnection) -> None:
                 txt LIKE '%computador para camioneta%' OR
                 regexp_matches(txt, '\\b(ecu)\\b') OR
                 txt LIKE '%falla en computador%' OR
-                ((txt LIKE '%vehiculo%' OR txt LIKE '%vehículo%') AND txt NOT LIKE '%gps%') OR
+                                ((txt LIKE '%vehiculo%' OR txt LIKE '%vehículo%') AND txt NOT LIKE '%gps%') OR
+                
+                -- Blacklist de catering y alimentacion en capacitaciones, talleres y eventos
+                rubro = 'Alimentos, bebidas y tabaco' OR onu LIKE '50%' OR
+                ((txt LIKE '%capacita%' OR txt LIKE '%curso%' OR txt LIKE '%taller%') AND (
+                    txt LIKE '%coffee%' OR txt LIKE '%coffe break%' OR txt LIKE '%banquete%' OR 
+                    txt LIKE '%colacion%' OR txt LIKE '%colación%' OR txt LIKE '%sandwich%' OR txt LIKE '%almuerzo%' OR 
+                    txt LIKE '%desayuno%' OR txt LIKE '%catering%'
+                )) OR
                 
                 onu IN ('30221001', '10101704', '30151901', '90101602', '90151602', 
                         '80141607', '90111603', '72131702', '72131701', '90151803', 
@@ -217,8 +225,25 @@ def sanitize_purchases(con: duckdb.DuckDBPyConnection) -> None:
                 OR (rubro = 'Equipos y suministros de defensa, orden público, protección y seguridad' 
                     AND (onu LIKE '461716%' OR txt LIKE '%camara%' OR txt LIKE '%cctv%' OR txt LIKE '%televigilancia%'))
                 
-                -- 6. Oficina: SOLO reloj control biométrico
+                                -- 6. Oficina: SOLO reloj control biométrico
                 OR (rubro = 'Equipos, accesorios y suministros de oficina' AND onu = '44103201')
+                
+                -- 7. Capacitaciones y Formación en Tecnologías de la Información y Habilidades Digitales
+                OR (
+                    (
+                        onu LIKE '8613%' OR onu IN ('86132100', '86132101', '86132102', '86101700', '80111600') OR
+                        rubro = 'Servicios educativos y de formación' OR
+                        txt LIKE '%capacita%' OR txt LIKE '%curso%' OR txt LIKE '%taller%' OR txt LIKE '%alfabetiza%digital%'
+                    )
+                    AND (
+                        txt LIKE '%excel%' OR txt LIKE '%ofimat%' OR regexp_matches(txt, '\\b(word|ms word)\\b') OR txt LIKE '%computac%' OR 
+                        txt LIKE '%informat%' OR txt LIKE '%software%' OR txt LIKE '%ciberseguridad%' OR 
+                        txt LIKE '%seguridad de la informac%' OR txt LIKE '%siaper%' OR regexp_matches(txt, '\\berp\\b') OR 
+                        txt LIKE '%cas-chile%' OR txt LIKE '%gestion documental%' OR txt LIKE '%docdigital%' OR 
+                        txt LIKE '%transformacion digital%' OR txt LIKE '%inteligencia artificial%' OR 
+                        txt LIKE '%programac%' OR regexp_matches(txt, '\\b(redes|networking)\\b')
+                    )
+                )
                 
                 -- 7. Registros con rubro NA / Sin rubro / código 0: SOLO si tienen descripción técnica TI inequívoca
                 OR ((rubro = 'SIN_RUBRO' OR rubro = 'NA' OR onu = '0') AND (
@@ -298,12 +323,46 @@ def sanitize_purchases(con: duckdb.DuckDBPyConnection) -> None:
                 txt LIKE '%thomson reuters%' OR prov LIKE '%thomson reuters%'
             ) as flag_legado_saneada,
 
-            (
+                        (
                 txt LIKE '%open source%' OR txt LIKE '%codigo abierto%' OR txt LIKE '%código abierto%' OR 
                 txt LIKE '%software libre%' OR txt LIKE '%linux%' OR txt LIKE '%ubuntu%' OR 
                 txt LIKE '%postgresql%' OR txt LIKE '%postgres%' OR txt LIKE '%mysql%' OR 
                 txt LIKE '%moodle%' OR txt LIKE '%nextcloud%' OR txt LIKE '%qgis%'
-            ) as flag_foss_saneada
+            ) as flag_foss_saneada,
+
+            -- Banderas de Capacitaciones Tecnológicas
+            (
+                (
+                    onu LIKE '8613%' OR onu IN ('86132100', '86132101', '86132102', '86101700', '80111600') OR
+                    rubro = 'Servicios educativos y de formación' OR
+                    txt LIKE '%capacita%' OR txt LIKE '%curso%' OR txt LIKE '%taller%' OR txt LIKE '%alfabetiza%digital%'
+                )
+                AND (
+                    txt LIKE '%excel%' OR txt LIKE '%ofimat%' OR txt LIKE '%word%' OR txt LIKE '%computac%' OR 
+                    txt LIKE '%informat%' OR txt LIKE '%software%' OR txt LIKE '%ciberseguridad%' OR 
+                    txt LIKE '%seguridad de la informac%' OR txt LIKE '%siaper%' OR txt LIKE '%erp%' OR 
+                    txt LIKE '%cas-chile%' OR txt LIKE '%gestion documental%' OR txt LIKE '%docdigital%' OR 
+                    txt LIKE '%transformacion digital%' OR txt LIKE '%inteligencia artificial%' OR 
+                    txt LIKE '%programac%' OR txt LIKE '%redes%'
+                )
+            ) as flag_capacitacion_saneada,
+
+            CASE 
+                WHEN (
+                    txt LIKE '%alfabetizacion digital%' OR txt LIKE '%adulto mayor%' OR txt LIKE '%adultos mayores%' OR 
+                    txt LIKE '%comunitaria%' OR txt LIKE '%vecinos%' OR txt LIKE '%junta de vecinos%' OR txt LIKE '%dideco%'
+                ) THEN 'alfabetizacion_comunitaria'
+                ELSE 'institucional_funcionarios'
+            END as subcategoria_capacitacion_saneada,
+
+            CASE
+                WHEN txt LIKE '%ciberseguridad%' OR txt LIKE '%seguridad de la informac%' OR txt LIKE '%seguridad informatica%' OR txt LIKE '%proteccion de datos%' OR txt LIKE '%ley 21.719%' THEN 'Ciberseguridad y Datos'
+                WHEN txt LIKE '%siaper%' OR txt LIKE '%cas-chile%' OR txt LIKE '%erp%' OR txt LIKE '%gestion documental%' OR txt LIKE '%docdigital%' OR txt LIKE '%sigfe%' THEN 'Sistemas y ERP Municipal'
+                WHEN txt LIKE '%inteligencia artificial%' OR regexp_matches(txt, '\bia\b') OR txt LIKE '%ciencia de datos%' OR txt LIKE '%python%' OR txt LIKE '%business intelligence%' OR txt LIKE '%power bi%' OR txt LIKE '%transformacion digital%' THEN 'Innovación e IA'
+                WHEN txt LIKE '%alfabetizacion digital%' OR txt LIKE '%adulto mayor%' OR txt LIKE '%adultos mayores%' OR txt LIKE '%comunitaria%' OR txt LIKE '%vecinos%' THEN 'Alfabetización Digital Comunitaria'
+                WHEN txt LIKE '%excel%' OR txt LIKE '%ofimatica%' OR txt LIKE '%office%' OR txt LIKE '%word%' OR txt LIKE '%powerpoint%' OR txt LIKE '%computacion basica%' OR txt LIKE '%computacion intermedia%' THEN 'Ofimática y Productividad'
+                ELSE 'Otras Tecnologías y Habilidades Digitales'
+            END as area_capacitacion_saneada
 
         FROM base
     )
@@ -361,9 +420,12 @@ def sanitize_purchases(con: duckdb.DuckDBPyConnection) -> None:
         flag_cyber_saneada as flag_ciberseguridad,
         flag_televigilancia_saneada as flag_televigilancia,
         flag_atencion_saneada as flag_atencion_ciudadana,
-        flag_ia_saneada as flag_ia_automatizacion,
+                flag_ia_saneada as flag_ia_automatizacion,
         flag_consultoria_desarrollo,
-        flag_gestion_documental_firma
+        flag_gestion_documental_firma,
+        flag_capacitacion_saneada as flag_capacitacion_ti,
+        subcategoria_capacitacion_saneada as subcategoria_capacitacion,
+        area_capacitacion_saneada as area_capacitacion
     FROM saneado_raw
     WHERE comuna_comprador IS NOT NULL 
       AND trim(comuna_comprador) != ''
@@ -393,8 +455,12 @@ def compute_comuna_metrics(con: duckdb.DuckDBPyConnection) -> dict:
             round(coalesce(sum(case when flag_ciberseguridad then monto_linea else 0 end), 0), 0) as monto_cyber,
             round(coalesce(sum(case when flag_televigilancia then monto_linea else 0 end), 0), 0) as monto_televigilancia,
             round(coalesce(sum(case when flag_atencion_ciudadana then monto_linea else 0 end), 0), 0) as monto_atencion,
-            round(coalesce(sum(case when flag_legacy_muni then monto_linea else 0 end), 0), 0) as monto_legado,
+                        round(coalesce(sum(case when flag_legacy_muni then monto_linea else 0 end), 0), 0) as monto_legado,
             round(coalesce(sum(case when flag_open_source then monto_linea else 0 end), 0), 0) as monto_foss,
+            round(coalesce(sum(case when flag_capacitacion_ti then monto_linea else 0 end), 0), 0) as monto_capacitacion,
+            count(distinct case when flag_capacitacion_ti then codigo_orden end) as total_ocs_capacitacion,
+            round(coalesce(sum(case when flag_capacitacion_ti and subcategoria_capacitacion = 'institucional_funcionarios' then monto_linea else 0 end), 0), 0) as monto_cap_funcionarios,
+            round(coalesce(sum(case when flag_capacitacion_ti and subcategoria_capacitacion = 'alfabetizacion_comunitaria' then monto_linea else 0 end), 0), 0) as monto_cap_comunitaria,
             
             -- Score de madurez tecnológica (0 a 100)
             least(100, round(
@@ -416,7 +482,27 @@ def compute_comuna_metrics(con: duckdb.DuckDBPyConnection) -> dict:
         HAVING sum(monto_linea) IS NOT NULL AND sum(monto_linea) > 0
     """).df()
 
-    # 2. Top Proveedores por comuna (Top 3-5)
+        # 2. Desglose de áreas de capacitación por comuna
+    cap_areas_df = con.execute("""
+        SELECT 
+            comuna_comprador as comuna,
+            area_capacitacion,
+            count(distinct codigo_orden) as ocs,
+            round(sum(monto_linea), 0) as monto
+        FROM catastro_ti_saneado
+        WHERE flag_capacitacion_ti AND comuna_comprador IS NOT NULL
+        GROUP BY comuna_comprador, area_capacitacion
+    """).df()
+
+    cap_by_comuna: dict[str, dict] = {}
+    for _, r in cap_areas_df.iterrows():
+        c = str(r["comuna"]).strip()
+        cap_by_comuna.setdefault(c, {})[str(r["area_capacitacion"]).strip()] = {
+            "monto": float(r["monto"]),
+            "ocs": int(r["ocs"])
+        }
+
+    # 3. Top Proveedores por comuna (Top 3-5)
     top_prov_df = con.execute("""
         WITH ranked AS (
             SELECT 
@@ -547,7 +633,8 @@ def compute_comuna_metrics(con: duckdb.DuckDBPyConnection) -> dict:
         "comunas_df": comunas_df,
         "prov_by_comuna": prov_by_comuna,
         "hist_by_comuna": hist_by_comuna,
-        "rec_by_comuna": rec_by_comuna
+        "rec_by_comuna": rec_by_comuna,
+        "cap_by_comuna": cap_by_comuna
     }
 
 
@@ -561,6 +648,7 @@ def merge_and_save_data(con: duckdb.DuckDBPyConnection, metrics: dict) -> None:
     prov_by_comuna = metrics["prov_by_comuna"]
     hist_by_comuna = metrics["hist_by_comuna"]
     rec_by_comuna = metrics["rec_by_comuna"]
+    cap_by_comuna = metrics.get("cap_by_comuna", {})
 
     # Crear mapa de búsqueda para métricas de compras por nombre normalizado (con protección anti-clobbering)
     duck_metrics_by_norm: dict[str, dict] = {}
@@ -611,6 +699,10 @@ def merge_and_save_data(con: duckdb.DuckDBPyConnection, metrics: dict) -> None:
             monto_televigilancia = float(r["monto_televigilancia"])
             monto_legado = float(r["monto_legado"])
             monto_foss = float(r["monto_foss"])
+            monto_capacitacion = float(r["monto_capacitacion"])
+            total_ocs_cap = int(r["total_ocs_capacitacion"])
+            monto_cap_func = float(r["monto_cap_funcionarios"])
+            monto_cap_comun = float(r["monto_cap_comunitaria"])
             score_madurez = int(r["score_madurez"])
             tiene_foss = bool(r["tiene_foss"])
             tiene_infra_propia = bool(r["tiene_infra_propia"])
@@ -632,6 +724,10 @@ def merge_and_save_data(con: duckdb.DuckDBPyConnection, metrics: dict) -> None:
             monto_televigilancia = 0.0
             monto_legado = 0.0
             monto_foss = 0.0
+            monto_capacitacion = 0.0
+            total_ocs_cap = 0
+            monto_cap_func = 0.0
+            monto_cap_comun = 0.0
             score_madurez = 0
             tiene_foss = False
             tiene_infra_propia = False
@@ -676,6 +772,12 @@ def merge_and_save_data(con: duckdb.DuckDBPyConnection, metrics: dict) -> None:
         item["monto_televigilancia"] = monto_televigilancia
         item["monto_legado"] = monto_legado
         item["monto_foss"] = monto_foss
+        item["monto_capacitacion"] = monto_capacitacion
+        item["capacitacion_pc"] = round(monto_capacitacion / poblacion, 0) if poblacion and poblacion > 0 else 0.0
+        item["ocs_capacitacion"] = total_ocs_cap
+        item["monto_cap_funcionarios"] = monto_cap_func
+        item["monto_cap_comunitaria"] = monto_cap_comun
+        item["capacitacion_categorias"] = cap_by_comuna.get(raw_match_name if match else c_name) or cap_by_comuna.get(c_name) or {}
         item["tiene_foss"] = tiene_foss
         item["tiene_infra_propia"] = tiene_infra_propia
         item["tiene_lockin_legado"] = tiene_lockin_legado
@@ -696,8 +798,11 @@ def merge_and_save_data(con: duckdb.DuckDBPyConnection, metrics: dict) -> None:
             "total_ocs": total_ocs,
             "monto_total": monto_total,
             "gasto_pc": gasto_pc,
-            "score_madurez": score_madurez,
+                        "score_madurez": score_madurez,
             "nivel_madurez": nivel_madurez,
+            "monto_capacitacion": monto_capacitacion,
+            "capacitacion_pc": round(monto_capacitacion / poblacion, 0) if poblacion and poblacion > 0 else 0.0,
+            "ocs_capacitacion": total_ocs_cap,
             "monto_hardware": monto_hw,
             "hardware_pc": hw_pc,
             "monto_saas": monto_saas,
@@ -740,7 +845,11 @@ def merge_and_save_data(con: duckdb.DuckDBPyConnection, metrics: dict) -> None:
         SELECT 
             count(distinct codigo_orden) as total_ocs,
             count(distinct rut_comprador) as total_entidades,
-            round(sum(monto_linea), 0) as monto_total_clp
+            round(sum(monto_linea), 0) as monto_total_clp,
+            round(coalesce(sum(case when flag_capacitacion_ti then monto_linea else 0 end), 0), 0) as monto_capacitacion_clp,
+            count(distinct case when flag_capacitacion_ti then codigo_orden end) as total_ocs_capacitacion,
+            round(coalesce(sum(case when flag_capacitacion_ti and subcategoria_capacitacion = 'institucional_funcionarios' then monto_linea else 0 end), 0), 0) as cap_funcionarios_clp,
+            round(coalesce(sum(case when flag_capacitacion_ti and subcategoria_capacitacion = 'alfabetizacion_comunitaria' then monto_linea else 0 end), 0), 0) as cap_comunitaria_clp
         FROM catastro_ti_saneado
     """).fetchone()
 
@@ -752,9 +861,10 @@ def merge_and_save_data(con: duckdb.DuckDBPyConnection, metrics: dict) -> None:
             round(sum(monto_linea), 0) as total_clp,
             round(sum(case when flag_infra_hardware then monto_linea else 0 end), 0) as hardware_clp,
             round(sum(case when flag_ia_automatizacion then monto_linea else 0 end), 0) as ia_clp,
-            round(sum(case when flag_saas_cloud then monto_linea else 0 end), 0) as saas_clp,
+                        round(sum(case when flag_saas_cloud then monto_linea else 0 end), 0) as saas_clp,
             round(sum(case when flag_legacy_muni then monto_linea else 0 end), 0) as legado_clp,
-            round(sum(case when flag_open_source then monto_linea else 0 end), 0) as foss_clp
+            round(sum(case when flag_open_source then monto_linea else 0 end), 0) as foss_clp,
+            round(sum(case when flag_capacitacion_ti then monto_linea else 0 end), 0) as capacitacion_clp
         FROM catastro_ti_saneado
         WHERE anio BETWEEN 2015 AND 2026
         GROUP BY anio
@@ -764,6 +874,10 @@ def merge_and_save_data(con: duckdb.DuckDBPyConnection, metrics: dict) -> None:
     kpis_data["total_ocs"] = int(tot_kpis[0])
     kpis_data["total_entidades"] = len(updated_comunas)
     kpis_data["monto_total_clp"] = float(tot_kpis[2])
+    kpis_data["monto_capacitacion_total"] = float(tot_kpis[3])
+    kpis_data["ocs_capacitacion_total"] = int(tot_kpis[4])
+    kpis_data["monto_cap_funcionarios_total"] = float(tot_kpis[5])
+    kpis_data["monto_cap_comunitaria_total"] = float(tot_kpis[6])
     kpis_data["series_anual"] = series_df.to_dict(orient="records")
 
     KPIS_JSON.write_text(json.dumps(kpis_data, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -828,8 +942,12 @@ def merge_and_save_data(con: duckdb.DuckDBPyConnection, metrics: dict) -> None:
                 "monto_hardware": 0.0,
                 "monto_ia": 0.0,
                 "monto_saas": 0.0,
-                "monto_cyber": 0.0,
+                                "monto_cyber": 0.0,
                 "monto_telecom": 0.0,
+                "monto_capacitacion": 0.0,
+                "ocs_capacitacion": 0,
+                "monto_cap_funcionarios": 0.0,
+                "monto_cap_comunitaria": 0.0,
                 "comunas_con_lockin": 0,
                 "comunas_con_foss": 0,
                 "comunas": []
@@ -845,6 +963,10 @@ def merge_and_save_data(con: duckdb.DuckDBPyConnection, metrics: dict) -> None:
         rs["monto_saas"] += c["monto_saas"]
         rs["monto_cyber"] += c["monto_cyber"]
         rs["monto_telecom"] += c["monto_telecom"]
+        rs["monto_capacitacion"] += c.get("monto_capacitacion", 0.0)
+        rs["ocs_capacitacion"] += c.get("ocs_capacitacion", 0)
+        rs["monto_cap_funcionarios"] += c.get("monto_cap_funcionarios", 0.0)
+        rs["monto_cap_comunitaria"] += c.get("monto_cap_comunitaria", 0.0)
         if c.get("tiene_lockin_legado"):
             rs["comunas_con_lockin"] += 1
         if c.get("tiene_foss"):
